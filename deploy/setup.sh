@@ -23,7 +23,7 @@
 set -euo pipefail
 
 # ---- tunables ----
-PORT="${HOLLY_PORT:-3003}"
+PORT="${HOLLY_PORT:-3004}"
 APP_USER="${APP_USER:-lazaruz}"
 APP_DIR="${APP_DIR:-/var/www/holly}"
 NGINX_SITE="${NGINX_SITE:-/etc/nginx/sites-available/andyluciani.com}"

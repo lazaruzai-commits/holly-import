@@ -104,7 +104,7 @@ them on every fresh checkout.
 
 `deploy/setup.sh` mirrors the Kairos pattern: subpath under
 `andyluciani.com/holly/`, systemd unit `andyluciani-holly.service`,
-listens on `127.0.0.1:3003`, fronted by nginx.
+listens on `127.0.0.1:3004`, fronted by nginx.
 
 ```bash
 sudo -u lazaruz git clone https://github.com/<owner>/holly-import.git /var/www/holly
@@ -116,7 +116,7 @@ sudo systemctl restart andyluciani-holly
 When the customer's domain is ready (e.g. `hollyimport.com`), point its
 DNS A record at the server, add a second nginx `server { server_name
 hollyimport.com; }` block that `proxy_pass`es to the same
-`127.0.0.1:3003`, and unset `APP_ROOT_PATH` for that vhost so URLs
+`127.0.0.1:3004`, and unset `APP_ROOT_PATH` for that vhost so URLs
 resolve at root. The same systemd unit can serve both endpoints during
 the cutover.
 
