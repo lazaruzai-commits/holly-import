@@ -56,10 +56,9 @@ SOURCES: dict[str, list[str]] = {
                         "https://mgvzla.com/wp-content/uploads/2024/12/MG_RX5_0000_DSC_0045.jpg"],
     "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/07/mg-rx8-Blanco.png",
                         "https://mgvzla.com/wp-content/uploads/2024/07/MG-RX8-WEB-1.jpg"],
-    # Globally branded as MGS9; this is the official EU press kit studio shot.
-    "mg-rx9":          ["https://news.mgmotor.eu/wp-content/uploads/2026/03/MGS9_STUDIO_2026_1-1600x900.jpg",
-                        "https://news.mgmotor.eu/wp-content/uploads/2026/03/MGS9_STUDIO_2026_47-464x261.jpg",
-                        "https://mgvzla.com/wp-content/uploads/2025/08/MG_RX9_0008_07.jpg"],
+    # mg-rx9 is a hand-processed cutout (rembg-segmented from the official MGS9
+    # EU press kit studio shot) committed at static/img/models/mg-rx9.jpg.
+    # Do NOT auto-refresh — the cutout is the source of truth.
     "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2025/08/cyberster_3-1024x505.png"],
     # Maxus (maxusve.com — full-resolution product images, not menu thumbnails)
     "maxus-d60":       ["https://maxusve.com/wp-content/uploads/2025/05/D60_DSC_3609-2-1-1024x683.png"],
