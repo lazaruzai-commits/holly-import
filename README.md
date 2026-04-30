@@ -90,15 +90,51 @@ To get `TELEGRAM_CHAT_ID`: send `/start` to
 `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy the
 `"chat":{"id": ...}` value.
 
-## Image attribution
+## Vehicle gallery imagery
 
-Holly Import is an authorized dealer of MG and Maxus. The hero shots
-under `static/img/models/` are downloaded from `mgvzla.com` and
-`maxusve.com`, the official Venezuelan brand sites, via
-`scripts/fetch_images.py`. The manifest at
-`static/img/models/_manifest.json` records the original source URL for
-each file. Images are **not** committed to git — the script repopulates
-them on every fresh checkout.
+There are two ways to populate `static/img/models/`:
+
+### Option A — auto-fetch from brand sites (default)
+
+`scripts/fetch_images.py` downloads each model's hero shot from
+`mgvzla.com` / `maxusve.com` (and the MG global press centre for the
+MGS9/RX9 cutout), then normalizes everything to a uniform
+**1200×750 JPEG on the site's #18181c dark backdrop**. The manifest at
+`static/img/models/_manifest.json` records source URLs for attribution.
+
+```bash
+python scripts/fetch_images.py            # full refresh
+python scripts/fetch_images.py --force    # re-download even if cached
+python scripts/fetch_images.py --only mg-zs maxus-t60   # subset
+```
+
+### Option B — drop your own photos (recommended for showroom uniformity)
+
+For a true showroom look, pick **one car colour across the entire lineup**
+(white or silver works best) and supply your own studio photos:
+
+1. Save each photo into `static/img/models/_source/` named after the
+   model id, e.g. `mg-3.png`, `maxus-t60.jpg`. Run
+   `python scripts/process_local_images.py --list` to see every expected
+   filename.
+2. Run `python scripts/process_local_images.py`. The script:
+   - Cuts the background using `rembg` (ML segmentation) — install once
+     with `pip install rembg onnxruntime`
+   - Resizes + pads to 1200×750 on the dark backdrop
+   - Writes the result to `static/img/models/<id>.jpg`
+3. Hard-reload the gallery — no model-data edits needed.
+
+Source files in `_source/` are gitignored (originals stay local).
+The processed `<id>.jpg` outputs are gitignored too, except for
+hand-processed cutouts pinned in `.gitignore` (currently just `mg-rx9`).
+
+Tips:
+- 3/4 front quarter angle reads best on cards.
+- Skip outdoor lifestyle shots — clean studio or already-cut PNG ideal.
+- Use `--no-bg-remove` if your source images are already cut out.
+
+Holly Import is an authorized dealer of MG and Maxus, so using brand
+imagery to merchandise inventory is standard practice.
 
 ## Deploy
 

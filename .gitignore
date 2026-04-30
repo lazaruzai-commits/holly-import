@@ -18,6 +18,11 @@ static/img/models/*.webp
 # Exceptions: hand-processed cutouts that should NOT be auto-refreshed
 !static/img/models/mg-rx9.jpg
 
+# User-supplied raw photos waiting to be processed by scripts/process_local_images.py
+# Originals never go to git — only the normalized output in static/img/models/
+static/img/models/_source/*
+!static/img/models/_source/.gitkeep
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
