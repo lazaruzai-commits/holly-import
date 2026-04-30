@@ -31,16 +31,16 @@ OUT_DIR = ROOT / "static" / "img" / "models"
 # changes its hero shot, edit this map.
 SOURCES: dict[str, list[str]] = {
     # MG
-    "mg-3":            ["https://mgvzla.com/wp-content/uploads/2024/06/MG3-2024-rojo-frente.png"],
-    "mg-3-hybrid":     ["https://mgvzla.com/wp-content/uploads/2024/12/MG3-Hybrid-rojo-frente.png"],
-    "mg-5":            ["https://mgvzla.com/wp-content/uploads/2024/06/MG5-2024-blanco-frente.png"],
-    "mg-gt":           ["https://mgvzla.com/wp-content/uploads/2024/06/MG-GT-rojo.png"],
-    "mg-zs":           ["https://mgvzla.com/wp-content/uploads/2025/01/MG-ZS-2025.png"],
-    "mg-zs-ev":        ["https://mgvzla.com/wp-content/uploads/2024/06/MG-ZSEV-blanco.png"],
-    "mg-rx5":          ["https://mgvzla.com/wp-content/uploads/2024/06/MG-RX5-blanco.png"],
-    "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/06/MG-RX8-negro.png"],
-    "mg-rx9":          ["https://mgvzla.com/wp-content/uploads/2024/12/MG-RX9-azul.png"],
-    "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2024/12/Cyberster-rojo.png"],
+    "mg-3":            ["https://mgvzla.com/wp-content/uploads/2025/07/MG3_HIBRIDO-2025.png"],
+    "mg-3-hybrid":     ["https://mgvzla.com/wp-content/uploads/2025/07/mg3_hibri-1024x602.png"],
+    "mg-5":            ["https://mgvzla.com/wp-content/uploads/2026/02/DSC_3160_MG5-1024x403.png"],
+    "mg-gt":           ["https://mgvzla.com/wp-content/uploads/2024/07/MGGT_blanco.jpg"],
+    "mg-zs":           ["https://mgvzla.com/wp-content/uploads/2025/07/MG_ZS-frente_25-1024x683.png"],
+    "mg-zs-ev":        ["https://mgvzla.com/wp-content/uploads/2024/12/IMG_EV.jpg"],
+    "mg-rx5":          ["https://mgvzla.com/wp-content/uploads/2024/12/MG_RX5_0000_DSC_0045.jpg"],
+    "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/07/MG-RX8-WEB-1.jpg"],
+    "mg-rx9":          ["https://mgvzla.com/wp-content/uploads/2025/08/MG_RX9_0008_07.jpg"],
+    "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2025/08/cyberster_3-1024x505.png"],
     # Maxus
     "maxus-d60":       ["https://maxusve.com/wp-content/uploads/2025/05/D60_DSC_3609-200x167_2.png"],
     "maxus-d90":       ["https://maxusve.com/wp-content/uploads/2025/05/DSC_0191_250X154.png"],
@@ -107,15 +107,15 @@ def main(argv: list[str]) -> int:
             continue
 
         for url in urls:
-            print(f"  ↓  {mid}: {url}")
+            print(f"  >  {mid}: {url}")
             success, info = download(url, dest)
             if success:
                 manifest[mid] = {"source": url, "file": dest.name}
-                print(f"      → saved {dest.name} ({info})")
+                print(f"     -> saved {dest.name} ({info})")
                 ok += 1
                 break
             else:
-                print(f"      ! {info}")
+                print(f"     ! {info}")
         else:
             print(f"  X  {mid}: no candidate URL worked")
             bad += 1

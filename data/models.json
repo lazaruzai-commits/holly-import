@@ -13,7 +13,7 @@
       "bodyType": "Hatchback",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3.jpg",
+      "image": "static/img/models/mg-3.png",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "108 hp",
@@ -29,7 +29,11 @@
         "Bolsas de aire delanteras",
         "Apple CarPlay / Android Auto"
       ],
-      "competitors": ["toyota-yaris-hb", "hyundai-grand-i10", "chery-tiggo-2"]
+      "competitors": [
+        "toyota-yaris-hb",
+        "hyundai-grand-i10",
+        "chery-tiggo-2"
+      ]
     },
     {
       "id": "mg-3-hybrid",
@@ -39,7 +43,7 @@
       "bodyType": "Hatchback Híbrido",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3-hybrid.jpg",
+      "image": "static/img/models/mg-3-hybrid.png",
       "specs": {
         "motor": "1.5L híbrido full",
         "potencia": "194 hp combinados",
@@ -55,7 +59,10 @@
         "Modo eléctrico en ciudad",
         "Frenado regenerativo"
       ],
-      "competitors": ["toyota-yaris-cross-hybrid", "kia-stonic"]
+      "competitors": [
+        "toyota-yaris-cross-hybrid",
+        "kia-stonic"
+      ]
     },
     {
       "id": "mg-5",
@@ -65,7 +72,7 @@
       "bodyType": "Sedán",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-5.jpg",
+      "image": "static/img/models/mg-5.png",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "115 hp",
@@ -80,7 +87,11 @@
         "Llave inteligente",
         "Diseño tipo fastback"
       ],
-      "competitors": ["toyota-yaris-sedan", "kia-rio-sedan", "hyundai-accent"]
+      "competitors": [
+        "toyota-yaris-sedan",
+        "kia-rio-sedan",
+        "hyundai-accent"
+      ]
     },
     {
       "id": "mg-gt",
@@ -105,7 +116,11 @@
         "Iluminación interior ambiental",
         "Pantalla curva panorámica"
       ],
-      "competitors": ["toyota-corolla", "kia-k5", "hyundai-elantra"]
+      "competitors": [
+        "toyota-corolla",
+        "kia-k5",
+        "hyundai-elantra"
+      ]
     },
     {
       "id": "mg-zs",
@@ -115,7 +130,7 @@
       "bodyType": "SUV Compacta",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-zs.jpg",
+      "image": "static/img/models/mg-zs.png",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "115 hp",
@@ -130,7 +145,11 @@
         "6 bolsas de aire en versión COM",
         "Conectividad total"
       ],
-      "competitors": ["hyundai-creta", "kia-soluto-x", "chery-tiggo-4-pro"]
+      "competitors": [
+        "hyundai-creta",
+        "kia-soluto-x",
+        "chery-tiggo-4-pro"
+      ]
     },
     {
       "id": "mg-zs-ev",
@@ -156,7 +175,11 @@
         "Bajo costo por kilómetro",
         "Aceleración instantánea"
       ],
-      "competitors": ["byd-yuan-plus", "geely-geometry", "dongfeng-e70"]
+      "competitors": [
+        "byd-yuan-plus",
+        "geely-geometry",
+        "dongfeng-e70"
+      ]
     },
     {
       "id": "mg-rx5",
@@ -181,7 +204,11 @@
         "Cargador inalámbrico",
         "Acabados premium"
       ],
-      "competitors": ["chery-tiggo-7-pro", "kia-seltos", "hyundai-tucson"]
+      "competitors": [
+        "chery-tiggo-7-pro",
+        "kia-seltos",
+        "hyundai-tucson"
+      ]
     },
     {
       "id": "mg-rx8",
@@ -206,7 +233,11 @@
         "Chasis tipo body-on-frame",
         "Capacidad de remolque alta"
       ],
-      "competitors": ["toyota-fortuner", "hyundai-santa-fe", "kia-sorento"]
+      "competitors": [
+        "toyota-fortuner",
+        "hyundai-santa-fe",
+        "kia-sorento"
+      ]
     },
     {
       "id": "mg-rx9",
@@ -231,7 +262,11 @@
         "Suspensión adaptativa",
         "Asistencias de manejo nivel 2"
       ],
-      "competitors": ["toyota-prado", "ford-explorer", "kia-sorento"]
+      "competitors": [
+        "toyota-prado",
+        "ford-explorer",
+        "kia-sorento"
+      ]
     },
     {
       "id": "mg-cyberster",
@@ -241,7 +276,7 @@
       "bodyType": "Roadster Eléctrico",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-cyberster.jpg",
+      "image": "static/img/models/mg-cyberster.png",
       "specs": {
         "motor": "Doble motor eléctrico",
         "potencia": "536 hp",
@@ -257,7 +292,9 @@
         "Techo blando eléctrico",
         "Edición limitada"
       ],
-      "competitors": ["porsche-718-cayman"]
+      "competitors": [
+        "porsche-718-cayman"
+      ]
     },
     {
       "id": "maxus-d60",
@@ -267,7 +304,7 @@
       "bodyType": "SUV",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-d60.jpg",
+      "image": "static/img/models/maxus-d60.png",
       "specs": {
         "motor": "1.5L turbo",
         "potencia": "169 hp",
@@ -282,7 +319,10 @@
         "Llantas de aleación",
         "Climatización automática"
       ],
-      "competitors": ["hyundai-creta", "chery-tiggo-4-pro"]
+      "competitors": [
+        "hyundai-creta",
+        "chery-tiggo-4-pro"
+      ]
     },
     {
       "id": "maxus-d90",
@@ -292,7 +332,7 @@
       "bodyType": "SUV 7 puestos",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-d90.jpg",
+      "image": "static/img/models/maxus-d90.png",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "218 hp",
@@ -307,7 +347,10 @@
         "Tres filas de asientos",
         "Tecnología de seguridad activa"
       ],
-      "competitors": ["toyota-fortuner", "kia-sorento"]
+      "competitors": [
+        "toyota-fortuner",
+        "kia-sorento"
+      ]
     },
     {
       "id": "maxus-t60",
@@ -317,7 +360,7 @@
       "bodyType": "Pickup",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-t60.jpg",
+      "image": "static/img/models/maxus-t60.png",
       "specs": {
         "motor": "2.4L gasolina (Mitsubishi)",
         "potencia": "136 hp",
@@ -333,7 +376,11 @@
         "Cabina simple o doble",
         "Capacidad de carga útil alta"
       ],
-      "competitors": ["toyota-hilux", "ford-ranger", "mitsubishi-l200"]
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "mitsubishi-l200"
+      ]
     },
     {
       "id": "maxus-t90",
@@ -343,7 +390,7 @@
       "bodyType": "Pickup Premium",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-t90.jpg",
+      "image": "static/img/models/maxus-t90.png",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "215 hp",
@@ -358,7 +405,11 @@
         "Suspensión multi-link trasera",
         "Asistencias de manejo"
       ],
-      "competitors": ["toyota-hilux", "ford-ranger", "chevrolet-s10"]
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "chevrolet-s10"
+      ]
     },
     {
       "id": "maxus-g10",
@@ -368,7 +419,7 @@
       "bodyType": "Van",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-g10.jpg",
+      "image": "static/img/models/maxus-g10.png",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "215 hp",
@@ -383,7 +434,10 @@
         "Confort tipo SUV",
         "Ideal flotas ejecutivas"
       ],
-      "competitors": ["hyundai-staria", "kia-carnival"]
+      "competitors": [
+        "hyundai-staria",
+        "kia-carnival"
+      ]
     },
     {
       "id": "maxus-v80",
@@ -393,7 +447,7 @@
       "bodyType": "Van de Carga",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-v80.jpg",
+      "image": "static/img/models/maxus-v80.png",
       "specs": {
         "motor": "2.5L diésel",
         "potencia": "136 hp",
@@ -408,7 +462,10 @@
         "Múltiples configuraciones",
         "Ideal logística urbana"
       ],
-      "competitors": ["hyundai-h1-cargo", "ford-transit"]
+      "competitors": [
+        "hyundai-h1-cargo",
+        "ford-transit"
+      ]
     },
     {
       "id": "maxus-serie-c",
@@ -418,7 +475,7 @@
       "bodyType": "Camión Liviano",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-c.jpg",
+      "image": "static/img/models/maxus-serie-c.png",
       "specs": {
         "motor": "2.5L diésel turbo",
         "potencia": "136 hp",
@@ -433,7 +490,10 @@
         "Bajo consumo",
         "Mantenimiento sencillo"
       ],
-      "competitors": ["hino-300", "foton-aumark"]
+      "competitors": [
+        "hino-300",
+        "foton-aumark"
+      ]
     },
     {
       "id": "maxus-serie-s",
@@ -443,7 +503,7 @@
       "bodyType": "Camión Mediano",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-s.jpg",
+      "image": "static/img/models/maxus-serie-s.png",
       "specs": {
         "motor": "Diésel turbo",
         "potencia": "170 hp",
@@ -458,7 +518,10 @@
         "Caja de cambios reforzada",
         "Repuestos disponibles"
       ],
-      "competitors": ["hino-500", "foton-auman"]
+      "competitors": [
+        "hino-500",
+        "foton-auman"
+      ]
     },
     {
       "id": "maxus-serie-h",
@@ -468,7 +531,7 @@
       "bodyType": "Camión Pesado",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-h.jpg",
+      "image": "static/img/models/maxus-serie-h.png",
       "specs": {
         "motor": "Diésel turbo",
         "potencia": "240 hp",
@@ -483,7 +546,10 @@
         "Frenos ABS + EBS",
         "Construcción reforzada"
       ],
-      "competitors": ["hino-700", "foton-auman-pesado"]
+      "competitors": [
+        "hino-700",
+        "foton-auman-pesado"
+      ]
     }
   ]
 }
