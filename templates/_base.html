@@ -16,9 +16,11 @@
 
 <header class="hh">
   <div class="hh__bar">
-    <a class="hh__brand" href="{{ root_path }}/">
-      <span class="hh__brand-mark">HI</span>
-      <span class="hh__brand-text">Holly Import</span>
+    <a class="hh__brand" href="{{ root_path }}/" aria-label="Holly Import — Inicio">
+      <img class="hh__brand-img"
+           src="{{ root_path }}/static/img/brand/holly-import-logo.png"
+           alt="Holly Import"
+           width="600" height="140">
     </a>
     <nav class="hh__nav" aria-label="Principal">
       <a href="{{ root_path }}/modelos" class="{% if page=='modelos' %}is-active{% endif %}">Modelos</a>

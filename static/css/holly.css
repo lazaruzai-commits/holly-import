@@ -57,15 +57,15 @@ p  { margin: 0 0 .8em; }
   display: flex; align-items: center; gap: 1.5rem;
   padding: .9rem 1.2rem;
 }
-.hh__brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--c-white); font-weight: 700; }
-.hh__brand-mark {
-  display: inline-grid; place-items: center;
-  width: 38px; height: 38px;
-  background: var(--c-crimson); color: white;
-  border-radius: var(--r-sm);
-  font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: .04em;
+.hh__brand { display: flex; align-items: center; text-decoration: none; }
+.hh__brand-img {
+  display: block;
+  height: 42px; width: auto;
+  max-width: 220px;
 }
-.hh__brand-text { font-family: 'Bebas Neue', sans-serif; letter-spacing: .04em; font-size: 1.35rem; }
+@media (max-width: 880px) {
+  .hh__brand-img { height: 34px; max-width: 180px; }
+}
 .hh__nav { display: flex; gap: 1.4rem; margin-left: auto; }
 .hh__nav a {
   text-decoration: none; color: var(--c-text); font-weight: 500; font-size: .95rem;
