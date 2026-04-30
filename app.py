@@ -27,7 +27,7 @@ import chat_agent
 import leads
 import telegram_client
 
-load_dotenv()
+load_dotenv(override=False)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(name)s %(levelname)s %(message)s",
