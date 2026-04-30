@@ -1,0 +1,76 @@
+{% extends "_base.html" %}
+{% block title %}Contacto — Holly Import{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>Contáctanos</h1>
+  <p class="lead">Visítanos en Los Palos Grandes, escríbenos por WhatsApp o usa el chat en línea.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--two">
+    <div class="value">
+      <h3>Dirección</h3>
+      <p>{{ site.location }}</p>
+      {% if site.phone %}<p><strong>Teléfono:</strong> <a href="tel:{{ site.phone }}">{{ site.phone }}</a></p>{% endif %}
+      {% if site.whatsapp %}<p><strong>WhatsApp:</strong> <a href="https://wa.me/{{ site.whatsapp }}">{{ site.whatsapp }}</a></p>{% endif %}
+      <p><strong>Horario:</strong> Lun–Vie 8:30–17:30 · Sáb 9:00–13:00</p>
+    </div>
+    <div class="value">
+      <h3>Habla con un asesor ahora</h3>
+      <p>El chat en línea te conecta con un asesor de Holly Import. También puedes dejar tus datos y te llamamos.</p>
+      <button class="btn btn--primary" type="button" data-open-chat>Abrir chat</button>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <h2>Déjanos tus datos</h2>
+  <form class="contact-form" id="contact-form">
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <label>¿En qué te podemos ayudar?
+      <select name="flow">
+        <option value="compra">Quiero información sobre un vehículo</option>
+        <option value="servicios">Quiero agendar un servicio</option>
+        <option value="otro">Otro</option>
+      </select>
+    </label>
+    <fieldset class="dialog__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <label>Comentario <textarea name="notes" rows="3" maxlength="500"></textarea></label>
+    <button class="btn btn--primary" type="submit">Enviar</button>
+    <p class="dialog__status" id="contact-status" hidden></p>
+  </form>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById("contact-form")?.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const f = e.target;
+  const fd = new FormData(f);
+  const body = Object.fromEntries(fd.entries());
+  const status = document.getElementById("contact-status");
+  status.hidden = false; status.textContent = "Enviando…"; status.className = "dialog__status";
+  try {
+    const r = await fetch(window.HOLLY_BASE + "/api/lead", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(body)
+    });
+    const j = await r.json();
+    if(!r.ok) throw new Error(j.detail || "Error");
+    status.textContent = "Gracias. Un asesor de Holly Import te contactará pronto.";
+    status.classList.add("is-success");
+    f.reset();
+  } catch(err){
+    status.textContent = "No se pudo enviar. Intenta de nuevo o usa WhatsApp.";
+    status.classList.add("is-error");
+  }
+});
+</script>
+{% endblock %}

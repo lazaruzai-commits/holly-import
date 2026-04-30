@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Holly Import — MG y Maxus en Caracas{% endblock %}</title>
+  <meta name="description" content="{% block description %}Concesionario autorizado de MG y Maxus en Los Palos Grandes, Caracas. Ventas, servicio técnico y financiamiento.{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ root_path }}/static/css/holly.css">
+  <link rel="icon" type="image/svg+xml" href="{{ root_path }}/static/img/brand/holly-mark.svg">
+  <script>window.HOLLY_BASE = "{{ root_path }}";</script>
+</head>
+<body class="page-{{ page|default('default') }}">
+
+<header class="hh">
+  <div class="hh__bar">
+    <a class="hh__brand" href="{{ root_path }}/">
+      <span class="hh__brand-mark">HI</span>
+      <span class="hh__brand-text">Holly Import</span>
+    </a>
+    <nav class="hh__nav" aria-label="Principal">
+      <a href="{{ root_path }}/modelos" class="{% if page=='modelos' %}is-active{% endif %}">Modelos</a>
+      <a href="{{ root_path }}/comparar" class="{% if page=='comparar' %}is-active{% endif %}">Comparar</a>
+      <a href="{{ root_path }}/servicio" class="{% if page=='servicio' %}is-active{% endif %}">Servicio</a>
+      <a href="{{ root_path }}/promocion" class="{% if page=='promocion' %}is-active{% endif %}">Asegúrate con 500</a>
+      <a href="{{ root_path }}/contacto" class="{% if page=='contacto' %}is-active{% endif %}">Contacto</a>
+    </nav>
+    <button class="hh__chat-btn" id="open-chat" type="button">
+      Hablar con un asesor
+    </button>
+    <button class="hh__menu" id="open-menu" type="button" aria-label="Menú">≡</button>
+  </div>
+</header>
+
+<main>
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="hf">
+  <div class="hf__cols">
+    <div>
+      <h4>Holly Import</h4>
+      <p>Concesionario autorizado de MG y Maxus.</p>
+      <p>{{ site.location }}</p>
+      {% if site.phone %}<p>Tel: <a href="tel:{{ site.phone }}">{{ site.phone }}</a></p>{% endif %}
+      {% if site.whatsapp %}<p>WhatsApp: <a href="https://wa.me/{{ site.whatsapp }}">{{ site.whatsapp }}</a></p>{% endif %}
+    </div>
+    <div>
+      <h4>Marcas</h4>
+      <ul>
+        <li><a href="{{ root_path }}/modelos?marca=MG">MG</a></li>
+        <li><a href="{{ root_path }}/modelos?marca=Maxus">Maxus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="{{ root_path }}/servicio">Taller autorizado</a></li>
+        <li><a href="{{ root_path }}/promocion">Asegúrate con 500</a></li>
+        <li><a href="{{ root_path }}/comparar">Comparar modelos</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="{{ root_path }}/contacto">Formulario</a></li>
+        <li><button class="hf__link" type="button" data-open-chat>Chat en línea</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="hf__base">
+    <small>© <span id="hf-year"></span> Holly Import. Todos los derechos reservados.</small>
+    <small>Imágenes referenciales. Las especificaciones pueden variar según versión y disponibilidad.</small>
+  </div>
+</footer>
+
+{% include "_chat.html" %}
+
+<script src="{{ root_path }}/static/js/main.js"></script>
+<script src="{{ root_path }}/static/js/chat.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

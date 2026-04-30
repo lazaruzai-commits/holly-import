@@ -1,0 +1,37 @@
+{% extends "_base.html" %}
+{% block title %}Comparar modelos — Holly Import{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>Comparador</h1>
+  <p class="lead">Pon cualquier modelo Holly frente a sus competidores más populares en Venezuela. Las ventajas son reales, no trucos.</p>
+</section>
+
+<section class="section">
+  <div class="compare">
+    <div class="compare__pickers">
+      <div class="compare__picker">
+        <label>Tu modelo Holly</label>
+        <select id="cmp-holly">
+          <option value="">— elegir modelo —</option>
+          {% for m in models %}
+          <option value="{{ m.id }}">{{ m.brand }} {{ m.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="compare__vs">VS</div>
+      <div class="compare__picker">
+        <label>Competidor</label>
+        <select id="cmp-rival" disabled>
+          <option value="">— elige primero un modelo Holly —</option>
+        </select>
+      </div>
+    </div>
+    <div id="cmp-out" class="compare__out" aria-live="polite"></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ root_path }}/static/js/compare.js"></script>
+{% endblock %}

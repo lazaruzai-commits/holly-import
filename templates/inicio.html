@@ -1,0 +1,83 @@
+{% extends "_base.html" %}
+{% block title %}Holly Import — MG y Maxus en Los Palos Grandes, Caracas{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero__content">
+    <span class="hero__eyebrow">Concesionario autorizado MG y Maxus</span>
+    <h1 class="hero__title">Tu próximo vehículo te espera en <span>Holly Import</span>.</h1>
+    <p class="hero__lead">Línea completa MG y Maxus en Los Palos Grandes. Ventas, servicio técnico y planes de financiamiento.</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="{{ root_path }}/modelos">Ver modelos</a>
+      <button class="btn btn--ghost" type="button" data-open-chat>Hablar con un asesor</button>
+    </div>
+  </div>
+  <div class="hero__promo">
+    <a href="{{ root_path }}/promocion" class="promo-card">
+      <span class="promo-card__tag">Promoción</span>
+      <strong class="promo-card__title">Asegúrate con 500</strong>
+      <span class="promo-card__sub">1 plan, 3 opciones. Ahorra hasta 30%.</span>
+      <span class="promo-card__cta">Conocer más →</span>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__head">
+    <h2>Modelos destacados</h2>
+    <a class="section__more" href="{{ root_path }}/modelos">Ver todos →</a>
+  </div>
+  <div class="grid grid--cards">
+    {% for m in featured %}
+    <article class="card" data-model-id="{{ m.id }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ m.brand }}</span>
+        <h3 class="card__title">{{ m.name }}</h3>
+        <p class="card__tag">{{ m.tagline }}</p>
+        <ul class="card__specs">
+          <li><strong>Motor:</strong> {{ m.specs.motor }}</li>
+          <li><strong>Potencia:</strong> {{ m.specs.potencia }}</li>
+        </ul>
+        <div class="card__cta">
+          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Ver detalles</button>
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="grid grid--two">
+    <div class="value">
+      <h3>Concesionario autorizado</h3>
+      <p>Holly Import representa oficialmente las marcas MG y Maxus en Caracas. Garantía de fábrica y repuestos originales.</p>
+    </div>
+    <div class="value">
+      <h3>Taller técnico especializado</h3>
+      <p>Nuestro equipo está certificado para mantenimiento y reparación de toda la línea MG y Maxus. Agenda tu cita en segundos.</p>
+    </div>
+    <div class="value">
+      <h3>Financiamiento flexible</h3>
+      <p>Planes a 6, 9 y 12 meses con la promoción Asegúrate con 500. Pregúntale a tu asesor por la opción que mejor se adapte.</p>
+    </div>
+    <div class="value">
+      <h3>Ubicación premium</h3>
+      <p>Estamos en {{ site.location }}. Visítanos para conocer nuestra sala de exhibición y agendar una prueba de manejo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__head">
+    <h2>¿No sabes cuál elegir?</h2>
+    <a class="section__more" href="{{ root_path }}/comparar">Comparador →</a>
+  </div>
+  <p class="lead">Compara cualquier modelo MG o Maxus contra los competidores más populares del mercado venezolano. Ventajas reales, sin trucos.</p>
+</section>
+{% endblock %}

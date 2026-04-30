@@ -1,0 +1,49 @@
+{% extends "_base.html" %}
+{% block title %}Modelos — Holly Import{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>Modelos disponibles</h1>
+  <p class="lead">Línea completa MG y Maxus que Holly Import comercializa en Venezuela.</p>
+</section>
+
+<section class="section">
+  <div class="filters" id="model-filters">
+    <button class="chip is-active" data-filter="all">Todos</button>
+    <button class="chip" data-filter="MG">MG</button>
+    <button class="chip" data-filter="Maxus">Maxus</button>
+    <button class="chip" data-filter="passenger">Pasajeros</button>
+    <button class="chip" data-filter="commercial">Comerciales</button>
+    <button class="chip" data-filter="promo">Asegúrate con 500</button>
+  </div>
+
+  <div class="grid grid--cards" id="models-grid">
+    {% for m in models %}
+    <article class="card"
+             data-brand="{{ m.brand }}"
+             data-category="{{ m.category }}"
+             data-promo="{{ 'yes' if m.promoEligible else 'no' }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+        {% if m.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ m.brand }}</span>
+        <h3 class="card__title">{{ m.name }}</h3>
+        <p class="card__tag">{{ m.tagline }}</p>
+        <ul class="card__specs">
+          <li><strong>Motor:</strong> {{ m.specs.motor }}</li>
+          <li><strong>Potencia:</strong> {{ m.specs.potencia }}</li>
+          <li><strong>Transmisión:</strong> {{ m.specs.transmision }}</li>
+        </ul>
+        <div class="card__cta">
+          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Ver detalles</button>
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

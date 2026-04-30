@@ -1,0 +1,23 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Captured leads and chat transcripts — never commit
+leads/*.csv
+leads/*.jsonl
+
+# Locally downloaded model imagery — large; fetched via scripts/fetch_images.py
+static/img/models/*.jpg
+static/img/models/*.jpeg
+static/img/models/*.png
+static/img/models/*.webp
+!static/img/models/.gitkeep
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

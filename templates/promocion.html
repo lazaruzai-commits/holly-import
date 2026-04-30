@@ -1,0 +1,88 @@
+{% extends "_base.html" %}
+{% block title %}Asegúrate con 500 — Holly Import{% endblock %}
+
+{% block content %}
+<section class="page-head page-head--promo">
+  <span class="hero__eyebrow">Promoción vigente</span>
+  <h1>Asegúrate con 500</h1>
+  <p class="lead">1 plan, 3 opciones. Ahorra hasta 30% en tu próximo MG.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--three">
+    <div class="value">
+      <h3>6 meses</h3>
+      <p>El plan más corto: aseguras tu vehículo con un depósito inicial y cuotas cómodas.</p>
+    </div>
+    <div class="value">
+      <h3>9 meses</h3>
+      <p>Equilibrio entre cuota mensual y plazo total. Opción más popular.</p>
+    </div>
+    <div class="value">
+      <h3>12 meses</h3>
+      <p>Cuota mensual más baja para acomodarse a tu presupuesto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="grid grid--two">
+    <div class="value">
+      <h3>Hasta 30% de ahorro</h3>
+      <p>Sobre el precio referencial, según el plan que selecciones con tu asesor.</p>
+    </div>
+    <div class="value">
+      <h3>Eliges 2 colores</h3>
+      <p>Selecciona tus dos colores preferidos. Tu vehículo llega listo con el que esté disponible primero.</p>
+    </div>
+    <div class="value">
+      <h3>Seguimiento 24/7</h3>
+      <p>Consulta el estatus de tu plan y entrega cuando quieras desde tu cuenta.</p>
+    </div>
+    <div class="value">
+      <h3>Asesor dedicado</h3>
+      <p>Un solo punto de contacto en Holly Import desde la firma hasta la entrega.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__head">
+    <h2>Modelos que aplican</h2>
+    <a class="section__more" href="{{ root_path }}/modelos?promo=1">Ver todos →</a>
+  </div>
+  <div class="grid grid--cards">
+    {% for m in promo_models %}
+    <article class="card">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+        <span class="card__badge">Asegúrate con 500</span>
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ m.brand }}</span>
+        <h3 class="card__title">{{ m.name }}</h3>
+        <p class="card__tag">{{ m.tagline }}</p>
+        <div class="card__cta">
+          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Detalles</button>
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-band">
+    <div>
+      <h2>¿Quieres aplicar?</h2>
+      <p>Habla con un asesor de Holly Import y te explicamos los plazos y condiciones detalladas.</p>
+    </div>
+    <button class="btn btn--primary" type="button" data-open-chat>
+      Hablar con un asesor
+    </button>
+  </div>
+  <p class="fineprint">Términos y condiciones aplican. Las cuotas, plazos exactos y disponibilidad de modelos varían según el plan vigente. Confirma con tu asesor de Holly Import antes de iniciar.</p>
+</section>
+{% endblock %}

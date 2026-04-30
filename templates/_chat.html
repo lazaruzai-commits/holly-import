@@ -1,0 +1,83 @@
+<aside class="chat" id="chat" aria-hidden="true" aria-label="Asesor Holly Import">
+  <div class="chat__panel" role="dialog" aria-modal="true" aria-labelledby="chat-title">
+    <header class="chat__head">
+      <div>
+        <strong id="chat-title">Asesor Holly Import</strong>
+        <span class="chat__sub">En línea</span>
+      </div>
+      <button class="chat__close" id="close-chat" aria-label="Cerrar">×</button>
+    </header>
+    <div class="chat__body" id="chat-body" aria-live="polite"></div>
+    <form class="chat__form" id="chat-form" autocomplete="off">
+      <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." maxlength="500" disabled>
+      <button type="submit" disabled>Enviar</button>
+    </form>
+  </div>
+</aside>
+
+<template id="tpl-msg-user"><div class="chat__msg chat__msg--user"></div></template>
+<template id="tpl-msg-bot"><div class="chat__msg chat__msg--bot"></div></template>
+<template id="tpl-chips"><div class="chat__chips"></div></template>
+
+<template id="tpl-lead-form">
+  <form class="chat__leadform">
+    <h4>¿Cómo podemos contactarte?</h4>
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <fieldset class="chat__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <button type="submit">Enviar solicitud</button>
+  </form>
+</template>
+
+<template id="tpl-service-form">
+  <form class="chat__leadform">
+    <h4>Agendar servicio</h4>
+    <label>Vehículo (marca / modelo / año) <input name="vehicle" maxlength="80"></label>
+    <label>Fecha preferida <input name="preferred_date" type="date" required></label>
+    <fieldset class="chat__pref">
+      <legend>Horario</legend>
+      <label><input type="radio" name="preferred_time" value="manana" checked> Mañana</label>
+      <label><input type="radio" name="preferred_time" value="tarde"> Tarde</label>
+    </fieldset>
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <fieldset class="chat__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <button type="submit">Agendar</button>
+  </form>
+</template>
+
+<dialog id="price-dialog" class="dialog">
+  <form method="dialog" class="dialog__form" id="price-form">
+    <header>
+      <h3>Solicitar precio</h3>
+      <button type="button" class="dialog__close" data-close-dialog aria-label="Cerrar">×</button>
+    </header>
+    <p class="dialog__lead">Déjanos tus datos y un asesor de Holly Import te contactará con el precio actualizado para el <strong id="price-model-name">modelo</strong>.</p>
+    <input type="hidden" name="model_id" id="price-model-id">
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <fieldset class="dialog__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <label>Comentario (opcional) <textarea name="notes" maxlength="500" rows="2"></textarea></label>
+    <footer>
+      <button type="submit" class="btn btn--primary">Enviar</button>
+    </footer>
+    <p class="dialog__status" id="price-status" hidden></p>
+  </form>
+</dialog>
+
+<dialog id="model-dialog" class="dialog dialog--wide">
+  <button type="button" class="dialog__close dialog__close--float" data-close-dialog aria-label="Cerrar">×</button>
+  <div id="model-dialog-body"></div>
+</dialog>

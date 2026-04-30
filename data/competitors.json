@@ -1,0 +1,567 @@
+{
+  "_meta": {
+    "note": "Competitor catalog used by the Compare page. relativeBadge values: 'mejor-valor' | 'mas-equipado' | 'mas-potencia' | 'mas-economico'. Specs are public-knowledge ranges; ranges are used because exact VZLA-market trims vary."
+  },
+  "competitors": {
+    "toyota-yaris-hb": {
+      "brand": "Toyota",
+      "model": "Yaris Hatchback",
+      "motor": "1.5L gasolina",
+      "potencia": "106 hp",
+      "torque": "138 Nm",
+      "transmision": "MT / CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "MG 3 ofrece más equipamiento por un precio relativamente menor.",
+        "puntos": ["Pantalla táctil de serie en MG 3", "Mejor garantía", "Diseño más moderno"]
+      }
+    },
+    "hyundai-grand-i10": {
+      "brand": "Hyundai",
+      "model": "Grand i10",
+      "motor": "1.2L gasolina",
+      "potencia": "82 hp",
+      "torque": "114 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG 3 supera en potencia y torque al Grand i10 con motor más grande.",
+        "puntos": ["Motor 1.5L vs 1.2L", "Mejor desempeño en autopista", "Maletero más amplio"]
+      }
+    },
+    "chery-tiggo-2": {
+      "brand": "Chery",
+      "model": "Tiggo 2 Pro",
+      "motor": "1.5L gasolina",
+      "potencia": "105 hp",
+      "torque": "135 Nm",
+      "transmision": "MT / CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Comparable en motor; MG 3 tiene mejor red de servicio en Caracas.",
+        "puntos": ["Misma cilindrada", "MG: red de servicio más amplia", "Acabados de mejor calidad"]
+      }
+    },
+    "toyota-yaris-cross-hybrid": {
+      "brand": "Toyota",
+      "model": "Yaris Cross Hybrid",
+      "motor": "1.5L híbrido",
+      "potencia": "116 hp",
+      "torque": "120 Nm",
+      "transmision": "e-CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG 3 Hybrid+ ofrece 78 hp adicionales y 425 Nm de torque combinado.",
+        "puntos": ["Mucho más torque eléctrico", "Aceleración superior", "Precio relativo menor"]
+      }
+    },
+    "kia-stonic": {
+      "brand": "Kia",
+      "model": "Stonic",
+      "motor": "1.4L gasolina",
+      "potencia": "100 hp",
+      "torque": "133 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG 3 Hybrid+ es híbrido full vs Stonic gasolina puro.",
+        "puntos": ["Tecnología híbrida full", "Menor consumo", "Mayor potencia combinada"]
+      }
+    },
+    "toyota-yaris-sedan": {
+      "brand": "Toyota",
+      "model": "Yaris Sedán",
+      "motor": "1.5L gasolina",
+      "potencia": "106 hp",
+      "torque": "138 Nm",
+      "transmision": "MT / CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-equipado",
+        "summary": "MG 5 entrega más equipamiento y diseño más moderno por precio relativo menor.",
+        "puntos": ["Pantalla flotante de 10\"", "Maletero 512 L", "Diseño tipo fastback"]
+      }
+    },
+    "kia-rio-sedan": {
+      "brand": "Kia",
+      "model": "Rio Sedán",
+      "motor": "1.6L gasolina",
+      "potencia": "121 hp",
+      "torque": "151 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Especificaciones similares; MG 5 es relativamente más económico.",
+        "puntos": ["Mejor relación precio/equipamiento", "Maletero superior", "Garantía competitiva"]
+      }
+    },
+    "hyundai-accent": {
+      "brand": "Hyundai",
+      "model": "Accent",
+      "motor": "1.6L gasolina",
+      "potencia": "121 hp",
+      "torque": "151 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-equipado",
+        "summary": "MG 5 ofrece más tecnología de serie y diseño más actual.",
+        "puntos": ["Llave inteligente de serie", "Pantalla flotante", "Diseño coupé"]
+      }
+    },
+    "toyota-corolla": {
+      "brand": "Toyota",
+      "model": "Corolla",
+      "motor": "1.8L / 2.0L",
+      "potencia": "139–169 hp",
+      "torque": "172–200 Nm",
+      "transmision": "CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG GT con turbo de 173 hp y 275 Nm supera al Corolla en torque.",
+        "puntos": ["Motor turbo 1.5L", "Caja DCT más deportiva", "Diseño más agresivo"]
+      }
+    },
+    "kia-k5": {
+      "brand": "Kia",
+      "model": "K5",
+      "motor": "2.0L / 2.5L",
+      "potencia": "152–191 hp",
+      "torque": "192–246 Nm",
+      "transmision": "AT 8 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Segmento similar; MG GT a precio relativo menor con DCT deportiva.",
+        "puntos": ["Caja DCT 7 vel.", "Modos de manejo deportivo", "Mejor relación precio/potencia"]
+      }
+    },
+    "hyundai-elantra": {
+      "brand": "Hyundai",
+      "model": "Elantra",
+      "motor": "1.6L / 2.0L",
+      "potencia": "123–147 hp",
+      "torque": "154–179 Nm",
+      "transmision": "MT / IVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG GT entrega más potencia turbo y mejor torque.",
+        "puntos": ["173 hp turbo vs 147 atmosférico", "275 Nm de torque", "Doble salida de escape"]
+      }
+    },
+    "hyundai-creta": {
+      "brand": "Hyundai",
+      "model": "Creta",
+      "motor": "1.5L / 1.6L",
+      "potencia": "115 hp",
+      "torque": "144 Nm",
+      "transmision": "MT / IVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Especificaciones de motor muy similares; MG ZS con relación precio/equipamiento superior.",
+        "puntos": ["Misma potencia, más opciones de equipamiento", "Mejor garantía", "Techo panorámico disponible"]
+      }
+    },
+    "kia-soluto-x": {
+      "brand": "Kia",
+      "model": "Soluto Cross",
+      "motor": "1.4L gasolina",
+      "potencia": "94 hp",
+      "torque": "133 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG ZS con 1.5L y 115 hp supera al Soluto Cross.",
+        "puntos": ["Más potencia y torque", "Verdadera SUV de plataforma", "Mejor altura libre al suelo"]
+      }
+    },
+    "chery-tiggo-4-pro": {
+      "brand": "Chery",
+      "model": "Tiggo 4 Pro",
+      "motor": "1.5L gasolina",
+      "potencia": "113 hp",
+      "torque": "138 Nm",
+      "transmision": "MT / CVT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Competidor directo; MG ZS con mejor red de servicio y mayor reventa.",
+        "puntos": ["Acabados más refinados", "Mejor reventa", "Asistencia técnica más amplia"]
+      }
+    },
+    "byd-yuan-plus": {
+      "brand": "BYD",
+      "model": "Yuan Plus",
+      "motor": "Eléctrico",
+      "potencia": "201 hp",
+      "torque": "310 Nm",
+      "transmision": "Automática 1 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Comparable en autonomía; MG ZS EV a precio relativo más accesible.",
+        "puntos": ["Autonomía similar", "Precio más accesible", "Carga rápida DC"]
+      }
+    },
+    "geely-geometry": {
+      "brand": "Geely",
+      "model": "Geometry C",
+      "motor": "Eléctrico",
+      "potencia": "201 hp",
+      "torque": "310 Nm",
+      "transmision": "Automática 1 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-equipado",
+        "summary": "MG ZS EV con mejor reputación de marca europea y red establecida.",
+        "puntos": ["Marca europea consolidada", "Garantía amplia", "Red MG en Venezuela"]
+      }
+    },
+    "dongfeng-e70": {
+      "brand": "Dongfeng",
+      "model": "E70",
+      "motor": "Eléctrico",
+      "potencia": "163 hp",
+      "torque": "260 Nm",
+      "transmision": "Automática 1 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG ZS EV con 174 hp y 280 Nm tiene mejor desempeño.",
+        "puntos": ["Más potencia y torque", "Mayor autonomía WLTP", "Plataforma SUV vs sedán"]
+      }
+    },
+    "chery-tiggo-7-pro": {
+      "brand": "Chery",
+      "model": "Tiggo 7 Pro",
+      "motor": "1.5L turbo",
+      "potencia": "147 hp",
+      "torque": "210 Nm",
+      "transmision": "DCT 7 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "MG RX5 supera con 169 hp y 275 Nm de torque.",
+        "puntos": ["Mayor potencia turbo", "Más torque para autopista", "Acabados premium"]
+      }
+    },
+    "kia-seltos": {
+      "brand": "Kia",
+      "model": "Seltos",
+      "motor": "1.5L / 1.6T",
+      "potencia": "113–177 hp",
+      "torque": "144–265 Nm",
+      "transmision": "MT / IVT / DCT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Especificaciones similares en versión turbo; MG RX5 a precio relativo menor.",
+        "puntos": ["Pantalla central de 12.3\"", "Cargador inalámbrico de serie", "Mejor relación precio/equipamiento"]
+      }
+    },
+    "hyundai-tucson": {
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "motor": "2.0L / 1.6T",
+      "potencia": "152–177 hp",
+      "torque": "192–265 Nm",
+      "transmision": "AT / DCT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Tucson más costoso por equivalente potencia; MG RX5 más accesible.",
+        "puntos": ["DCT 7 vel. de serie", "Pantalla más grande", "Mejor garantía"]
+      }
+    },
+    "toyota-fortuner": {
+      "brand": "Toyota",
+      "model": "Fortuner",
+      "motor": "2.7L / 2.8L diésel",
+      "potencia": "163–204 hp",
+      "torque": "245–500 Nm",
+      "transmision": "AT 6 vel.",
+      "asientos": 7,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "MG RX8 / Maxus D90 ofrecen 7 puestos por precio relativo menor.",
+        "puntos": ["Tres filas de serie", "Equipamiento más completo", "Precio relativo más accesible"]
+      }
+    },
+    "hyundai-santa-fe": {
+      "brand": "Hyundai",
+      "model": "Santa Fe",
+      "motor": "2.5L / 2.5T",
+      "potencia": "191–281 hp",
+      "torque": "245–421 Nm",
+      "transmision": "AT 8 vel.",
+      "asientos": 7,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Santa Fe en gama alta; MG RX8 ofrece similar capacidad por precio relativo menor.",
+        "puntos": ["7 puestos completos", "Tracción 4x4 disponible", "Precio relativo menor"]
+      }
+    },
+    "kia-sorento": {
+      "brand": "Kia",
+      "model": "Sorento",
+      "motor": "2.5L / 2.2D",
+      "potencia": "191–281 hp",
+      "torque": "245–441 Nm",
+      "transmision": "AT 8 vel.",
+      "asientos": 7,
+      "vsHolly": {
+        "relativeBadge": "mas-equipado",
+        "summary": "MG RX9 con suspensión adaptativa y asistencias L2 supera al Sorento en tecnología.",
+        "puntos": ["Suspensión adaptativa", "Asistencias de manejo nivel 2", "Sonido premium"]
+      }
+    },
+    "toyota-prado": {
+      "brand": "Toyota",
+      "model": "Prado",
+      "motor": "2.7L / 2.8D / 4.0L",
+      "potencia": "163–272 hp",
+      "torque": "245–500 Nm",
+      "transmision": "AT 6 vel.",
+      "asientos": 7,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Prado claramente más costoso; MG RX9 con tecnología moderna y precio accesible.",
+        "puntos": ["Pantalla curva", "Asistencias L2", "Suspensión adaptativa", "Precio relativo mucho menor"]
+      }
+    },
+    "ford-explorer": {
+      "brand": "Ford",
+      "model": "Explorer",
+      "motor": "2.3T / 3.0T",
+      "potencia": "300–400 hp",
+      "torque": "420–563 Nm",
+      "transmision": "AT 10 vel.",
+      "asientos": 7,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Explorer en rango alto de precio; MG RX9 con equipamiento similar y mejor relación.",
+        "puntos": ["Equipamiento premium", "AWD de serie", "Precio relativo menor"]
+      }
+    },
+    "porsche-718-cayman": {
+      "brand": "Porsche",
+      "model": "718 Cayman",
+      "motor": "2.0T / 2.5T",
+      "potencia": "300–400 hp",
+      "torque": "380–420 Nm",
+      "transmision": "PDK",
+      "asientos": 2,
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "Cyberster eléctrico con 536 hp y 0–100 en 3.2s. Sin emisiones.",
+        "puntos": ["Mayor potencia", "0–100 más rápido", "Cero emisiones", "Edición exclusiva"]
+      }
+    },
+    "toyota-hilux": {
+      "brand": "Toyota",
+      "model": "Hilux",
+      "motor": "2.4D / 2.7L / 2.8D",
+      "potencia": "163–204 hp",
+      "torque": "245–500 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Hilux en rango alto; T60/T90 ofrecen capacidad similar por precio relativo menor.",
+        "puntos": ["Motor Mitsubishi en T60", "T90 con equipamiento premium", "Precio relativo más accesible"]
+      }
+    },
+    "ford-ranger": {
+      "brand": "Ford",
+      "model": "Ranger",
+      "motor": "2.3T / 2.0D / 3.0D",
+      "potencia": "170–250 hp",
+      "torque": "405–600 Nm",
+      "transmision": "AT 10 vel.",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Ranger más costoso en versiones tope; T90 ofrece equipamiento similar.",
+        "puntos": ["Pantalla 12.3\"", "Suspensión multi-link", "Precio relativo menor"]
+      }
+    },
+    "mitsubishi-l200": {
+      "brand": "Mitsubishi",
+      "model": "L200",
+      "motor": "2.4D",
+      "potencia": "150–181 hp",
+      "torque": "380–430 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "T60 monta motor Mitsubishi y comparte ADN; T60 a precio relativo menor.",
+        "puntos": ["Mismo motor base 2.4L", "Múltiples configuraciones", "Mejor relación precio/equipamiento"]
+      }
+    },
+    "chevrolet-s10": {
+      "brand": "Chevrolet",
+      "model": "S10",
+      "motor": "2.5L / 2.8D",
+      "potencia": "200–207 hp",
+      "torque": "270–500 Nm",
+      "transmision": "MT / AT",
+      "asientos": 5,
+      "vsHolly": {
+        "relativeBadge": "mas-equipado",
+        "summary": "T90 con equipamiento más moderno y caja AT de 8 velocidades.",
+        "puntos": ["AT 8 vel.", "Pantalla 12.3\"", "Acabados premium"]
+      }
+    },
+    "hyundai-staria": {
+      "brand": "Hyundai",
+      "model": "Staria",
+      "motor": "2.2D / 3.5L",
+      "potencia": "175–272 hp",
+      "torque": "245–331 Nm",
+      "transmision": "AT 8 vel.",
+      "asientos": "7-11",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Staria en gama alta; G10 ofrece configuración similar a precio relativo menor.",
+        "puntos": ["Configuraciones flexibles", "Buen confort", "Precio relativo menor"]
+      }
+    },
+    "kia-carnival": {
+      "brand": "Kia",
+      "model": "Carnival",
+      "motor": "2.2D / 3.5L",
+      "potencia": "200–290 hp",
+      "torque": "245–440 Nm",
+      "transmision": "AT 8 vel.",
+      "asientos": "7-11",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Carnival más costoso; G10 con confort similar a precio relativo menor.",
+        "puntos": ["Espacio interior amplio", "Confort tipo SUV", "Precio relativo más accesible"]
+      }
+    },
+    "hyundai-h1-cargo": {
+      "brand": "Hyundai",
+      "model": "H1 Cargo",
+      "motor": "2.5D / 2.4L",
+      "potencia": "136–170 hp",
+      "torque": "245–343 Nm",
+      "transmision": "MT / AT",
+      "configuracion": "Carga / pasajeros",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "V80 con capacidad de carga similar a costos operativos menores.",
+        "puntos": ["Diésel 2.5L eficiente", "Carga útil elevada", "Mantenimiento accesible"]
+      }
+    },
+    "ford-transit": {
+      "brand": "Ford",
+      "model": "Transit",
+      "motor": "2.0T / 2.2D",
+      "potencia": "130–185 hp",
+      "torque": "385–415 Nm",
+      "transmision": "MT 6 vel.",
+      "configuracion": "Carga / pasajeros",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Transit más costoso; V80 ofrece configuraciones similares a precio menor.",
+        "puntos": ["Múltiples configuraciones", "Costos operativos bajos", "Precio relativo menor"]
+      }
+    },
+    "hino-300": {
+      "brand": "Hino",
+      "model": "Serie 300",
+      "motor": "Diésel 4.0L",
+      "potencia": "150 hp",
+      "torque": "420 Nm",
+      "transmision": "MT 5 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Serie C con capacidad similar y mantenimiento más económico.",
+        "puntos": ["Mantenimiento sencillo", "Repuestos accesibles", "Precio relativo menor"]
+      }
+    },
+    "foton-aumark": {
+      "brand": "Foton",
+      "model": "Aumark",
+      "motor": "Diésel 2.8L",
+      "potencia": "130 hp",
+      "torque": "300 Nm",
+      "transmision": "MT 5 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "Serie C con mayor torque y mejor desempeño con carga.",
+        "puntos": ["330 Nm vs 300 Nm", "Cabina más ergonómica", "Mejor red de servicio"]
+      }
+    },
+    "hino-500": {
+      "brand": "Hino",
+      "model": "Serie 500",
+      "motor": "Diésel 6.4L",
+      "potencia": "210 hp",
+      "torque": "637 Nm",
+      "transmision": "MT 6 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Serie S con desempeño comparable a costo de adquisición menor.",
+        "puntos": ["Caja reforzada", "Mantenimiento más accesible", "Precio relativo menor"]
+      }
+    },
+    "foton-auman": {
+      "brand": "Foton",
+      "model": "Auman",
+      "motor": "Diésel 4.5L",
+      "potencia": "168 hp",
+      "torque": "550 Nm",
+      "transmision": "MT 6 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "Serie S con motor más potente para carga sostenida.",
+        "puntos": ["170 hp con torque robusto", "ABS de serie", "Repuestos disponibles"]
+      }
+    },
+    "hino-700": {
+      "brand": "Hino",
+      "model": "Serie 700",
+      "motor": "Diésel 13.0L",
+      "potencia": "380 hp",
+      "torque": "1850 Nm",
+      "transmision": "MT 16 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mejor-valor",
+        "summary": "Hino 700 en rango premium; Serie H ofrece capacidad útil similar a precio menor.",
+        "puntos": ["Capacidad de carga competitiva", "Precio relativo menor", "Cabina con litera"]
+      }
+    },
+    "foton-auman-pesado": {
+      "brand": "Foton",
+      "model": "Auman EST",
+      "motor": "Diésel 11.0L",
+      "potencia": "350 hp",
+      "torque": "1500 Nm",
+      "transmision": "MT 12 vel.",
+      "configuracion": "Cabina simple",
+      "vsHolly": {
+        "relativeBadge": "mas-potencia",
+        "summary": "Serie H con torque competitivo y mejor red de servicio.",
+        "puntos": ["850 Nm en versión 6x4", "Frenos ABS + EBS", "Asistencia técnica establecida"]
+      }
+    }
+  }
+}

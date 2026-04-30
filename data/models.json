@@ -1,0 +1,489 @@
+{
+  "_meta": {
+    "note": "Source of truth for the model lineup. Specs are starting estimates from publicly visible info on mgvzla.com and maxusve.com — verify against Holly Import's actual stock and update before publishing.",
+    "currency": "USD",
+    "priceMode": "relative"
+  },
+  "models": [
+    {
+      "id": "mg-3",
+      "brand": "MG",
+      "name": "MG 3",
+      "tagline": "Hatchback urbano, ágil y eficiente.",
+      "bodyType": "Hatchback",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-3.jpg",
+      "specs": {
+        "motor": "1.5L gasolina",
+        "potencia": "108 hp",
+        "torque": "150 Nm",
+        "transmision": "MT 5 vel. / AT 4 vel.",
+        "traccion": "4x2",
+        "asientos": 5,
+        "rendimiento": "Eficiente en ciudad"
+      },
+      "highlights": [
+        "Pantalla táctil multimedia",
+        "Cámara de retroceso",
+        "Bolsas de aire delanteras",
+        "Apple CarPlay / Android Auto"
+      ],
+      "competitors": ["toyota-yaris-hb", "hyundai-grand-i10", "chery-tiggo-2"]
+    },
+    {
+      "id": "mg-3-hybrid",
+      "brand": "MG",
+      "name": "MG 3 Hybrid+",
+      "tagline": "El híbrido autorrecargable más accesible de su segmento.",
+      "bodyType": "Hatchback Híbrido",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-3-hybrid.jpg",
+      "specs": {
+        "motor": "1.5L híbrido full",
+        "potencia": "194 hp combinados",
+        "torque": "425 Nm",
+        "transmision": "Automática híbrida",
+        "traccion": "4x2",
+        "asientos": 5,
+        "rendimiento": "Hasta 4.4 L/100km"
+      },
+      "highlights": [
+        "Tecnología híbrida autorrecargable",
+        "No requiere enchufe",
+        "Modo eléctrico en ciudad",
+        "Frenado regenerativo"
+      ],
+      "competitors": ["toyota-yaris-cross-hybrid", "kia-stonic"]
+    },
+    {
+      "id": "mg-5",
+      "brand": "MG",
+      "name": "MG 5",
+      "tagline": "Sedán deportivo con presencia europea.",
+      "bodyType": "Sedán",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-5.jpg",
+      "specs": {
+        "motor": "1.5L gasolina",
+        "potencia": "115 hp",
+        "torque": "150 Nm",
+        "transmision": "MT 5 vel. / CVT",
+        "traccion": "4x2",
+        "asientos": 5
+      },
+      "highlights": [
+        "Maletero de 512 L",
+        "Pantalla flotante de 10\"",
+        "Llave inteligente",
+        "Diseño tipo fastback"
+      ],
+      "competitors": ["toyota-yaris-sedan", "kia-rio-sedan", "hyundai-accent"]
+    },
+    {
+      "id": "mg-gt",
+      "brand": "MG",
+      "name": "MG GT",
+      "tagline": "Sedán deportivo, postura de coupé.",
+      "bodyType": "Sedán Deportivo",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-gt.jpg",
+      "specs": {
+        "motor": "1.5L turbo",
+        "potencia": "173 hp",
+        "torque": "275 Nm",
+        "transmision": "DCT 7 vel.",
+        "traccion": "4x2",
+        "asientos": 5
+      },
+      "highlights": [
+        "Doble salida de escape",
+        "Modos de manejo deportivo",
+        "Iluminación interior ambiental",
+        "Pantalla curva panorámica"
+      ],
+      "competitors": ["toyota-corolla", "kia-k5", "hyundai-elantra"]
+    },
+    {
+      "id": "mg-zs",
+      "brand": "MG",
+      "name": "MG ZS",
+      "tagline": "SUV compacto, bestseller global.",
+      "bodyType": "SUV Compacta",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-zs.jpg",
+      "specs": {
+        "motor": "1.5L gasolina",
+        "potencia": "115 hp",
+        "torque": "150 Nm",
+        "transmision": "MT 5 vel. / AT 4 vel.",
+        "traccion": "4x2",
+        "asientos": 5
+      },
+      "highlights": [
+        "Techo panorámico disponible",
+        "Asistente de descenso",
+        "6 bolsas de aire en versión COM",
+        "Conectividad total"
+      ],
+      "competitors": ["hyundai-creta", "kia-soluto-x", "chery-tiggo-4-pro"]
+    },
+    {
+      "id": "mg-zs-ev",
+      "brand": "MG",
+      "name": "MG ZS EV",
+      "tagline": "SUV 100% eléctrica, lista para Caracas.",
+      "bodyType": "SUV Eléctrica",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/mg-zs-ev.jpg",
+      "specs": {
+        "motor": "Motor eléctrico",
+        "potencia": "174 hp",
+        "torque": "280 Nm",
+        "transmision": "Automática 1 vel.",
+        "traccion": "4x2",
+        "autonomia": "Hasta 440 km WLTP",
+        "asientos": 5
+      },
+      "highlights": [
+        "Carga rápida DC",
+        "Cero emisiones",
+        "Bajo costo por kilómetro",
+        "Aceleración instantánea"
+      ],
+      "competitors": ["byd-yuan-plus", "geely-geometry", "dongfeng-e70"]
+    },
+    {
+      "id": "mg-rx5",
+      "brand": "MG",
+      "name": "MG RX5",
+      "tagline": "SUV familiar con espacio premium.",
+      "bodyType": "SUV Mediana",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-rx5.jpg",
+      "specs": {
+        "motor": "1.5L turbo",
+        "potencia": "169 hp",
+        "torque": "275 Nm",
+        "transmision": "DCT 7 vel.",
+        "traccion": "4x2",
+        "asientos": 5
+      },
+      "highlights": [
+        "Pantalla central de 12.3\"",
+        "Sistema de infoentretenimiento avanzado",
+        "Cargador inalámbrico",
+        "Acabados premium"
+      ],
+      "competitors": ["chery-tiggo-7-pro", "kia-seltos", "hyundai-tucson"]
+    },
+    {
+      "id": "mg-rx8",
+      "brand": "MG",
+      "name": "MG RX8",
+      "tagline": "SUV grande con tres filas de asientos.",
+      "bodyType": "SUV 7 puestos",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/mg-rx8.jpg",
+      "specs": {
+        "motor": "2.0L turbo",
+        "potencia": "224 hp",
+        "torque": "360 Nm",
+        "transmision": "AT 6 vel.",
+        "traccion": "4x4 disponible",
+        "asientos": 7
+      },
+      "highlights": [
+        "Tres filas de asientos",
+        "Tracción 4x4 selectiva",
+        "Chasis tipo body-on-frame",
+        "Capacidad de remolque alta"
+      ],
+      "competitors": ["toyota-fortuner", "hyundai-santa-fe", "kia-sorento"]
+    },
+    {
+      "id": "mg-rx9",
+      "brand": "MG",
+      "name": "MG RX9",
+      "tagline": "SUV insignia de MG, lujo y potencia.",
+      "bodyType": "SUV Grande",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-rx9.jpg",
+      "specs": {
+        "motor": "2.0L turbo",
+        "potencia": "240 hp",
+        "torque": "375 Nm",
+        "transmision": "AT 9 vel.",
+        "traccion": "AWD",
+        "asientos": 7
+      },
+      "highlights": [
+        "Sistema de sonido premium",
+        "Asientos en cuero ventilados",
+        "Suspensión adaptativa",
+        "Asistencias de manejo nivel 2"
+      ],
+      "competitors": ["toyota-prado", "ford-explorer", "kia-sorento"]
+    },
+    {
+      "id": "mg-cyberster",
+      "brand": "MG",
+      "name": "MG Cyberster",
+      "tagline": "Roadster eléctrico de dos plazas. Edición exclusiva.",
+      "bodyType": "Roadster Eléctrico",
+      "category": "passenger",
+      "promoEligible": true,
+      "image": "static/img/models/mg-cyberster.jpg",
+      "specs": {
+        "motor": "Doble motor eléctrico",
+        "potencia": "536 hp",
+        "torque": "725 Nm",
+        "transmision": "Automática 1 vel.",
+        "traccion": "AWD",
+        "autonomia": "Hasta 580 km",
+        "asientos": 2
+      },
+      "highlights": [
+        "0–100 km/h en 3.2 s",
+        "Puertas tipo tijera",
+        "Techo blando eléctrico",
+        "Edición limitada"
+      ],
+      "competitors": ["porsche-718-cayman"]
+    },
+    {
+      "id": "maxus-d60",
+      "brand": "Maxus",
+      "name": "Maxus D60",
+      "tagline": "SUV familiar con diseño robusto.",
+      "bodyType": "SUV",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-d60.jpg",
+      "specs": {
+        "motor": "1.5L turbo",
+        "potencia": "169 hp",
+        "torque": "250 Nm",
+        "transmision": "DCT 7 vel.",
+        "traccion": "4x2",
+        "asientos": 5
+      },
+      "highlights": [
+        "Espacio interior amplio",
+        "Pantalla flotante",
+        "Llantas de aleación",
+        "Climatización automática"
+      ],
+      "competitors": ["hyundai-creta", "chery-tiggo-4-pro"]
+    },
+    {
+      "id": "maxus-d90",
+      "brand": "Maxus",
+      "name": "Maxus D90",
+      "tagline": "SUV grande con espacio para toda la familia.",
+      "bodyType": "SUV 7 puestos",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-d90.jpg",
+      "specs": {
+        "motor": "2.0L turbo",
+        "potencia": "218 hp",
+        "torque": "350 Nm",
+        "transmision": "AT 8 vel.",
+        "traccion": "4x4 disponible",
+        "asientos": 7
+      },
+      "highlights": [
+        "Body-on-frame para off-road",
+        "Capacidad de carga elevada",
+        "Tres filas de asientos",
+        "Tecnología de seguridad activa"
+      ],
+      "competitors": ["toyota-fortuner", "kia-sorento"]
+    },
+    {
+      "id": "maxus-t60",
+      "brand": "Maxus",
+      "name": "Maxus T60",
+      "tagline": "Pickup de trabajo, motor Mitsubishi 2.4L.",
+      "bodyType": "Pickup",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t60.jpg",
+      "specs": {
+        "motor": "2.4L gasolina (Mitsubishi)",
+        "potencia": "136 hp",
+        "torque": "200 Nm",
+        "transmision": "MT 6 vel. / AT 6 vel.",
+        "traccion": "4x2 / 4x4",
+        "asientos": 5,
+        "configuracion": "Cabina simple o doble"
+      },
+      "highlights": [
+        "Motor Mitsubishi probado",
+        "Versiones 4x2 y 4x4",
+        "Cabina simple o doble",
+        "Capacidad de carga útil alta"
+      ],
+      "competitors": ["toyota-hilux", "ford-ranger", "mitsubishi-l200"]
+    },
+    {
+      "id": "maxus-t90",
+      "brand": "Maxus",
+      "name": "Maxus T90",
+      "tagline": "Pickup premium, equipamiento de SUV.",
+      "bodyType": "Pickup Premium",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t90.jpg",
+      "specs": {
+        "motor": "2.0L turbo",
+        "potencia": "215 hp",
+        "torque": "480 Nm",
+        "transmision": "AT 8 vel.",
+        "traccion": "4x4",
+        "asientos": 5
+      },
+      "highlights": [
+        "Equipamiento de lujo",
+        "Pantalla de 12.3\"",
+        "Suspensión multi-link trasera",
+        "Asistencias de manejo"
+      ],
+      "competitors": ["toyota-hilux", "ford-ranger", "chevrolet-s10"]
+    },
+    {
+      "id": "maxus-g10",
+      "brand": "Maxus",
+      "name": "Maxus G10",
+      "tagline": "Van familiar y ejecutiva.",
+      "bodyType": "Van",
+      "category": "commercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-g10.jpg",
+      "specs": {
+        "motor": "2.0L turbo",
+        "potencia": "215 hp",
+        "torque": "350 Nm",
+        "transmision": "AT 8 vel.",
+        "traccion": "4x2",
+        "asientos": "7-9"
+      },
+      "highlights": [
+        "Configuración multipropósito",
+        "Espacio de carga flexible",
+        "Confort tipo SUV",
+        "Ideal flotas ejecutivas"
+      ],
+      "competitors": ["hyundai-staria", "kia-carnival"]
+    },
+    {
+      "id": "maxus-v80",
+      "brand": "Maxus",
+      "name": "Maxus V80",
+      "tagline": "Van de carga para flotas comerciales.",
+      "bodyType": "Van de Carga",
+      "category": "commercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-v80.jpg",
+      "specs": {
+        "motor": "2.5L diésel",
+        "potencia": "136 hp",
+        "torque": "330 Nm",
+        "transmision": "MT 6 vel.",
+        "traccion": "4x2",
+        "configuracion": "Carga / pasajeros"
+      },
+      "highlights": [
+        "Carga útil elevada",
+        "Costos de operación bajos",
+        "Múltiples configuraciones",
+        "Ideal logística urbana"
+      ],
+      "competitors": ["hyundai-h1-cargo", "ford-transit"]
+    },
+    {
+      "id": "maxus-serie-c",
+      "brand": "Maxus",
+      "name": "Maxus Serie C",
+      "tagline": "Camión liviano para reparto urbano.",
+      "bodyType": "Camión Liviano",
+      "category": "commercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-serie-c.jpg",
+      "specs": {
+        "motor": "2.5L diésel turbo",
+        "potencia": "136 hp",
+        "torque": "330 Nm",
+        "transmision": "MT 5 vel.",
+        "traccion": "4x2",
+        "configuracion": "Cabina simple"
+      },
+      "highlights": [
+        "Capacidad de carga 3.5 t",
+        "Cabina ergonómica",
+        "Bajo consumo",
+        "Mantenimiento sencillo"
+      ],
+      "competitors": ["hino-300", "foton-aumark"]
+    },
+    {
+      "id": "maxus-serie-s",
+      "brand": "Maxus",
+      "name": "Maxus Serie S",
+      "tagline": "Camión mediano para distribución y obra.",
+      "bodyType": "Camión Mediano",
+      "category": "commercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-serie-s.jpg",
+      "specs": {
+        "motor": "Diésel turbo",
+        "potencia": "170 hp",
+        "torque": "500 Nm",
+        "transmision": "MT 6 vel.",
+        "traccion": "4x2",
+        "configuracion": "Cabina simple"
+      },
+      "highlights": [
+        "Capacidad media",
+        "Frenos ABS de serie",
+        "Caja de cambios reforzada",
+        "Repuestos disponibles"
+      ],
+      "competitors": ["hino-500", "foton-auman"]
+    },
+    {
+      "id": "maxus-serie-h",
+      "brand": "Maxus",
+      "name": "Maxus Serie H",
+      "tagline": "Camión pesado para alta exigencia.",
+      "bodyType": "Camión Pesado",
+      "category": "commercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-serie-h.jpg",
+      "specs": {
+        "motor": "Diésel turbo",
+        "potencia": "240 hp",
+        "torque": "850 Nm",
+        "transmision": "MT 9 vel.",
+        "traccion": "4x2 / 6x4",
+        "configuracion": "Cabina simple"
+      },
+      "highlights": [
+        "Alto torque para carga pesada",
+        "Cabina con litera disponible",
+        "Frenos ABS + EBS",
+        "Construcción reforzada"
+      ],
+      "competitors": ["hino-700", "foton-auman-pesado"]
+    }
+  ]
+}
