@@ -13,7 +13,7 @@
       "bodyType": "Hatchback",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3.png",
+      "image": "static/img/models/mg-3.jpg",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "108 hp",
@@ -43,7 +43,7 @@
       "bodyType": "Hatchback Híbrido",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3-hybrid.png",
+      "image": "static/img/models/mg-3-hybrid.jpg",
       "specs": {
         "motor": "1.5L híbrido full",
         "potencia": "194 hp combinados",
@@ -72,7 +72,7 @@
       "bodyType": "Sedán",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-5.png",
+      "image": "static/img/models/mg-5.jpg",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "115 hp",
@@ -130,7 +130,7 @@
       "bodyType": "SUV Compacta",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-zs.png",
+      "image": "static/img/models/mg-zs.jpg",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "115 hp",
@@ -276,7 +276,7 @@
       "bodyType": "Roadster Eléctrico",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-cyberster.png",
+      "image": "static/img/models/mg-cyberster.jpg",
       "specs": {
         "motor": "Doble motor eléctrico",
         "potencia": "536 hp",
@@ -304,7 +304,7 @@
       "bodyType": "SUV",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-d60.png",
+      "image": "static/img/models/maxus-d60.jpg",
       "specs": {
         "motor": "1.5L turbo",
         "potencia": "169 hp",
@@ -332,7 +332,7 @@
       "bodyType": "SUV 7 puestos",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-d90.png",
+      "image": "static/img/models/maxus-d90.jpg",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "218 hp",
@@ -360,7 +360,7 @@
       "bodyType": "Pickup",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-t60.png",
+      "image": "static/img/models/maxus-t60.jpg",
       "specs": {
         "motor": "2.4L gasolina (Mitsubishi)",
         "potencia": "136 hp",
@@ -390,7 +390,7 @@
       "bodyType": "Pickup Premium",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/maxus-t90.png",
+      "image": "static/img/models/maxus-t90.jpg",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "215 hp",
@@ -419,7 +419,7 @@
       "bodyType": "Van",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-g10.png",
+      "image": "static/img/models/maxus-g10.jpg",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "215 hp",
@@ -447,7 +447,7 @@
       "bodyType": "Van de Carga",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-v80.png",
+      "image": "static/img/models/maxus-v80.jpg",
       "specs": {
         "motor": "2.5L diésel",
         "potencia": "136 hp",
@@ -475,7 +475,7 @@
       "bodyType": "Camión Liviano",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-c.png",
+      "image": "static/img/models/maxus-serie-c.jpg",
       "specs": {
         "motor": "2.5L diésel turbo",
         "potencia": "136 hp",
@@ -503,7 +503,7 @@
       "bodyType": "Camión Mediano",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-s.png",
+      "image": "static/img/models/maxus-serie-s.jpg",
       "specs": {
         "motor": "Diésel turbo",
         "potencia": "170 hp",
@@ -531,7 +531,7 @@
       "bodyType": "Camión Pesado",
       "category": "commercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-serie-h.png",
+      "image": "static/img/models/maxus-serie-h.jpg",
       "specs": {
         "motor": "Diésel turbo",
         "potencia": "240 hp",
