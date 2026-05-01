@@ -40,6 +40,22 @@
   </form>
 </template>
 
+<template id="tpl-repuestos-form">
+  <form class="chat__leadform">
+    <h4>Solicitar repuesto</h4>
+    <label>Modelo y año <input name="vehicle" required minlength="2" maxlength="80" placeholder="Ej. MG ZS 2024"></label>
+    <label>Repuesto que necesitas <textarea name="part" rows="2" required minlength="3" maxlength="400" placeholder="Pastillas de freno, batería, kit de distribución..."></textarea></label>
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <fieldset class="chat__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <button type="submit">Enviar solicitud</button>
+  </form>
+</template>
+
 <template id="tpl-service-form">
   <form class="chat__leadform">
     <h4>Agendar servicio</h4>

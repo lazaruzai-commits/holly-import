@@ -137,9 +137,11 @@
     chips([
       { label: "Compra", value: "compra" },
       { label: "Servicios", value: "servicios" },
+      { label: "Repuestos", value: "repuestos" },
     ], (v) => {
       if (v === "compra") enterCompra();
-      else enterServicios();
+      else if (v === "servicios") enterServicios();
+      else enterRepuestos();
     });
   }
 
@@ -300,6 +302,67 @@
       } catch {
         node.querySelector("button[type=submit]").disabled = false;
         botBubble(`<p>No se pudo agendar. Intenta de nuevo o llámanos directamente.</p>`);
+      }
+    });
+  }
+
+  // ---------- repuestos flow ----------
+  async function enterRepuestos() {
+    state = "repuestos-brand";
+    await pause(300);
+    botBubble(`<p>Perfecto. ¿Para qué marca necesitas el repuesto?</p>`);
+    chips([
+      { label: "MG", value: "MG" },
+      { label: "Maxus", value: "Maxus" },
+      { label: "Toyota", value: "Toyota" },
+      { label: "Otra marca", value: "Otro" },
+    ], (brand) => {
+      context.brand = brand;
+      showRepuestosForm();
+    });
+  }
+
+  function showRepuestosForm() {
+    state = "repuestos-form";
+    const tpl = document.getElementById("tpl-repuestos-form");
+    const node = tpl.content.firstElementChild.cloneNode(true);
+    body.appendChild(node);
+    scrollToBottom();
+    node.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(node);
+      const data = Object.fromEntries(fd.entries());
+      node.querySelector("button[type=submit]").disabled = true;
+      const notes = `Vehículo: ${data.vehicle}\nRepuesto: ${data.part}`;
+      try {
+        const r = await fetch(BASE + "/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            session_id: sessionId,
+            flow: "repuestos",
+            brand: context.brand || "",
+            name: data.name,
+            phone: data.phone,
+            contact_pref: data.contact_pref || "call_text",
+            notes,
+          }),
+        });
+        if (!r.ok) throw new Error("err");
+        node.replaceWith(Object.assign(document.createElement("div"), {
+          className: "chat__msg chat__msg--bot",
+          innerHTML: "<p>¡Listo! Un asesor te contactará pronto con disponibilidad y precio.</p>"
+        }));
+        scrollToBottom();
+        await pause(400);
+        botBubble(`<p>¿Algo más en lo que pueda ayudarte?</p>`);
+        chips([
+          { label: "Otra consulta", value: "free" },
+          { label: "Cerrar chat", value: "close" },
+        ], (v) => v === "free" ? enterFreeText("Repuesto solicitado. Conversación libre.") : close());
+      } catch {
+        node.querySelector("button[type=submit]").disabled = false;
+        botBubble(`<p>No se pudo enviar. Intenta de nuevo o llámanos directamente.</p>`);
       }
     });
   }

@@ -23,7 +23,15 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
-  background: var(--c-bg);
+  /* Layered background: a fixed multi-stop gradient gives the page depth
+     without a flat black rectangle. A faint warm halo at the top and a
+     cool sink at the bottom add subtle polish; the linear vertical drop
+     lightens the centre of the screen so cards/sections still pop on it. */
+  background:
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(70, 55, 75, .22) 0%, transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 110%, rgba(30, 25, 35, .35) 0%, transparent 70%),
+    linear-gradient(180deg, #1c1c24 0%, #16161e 38%, #111118 70%, #0c0c12 100%);
+  background-attachment: fixed;
   color: var(--c-text);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 16px;
@@ -517,9 +525,9 @@ p  { margin: 0 0 .8em; }
 .chat__rail {
   position: absolute; right: 0; top: 0;
   height: 100%;
-  width: 4px; padding: 0; border: 0;
-  background: linear-gradient(180deg, transparent 0%, var(--c-crimson) 25%, var(--c-crimson) 75%, transparent 100%);
-  box-shadow: 0 0 14px rgba(200,16,46,.7), 0 0 6px rgba(200,16,46,.5);
+  width: 12px; padding: 0; border: 0;
+  background: linear-gradient(180deg, transparent 0%, var(--c-crimson) 18%, var(--c-crimson-2) 50%, var(--c-crimson) 82%, transparent 100%);
+  box-shadow: 0 0 28px rgba(200,16,46,.85), 0 0 14px rgba(200,16,46,.7), inset 0 0 10px rgba(255,80,100,.5);
   cursor: pointer;
   pointer-events: auto;
   overflow: hidden;
@@ -527,8 +535,16 @@ p  { margin: 0 0 .8em; }
   animation: rail-pulse 2.6s ease-in-out infinite;
 }
 @keyframes rail-pulse {
-  0%, 100% { box-shadow: 0 0 10px rgba(200,16,46,.55), 0 0 4px rgba(200,16,46,.45); }
-  50%      { box-shadow: 0 0 22px rgba(200,16,46,.95), 0 0 12px rgba(200,16,46,.7); }
+  0%, 100% {
+    box-shadow: 0 0 22px rgba(200,16,46,.7),
+                0 0 10px rgba(200,16,46,.55),
+                inset 0 0 8px rgba(255,80,100,.4);
+  }
+  50% {
+    box-shadow: 0 0 38px rgba(220,20,60,1),
+                0 0 22px rgba(200,16,46,.9),
+                inset 0 0 14px rgba(255,120,140,.7);
+  }
 }
 /* When the chat is fully open, hide the rail (the panel takes over) */
 .chat.is-open .chat__rail { opacity: 0; pointer-events: none; transition: opacity .2s; }
@@ -538,9 +554,9 @@ p  { margin: 0 0 .8em; }
   animation: rail-flare .8s ease-out forwards, rail-pulse 2.6s ease-in-out infinite .8s;
 }
 @keyframes rail-flare {
-  0%   { box-shadow: 0 0 6px rgba(200,16,46,.5); }
-  40%  { box-shadow: 0 0 40px rgba(200,16,46,1), 0 0 80px rgba(200,16,46,.7); width: 6px; }
-  100% { box-shadow: 0 0 14px rgba(200,16,46,.7); width: 4px; }
+  0%   { box-shadow: 0 0 18px rgba(200,16,46,.7); }
+  40%  { box-shadow: 0 0 60px rgba(220,20,60,1), 0 0 110px rgba(200,16,46,.7); width: 18px; }
+  100% { box-shadow: 0 0 28px rgba(200,16,46,.85); width: 12px; }
 }
 
 /* Hover: rail expands to a 30% peek panel showing the glowing CTA */
@@ -589,10 +605,10 @@ p  { margin: 0 0 .8em; }
 }
 
 @media (max-width: 600px) {
-  /* The rail is too thin to tap on touch; widen the hit area slightly and
-     skip the 30% peek (the FAB handles touch chat opening). */
-  .chat__rail { width: 6px; }
-  .chat__rail:hover { width: 6px; background: linear-gradient(180deg, transparent, var(--c-crimson), transparent); }
+  /* On touch widths the rail still draws the eye but doesn't peek — the
+     FAB is the primary chat trigger there. */
+  .chat__rail { width: 8px; }
+  .chat__rail:hover { width: 8px; background: linear-gradient(180deg, transparent, var(--c-crimson), transparent); }
   .chat__rail:hover .chat__rail-label { opacity: 0; }
 }
 
