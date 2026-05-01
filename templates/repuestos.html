@@ -1,0 +1,136 @@
+{% extends "_base.html" %}
+{% block title %}Repuestos — Holly Import{% endblock %}
+{% block description %}Repuestos originales MG y Maxus, además de repuestos para toda la línea Toyota. Pedidos y consultas atendidos por Holly Import en Los Palos Grandes, Caracas.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>Repuestos</h1>
+  <p class="lead">Repuestos originales para MG y Maxus directamente de fábrica, más línea completa para Toyota. Si no lo tenemos en sitio, lo conseguimos.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--three">
+    <article class="value rep-brand rep-brand--mg">
+      <h3>MG</h3>
+      <p><strong>Repuestos originales</strong> de toda la línea MG: MG 3, MG 5, MG GT, MG ZS, MG RX5, MG RX8, MG RX9, ZS EV y Cyberster.</p>
+      <ul class="card__bullets">
+        <li>Filtros, frenos, embrague</li>
+        <li>Suspensión y dirección</li>
+        <li>Eléctrico y electrónico</li>
+        <li>Accesorios y carrocería</li>
+      </ul>
+    </article>
+    <article class="value rep-brand rep-brand--maxus">
+      <h3>Maxus</h3>
+      <p><strong>Repuestos originales</strong> para SUVs (D60, D90), pickups (T60, T90), vans (G10, V80) y camiones (Serie C, S, H).</p>
+      <ul class="card__bullets">
+        <li>Mantenimiento programado</li>
+        <li>Tren de fuerza y diferencial</li>
+        <li>Sistemas hidráulicos y neumáticos</li>
+        <li>Repuestos para flota</li>
+      </ul>
+    </article>
+    <article class="value rep-brand rep-brand--toyota">
+      <h3>Toyota</h3>
+      <p><strong>Repuestos disponibles</strong> para toda la línea Toyota — Hilux, Fortuner, Corolla, Yaris, 4Runner, Land Cruiser y más.</p>
+      <ul class="card__bullets">
+        <li>Filtros y consumibles</li>
+        <li>Sistema de frenos</li>
+        <li>Suspensión y amortiguadores</li>
+        <li>Repuestos eléctricos</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="section__head section__head--inline">
+    <h2>Categorías</h2>
+  </div>
+  <div class="grid grid--three">
+    <div class="value"><h3>Filtros</h3><p>Aceite, aire, combustible y polen — para mantenimiento programado.</p></div>
+    <div class="value"><h3>Frenos</h3><p>Pastillas, discos, tambores, líquido de frenos y kits completos.</p></div>
+    <div class="value"><h3>Suspensión</h3><p>Amortiguadores, resortes, rótulas, bujes y barras estabilizadoras.</p></div>
+    <div class="value"><h3>Motor y transmisión</h3><p>Correas, bandas, embragues, tensores, kits de distribución.</p></div>
+    <div class="value"><h3>Eléctrico</h3><p>Baterías, alternadores, sensores, bujías, cableado.</p></div>
+    <div class="value"><h3>Carrocería y accesorios</h3><p>Faros, espejos, parachoques, alfombras, racks y más.</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__head section__head--inline">
+    <h2>Solicita tu repuesto</h2>
+  </div>
+  <p class="lead">Cuéntanos qué buscas y un asesor de Holly Import te confirma disponibilidad, precio y tiempo de entrega.</p>
+  <form class="contact-form" id="parts-form" autocomplete="on">
+    <input type="hidden" name="flow" value="repuestos">
+    <label>Marca del vehículo
+      <select name="brand" required>
+        <option value="">Selecciona una marca</option>
+        <option value="MG">MG</option>
+        <option value="Maxus">Maxus</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Otro">Otra marca</option>
+      </select>
+    </label>
+    <label>Modelo y año <input name="vehicle" required minlength="2" maxlength="80" placeholder="Ej. MG ZS 2024 / Toyota Hilux 2018"></label>
+    <label>Repuesto que necesitas <textarea name="part" rows="3" required minlength="3" maxlength="400" placeholder="Ej. Pastillas de freno delanteras, batería 12V, kit de distribución..."></textarea></label>
+    <label>Nombre <input name="name" required minlength="2" maxlength="80"></label>
+    <label>Teléfono <input name="phone" required minlength="4" maxlength="30" inputmode="tel"></label>
+    <fieldset class="dialog__pref">
+      <legend>Preferencia de contacto</legend>
+      <label><input type="radio" name="contact_pref" value="call_text" checked> Llamada + Texto</label>
+      <label><input type="radio" name="contact_pref" value="text_only"> Solo texto</label>
+    </fieldset>
+    <button class="btn btn--primary" type="submit">Enviar solicitud</button>
+    <p class="dialog__status" id="parts-status" hidden></p>
+  </form>
+</section>
+
+<section class="section">
+  <div class="cta-band">
+    <div>
+      <h2>¿Prefieres conversar primero?</h2>
+      <p>Habla con un asesor por chat o WhatsApp y resolvemos tu consulta al momento.</p>
+    </div>
+    <button class="btn btn--primary" type="button" data-open-chat>Chat con Holly</button>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById("parts-form")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const fd = new FormData(f);
+  const status = document.getElementById("parts-status");
+  status.hidden = false; status.textContent = "Enviando…"; status.className = "dialog__status";
+  // Bundle parts-specific fields into the notes field so the existing
+  // /api/lead endpoint captures everything without backend schema changes.
+  const notes = `Vehículo: ${fd.get("vehicle")}\nRepuesto: ${fd.get("part")}`;
+  const body = {
+    flow: "repuestos",
+    brand: fd.get("brand") || "",
+    name: fd.get("name"),
+    phone: fd.get("phone"),
+    contact_pref: fd.get("contact_pref") || "call_text",
+    notes,
+  };
+  try {
+    const r = await fetch(window.HOLLY_BASE + "/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (!r.ok) throw new Error("err");
+    status.textContent = "Gracias. Un asesor de Holly Import te contactará pronto con disponibilidad y precio.";
+    status.classList.add("is-success");
+    f.reset();
+  } catch {
+    status.textContent = "No se pudo enviar. Intenta de nuevo o usa el chat.";
+    status.classList.add("is-error");
+  }
+});
+</script>
+{% endblock %}

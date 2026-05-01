@@ -133,6 +133,13 @@ async def page_servicio(request: Request):
     )
 
 
+@app.get("/repuestos", response_class=HTMLResponse)
+async def page_repuestos(request: Request):
+    return templates.TemplateResponse(
+        request, "repuestos.html", _ctx(request, page="repuestos"),
+    )
+
+
 @app.get("/promocion", response_class=HTMLResponse)
 async def page_promocion(request: Request):
     promo_models = [m for m in models_list() if m.get("promoEligible")]
