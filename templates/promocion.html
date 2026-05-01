@@ -64,7 +64,7 @@
         <h3 class="card__title">{{ m.name }}</h3>
         <p class="card__tag">{{ m.tagline }}</p>
         <div class="card__cta">
-          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Detalles</button>
+          <a class="btn btn--small" href="{{ root_path }}/modelos/{{ m.id }}">Detalles</a>
           <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
         </div>
       </div>

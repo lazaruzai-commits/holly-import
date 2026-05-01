@@ -1,0 +1,150 @@
+{% extends "_base.html" %}
+{% block title %}{{ model.brand }} {{ model.name }} — Holly Import{% endblock %}
+{% block description %}{{ model.tagline }} {{ model.brand }} {{ model.name }} disponible en Holly Import, Los Palos Grandes, Caracas.{% endblock %}
+
+{% set badge_labels = {
+  'mejor-valor': 'Mejor valor',
+  'mas-equipado': 'Más equipado',
+  'mas-potencia': 'Mayor potencia',
+  'mas-economico': 'Más económico'
+} %}
+
+{% block content %}
+<nav class="crumbs" aria-label="Migas de pan">
+  <a href="{{ root_path }}/">Inicio</a>
+  <span>›</span>
+  <a href="{{ root_path }}/modelos">Vehículos</a>
+  <span>›</span>
+  <a href="{{ root_path }}/modelos?marca={{ model.brand }}">{{ model.brand }}</a>
+  <span>›</span>
+  <strong>{{ model.name }}</strong>
+</nav>
+
+<section class="model-hero">
+  <div class="model-hero__media">
+    <img src="{{ root_path }}/{{ model.image }}" alt="{{ model.brand }} {{ model.name }}">
+    {% if model.promoEligible %}
+    <span class="model-hero__promo">PROMO Asegúrate con 500</span>
+    {% endif %}
+  </div>
+  <div class="model-hero__content">
+    <span class="card__brand">{{ model.brand }}</span>
+    <h1 class="model-hero__title">{{ model.name }}</h1>
+    <p class="model-hero__tag">{{ model.tagline }}</p>
+    <ul class="model-hero__strip">
+      {% if model.specs.potencia %}<li><strong>{{ model.specs.potencia }}</strong>Potencia</li>{% endif %}
+      {% if model.specs.motor %}<li><strong>{{ model.specs.motor }}</strong>Motor</li>{% endif %}
+      {% if model.specs.transmision %}<li><strong>{{ model.specs.transmision }}</strong>Transmisión</li>{% endif %}
+      {% if model.specs.autonomia %}<li><strong>{{ model.specs.autonomia }}</strong>Autonomía</li>{% endif %}
+      {% if model.specs.traccion %}<li><strong>{{ model.specs.traccion }}</strong>Tracción</li>{% endif %}
+      {% if model.specs.asientos %}<li><strong>{{ model.specs.asientos }}</strong>Asientos</li>{% endif %}
+    </ul>
+    <div class="model-hero__cta">
+      <button class="btn btn--primary" type="button" data-open-chat data-chat-model="{{ model.id }}">Prueba de manejo</button>
+      <button class="btn btn--ghost" type="button" data-ask-price="{{ model.id }}">Solicitar precio</button>
+    </div>
+  </div>
+</section>
+
+{% if model.highlights %}
+<section class="section section--alt">
+  <h2>Equipamiento destacado</h2>
+  <ul class="model-highlights">
+    {% for h in model.highlights %}<li>{{ h }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<section class="section">
+  <h2>Especificaciones</h2>
+  <table class="model-specs">
+    <tbody>
+      <tr><th>Marca</th><td>{{ model.brand }}</td></tr>
+      <tr><th>Modelo</th><td>{{ model.name }}</td></tr>
+      <tr><th>Tipo de carrocería</th><td>{{ model.bodyType }}</td></tr>
+      {% if model.specs.motor %}<tr><th>Motor</th><td>{{ model.specs.motor }}</td></tr>{% endif %}
+      {% if model.specs.potencia %}<tr><th>Potencia</th><td>{{ model.specs.potencia }}</td></tr>{% endif %}
+      {% if model.specs.torque %}<tr><th>Torque</th><td>{{ model.specs.torque }}</td></tr>{% endif %}
+      {% if model.specs.transmision %}<tr><th>Transmisión</th><td>{{ model.specs.transmision }}</td></tr>{% endif %}
+      {% if model.specs.traccion %}<tr><th>Tracción</th><td>{{ model.specs.traccion }}</td></tr>{% endif %}
+      {% if model.specs.autonomia %}<tr><th>Autonomía</th><td>{{ model.specs.autonomia }}</td></tr>{% endif %}
+      {% if model.specs.asientos %}<tr><th>Asientos</th><td>{{ model.specs.asientos }}</td></tr>{% endif %}
+      {% if model.specs.rendimiento %}<tr><th>Rendimiento</th><td>{{ model.specs.rendimiento }}</td></tr>{% endif %}
+      {% if model.specs.configuracion %}<tr><th>Configuración</th><td>{{ model.specs.configuracion }}</td></tr>{% endif %}
+    </tbody>
+  </table>
+</section>
+
+{% if competitors %}
+<section class="section section--alt">
+  <div class="section__head section__head--inline">
+    <h2>Cómo se compara</h2>
+    <a class="btn btn--primary section__head-cta" href="{{ root_path }}/comparar?holly={{ model.id }}">Comparador completo →</a>
+  </div>
+  <div class="grid grid--three">
+    {% for c in competitors %}
+    <article class="value">
+      <span class="cmp__badge cmp__badge--{{ c.vsHolly.relativeBadge }}">{{ badge_labels.get(c.vsHolly.relativeBadge, 'Ventaja Holly') }}</span>
+      <span class="card__brand" style="display:block;margin-top:.5rem">{{ c.brand }}</span>
+      <h3>{{ c.model }}</h3>
+      <p>{{ c.vsHolly.summary }}</p>
+      {% if c.vsHolly.puntos %}
+      <ul class="card__bullets">
+        {% for p in c.vsHolly.puntos[:3] %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if model.promoEligible %}
+<section class="section">
+  <a class="cta-band cta-band--link" href="{{ root_path }}/promocion">
+    <div>
+      <span class="hero__eyebrow">Promoción vigente</span>
+      <h2 style="margin:0">Asegúrate con 500</h2>
+      <p>El {{ model.name }} aplica para nuestra promoción con planes a 6, 9 o 12 meses y hasta 30% de ahorro.</p>
+    </div>
+    <span class="btn btn--primary">Conocer plan →</span>
+  </a>
+</section>
+{% endif %}
+
+{% if related %}
+<section class="section">
+  <div class="section__head section__head--inline">
+    <h2>También te puede interesar <a class="section__more" href="{{ root_path }}/modelos">Ver todos →</a></h2>
+  </div>
+  <div class="grid grid--cards">
+    {% for r in related %}
+    <article class="card" data-model-id="{{ r.id }}" data-brand="{{ r.brand }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ r.image }}" alt="{{ r.brand }} {{ r.name }}" loading="lazy">
+        {% if r.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ r.brand }}</span>
+        <h3 class="card__title">{{ r.name }}</h3>
+        <p class="card__tag">{{ r.tagline }}</p>
+        <div class="card__cta">
+          <a class="btn btn--small btn--primary" href="{{ root_path }}/modelos/{{ r.id }}">Explorar</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="cta-band">
+    <div>
+      <h2>¿Listo para conocerlo en persona?</h2>
+      <p>Visítanos en Los Palos Grandes o agenda una prueba de manejo desde el chat.</p>
+    </div>
+    <button class="btn btn--primary" type="button" data-open-chat data-chat-model="{{ model.id }}">Chat con Holly</button>
+  </div>
+</section>
+{% endblock %}

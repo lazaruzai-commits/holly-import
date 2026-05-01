@@ -121,6 +121,33 @@ async def page_modelos(request: Request):
     )
 
 
+@app.get("/modelos/{model_id}", response_class=HTMLResponse)
+async def page_modelo_detail(request: Request, model_id: str):
+    m = model_by_id(model_id)
+    if not m:
+        raise HTTPException(404, "Modelo no encontrado")
+    competitors = []
+    for cid in m.get("competitors", []):
+        c = _COMPETITORS["competitors"].get(cid)
+        if c:
+            competitors.append({"id": cid, **c})
+    # "También te puede interesar" — same brand or shared category tag,
+    # excluding the current model.
+    tags = set(m.get("tags", []))
+    related = []
+    for x in models_list():
+        if x["id"] == m["id"]:
+            continue
+        if x["brand"] == m["brand"] or (set(x.get("tags", [])) & tags):
+            related.append(x)
+    related = related[:4]
+    return templates.TemplateResponse(
+        request, "modelo.html",
+        _ctx(request, page="modelos",
+             model=m, competitors=competitors, related=related),
+    )
+
+
 @app.get("/comparar", response_class=HTMLResponse)
 async def page_comparar(request: Request):
     return templates.TemplateResponse(

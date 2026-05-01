@@ -29,7 +29,7 @@
         </ul>
         <div class="hero-slide__cta">
           <button class="btn btn--primary" type="button" data-open-chat data-chat-model="{{ m.id }}">Prueba de manejo</button>
-          <button class="btn btn--ghost" type="button" data-model-detail="{{ m.id }}">Explorar</button>
+          <a class="btn btn--ghost" href="{{ root_path }}/modelos/{{ m.id }}">Explorar</a>
         </div>
         {% else %}
         <span class="hero__eyebrow">Conduce con estilo</span>
@@ -99,7 +99,7 @@
           <li><strong>Potencia:</strong> {{ m.specs.potencia }}</li>
         </ul>
         <div class="card__cta">
-          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Ver detalles</button>
+          <a class="btn btn--small" href="{{ root_path }}/modelos/{{ m.id }}">Ver detalles</a>
           <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
         </div>
       </div>

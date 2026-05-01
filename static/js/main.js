@@ -100,32 +100,15 @@
   const modelDialog = document.getElementById("model-dialog");
   const modelDialogBody = document.getElementById("model-dialog-body");
 
-  // Open the detail dialog when the user clicks anywhere on a card (but
-  // not on the inner buttons / chat triggers, which have their own actions).
-  document.addEventListener("click", async (e) => {
-    let id = null;
-    const trigger = e.target.closest("[data-model-detail]");
-    if (trigger) {
-      id = trigger.dataset.modelDetail;
-    } else {
-      const card = e.target.closest(".card[data-model-id], .card[data-brand]");
-      if (card && !e.target.closest("button, a")) {
-        id = card.dataset.modelId
-          || card.querySelector("[data-model-detail]")?.dataset.modelDetail
-          || card.querySelector("[data-ask-price]")?.dataset.askPrice;
-      }
-    }
-    if (!id || !modelDialog) return;
-    modelDialogBody.innerHTML = `<div class="mdl"><p>Cargando…</p></div>`;
-    modelDialog.showModal();
-    try {
-      const r = await fetch(BASE + "/api/models/" + encodeURIComponent(id));
-      const j = await r.json();
-      const m = j.model;
-      modelDialogBody.innerHTML = renderModelDetail(m);
-    } catch (err) {
-      modelDialogBody.innerHTML = `<div class="mdl"><p>No se pudo cargar el modelo.</p></div>`;
-    }
+  // Click anywhere on a card (but not on the inner buttons/links) navigates
+  // to the per-model page.
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".card[data-model-id]");
+    if (!card) return;
+    if (e.target.closest("button, a, dialog")) return;
+    const id = card.dataset.modelId
+      || card.querySelector("[data-ask-price]")?.dataset.askPrice;
+    if (id) location.href = BASE + "/modelos/" + encodeURIComponent(id);
   });
 
   function renderModelDetail(m) {
