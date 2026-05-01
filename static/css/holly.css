@@ -142,33 +142,37 @@ p  { margin: 0 0 .8em; }
 @media (max-width: 880px) {
   .hh__cmp-btn { display: none; }
 }
-.hh__chat-group { display: flex; align-items: center; gap: .55rem; }
-.hh__chat-thumb {
-  height: 56px; width: auto; display: block;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.4));
-  transition: transform .2s;
-}
-.hh__chat-group:hover .hh__chat-thumb { transform: translateY(-1px); }
-
 .hh__chat-btn {
-  background: linear-gradient(180deg, #8a8a96 0%, #585864 50%, #3e3e48 100%);
+  background: var(--c-crimson); color: white; border: 0; padding: .6rem 1rem;
+  border-radius: var(--r-sm); font-weight: 600; cursor: pointer; font-size: .9rem;
+  transition: background .15s;
+}
+.hh__chat-btn:hover { background: var(--c-crimson-2); }
+
+/* Silver metallic button variant (used on the hero-secondary "Chat con Holly") */
+.btn--silver {
+  background: linear-gradient(180deg, #9a9aa6 0%, #6a6a76 50%, #44444e 100%);
   color: white;
-  border: 1px solid #9a9aa6;
-  padding: .55rem 1rem;
-  border-radius: var(--r-sm);
-  font-weight: 600;
-  cursor: pointer;
-  font-size: .9rem;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  border: 1px solid #aaaab6;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.25),
-    inset 0 -1px 0 rgba(0,0,0,.3),
-    0 2px 6px rgba(0,0,0,.3);
+    inset 0 1px 0 rgba(255,255,255,.3),
+    inset 0 -1px 0 rgba(0,0,0,.35),
+    0 3px 8px rgba(0,0,0,.35);
   transition: filter .15s, border-color .15s;
 }
-.hh__chat-btn:hover {
-  filter: brightness(1.12);
-  border-color: var(--c-crimson);
+.btn--silver:hover { filter: brightness(1.12); border-color: var(--c-crimson); }
+
+/* Holly + car avatar shown next to the silver chat CTA on the homepage */
+.chat-group { display: inline-flex; align-items: center; gap: .9rem; }
+.chat-group__thumb {
+  height: 92px; width: auto; display: block;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
+  transition: transform .2s;
+}
+.chat-group:hover .chat-group__thumb { transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .chat-group__thumb { height: 70px; }
 }
 .hh__menu { display: none; background: transparent; color: white; border: 1px solid var(--c-line); border-radius: var(--r-sm); padding: .35rem .65rem; font-size: 1.5rem; cursor: pointer; }
 
