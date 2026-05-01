@@ -95,9 +95,17 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
 async def page_inicio(request: Request):
     featured = [m for m in models_list() if m["id"] in
                 ("mg-rx9", "mg-3-hybrid", "maxus-t90", "mg-zs", "maxus-d90", "mg-cyberster")]
-    slide_ids = ("mg-rx9", "mg-rx8", "maxus-d90", "mg-cyberster", "maxus-t90")
     by_id = {m["id"]: m for m in models_list()}
-    slides = [by_id[i] for i in slide_ids if i in by_id]
+    # Hero slider — videos sorted lightest first so the page becomes interactive
+    # quickly and heavier clips finish buffering while the user watches the first one.
+    # Generic "hero" slide (no model) fronts a Holly Import brand intro.
+    slides = [
+        {"id": "mg-3",   "video": "static/video/mg-3.mp4",   "model": by_id.get("mg-3")},
+        {"id": "mg-rx9", "video": "static/video/mg-rx9.mp4", "model": by_id.get("mg-rx9")},
+        {"id": "mg-rx5", "video": "static/video/mg-rx5.mp4", "model": by_id.get("mg-rx5")},
+        {"id": "hero",   "video": "static/video/hero.mp4",   "model": None},
+        {"id": "mg-5",   "video": "static/video/mg-5.mp4",   "model": by_id.get("mg-5")},
+    ]
     return templates.TemplateResponse(
         request, "inicio.html",
         _ctx(request, page="inicio", featured=featured, slides=slides),

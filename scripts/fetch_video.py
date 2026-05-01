@@ -18,7 +18,14 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "static" / "video"
 
 SOURCES = {
-    "hero.mp4": "https://mgmotortt.com/wp-content/uploads/2025/07/Homepage-video2.mp4",
+    # Generic brand-intro footage (mgmotortt.com)
+    "hero.mp4":   "https://mgmotortt.com/wp-content/uploads/2025/07/Homepage-video2.mp4",
+    # Model-specific footage (mgmotor.me global media hub)
+    "mg-3.mp4":   "https://media-hub-prod.mgmotor.me/video/mg3/mg3-urbanpower-desktop.mp4",
+    "mg-5.mp4":   "https://media-hub-prod.mgmotor.me/video/mg5/mg5-mask-desktop.mp4",
+    "mg-rx9.mp4": "https://media-hub-prod.mgmotor.me/video/rx9/rx9-hero-desktop.mp4",
+    # mg-rx5 footage from sister-dealer site (Saint Martin Cars), wixstatic CDN
+    "mg-rx5.mp4": "https://video.wixstatic.com/video/35ad1c_d17b0654d1304257993d7920231457a2/720p/mp4/file.mp4",
 }
 
 

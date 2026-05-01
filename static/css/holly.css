@@ -91,7 +91,7 @@ p  { margin: 0 0 .8em; }
   transition: opacity .15s, transform .15s, visibility 0s;
 }
 .hh__dropdown a {
-  display: block; padding: .55rem 1.6rem .55rem 2rem;
+  display: block; padding: .55rem 1.6rem .55rem 2.6rem;
   color: var(--c-text); text-decoration: none; font-size: .9rem;
   border-bottom: 0;
 }

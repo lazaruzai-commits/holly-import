@@ -9,24 +9,38 @@
 <section class="hero-slider" id="hero-slider" aria-roledescription="carrusel" aria-label="Modelos destacados">
   <div class="hero-slider__track">
     {% for s in slides %}
+    {% set m = s.model %}
     <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
-      <img class="hero-slide__bg"
-           src="{{ root_path }}/{{ s.image }}" alt="{{ s.brand }} {{ s.name }}"
-           loading="{% if loop.first %}eager{% else %}lazy{% endif %}">
+      <video class="hero-slide__bg"
+             muted loop playsinline preload="auto"
+             {% if loop.first %}autoplay{% endif %}
+             {% if m %}poster="{{ root_path }}/{{ m.image }}"{% endif %}>
+        <source src="{{ root_path }}/{{ s.video }}" type="video/mp4">
+      </video>
       <div class="hero-slide__shade"></div>
       <div class="hero-slide__content">
-        <span class="hero__eyebrow">{{ s.brand }}</span>
-        <h1 class="hero-slide__title">{{ s.name }}</h1>
-        <p class="hero-slide__lead">{{ s.tagline }}</p>
+        {% if m %}
+        <span class="hero__eyebrow">{{ m.brand }}</span>
+        <h1 class="hero-slide__title">{{ m.name }}</h1>
+        <p class="hero-slide__lead">{{ m.tagline }}</p>
         <ul class="hero-slide__specs">
-          <li><strong>{{ s.specs.potencia }}</strong> Potencia</li>
-          <li><strong>{{ s.specs.motor }}</strong> Motor</li>
-          {% if s.specs.transmision %}<li><strong>{{ s.specs.transmision }}</strong> Transmisión</li>{% endif %}
+          <li><strong>{{ m.specs.potencia }}</strong> Potencia</li>
+          <li><strong>{{ m.specs.motor }}</strong> Motor</li>
+          {% if m.specs.transmision %}<li><strong>{{ m.specs.transmision }}</strong> Transmisión</li>{% endif %}
         </ul>
         <div class="hero-slide__cta">
-          <button class="btn btn--primary" type="button" data-ask-price="{{ s.id }}">Solicitar precio</button>
-          <button class="btn btn--ghost" type="button" data-model-detail="{{ s.id }}">Ver detalles</button>
+          <button class="btn btn--primary" type="button" data-open-chat data-chat-model="{{ m.id }}">Prueba de manejo</button>
+          <button class="btn btn--ghost" type="button" data-model-detail="{{ m.id }}">Explorar</button>
         </div>
+        {% else %}
+        <span class="hero__eyebrow">Conduce con estilo</span>
+        <h1 class="hero-slide__title">Línea completa MG y Maxus</h1>
+        <p class="hero-slide__lead">Vehículos para cada ruta — desde citadinos eficientes hasta SUVs de lujo y pickups de trabajo. Visita nuestra sala en Los Palos Grandes.</p>
+        <div class="hero-slide__cta">
+          <a class="btn btn--primary" href="{{ root_path }}/modelos">Explorar línea</a>
+          <button class="btn btn--ghost" type="button" data-open-chat>Chat con Holly</button>
+        </div>
+        {% endif %}
       </div>
     </article>
     {% endfor %}
@@ -58,22 +72,6 @@
       <span class="promo-card__sub">1 plan, 3 opciones. Ahorra hasta 30%.</span>
       <span class="promo-card__cta">Conocer más →</span>
     </a>
-  </div>
-</section>
-
-<section class="hero-video" aria-label="Conoce la línea MG y Maxus en Holly Import">
-  <video class="hero-video__media" autoplay muted loop playsinline preload="metadata">
-    <source src="{{ root_path }}/static/video/hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-video__shade"></div>
-  <div class="hero-video__content">
-    <span class="hero__eyebrow">Conduce con estilo</span>
-    <h2 class="hero-video__title">Línea completa MG y Maxus</h2>
-    <p class="hero-video__lead">Vehículos para cada ruta — desde citadinos eficientes hasta SUVs de lujo y pickups de trabajo. Visita nuestra sala en Los Palos Grandes.</p>
-    <div class="hero-slide__cta">
-      <a class="btn btn--primary" href="{{ root_path }}/modelos">Explorar línea</a>
-      <button class="btn btn--ghost" type="button" data-open-chat>Chat con Holly</button>
-    </div>
   </div>
 </section>
 
