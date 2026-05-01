@@ -101,10 +101,22 @@
   const modelDialog = document.getElementById("model-dialog");
   const modelDialogBody = document.getElementById("model-dialog-body");
 
+  // Open the detail dialog when the user clicks anywhere on a card (but
+  // not on the inner buttons / chat triggers, which have their own actions).
   document.addEventListener("click", async (e) => {
+    let id = null;
     const trigger = e.target.closest("[data-model-detail]");
-    if (!trigger || !modelDialog) return;
-    const id = trigger.dataset.modelDetail;
+    if (trigger) {
+      id = trigger.dataset.modelDetail;
+    } else {
+      const card = e.target.closest(".card[data-model-id], .card[data-brand]");
+      if (card && !e.target.closest("button, a")) {
+        id = card.dataset.modelId
+          || card.querySelector("[data-model-detail]")?.dataset.modelDetail
+          || card.querySelector("[data-ask-price]")?.dataset.askPrice;
+      }
+    }
+    if (!id || !modelDialog) return;
     modelDialogBody.innerHTML = `<div class="mdl"><p>Cargando…</p></div>`;
     modelDialog.showModal();
     try {
@@ -124,9 +136,12 @@
     const highlights = (m.highlights || [])
       .map(h => `<li>${escapeHtml(h)}</li>`)
       .join("");
-    const promoTag = m.promoEligible
-      ? `<span class="card__badge" style="position:static;display:inline-block;margin-bottom:.5rem">Asegúrate con 500</span>` : "";
+    const promoBadge = m.promoEligible
+      ? `<span class="mdl__promo" title="Asegúrate con 500">PROMO</span>` : "";
+    const promoNote = m.promoEligible
+      ? `<p class="card__tag" style="color:var(--c-crimson-2);font-weight:600">Aplica Asegúrate con 500</p>` : "";
     return `
+      ${promoBadge}
       <div class="mdl">
         <div class="mdl__img">
           <img src="${BASE}/${escapeAttr(m.image)}" alt="${escapeAttr(m.name)}"
@@ -136,13 +151,13 @@
           <span class="card__brand">${escapeHtml(m.brand)}</span>
           <h3>${escapeHtml(m.name)}</h3>
           <p class="card__tag">${escapeHtml(m.tagline || "")}</p>
-          ${promoTag}
+          ${promoNote}
           <ul class="mdl__specs">${specs}</ul>
           <h4 style="text-transform:none;letter-spacing:0;color:var(--c-white);font-family:Inter">Equipamiento destacado</h4>
           <ul class="mdl__highlights">${highlights}</ul>
           <div class="mdl__cta">
             <button class="btn btn--primary" type="button" data-ask-price="${escapeAttr(m.id)}" data-close-on-ask>Solicitar precio</button>
-            <button class="btn btn--ghost" type="button" data-open-chat data-chat-model="${escapeAttr(m.id)}">Hablar con asesor</button>
+            <button class="btn btn--ghost" type="button" data-open-chat data-chat-model="${escapeAttr(m.id)}">Chat con Holly</button>
           </div>
         </div>
       </div>`;

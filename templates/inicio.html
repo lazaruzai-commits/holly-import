@@ -45,7 +45,7 @@
   <div class="hero-secondary">
     <div>
       <span class="hero__eyebrow">Concesionario autorizado MG y Maxus</span>
-      <h2 class="hero-secondary__title">Tu próximo vehículo te espera en <span>Holly Import</span>.</h2>
+      <h2 class="hero-secondary__title">Tu próximo vehículo te espera en <span class="hero-secondary__brand">Holly&nbsp;Import</span>.</h2>
       <p class="hero-secondary__lead">Línea completa MG y Maxus en Los Palos Grandes. Ventas, servicio técnico y planes de financiamiento.</p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="{{ root_path }}/modelos">Ver vehículos</a>
@@ -62,9 +62,8 @@
 </section>
 
 <section class="section">
-  <div class="section__head">
-    <h2>Modelos destacados</h2>
-    <a class="section__more" href="{{ root_path }}/modelos">Ver todos →</a>
+  <div class="section__head section__head--inline">
+    <h2>Modelos destacados <a class="section__more" href="{{ root_path }}/modelos">Ver todos →</a></h2>
   </div>
   <div class="grid grid--cards">
     {% for m in featured %}

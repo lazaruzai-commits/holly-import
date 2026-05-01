@@ -72,14 +72,21 @@ SOURCES: dict[str, list[str]] = {
     "maxus-serie-c":   ["https://maxusve.com/wp-content/uploads/2024/07/Maxus-C100.png",
                         "https://maxusve.com/wp-content/uploads/2024/07/C_100.png"],
     "maxus-serie-s":   ["https://maxusve.com/wp-content/uploads/2024/07/S50.png"],
-    "maxus-serie-h":   ["https://maxusve.com/wp-content/uploads/2024/07/SERIE__H4.png",
-                        "https://maxusve.com/wp-content/uploads/2024/07/SERIE__H6.png",
-                        "https://maxusve.com/wp-content/uploads/2024/07/SERIE__H-1.png"],
+    # The "SERIE__H*" filenames on the dealer site are wordmark placeholders;
+    # this opaquely-named file is the only real product photo of the truck.
+    "maxus-serie-h":   ["https://maxusve.com/wp-content/uploads/2024/07/19163747gdhg.png"],
 }
 
 # Normalization target — every gallery image lands at this exact size + backdrop.
 TARGET_W, TARGET_H = 1200, 750
 BG_RGB = (24, 24, 28)   # site card colour (#18181c) so cards look seamless
+
+# Mechanism for mirroring photos that face the wrong direction. Currently
+# empty: a naive horizontal flip mirrors brand badges and license plates,
+# which reads worse than mixed orientations. To get uniform direction,
+# either source matching photos via process_local_images.py or replace
+# specific URLs above with right-facing variants.
+FLIP_HORIZONTAL: set[str] = set()
 
 UA = "Mozilla/5.0 (compatible; HollyImportFetcher/1.0)"
 
@@ -105,15 +112,12 @@ def ext_from_url(url: str) -> str:
     return suffix if suffix in (".jpg", ".jpeg", ".png", ".webp") else ".png"
 
 
-def normalize_image(path: Path) -> tuple[bool, str]:
+def normalize_image(path: Path, model_id: str = "") -> tuple[bool, str]:
     """Resize + pad an image to TARGET_W x TARGET_H on the site backdrop.
 
     Scale-to-fit (never crop, never upscale beyond source); centre on a solid
-    #18181c canvas. Output is JPEG so all gallery images end up the same
-    format and roughly the same byte size, which makes the page network
-    cost predictable.
-
-    On success the file is replaced in-place with a .jpg suffix.
+    #18181c canvas. If model_id is in FLIP_HORIZONTAL the image is mirrored
+    so the car ends up facing right like the rest. Output is JPEG.
     """
     if not HAS_PIL:
         return False, "Pillow not installed (pip install Pillow)"
@@ -121,6 +125,10 @@ def normalize_image(path: Path) -> tuple[bool, str]:
         img = Image.open(path).convert("RGBA")
     except Exception as e:
         return False, f"open: {e}"
+
+    if model_id in FLIP_HORIZONTAL:
+        from PIL import ImageOps
+        img = ImageOps.mirror(img)
 
     src_w, src_h = img.size
     scale = min(TARGET_W / src_w, TARGET_H / src_h, 1.0)
@@ -202,7 +210,7 @@ def main(argv: list[str]) -> int:
             continue
 
         if do_norm:
-            success, info = normalize_image(raw)
+            success, info = normalize_image(raw, model_id=mid)
             if success:
                 print(f"     -> normalized {info}")
                 ok += 1

@@ -30,11 +30,13 @@
           <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?marca=Maxus">Maxus</a></li>
         </ul>
       </div>
-      <a href="{{ root_path }}/comparar" class="{% if page=='comparar' %}is-active{% endif %}">Comparar</a>
       <a href="{{ root_path }}/servicio" class="{% if page=='servicio' %}is-active{% endif %}">Taller</a>
-      <a href="{{ root_path }}/promocion" class="{% if page=='promocion' %}is-active{% endif %}">Asegúrate con 500</a>
+      <a href="{{ root_path }}/promocion" class="hh__promo-link {% if page=='promocion' %}is-active{% endif %}">
+        Asegúrate con 500<span class="hh__promo-badge" aria-label="Promoción">PROMO</span>
+      </a>
       <a href="{{ root_path }}/contacto" class="{% if page=='contacto' %}is-active{% endif %}">Contacto</a>
     </nav>
+    <a href="{{ root_path }}/comparar" class="hh__cmp-btn{% if page=='comparar' %} is-active{% endif %}">Comparar</a>
     <button class="hh__chat-btn" id="open-chat" type="button">
       Chat con Holly
     </button>
@@ -45,6 +47,46 @@
 <main>
   {% block content %}{% endblock %}
 </main>
+
+<section class="ig" aria-label="Holly Import en Instagram">
+  <div class="ig__head">
+    <div>
+      <span class="hero__eyebrow">Síguenos</span>
+      <h2 class="ig__title">@hollyimport en Instagram</h2>
+    </div>
+    <a class="btn btn--ghost" href="https://instagram.com/hollyimport" target="_blank" rel="noopener">Visitar perfil →</a>
+  </div>
+  <div class="ig__grid">
+    {% for post in ig_posts|default([
+      {"image": "static/img/models/mg-rx9.jpg",
+       "caption": "El nuevo MG RX9 ya está en sala. SUV insignia, 240 hp y suspensión adaptativa. Agenda una prueba de manejo.",
+       "tags": "#MG #RX9 #HollyImport"},
+      {"image": "static/img/models/maxus-t90.jpg",
+       "caption": "Maxus T90 — la pickup que combina la rudeza del trabajo con el confort de un SUV. 215 hp, 4x4, AT 8 vel.",
+       "tags": "#Maxus #T90 #Pickup"},
+      {"image": "static/img/models/mg-cyberster.jpg",
+       "caption": "Edición exclusiva: MG Cyberster eléctrico. 0–100 km/h en 3.2s, puertas tipo tijera, AWD. Cupos limitados.",
+       "tags": "#MG #Cyberster #EV"},
+    ]) %}
+    <a class="ig-card" href="https://instagram.com/hollyimport" target="_blank" rel="noopener">
+      <div class="ig-card__img">
+        <img src="{{ root_path }}/{{ post.image }}" alt="" loading="lazy">
+        <span class="ig-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </span>
+      </div>
+      <div class="ig-card__body">
+        <p class="ig-card__caption">{{ post.caption }}</p>
+        <span class="ig-card__tags">{{ post.tags }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
 
 <footer class="hf">
   <div class="hf__cols">
@@ -74,7 +116,7 @@
       <h4>Contacto</h4>
       <ul>
         <li><a href="{{ root_path }}/contacto">Formulario</a></li>
-        <li><button class="hf__link" type="button" data-open-chat>Chat en línea</button></li>
+        <li><a href="#" data-open-chat>Chat en línea</a></li>
       </ul>
     </div>
   </div>
