@@ -53,40 +53,35 @@
   <div class="ig__head">
     <div>
       <span class="hero__eyebrow">Síguenos</span>
-      <h2 class="ig__title">@hollyimport en Instagram</h2>
+      <h2 class="ig__title">@{{ site.instagram_handle }} en Instagram</h2>
     </div>
-    <a class="btn btn--ghost" href="https://instagram.com/hollyimport" target="_blank" rel="noopener">Visitar perfil →</a>
+    <a class="btn btn--primary" href="https://instagram.com/{{ site.instagram_handle }}" target="_blank" rel="noopener">Visitar perfil →</a>
   </div>
-  <div class="ig__grid">
-    {% for post in ig_posts|default([
-      {"image": "static/img/models/mg-rx9.jpg",
-       "caption": "El nuevo MG RX9 ya está en sala. SUV insignia, 240 hp y suspensión adaptativa. Agenda una prueba de manejo.",
-       "tags": "#MG #RX9 #HollyImport"},
-      {"image": "static/img/models/maxus-t90.jpg",
-       "caption": "Maxus T90 — la pickup que combina la rudeza del trabajo con el confort de un SUV. 215 hp, 4x4, AT 8 vel.",
-       "tags": "#Maxus #T90 #Pickup"},
-      {"image": "static/img/models/mg-cyberster.jpg",
-       "caption": "Edición exclusiva: MG Cyberster eléctrico. 0–100 km/h en 3.2s, puertas tipo tijera, AWD. Cupos limitados.",
-       "tags": "#MG #Cyberster #EV"},
-    ]) %}
-    <a class="ig-card" href="https://instagram.com/hollyimport" target="_blank" rel="noopener">
-      <div class="ig-card__img">
-        <img src="{{ root_path }}/{{ post.image }}" alt="" loading="lazy">
-        <span class="ig-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
-          </svg>
-        </span>
-      </div>
-      <div class="ig-card__body">
-        <p class="ig-card__caption">{{ post.caption }}</p>
-        <span class="ig-card__tags">{{ post.tags }}</span>
-      </div>
-    </a>
-    {% endfor %}
+  {% if site.instagram_widget_url %}
+  <div class="ig__embed">
+    <iframe src="{{ site.instagram_widget_url }}"
+            scrolling="no" allowtransparency="true" allow="encrypted-media"
+            class="lightwidget-widget"
+            style="width:100%; border:0; overflow:hidden;"
+            loading="lazy"
+            title="Feed de Instagram de Holly Import"></iframe>
   </div>
+  {% else %}
+  <a class="ig__cta" href="https://instagram.com/{{ site.instagram_handle }}" target="_blank" rel="noopener">
+    <span class="ig__cta-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </svg>
+    </span>
+    <div>
+      <strong>@{{ site.instagram_handle }}</strong>
+      <p>Sigue nuestras publicaciones más recientes — eventos, lanzamientos, entregas en sala y promociones vigentes.</p>
+    </div>
+    <span class="ig__cta-arrow">→</span>
+  </a>
+  {% endif %}
 </section>
 
 <footer class="hf">

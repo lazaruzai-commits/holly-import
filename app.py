@@ -48,6 +48,8 @@ SITE = {
     "phone": os.environ.get("SITE_PHONE", ""),
     "whatsapp": os.environ.get("SITE_WHATSAPP", ""),
     "telegram_handle": "@HollyImportBot",
+    "instagram_handle": os.environ.get("SITE_INSTAGRAM_HANDLE", "hollyimport"),
+    "instagram_widget_url": os.environ.get("INSTAGRAM_WIDGET_URL", "").strip(),
 }
 
 app = FastAPI(title="Holly Import")

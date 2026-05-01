@@ -389,7 +389,7 @@ p  { margin: 0 0 .8em; }
 .section--alt { background: var(--c-card); margin: 0; max-width: none; padding: 3rem 1rem; }
 .section--alt > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .section__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; }
-.section__head--inline { justify-content: flex-start; }
+.section__head--inline { justify-content: flex-start; gap: 1.2rem; flex-wrap: wrap; }
 .section__head--inline .section__more {
   margin-left: 1.2rem;
   font-size: .9rem;
@@ -399,6 +399,7 @@ p  { margin: 0 0 .8em; }
   text-transform: none;
   vertical-align: middle;
 }
+.section__head-cta { padding: .5rem 1rem; font-size: .9rem; }
 .section__more { color: var(--c-crimson-2); text-decoration: none; font-weight: 500; }
 .section__more:hover { text-decoration: underline; }
 
@@ -512,6 +513,32 @@ p  { margin: 0 0 .8em; }
   grid-template-columns: repeat(3, 1fr);
 }
 @media (max-width: 880px) { .ig__grid { grid-template-columns: 1fr; } }
+
+.ig__embed {
+  background: var(--c-card); border: 1px solid var(--c-line);
+  border-radius: var(--r-md); padding: 1rem; min-height: 360px;
+}
+.ig__embed iframe { display: block; min-height: 460px; }
+
+/* No widget URL configured: clean "follow us" CTA card instead of fake posts */
+.ig__cta {
+  display: flex; align-items: center; gap: 1.4rem;
+  background: linear-gradient(135deg, #1a0608 0%, #3a0a14 100%);
+  border: 1px solid var(--c-crimson);
+  border-radius: var(--r-lg);
+  padding: 1.6rem 2rem;
+  text-decoration: none; color: white;
+  transition: transform .2s, box-shadow .2s;
+}
+.ig__cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,16,46,.3); }
+.ig__cta-icon { color: var(--c-crimson-2); flex-shrink: 0; }
+.ig__cta strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: .04em; margin-bottom: .25rem; }
+.ig__cta p { color: var(--c-muted); margin: 0; font-size: .95rem; }
+.ig__cta-arrow { font-size: 1.6rem; color: var(--c-crimson-2); margin-left: auto; flex-shrink: 0; }
+@media (max-width: 600px) {
+  .ig__cta { flex-wrap: wrap; padding: 1.2rem; }
+  .ig__cta-arrow { display: none; }
+}
 
 .ig-card {
   background: var(--c-card); border: 1px solid var(--c-line);
