@@ -18,19 +18,42 @@
 
   // ---------- open / close ----------
   function open() {
+    chat.classList.remove("is-collapsing");
     chat.classList.add("is-open");
     chat.setAttribute("aria-hidden", "false");
     if (!body.children.length) renderStart();
   }
   function close() {
+    if (!chat.classList.contains("is-open")) return;
     chat.classList.remove("is-open");
+    chat.classList.add("is-collapsing");
     chat.setAttribute("aria-hidden", "true");
+    // Drop the collapsing flair class once the rail flare animation has run
+    setTimeout(() => chat.classList.remove("is-collapsing"), 900);
   }
 
   document.getElementById("open-chat")?.addEventListener("click", open);
   document.getElementById("close-chat")?.addEventListener("click", close);
-  chat.addEventListener("click", (e) => { if (e.target === chat) close(); });
+  document.getElementById("chat-rail")?.addEventListener("click", open);
+  document.getElementById("chat-overlay")?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && chat.classList.contains("is-open")) close(); });
+
+  // ---------- auto-open on first visit, collapse after 3s ----------
+  // sessionStorage flag prevents re-triggering on every page navigation.
+  const SEEN_KEY = "holly_chat_first_seen";
+  if (!sessionStorage.getItem(SEEN_KEY)) {
+    sessionStorage.setItem(SEEN_KEY, "1");
+    // Defer the first paint a tick so the rail can render in its starting
+    // state, then expand. This keeps the slide-in animation visible.
+    requestAnimationFrame(() => {
+      open();
+      setTimeout(() => {
+        // Only auto-collapse if the user hasn't already engaged with the
+        // chat (sent a message, picked a chip, etc).
+        if (state === "start" && !history.length) close();
+      }, 3000);
+    });
+  }
 
   document.addEventListener("click", (e) => {
     const trigger = e.target.closest("[data-open-chat]");

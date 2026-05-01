@@ -497,12 +497,79 @@ p  { margin: 0 0 .8em; }
 
 .chat {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,.55);
-  display: none; z-index: 100;
-  animation: chat-fade .15s ease-out;
+  z-index: 100;
+  pointer-events: none;   /* let clicks fall through except for the rail/panel/overlay */
 }
-.chat.is-open { display: block; }
-@keyframes chat-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.chat__overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,.55);
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s ease, visibility 0s linear .25s;
+}
+.chat.is-open .chat__overlay {
+  opacity: 1; visibility: visible;
+  transition: opacity .25s ease;
+  pointer-events: auto;
+}
+
+/* Always-visible glowing rail at the right edge */
+.chat__rail {
+  position: absolute; right: 0; top: 0;
+  height: 100%;
+  width: 4px; padding: 0; border: 0;
+  background: linear-gradient(180deg, transparent 0%, var(--c-crimson) 25%, var(--c-crimson) 75%, transparent 100%);
+  box-shadow: 0 0 14px rgba(200,16,46,.7), 0 0 6px rgba(200,16,46,.5);
+  cursor: pointer;
+  pointer-events: auto;
+  overflow: hidden;
+  transition: width .35s cubic-bezier(.2,.8,.2,1), background-color .25s, box-shadow .35s;
+  animation: rail-pulse 2.6s ease-in-out infinite;
+}
+@keyframes rail-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(200,16,46,.55), 0 0 4px rgba(200,16,46,.45); }
+  50%      { box-shadow: 0 0 22px rgba(200,16,46,.95), 0 0 12px rgba(200,16,46,.7); }
+}
+/* When the chat is fully open, hide the rail (the panel takes over) */
+.chat.is-open .chat__rail { opacity: 0; pointer-events: none; transition: opacity .2s; }
+
+/* As the chat collapses, the rail flares brightly for a beat */
+.chat.is-collapsing .chat__rail {
+  animation: rail-flare .8s ease-out forwards, rail-pulse 2.6s ease-in-out infinite .8s;
+}
+@keyframes rail-flare {
+  0%   { box-shadow: 0 0 6px rgba(200,16,46,.5); }
+  40%  { box-shadow: 0 0 40px rgba(200,16,46,1), 0 0 80px rgba(200,16,46,.7); width: 6px; }
+  100% { box-shadow: 0 0 14px rgba(200,16,46,.7); width: 4px; }
+}
+
+/* Hover: rail expands to a 30% peek panel showing the glowing CTA */
+.chat__rail:hover {
+  width: 30vw;
+  background: linear-gradient(270deg, rgba(200,16,46,.22) 0%, rgba(200,16,46,.05) 60%, transparent 100%);
+  box-shadow: 0 0 30px rgba(200,16,46,.6);
+}
+.chat__rail-label {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+  letter-spacing: .18em;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .25s .1s;
+  pointer-events: none;
+  text-shadow: 0 0 8px var(--c-crimson), 0 0 18px var(--c-crimson);
+}
+.chat__rail:hover .chat__rail-label {
+  opacity: 1;
+  animation: rail-text-glow 1.4s ease-in-out infinite;
+}
+@keyframes rail-text-glow {
+  0%, 100% { text-shadow: 0 0 8px var(--c-crimson), 0 0 18px var(--c-crimson); }
+  50%      { text-shadow: 0 0 18px var(--c-crimson), 0 0 36px var(--c-crimson), 0 0 60px rgba(200,16,46,.65); }
+}
 
 .chat__panel {
   position: absolute; right: 0; top: 0; bottom: 0;
@@ -510,9 +577,24 @@ p  { margin: 0 0 .8em; }
   background: var(--c-bg); border-left: 1px solid var(--c-line);
   display: flex; flex-direction: column;
   box-shadow: -10px 0 30px rgba(0,0,0,.5);
-  animation: chat-slide .25s cubic-bezier(.2,.8,.2,1);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), visibility 0s linear .35s;
+  pointer-events: auto;
 }
-@keyframes chat-slide { from { transform: translateX(100%); } to { transform: none; } }
+.chat.is-open .chat__panel {
+  transform: none;
+  visibility: visible;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+@media (max-width: 600px) {
+  /* The rail is too thin to tap on touch; widen the hit area slightly and
+     skip the 30% peek (the FAB handles touch chat opening). */
+  .chat__rail { width: 6px; }
+  .chat__rail:hover { width: 6px; background: linear-gradient(180deg, transparent, var(--c-crimson), transparent); }
+  .chat__rail:hover .chat__rail-label { opacity: 0; }
+}
 
 .chat__head {
   display: flex; align-items: center; gap: .8rem;
@@ -561,6 +643,10 @@ p  { margin: 0 0 .8em; }
 }
 .chat.is-open ~ .chat-fab,
 body:has(.chat.is-open) .chat-fab { display: none; }
+/* Desktop has the glowing right-edge rail; FAB only shown on touch widths */
+@media (min-width: 881px) {
+  .chat-fab { display: none; }
+}
 @media (max-width: 600px) {
   .chat-fab__label { display: none; }
   .chat-fab { padding: .25rem; }
