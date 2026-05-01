@@ -23,14 +23,20 @@
            width="600" height="140">
     </a>
     <nav class="hh__nav" aria-label="Principal">
-      <a href="{{ root_path }}/modelos" class="{% if page=='modelos' %}is-active{% endif %}">Modelos</a>
+      <div class="hh__nav-item hh__nav-item--has-dropdown">
+        <a href="{{ root_path }}/modelos" class="{% if page=='modelos' %}is-active{% endif %}">Vehículos<span class="hh__caret">▾</span></a>
+        <ul class="hh__dropdown" role="menu">
+          <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?marca=MG">MG</a></li>
+          <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?marca=Maxus">Maxus</a></li>
+        </ul>
+      </div>
       <a href="{{ root_path }}/comparar" class="{% if page=='comparar' %}is-active{% endif %}">Comparar</a>
-      <a href="{{ root_path }}/servicio" class="{% if page=='servicio' %}is-active{% endif %}">Servicio</a>
+      <a href="{{ root_path }}/servicio" class="{% if page=='servicio' %}is-active{% endif %}">Taller</a>
       <a href="{{ root_path }}/promocion" class="{% if page=='promocion' %}is-active{% endif %}">Asegúrate con 500</a>
       <a href="{{ root_path }}/contacto" class="{% if page=='contacto' %}is-active{% endif %}">Contacto</a>
     </nav>
     <button class="hh__chat-btn" id="open-chat" type="button">
-      Hablar con un asesor
+      Chat con Holly
     </button>
     <button class="hh__menu" id="open-menu" type="button" aria-label="Menú">≡</button>
   </div>

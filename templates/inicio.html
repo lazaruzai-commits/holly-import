@@ -1,18 +1,57 @@
 {% extends "_base.html" %}
 {% block title %}Holly Import — MG y Maxus en Los Palos Grandes, Caracas{% endblock %}
 
+{% block scripts %}
+<script src="{{ root_path }}/static/js/hero-slider.js"></script>
+{% endblock %}
+
 {% block content %}
-<section class="hero">
-  <div class="hero__content">
-    <span class="hero__eyebrow">Concesionario autorizado MG y Maxus</span>
-    <h1 class="hero__title">Tu próximo vehículo te espera en <span>Holly Import</span>.</h1>
-    <p class="hero__lead">Línea completa MG y Maxus en Los Palos Grandes. Ventas, servicio técnico y planes de financiamiento.</p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="{{ root_path }}/modelos">Ver modelos</a>
-      <button class="btn btn--ghost" type="button" data-open-chat>Hablar con un asesor</button>
-    </div>
+<section class="hero-slider" id="hero-slider" aria-roledescription="carrusel" aria-label="Modelos destacados">
+  <div class="hero-slider__track">
+    {% for s in slides %}
+    <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
+      <img class="hero-slide__bg"
+           src="{{ root_path }}/{{ s.image }}" alt="{{ s.brand }} {{ s.name }}"
+           loading="{% if loop.first %}eager{% else %}lazy{% endif %}">
+      <div class="hero-slide__shade"></div>
+      <div class="hero-slide__content">
+        <span class="hero__eyebrow">{{ s.brand }}</span>
+        <h1 class="hero-slide__title">{{ s.name }}</h1>
+        <p class="hero-slide__lead">{{ s.tagline }}</p>
+        <ul class="hero-slide__specs">
+          <li><strong>{{ s.specs.potencia }}</strong> Potencia</li>
+          <li><strong>{{ s.specs.motor }}</strong> Motor</li>
+          {% if s.specs.transmision %}<li><strong>{{ s.specs.transmision }}</strong> Transmisión</li>{% endif %}
+        </ul>
+        <div class="hero-slide__cta">
+          <button class="btn btn--primary" type="button" data-ask-price="{{ s.id }}">Solicitar precio</button>
+          <button class="btn btn--ghost" type="button" data-model-detail="{{ s.id }}">Ver detalles</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
   </div>
-  <div class="hero__promo">
+  <button class="hero-slider__nav hero-slider__nav--prev" type="button" data-slider-prev aria-label="Anterior">‹</button>
+  <button class="hero-slider__nav hero-slider__nav--next" type="button" data-slider-next aria-label="Siguiente">›</button>
+  <div class="hero-slider__dots" role="tablist">
+    {% for s in slides %}
+    <button type="button" class="hero-slider__dot{% if loop.first %} is-active{% endif %}"
+            data-slider-go="{{ loop.index0 }}" aria-label="Ir al slide {{ loop.index }}"></button>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--narrow">
+  <div class="hero-secondary">
+    <div>
+      <span class="hero__eyebrow">Concesionario autorizado MG y Maxus</span>
+      <h2 class="hero-secondary__title">Tu próximo vehículo te espera en <span>Holly Import</span>.</h2>
+      <p class="hero-secondary__lead">Línea completa MG y Maxus en Los Palos Grandes. Ventas, servicio técnico y planes de financiamiento.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="{{ root_path }}/modelos">Ver vehículos</a>
+        <button class="btn btn--ghost" type="button" data-open-chat>Chat con Holly</button>
+      </div>
+    </div>
     <a href="{{ root_path }}/promocion" class="promo-card">
       <span class="promo-card__tag">Promoción</span>
       <strong class="promo-card__title">Asegúrate con 500</strong>
