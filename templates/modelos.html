@@ -8,23 +8,30 @@
 </section>
 
 <section class="section">
-  <div class="filters" id="model-filters">
+  <div class="filters filters--tags" id="model-filters">
     <button class="chip is-active" data-filter="all">Todos</button>
-    <button class="chip" data-filter="MG">MG</button>
-    <button class="chip" data-filter="Maxus">Maxus</button>
-    <button class="chip" data-filter="passenger">Pasajeros</button>
-    <button class="chip" data-filter="commercial">Comerciales</button>
-    <button class="chip" data-filter="promo">Asegúrate con 500</button>
+    <button class="chip" data-filter="brand:MG">MG</button>
+    <button class="chip" data-filter="brand:Maxus">Maxus</button>
+    <button class="chip" data-filter="tag:SUV">SUV</button>
+    <button class="chip" data-filter="tag:NEW_ENERGY">Nueva Energía</button>
+    <button class="chip" data-filter="tag:SEDAN">Sedán</button>
+    <button class="chip" data-filter="tag:HATCHBACK">Hatchback</button>
+    <button class="chip" data-filter="tag:PICKUP">Pickup</button>
+    <button class="chip" data-filter="tag:VAN">Van</button>
+    <button class="chip" data-filter="tag:TRUCK">Camión</button>
+    <button class="chip chip--promo" data-filter="promo">Asegúrate con 500</button>
   </div>
 
-  <div class="grid grid--cards" id="models-grid">
+  <div class="grid grid--cards models-grid" id="models-grid">
     {% for m in models %}
     <article class="card"
+             data-model-id="{{ m.id }}"
              data-brand="{{ m.brand }}"
              data-category="{{ m.category }}"
+             data-tags="{{ m.tags|join(',') }}"
              data-promo="{{ 'yes' if m.promoEligible else 'no' }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
         {% if m.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
       </div>
@@ -32,14 +39,18 @@
         <span class="card__brand">{{ m.brand }}</span>
         <h3 class="card__title">{{ m.name }}</h3>
         <p class="card__tag">{{ m.tagline }}</p>
-        <ul class="card__specs">
-          <li><strong>Motor:</strong> {{ m.specs.motor }}</li>
-          <li><strong>Potencia:</strong> {{ m.specs.potencia }}</li>
-          <li><strong>Transmisión:</strong> {{ m.specs.transmision }}</li>
+        <ul class="card__bullets">
+          <li>{{ m.specs.potencia }}</li>
+          <li>{{ m.specs.motor }}</li>
+          {% if m.specs.autonomia %}<li>{{ m.specs.autonomia }}</li>
+          {% elif m.specs.transmision %}<li>{{ m.specs.transmision }}</li>
+          {% endif %}
         </ul>
         <div class="card__cta">
-          <button class="btn btn--small" type="button" data-model-detail="{{ m.id }}">Ver detalles</button>
-          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
+          <button class="btn btn--small btn--primary" type="button"
+                  data-open-chat data-chat-model="{{ m.id }}">Prueba de manejo</button>
+          <button class="btn btn--small" type="button"
+                  data-model-detail="{{ m.id }}">Explorar</button>
         </div>
       </div>
     </article>

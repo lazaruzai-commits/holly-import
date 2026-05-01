@@ -18,34 +18,33 @@
   const filterBar = document.getElementById("model-filters");
   const grid = document.getElementById("models-grid");
   if (filterBar && grid) {
-    filterBar.addEventListener("click", (e) => {
-      const btn = e.target.closest(".chip");
-      if (!btn) return;
-      filterBar.querySelectorAll(".chip").forEach(c => c.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      const f = btn.dataset.filter;
+    function applyFilter(f) {
+      filterBar.querySelectorAll(".chip").forEach(c =>
+        c.classList.toggle("is-active", c.dataset.filter === f)
+      );
       grid.querySelectorAll(".card").forEach(card => {
         const brand = card.dataset.brand;
-        const cat = card.dataset.category;
+        const tags = (card.dataset.tags || "").split(",");
         const promo = card.dataset.promo === "yes";
-        const show =
-          f === "all" ? true :
-          f === "MG" || f === "Maxus" ? brand === f :
-          f === "passenger" || f === "commercial" ? cat === f :
-          f === "promo" ? promo : true;
+        let show = true;
+        if (f === "all") show = true;
+        else if (f.startsWith("brand:")) show = brand === f.slice(6);
+        else if (f.startsWith("tag:"))   show = tags.includes(f.slice(4));
+        else if (f === "promo")          show = promo;
         card.classList.toggle("is-hidden", !show);
       });
+    }
+    filterBar.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (btn) applyFilter(btn.dataset.filter);
     });
 
     // honor ?marca= and ?promo= query params on first load
     const params = new URLSearchParams(location.search);
     const marca = params.get("marca");
     const promo = params.get("promo");
-    if (marca === "MG" || marca === "Maxus") {
-      filterBar.querySelector(`[data-filter="${marca}"]`)?.click();
-    } else if (promo) {
-      filterBar.querySelector(`[data-filter="promo"]`)?.click();
-    }
+    if (marca === "MG" || marca === "Maxus") applyFilter(`brand:${marca}`);
+    else if (promo) applyFilter("promo");
   }
 
   // ----- ask price dialog -----

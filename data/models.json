@@ -33,6 +33,9 @@
         "toyota-yaris-hb",
         "hyundai-grand-i10",
         "chery-tiggo-2"
+      ],
+      "tags": [
+        "HATCHBACK"
       ]
     },
     {
@@ -62,6 +65,10 @@
       "competitors": [
         "toyota-yaris-cross-hybrid",
         "kia-stonic"
+      ],
+      "tags": [
+        "HATCHBACK",
+        "NEW_ENERGY"
       ]
     },
     {
@@ -91,6 +98,9 @@
         "toyota-yaris-sedan",
         "kia-rio-sedan",
         "hyundai-accent"
+      ],
+      "tags": [
+        "SEDAN"
       ]
     },
     {
@@ -120,6 +130,9 @@
         "toyota-corolla",
         "kia-k5",
         "hyundai-elantra"
+      ],
+      "tags": [
+        "SEDAN"
       ]
     },
     {
@@ -149,6 +162,9 @@
         "hyundai-creta",
         "kia-soluto-x",
         "chery-tiggo-4-pro"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -179,6 +195,10 @@
         "byd-yuan-plus",
         "geely-geometry",
         "dongfeng-e70"
+      ],
+      "tags": [
+        "SUV",
+        "NEW_ENERGY"
       ]
     },
     {
@@ -208,6 +228,9 @@
         "chery-tiggo-7-pro",
         "kia-seltos",
         "hyundai-tucson"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -237,6 +260,9 @@
         "toyota-fortuner",
         "hyundai-santa-fe",
         "kia-sorento"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -266,6 +292,9 @@
         "toyota-prado",
         "ford-explorer",
         "kia-sorento"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -294,6 +323,9 @@
       ],
       "competitors": [
         "porsche-718-cayman"
+      ],
+      "tags": [
+        "NEW_ENERGY"
       ]
     },
     {
@@ -322,6 +354,9 @@
       "competitors": [
         "hyundai-creta",
         "chery-tiggo-4-pro"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -350,6 +385,9 @@
       "competitors": [
         "toyota-fortuner",
         "kia-sorento"
+      ],
+      "tags": [
+        "SUV"
       ]
     },
     {
@@ -380,6 +418,9 @@
         "toyota-hilux",
         "ford-ranger",
         "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
       ]
     },
     {
@@ -409,6 +450,9 @@
         "toyota-hilux",
         "ford-ranger",
         "chevrolet-s10"
+      ],
+      "tags": [
+        "PICKUP"
       ]
     },
     {
@@ -437,6 +481,9 @@
       "competitors": [
         "hyundai-staria",
         "kia-carnival"
+      ],
+      "tags": [
+        "VAN"
       ]
     },
     {
@@ -465,6 +512,9 @@
       "competitors": [
         "hyundai-h1-cargo",
         "ford-transit"
+      ],
+      "tags": [
+        "VAN"
       ]
     },
     {
@@ -493,6 +543,9 @@
       "competitors": [
         "hino-300",
         "foton-aumark"
+      ],
+      "tags": [
+        "TRUCK"
       ]
     },
     {
@@ -521,6 +574,9 @@
       "competitors": [
         "hino-500",
         "foton-auman"
+      ],
+      "tags": [
+        "TRUCK"
       ]
     },
     {
@@ -549,6 +605,9 @@
       "competitors": [
         "hino-700",
         "foton-auman-pesado"
+      ],
+      "tags": [
+        "TRUCK"
       ]
     }
   ]

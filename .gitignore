@@ -23,6 +23,10 @@ static/img/models/*.webp
 static/img/models/_source/*
 !static/img/models/_source/.gitkeep
 
+# Hero video and other marketing footage — large; fetched via scripts/fetch_video.py
+static/video/*.mp4
+static/video/*.webm
+
 # OS / editor noise
 .DS_Store
 Thumbs.db
