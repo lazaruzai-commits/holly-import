@@ -38,17 +38,19 @@
   document.getElementById("chat-overlay")?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && chat.classList.contains("is-open")) close(); });
 
-  // ---------- auto-open on every page load, collapse after 3s ----------
-  // Defer the first paint a tick so the rail renders in its starting state,
-  // then the panel slides in over it. After 3 seconds we auto-collapse —
-  // unless the user has already engaged with the chat (clicked a chip /
-  // sent a message), in which case we leave it open.
-  requestAnimationFrame(() => {
-    open();
-    setTimeout(() => {
-      if (state === "start" && !history.length) close();
-    }, 3000);
-  });
+  // ---------- auto-open on the home page only, collapse after 3s ----------
+  // The body tag carries a `page-<name>` class set by Jinja; the home page
+  // renders as `page-inicio`. Sub-pages skip the auto-expand entirely so we
+  // don't pester users who are already navigating around.
+  if (document.body.classList.contains("page-inicio")) {
+    requestAnimationFrame(() => {
+      open();
+      setTimeout(() => {
+        // Skip auto-collapse if the user has already engaged
+        if (state === "start" && !history.length) close();
+      }, 3000);
+    });
+  }
 
   document.addEventListener("click", (e) => {
     const trigger = e.target.closest("[data-open-chat]");
