@@ -17,6 +17,9 @@ static/img/models/*.webp
 !static/img/models/.gitkeep
 # Exceptions: hand-processed cutouts that should NOT be auto-refreshed
 !static/img/models/mg-rx9.jpg
+# Manifest is regenerated locally by the fetcher; tracking it just causes
+# merge conflicts on every git pull
+static/img/models/_manifest.json
 
 # User-supplied raw photos waiting to be processed by scripts/process_local_images.py
 # Originals never go to git — only the normalized output in static/img/models/
