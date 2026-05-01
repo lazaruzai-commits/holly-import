@@ -165,6 +165,33 @@
       ],
       "tags": [
         "SUV"
+      ],
+      "colors": [
+        {
+          "name": "Negro",
+          "hex": "#1a1a1a",
+          "video": "static/video/visualizer/mg-zs-black.mp4"
+        },
+        {
+          "name": "Blanco",
+          "hex": "#f0f0f0",
+          "video": "static/video/visualizer/mg-zs-white.mp4"
+        },
+        {
+          "name": "Plata",
+          "hex": "#b0b3b8",
+          "video": "static/video/visualizer/mg-zs-silver.mp4"
+        },
+        {
+          "name": "Gris",
+          "hex": "#555560",
+          "video": "static/video/visualizer/mg-zs-grey.mp4"
+        },
+        {
+          "name": "Rojo",
+          "hex": "#c8102e",
+          "video": "static/video/visualizer/mg-zs-red.mp4"
+        }
       ]
     },
     {
@@ -295,6 +322,33 @@
       ],
       "tags": [
         "SUV"
+      ],
+      "colors": [
+        {
+          "name": "Negro",
+          "hex": "#1a1a1a",
+          "video": "static/video/visualizer/mg-rx9-black.mp4"
+        },
+        {
+          "name": "Blanco",
+          "hex": "#f0f0f0",
+          "video": "static/video/visualizer/mg-rx9-white.mp4"
+        },
+        {
+          "name": "Plata",
+          "hex": "#b0b3b8",
+          "video": "static/video/visualizer/mg-rx9-silver.mp4"
+        },
+        {
+          "name": "Gris",
+          "hex": "#555560",
+          "video": "static/video/visualizer/mg-rx9-grey.mp4"
+        },
+        {
+          "name": "Verde",
+          "hex": "#4a6b4a",
+          "video": "static/video/visualizer/mg-rx9-green.mp4"
+        }
       ]
     },
     {

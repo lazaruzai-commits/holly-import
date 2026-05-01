@@ -9,6 +9,12 @@
   'mas-economico': 'Más económico'
 } %}
 
+{% block scripts %}
+{% if model.colors %}
+<script src="{{ root_path }}/static/js/visualizer.js"></script>
+{% endif %}
+{% endblock %}
+
 {% block content %}
 <nav class="crumbs" aria-label="Migas de pan">
   <a href="{{ root_path }}/">Inicio</a>
@@ -95,6 +101,50 @@
       {% endif %}
     </article>
     {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if model.colors %}
+<section class="section section--alt visualizer-section">
+  <div class="section__head section__head--inline">
+    <h2>Encuentra tu estilo <span class="section__more" style="margin-left:1rem;font-size:.95rem">{{ model.name }}</span></h2>
+  </div>
+  <p class="lead">Elige un color para verlo en acción. Cada video gira el vehículo 360°.</p>
+
+  <div class="visualizer" id="visualizer">
+    <div class="visualizer__media">
+      {% for c in model.colors %}
+      <video class="visualizer__video{% if loop.first %} is-active{% endif %}"
+             data-color="{{ c.name|lower }}"
+             muted loop playsinline preload="{% if loop.first %}auto{% else %}metadata{% endif %}"
+             {% if loop.first %}autoplay{% endif %}>
+        <source src="{{ root_path }}/{{ c.video }}" type="video/mp4">
+      </video>
+      {% endfor %}
+      <button class="visualizer__playpause" type="button" id="visualizer-pp" aria-label="Pausar video">
+        <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" data-icon="pause"><rect x="5" y="4" width="3" height="12"/><rect x="12" y="4" width="3" height="12"/></svg>
+        <svg viewBox="0 0 20 20" width="20" height="20" fill="currentColor" data-icon="play" style="display:none"><polygon points="5,3 17,10 5,17"/></svg>
+      </button>
+    </div>
+    <div class="visualizer__panel">
+      <span class="card__brand">Colores disponibles</span>
+      <h3 class="visualizer__current" id="visualizer-name">{{ model.colors[0].name }}</h3>
+      <ul class="visualizer__chips" role="radiogroup" aria-label="Selector de color">
+        {% for c in model.colors %}
+        <li>
+          <button type="button" class="visualizer__chip{% if loop.first %} is-active{% endif %}"
+                  data-color="{{ c.name|lower }}" data-color-name="{{ c.name }}"
+                  style="--swatch: {{ c.hex }}"
+                  aria-label="Color {{ c.name }}"
+                  role="radio" aria-checked="{{ 'true' if loop.first else 'false' }}">
+            <span class="visualizer__chip-dot"></span>
+            <span class="visualizer__chip-name">{{ c.name }}</span>
+          </button>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </section>
 {% endif %}
