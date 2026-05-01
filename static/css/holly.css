@@ -130,24 +130,50 @@ p  { margin: 0 0 .8em; }
   50%      { transform: scale(1.08); }
 }
 
-/* Comparar button (header, dark silver, sits left of the chat CTA) */
+/* Comparador button (header, chrome silver — polished metallic finish like
+   a chrome trim piece on a vehicle) */
 .hh__cmp-btn {
-  background: #3a3a42; color: white; border: 1px solid #50505a;
-  padding: .6rem 1rem; border-radius: var(--r-sm);
+  background: linear-gradient(180deg,
+    #f0f0f4 0%,
+    #c8c8d0 18%,
+    #888894 50%,
+    #4a4a54 82%,
+    #2c2c34 100%);
+  color: #1a1a1f;
+  border: 1px solid #1a1a1f;
+  padding: .55rem 1rem; border-radius: var(--r-sm);
   font-weight: 600; font-size: .9rem; text-decoration: none;
-  transition: background .15s, border-color .15s;
+  text-shadow: 0 1px 0 rgba(255,255,255,.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    inset 0 -1px 0 rgba(0,0,0,.5),
+    0 2px 6px rgba(0,0,0,.4);
+  transition: filter .15s, border-color .15s;
 }
-.hh__cmp-btn:hover { background: #4a4a55; border-color: var(--c-crimson); }
+.hh__cmp-btn:hover { filter: brightness(1.08); border-color: var(--c-crimson); }
 .hh__cmp-btn.is-active { border-color: var(--c-crimson); }
 @media (max-width: 880px) {
   .hh__cmp-btn { display: none; }
 }
+/* Header chat button — chrome red, finished like a polished body panel */
 .hh__chat-btn {
-  background: var(--c-crimson); color: white; border: 0; padding: .6rem 1rem;
-  border-radius: var(--r-sm); font-weight: 600; cursor: pointer; font-size: .9rem;
-  transition: background .15s;
+  background: linear-gradient(180deg,
+    #ff6b85 0%,
+    #ee2a48 18%,
+    #c8102e 50%,
+    #8a0820 82%,
+    #4d0512 100%);
+  color: white; border: 1px solid #2a0008;
+  padding: .55rem 1rem; border-radius: var(--r-sm);
+  font-weight: 600; cursor: pointer; font-size: .9rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 -1px 0 rgba(0,0,0,.55),
+    0 2px 6px rgba(200,16,46,.4);
+  transition: filter .15s, border-color .15s;
 }
-.hh__chat-btn:hover { background: var(--c-crimson-2); }
+.hh__chat-btn:hover { filter: brightness(1.1); border-color: rgba(255,255,255,.4); }
 
 /* Silver metallic button variant (used on the hero-secondary "Chat con Holly") */
 .btn--silver {
@@ -364,6 +390,61 @@ p  { margin: 0 0 .8em; }
   .hero-video__content { justify-content: flex-end; padding-bottom: 2.5rem; }
 }
 
+/* ---------- Asegúrate con 500 centrepiece banner ---------- */
+
+.promo-feature {
+  max-width: var(--maxw); margin: 2.5rem auto;
+  padding: 0 1.2rem;
+}
+.promo-feature__inner {
+  width: 50%; max-width: 720px; min-width: 0;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1f1f25 0%, #16161c 100%);
+  border: 2px solid var(--c-crimson);
+  border-radius: var(--r-lg);
+  padding: 1.6rem;
+  display: flex; flex-direction: column; gap: 1.2rem;
+  box-shadow:
+    0 0 28px rgba(200,16,46,.22),
+    0 14px 40px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(200,16,46,.18);
+  position: relative;
+}
+.promo-feature__inner::before {
+  /* faint inner halo for depth */
+  content: ""; position: absolute; inset: 6px;
+  border-radius: calc(var(--r-lg) - 4px);
+  pointer-events: none;
+  box-shadow: inset 0 0 40px rgba(200,16,46,.08);
+}
+.promo-feature__media {
+  position: relative;
+  border-radius: var(--r-md); overflow: hidden;
+  background: radial-gradient(ellipse at center, #2a2a32 0%, #15151b 100%);
+  aspect-ratio: 4 / 3;
+  display: grid; place-items: center;
+}
+.promo-feature__media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.promo-feature__copy { text-align: center; padding: 0 .5rem .25rem; }
+.promo-feature__tag {
+  display: inline-block;
+  color: var(--c-crimson-2);
+  font-size: .78rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+.promo-feature__copy h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  margin: 0 0 .6rem;
+  color: var(--c-white);
+}
+.promo-feature__copy p { color: var(--c-muted); margin: 0 auto 1.2rem; max-width: 50ch; }
+@media (max-width: 880px) {
+  .promo-feature__inner { width: 100%; max-width: none; padding: 1.2rem; }
+}
+
 /* ---------- buttons ---------- */
 
 .btn {
@@ -396,6 +477,9 @@ p  { margin: 0 0 .8em; }
 
 .section { max-width: var(--maxw); margin: 0 auto; padding: 3rem 1.2rem; }
 .section--alt { background: var(--c-card); margin: 0; max-width: none; padding: 3rem 1rem; }
+@media (max-width: 600px) {
+  .section, .section--alt { padding: 1.8rem 1rem; }
+}
 .section--alt > * { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .section__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.5rem; gap: 1rem; }
 .section__head--inline { justify-content: flex-start; gap: 1.2rem; flex-wrap: wrap; }
@@ -414,6 +498,10 @@ p  { margin: 0 0 .8em; }
 
 .page-head { max-width: var(--maxw); margin: 0 auto; padding: 3rem 1.2rem 1rem; }
 .page-head--promo { padding-top: 4.5rem; }
+@media (max-width: 600px) {
+  .page-head { padding: 1.5rem 1rem .5rem; }
+  .page-head--promo { padding-top: 2.5rem; }
+}
 
 /* ---------- grids ---------- */
 
@@ -488,6 +576,19 @@ p  { margin: 0 0 .8em; }
 /* ---------- filters ---------- */
 
 .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+@media (max-width: 600px) {
+  /* Horizontal-scroll the filter strip on small screens to avoid wrapping
+     into 3+ rows that push the grid down */
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-left: -1rem; margin-right: -1rem;
+    padding: 0 1rem .25rem;
+    scrollbar-width: none;
+  }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters .chip { white-space: nowrap; flex-shrink: 0; }
+}
 .chip {
   background: transparent; border: 1px solid var(--c-line);
   color: var(--c-text); padding: .45rem .9rem; border-radius: 999px;
@@ -681,6 +782,30 @@ p  { margin: 0 0 .8em; }
   .chat__rail { width: 8px; }
   .chat__rail:hover { width: 8px; background: linear-gradient(180deg, transparent, var(--c-crimson), transparent); }
   .chat__rail:hover .chat__rail-label { opacity: 0; }
+
+  /* Mobile: chat panel is a bottom drawer occupying ~25% of the viewport
+     instead of sliding in from the right at full height. Slides up from
+     the bottom edge so it never covers the page. */
+  .chat__panel {
+    right: 0; left: 0; top: auto; bottom: 0;
+    width: 100%;
+    height: 25vh; min-height: 220px;
+    border-left: 0;
+    border-top: 1px solid var(--c-line);
+    border-top-left-radius: var(--r-md);
+    border-top-right-radius: var(--r-md);
+    transform: translateY(100%);
+    transition: transform .3s cubic-bezier(.2,.8,.2,1), visibility 0s linear .3s;
+  }
+  .chat.is-open .chat__panel {
+    transform: none;
+    transition: transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .chat__head { padding: .55rem .9rem; }
+  .chat__avatar { width: 32px; height: 32px; }
+  .chat__head strong { font-size: 1rem; }
+  .chat__body { padding: .6rem .9rem; gap: .45rem; }
+  .chat__form { padding: .5rem .7rem .6rem; }
 }
 
 .chat__head {

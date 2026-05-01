@@ -48,7 +48,7 @@
       setTimeout(() => {
         // Skip auto-collapse if the user has already engaged
         if (state === "start" && !history.length) close();
-      }, 3000);
+      }, 1000);
     });
   }
 
