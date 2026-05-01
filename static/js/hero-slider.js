@@ -35,10 +35,14 @@
         if (i !== idx) v.preload = "metadata";   // halt download on inactive
       }
     });
-    // graceful failure if a video can't load (CDN/network); leave the static
-    // poster image in place
+    // when a slide's video finishes, jump to the next slide so the carousel
+    // is paced by content rather than a fixed timer
+    v.addEventListener("ended", () => {
+      if (i === idx) nextSlide();
+    });
     v.addEventListener("error", () => {
       v.style.display = "none";
+      if (i === idx) nextSlide();
     });
   });
 
@@ -57,6 +61,7 @@
     if (newVideo) {
       newVideo.preload = "auto";              // resume aggressive buffering
       newVideo.dataset.bufferReached = "false";
+      try { newVideo.currentTime = 0; } catch (e) {}   // start from the beginning
       // play() may reject on iOS without user interaction — that's fine,
       // the muted attribute should let it autoplay in modern browsers
       newVideo.play().catch(() => {});
@@ -65,9 +70,11 @@
 
   function nextSlide() { activate(idx + 1); }
 
-  // Auto-advance every ~9s so each clip plays a meaningful chunk before swap
-  function startAuto() { stopAuto(); timer = setInterval(nextSlide, 9000); }
-  function stopAuto()  { if (timer) { clearInterval(timer); timer = null; } }
+  // Safety-net advance — if a video stalls or never fires "ended" (e.g. it's
+  // still buffering when the user expects movement), this kicks the carousel
+  // forward after 30s. Manual nav and the natural "ended" event reset it.
+  function startAuto() { stopAuto(); timer = setTimeout(nextSlide, 30000); }
+  function stopAuto()  { if (timer) { clearTimeout(timer); timer = null; } }
 
   // Manual controls
   root.querySelector("[data-slider-prev]")?.addEventListener("click", () => { activate(idx - 1); startAuto(); });

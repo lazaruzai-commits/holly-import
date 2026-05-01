@@ -12,9 +12,8 @@
     {% set m = s.model %}
     <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
       <video class="hero-slide__bg"
-             muted loop playsinline preload="auto"
-             {% if loop.first %}autoplay{% endif %}
-             {% if m %}poster="{{ root_path }}/{{ m.image }}"{% endif %}>
+             muted playsinline preload="auto"
+             {% if loop.first %}autoplay{% endif %}>
         <source src="{{ root_path }}/{{ s.video }}" type="video/mp4">
       </video>
       <div class="hero-slide__shade"></div>
