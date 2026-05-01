@@ -168,9 +168,14 @@ p  { margin: 0 0 .8em; }
 .chat-group__thumb {
   height: 92px; width: auto; display: block;
   filter: drop-shadow(0 6px 16px rgba(0,0,0,.45));
-  transition: transform .2s;
+  transform-origin: bottom center;
+  transition: transform .25s ease;
 }
-.chat-group:hover .chat-group__thumb { transform: translateY(-2px); }
+/* Hovering anywhere in the group (button + thumb) scales Holly up a touch */
+.chat-group:hover .chat-group__thumb,
+.chat-group:focus-within .chat-group__thumb {
+  transform: scale(1.07);
+}
 @media (max-width: 600px) {
   .chat-group__thumb { height: 70px; }
 }
@@ -362,11 +367,15 @@ p  { margin: 0 0 .8em; }
 /* ---------- buttons ---------- */
 
 .btn {
-  display: inline-block; border: 0; cursor: pointer;
-  padding: .8rem 1.4rem; font-size: .95rem; font-weight: 600;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid transparent;       /* reserved so all variants render the same height */
+  cursor: pointer;
+  padding: .75rem 1.4rem;
+  font-size: .95rem; font-weight: 600; line-height: 1.2;
   border-radius: var(--r-sm); text-decoration: none;
-  transition: background .15s, transform .1s, border-color .15s;
+  transition: background .15s, transform .1s, border-color .15s, filter .15s;
   font-family: inherit;
+  box-sizing: border-box;
 }
 .btn--primary { background: var(--c-crimson); color: white; }
 .btn--primary:hover { background: var(--c-crimson-2); }
@@ -685,10 +694,6 @@ p  { margin: 0 0 .8em; }
 }
 .chat.is-open ~ .chat-fab,
 body:has(.chat.is-open) .chat-fab { display: none; }
-/* Desktop has the glowing right-edge rail; FAB only shown on touch widths */
-@media (min-width: 881px) {
-  .chat-fab { display: none; }
-}
 @media (max-width: 600px) {
   .chat-fab__label { display: none; }
   .chat-fab { padding: .25rem; }

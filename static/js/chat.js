@@ -38,22 +38,17 @@
   document.getElementById("chat-overlay")?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && chat.classList.contains("is-open")) close(); });
 
-  // ---------- auto-open on first visit, collapse after 3s ----------
-  // sessionStorage flag prevents re-triggering on every page navigation.
-  const SEEN_KEY = "holly_chat_first_seen";
-  if (!sessionStorage.getItem(SEEN_KEY)) {
-    sessionStorage.setItem(SEEN_KEY, "1");
-    // Defer the first paint a tick so the rail can render in its starting
-    // state, then expand. This keeps the slide-in animation visible.
-    requestAnimationFrame(() => {
-      open();
-      setTimeout(() => {
-        // Only auto-collapse if the user hasn't already engaged with the
-        // chat (sent a message, picked a chip, etc).
-        if (state === "start" && !history.length) close();
-      }, 3000);
-    });
-  }
+  // ---------- auto-open on every page load, collapse after 3s ----------
+  // Defer the first paint a tick so the rail renders in its starting state,
+  // then the panel slides in over it. After 3 seconds we auto-collapse —
+  // unless the user has already engaged with the chat (clicked a chip /
+  // sent a message), in which case we leave it open.
+  requestAnimationFrame(() => {
+    open();
+    setTimeout(() => {
+      if (state === "start" && !history.length) close();
+    }, 3000);
+  });
 
   document.addEventListener("click", (e) => {
     const trigger = e.target.closest("[data-open-chat]");
