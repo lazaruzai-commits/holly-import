@@ -61,7 +61,11 @@ SOURCES: dict[str, list[str]] = {
     "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2025/08/cyberster_3-1024x505.png"],
     # Maxus (maxusve.com — full-resolution product images, not menu thumbnails)
     "maxus-d60":       ["https://maxusve.com/wp-content/uploads/2025/05/D60_DSC_3609-2-1-1024x683.png"],
-    "maxus-d90":       ["https://maxusve.com/wp-content/uploads/2025/05/DSC_0191_D90-1-1024x604.png"],
+    # maxus-d90 is a hand-processed cutout of the 2026 generation D90 hero
+    # from en.saicmaxus.com/car/d90.shtml (rembg-segmented from the white
+    # desert shot, composited on the site backdrop). Committed at
+    # static/img/models/maxus-d90.jpg; do NOT auto-refresh — kept out of
+    # SOURCES so this fetcher won't overwrite it.
     "maxus-t60":       ["https://maxusve.com/wp-content/uploads/2025/06/T60_DSC_7509.png",
                         "https://maxusve.com/wp-content/uploads/2024/07/T60_ELITE.png"],
     "maxus-t90":       ["https://maxusve.com/wp-content/uploads/2024/07/maxus-10-1.png",

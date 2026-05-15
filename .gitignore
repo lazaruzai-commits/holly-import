@@ -17,6 +17,9 @@ static/img/models/*.webp
 !static/img/models/.gitkeep
 # Exceptions: hand-processed cutouts that should NOT be auto-refreshed
 !static/img/models/mg-rx9.jpg
+!static/img/models/maxus-d90.jpg
+!static/img/models/maxus-d90-ext-*.jpg
+!static/img/models/maxus-d90-int-*.jpg
 # Manifest is regenerated locally by the fetcher; tracking it just causes
 # merge conflicts on every git pull
 static/img/models/_manifest.json

@@ -383,7 +383,7 @@
       "id": "maxus-d90",
       "brand": "Maxus",
       "name": "Maxus D90",
-      "tagline": "SUV grande con espacio para toda la familia.",
+      "tagline": "Nueva generación. SUV 7 puestos con frente rediseñado y plataforma off-road.",
       "bodyType": "SUV 7 puestos",
       "category": "passenger",
       "promoEligible": false,
@@ -393,14 +393,15 @@
         "potencia": "218 hp",
         "torque": "350 Nm",
         "transmision": "AT 8 vel.",
-        "traccion": "4x4 disponible",
+        "traccion": "4x2 / 4x4 con bloqueos",
         "asientos": 7
       },
       "highlights": [
-        "Body-on-frame para off-road",
-        "Capacidad de carga elevada",
-        "Tres filas de asientos",
-        "Tecnología de seguridad activa"
+        "Frontal rediseñado con parrilla hexagonal MAXUS",
+        "Body-on-frame y modos de manejo off-road (CCO)",
+        "Cabina premium con cuero, pantalla flotante y mando 4WD",
+        "Tres filas de asientos con configuración modular",
+        "Asistencias de manejo y seguridad activa"
       ],
       "competitors": [
         "toyota-fortuner",
@@ -408,7 +409,21 @@
       ],
       "tags": [
         "SUV"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-d90-ext-1.jpg",
+          "static/img/models/maxus-d90-ext-2.jpg",
+          "static/img/models/maxus-d90-ext-3.jpg",
+          "static/img/models/maxus-d90-ext-4.jpg",
+          "static/img/models/maxus-d90-ext-5.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-d90-int-1.jpg",
+          "static/img/models/maxus-d90-int-2.jpg",
+          "static/img/models/maxus-d90-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t60",
