@@ -325,6 +325,8 @@ p  { margin: 0 0 .8em; }
 .hero__title span { color: var(--c-crimson); }
 .hero__lead { color: var(--c-muted); font-size: 1.1rem; max-width: 50ch; margin-bottom: 1.6rem; }
 .hero__cta { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.hero__cta > .btn,
+.hero__cta > .chat-group > .btn { align-self: center; flex: 0 0 auto; }
 .hero__promo { display: grid; place-items: center; }
 
 .promo-card {
@@ -471,7 +473,12 @@ p  { margin: 0 0 .8em; }
 .btn--primary:hover { filter: brightness(1.08); border-color: rgba(255,255,255,.35); }
 .btn--ghost { background: transparent; color: white; border: 1px solid var(--c-line); }
 .btn--ghost:hover { border-color: var(--c-crimson); }
-.btn--small { padding: .55rem .9rem; font-size: .85rem; }
+.btn--small {
+  height: 38px;
+  padding: 0 .95rem;
+  font-size: .85rem;
+  line-height: 1;
+}
 
 /* ---------- sections ---------- */
 
