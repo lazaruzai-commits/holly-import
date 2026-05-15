@@ -324,7 +324,7 @@ p  { margin: 0 0 .8em; }
 .hero__eyebrow { display: inline-block; color: var(--c-crimson); font-weight: 600; letter-spacing: .15em; text-transform: uppercase; font-size: .82rem; margin-bottom: .8rem; }
 .hero__title span { color: var(--c-crimson); }
 .hero__lead { color: var(--c-muted); font-size: 1.1rem; max-width: 50ch; margin-bottom: 1.6rem; }
-.hero__cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+.hero__cta { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
 .hero__promo { display: grid; place-items: center; }
 
 .promo-card {

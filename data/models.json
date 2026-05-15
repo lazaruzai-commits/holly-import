@@ -195,40 +195,6 @@
       ]
     },
     {
-      "id": "mg-zs-ev",
-      "brand": "MG",
-      "name": "MG ZS EV",
-      "tagline": "SUV 100% eléctrica, lista para Caracas.",
-      "bodyType": "SUV Eléctrica",
-      "category": "passenger",
-      "promoEligible": false,
-      "image": "static/img/models/mg-zs-ev.jpg",
-      "specs": {
-        "motor": "Motor eléctrico",
-        "potencia": "174 hp",
-        "torque": "280 Nm",
-        "transmision": "Automática 1 vel.",
-        "traccion": "4x2",
-        "autonomia": "Hasta 440 km WLTP",
-        "asientos": 5
-      },
-      "highlights": [
-        "Carga rápida DC",
-        "Cero emisiones",
-        "Bajo costo por kilómetro",
-        "Aceleración instantánea"
-      ],
-      "competitors": [
-        "byd-yuan-plus",
-        "geely-geometry",
-        "dongfeng-e70"
-      ],
-      "tags": [
-        "SUV",
-        "NEW_ENERGY"
-      ]
-    },
-    {
       "id": "mg-rx5",
       "brand": "MG",
       "name": "MG RX5",

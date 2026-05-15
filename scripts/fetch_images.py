@@ -50,8 +50,7 @@ SOURCES: dict[str, list[str]] = {
     "mg-gt":           ["https://mgvzla.com/wp-content/uploads/2024/07/mg-gt-Blanco_00.png",
                         "https://mgvzla.com/wp-content/uploads/2024/07/MGGT_blanco.jpg"],
     "mg-zs":           ["https://mgvzla.com/wp-content/uploads/2025/07/MG_ZS-frente_25-1024x683.png"],
-    "mg-zs-ev":        ["https://mgvzla.com/wp-content/uploads/2024/10/MG-EV-GRIS.png",
-                        "https://mgvzla.com/wp-content/uploads/2024/12/IMG_EV.jpg"],
+    # mg-zs-ev removed from the lineup (May 2026)
     "mg-rx5":          ["https://mgvzla.com/wp-content/uploads/2024/12/RX5_GRIS.png",
                         "https://mgvzla.com/wp-content/uploads/2024/12/MG_RX5_0000_DSC_0045.jpg"],
     "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/07/mg-rx8-Blanco.png",
