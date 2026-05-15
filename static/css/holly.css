@@ -133,6 +133,9 @@ p  { margin: 0 0 .8em; }
 /* Comparador button (header, chrome silver — polished metallic finish like
    a chrome trim piece on a vehicle) */
 .hh__cmp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 40px; padding: 0 1rem; line-height: 1;
+  box-sizing: border-box;
   background: linear-gradient(180deg,
     #f0f0f4 0%,
     #c8c8d0 18%,
@@ -141,7 +144,7 @@ p  { margin: 0 0 .8em; }
     #2c2c34 100%);
   color: #1a1a1f;
   border: 1px solid #1a1a1f;
-  padding: .55rem 1rem; border-radius: var(--r-sm);
+  border-radius: var(--r-sm);
   font-weight: 600; font-size: .9rem; text-decoration: none;
   text-shadow: 0 1px 0 rgba(255,255,255,.6);
   box-shadow:
@@ -157,6 +160,9 @@ p  { margin: 0 0 .8em; }
 }
 /* Header chat button — chrome red, finished like a polished body panel */
 .hh__chat-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 40px; padding: 0 1rem; line-height: 1;
+  box-sizing: border-box;
   background: linear-gradient(180deg,
     #ff6b85 0%,
     #ee2a48 18%,
@@ -164,7 +170,7 @@ p  { margin: 0 0 .8em; }
     #8a0820 82%,
     #4d0512 100%);
   color: white; border: 1px solid #2a0008;
-  padding: .55rem 1rem; border-radius: var(--r-sm);
+  border-radius: var(--r-sm);
   font-weight: 600; cursor: pointer; font-size: .9rem;
   text-shadow: 0 1px 2px rgba(0,0,0,.55);
   box-shadow:
