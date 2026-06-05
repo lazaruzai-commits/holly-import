@@ -20,6 +20,15 @@ static/img/models/*.webp
 !static/img/models/maxus-d90.jpg
 !static/img/models/maxus-d90-ext-*.jpg
 !static/img/models/maxus-d90-int-*.jpg
+# Dealership-supplied transparent PNG renders for the MG lineup
+!static/img/models/mg-3.png
+!static/img/models/mg-3-hybrid.png
+!static/img/models/mg-gt.png
+!static/img/models/mg-zs.png
+!static/img/models/mg-zs-ev.png
+!static/img/models/mg-rx5.png
+!static/img/models/mg-rx8.png
+!static/img/models/mg-rx9.png
 # Manifest is regenerated locally by the fetcher; tracking it just causes
 # merge conflicts on every git pull
 static/img/models/_manifest.json
