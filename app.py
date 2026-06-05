@@ -78,6 +78,24 @@ _MODELS = _load_json("models.json")
 _COMPETITORS = _load_json("competitors.json")
 
 
+def _promote_to_png_if_available(models: list[dict[str, Any]]) -> None:
+    """Swap any model's `image` to its .png sibling when one exists on disk.
+
+    JSON canonical paths stay `.jpg`; dropping a `<id>.png` into
+    static/img/models/ silently upgrades the gallery to the higher-fidelity
+    dealership render. Falls back to whatever the JSON specifies if no
+    PNG is present.
+    """
+    img_dir = PROJECT_ROOT / "static" / "img" / "models"
+    for m in models:
+        png = img_dir / f"{m['id']}.png"
+        if png.is_file():
+            m["image"] = f"static/img/models/{m['id']}.png"
+
+
+_promote_to_png_if_available(_MODELS["models"])
+
+
 def models_list() -> list[dict[str, Any]]:
     return _MODELS["models"]
 

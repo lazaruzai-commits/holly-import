@@ -13,7 +13,7 @@
       "bodyType": "Hatchback",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3.png",
+      "image": "static/img/models/mg-3.jpg",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "108 hp",
@@ -46,7 +46,7 @@
       "bodyType": "Hatchback Híbrido",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-3-hybrid.png",
+      "image": "static/img/models/mg-3-hybrid.jpg",
       "specs": {
         "motor": "1.5L híbrido full",
         "potencia": "194 hp combinados",
@@ -111,7 +111,7 @@
       "bodyType": "Sedán Deportivo",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-gt.png",
+      "image": "static/img/models/mg-gt.jpg",
       "specs": {
         "motor": "1.5L turbo",
         "potencia": "160 hp",
@@ -143,7 +143,7 @@
       "bodyType": "SUV Compacta",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-zs.png",
+      "image": "static/img/models/mg-zs.jpg",
       "specs": {
         "motor": "1.5L gasolina",
         "potencia": "114 hp",
@@ -202,7 +202,7 @@
       "bodyType": "SUV Compacta Eléctrica",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-zs-ev.png",
+      "image": "static/img/models/mg-zs-ev.jpg",
       "specs": {
         "motor": "Motor eléctrico síncrono (PMS)",
         "potencia": "174 hp",
@@ -235,7 +235,7 @@
       "bodyType": "SUV Mediana",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-rx5.png",
+      "image": "static/img/models/mg-rx5.jpg",
       "specs": {
         "motor": "1.5L turbo",
         "potencia": "168 hp",
@@ -267,7 +267,7 @@
       "bodyType": "SUV 7 puestos",
       "category": "passenger",
       "promoEligible": false,
-      "image": "static/img/models/mg-rx8.png",
+      "image": "static/img/models/mg-rx8.jpg",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "221 hp",
@@ -299,7 +299,7 @@
       "bodyType": "SUV Grande",
       "category": "passenger",
       "promoEligible": true,
-      "image": "static/img/models/mg-rx9.png",
+      "image": "static/img/models/mg-rx9.jpg",
       "specs": {
         "motor": "2.0L turbo",
         "potencia": "233 hp",
