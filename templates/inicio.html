@@ -28,8 +28,7 @@
           {% if m.specs.transmision %}<li><strong>{{ m.specs.transmision }}</strong> Transmisión</li>{% endif %}
         </ul>
         <div class="hero-slide__cta">
-          <button class="btn btn--primary" type="button" data-open-chat data-chat-model="{{ m.id }}">Prueba de manejo</button>
-          <a class="btn btn--ghost" href="{{ root_path }}/modelos/{{ m.id }}">Explorar</a>
+          <a class="btn btn--primary" href="{{ root_path }}/modelos/{{ m.id }}">Explorar</a>
         </div>
         {% else %}
         <span class="hero__eyebrow">Conduce con estilo</span>
