@@ -86,7 +86,7 @@ CHAT_FIELDS = ["ts", "session_id", "role", "content", "context"]
 
 
 def save_chat_message(*, session_id: str, role: str, content: str,
-                      context: str = "") -> None:
+                      context: str = "") -> dict[str, Any]:
     row = {
         "ts": _now(),
         "session_id": session_id,
@@ -95,3 +95,25 @@ def save_chat_message(*, session_id: str, role: str, content: str,
         "context": context,
     }
     _append(LEADS_DIR / "chat_log.csv", row, CHAT_FIELDS)
+    return row
+
+
+def read_chat_inbox(session_id: str, since_ts: str,
+                    role: str = "asesor") -> list[dict[str, Any]]:
+    """Tail chat_log.csv for messages addressed to this session newer than since.
+
+    Used by the long-poll endpoint that feeds asesor replies into the open
+    web chat panel. Reads the whole file each call — fine at small volume;
+    swap for a tailing cache if it ever becomes the hot path.
+    """
+    path = LEADS_DIR / "chat_log.csv"
+    if not path.exists():
+        return []
+    out: list[dict[str, Any]] = []
+    with _LOCK, path.open("r", newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if (row.get("session_id") == session_id
+                    and row.get("role") == role
+                    and row.get("ts", "") > since_ts):
+                out.append(row)
+    return out

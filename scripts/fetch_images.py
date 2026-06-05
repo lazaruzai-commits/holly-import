@@ -50,7 +50,7 @@ SOURCES: dict[str, list[str]] = {
     "mg-gt":           ["https://mgvzla.com/wp-content/uploads/2024/07/mg-gt-Blanco_00.png",
                         "https://mgvzla.com/wp-content/uploads/2024/07/MGGT_blanco.jpg"],
     "mg-zs":           ["https://mgvzla.com/wp-content/uploads/2025/07/MG_ZS-frente_25-1024x683.png"],
-    # mg-zs-ev removed from the lineup (May 2026)
+    "mg-zs-ev":        ["https://mgvzla.com/wp-content/uploads/2024/12/IMG_EV.jpg"],
     "mg-rx5":          ["https://mgvzla.com/wp-content/uploads/2024/12/RX5_GRIS.png",
                         "https://mgvzla.com/wp-content/uploads/2024/12/MG_RX5_0000_DSC_0045.jpg"],
     "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/07/mg-rx8-Blanco.png",
@@ -60,7 +60,6 @@ SOURCES: dict[str, list[str]] = {
     # Do NOT auto-refresh — the cutout is the source of truth.
     "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2025/08/cyberster_3-1024x505.png"],
     # Maxus (maxusve.com — full-resolution product images, not menu thumbnails)
-    "maxus-d60":       ["https://maxusve.com/wp-content/uploads/2025/05/D60_DSC_3609-2-1-1024x683.png"],
     # maxus-d90 is a hand-processed cutout of the 2026 generation D90 hero
     # from en.saicmaxus.com/car/d90.shtml (rembg-segmented from the white
     # desert shot, composited on the site backdrop). Committed at
@@ -68,16 +67,6 @@ SOURCES: dict[str, list[str]] = {
     # SOURCES so this fetcher won't overwrite it.
     "maxus-t60":       ["https://maxusve.com/wp-content/uploads/2025/06/T60_DSC_7509.png",
                         "https://maxusve.com/wp-content/uploads/2024/07/T60_ELITE.png"],
-    "maxus-t90":       ["https://maxusve.com/wp-content/uploads/2024/07/maxus-10-1.png",
-                        "https://maxusve.com/wp-content/uploads/2024/07/t90.png"],
-    "maxus-g10":       ["https://maxusve.com/wp-content/uploads/2024/07/Maxus-G10.png"],
-    "maxus-v80":       ["https://maxusve.com/wp-content/uploads/2024/07/V80.png"],
-    "maxus-serie-c":   ["https://maxusve.com/wp-content/uploads/2024/07/Maxus-C100.png",
-                        "https://maxusve.com/wp-content/uploads/2024/07/C_100.png"],
-    "maxus-serie-s":   ["https://maxusve.com/wp-content/uploads/2024/07/S50.png"],
-    # The "SERIE__H*" filenames on the dealer site are wordmark placeholders;
-    # this opaquely-named file is the only real product photo of the truck.
-    "maxus-serie-h":   ["https://maxusve.com/wp-content/uploads/2024/07/19163747gdhg.png"],
 }
 
 # Normalization target — every gallery image lands at this exact size + backdrop.

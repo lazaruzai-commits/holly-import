@@ -9,7 +9,14 @@
   const sendBtn = form?.querySelector("button");
   if (!chat || !body || !form) return;
 
-  let sessionId = `s${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`;
+  // Short, easy-to-quote 4-char ID so the dealership can reply with
+  // "sesión a3kp" instead of a 16-char blob. Crockford-style alphabet:
+  // i/l/o/u dropped so 1/0 are unambiguous. 32^4 ≈ 1M combos — fine for
+  // transcript scoping, not used for auth.
+  const ALPHABET = "0123456789abcdefghjkmnpqrstvwxyz";
+  let sessionId = Array.from({length: 4}, () =>
+    ALPHABET[Math.floor(Math.random() * ALPHABET.length)]
+  ).join("");
   let state = "start";
   let context = { brand: null, modelId: null, modelName: null };
   let modelsByBrand = { MG: [], Maxus: [] };
@@ -22,6 +29,7 @@
     chat.classList.add("is-open");
     chat.setAttribute("aria-hidden", "false");
     if (!body.children.length) renderStart();
+    startInboxPolling();
   }
   function close() {
     if (!chat.classList.contains("is-open")) return;
@@ -30,6 +38,42 @@
     chat.setAttribute("aria-hidden", "true");
     // Drop the collapsing flair class once the rail flare animation has run
     setTimeout(() => chat.classList.remove("is-collapsing"), 900);
+    stopInboxPolling();
+  }
+
+  // ---------- asesor-reply long poll ----------
+  // While the chat panel is open, ask the server every few seconds whether
+  // a human asesor has replied via Telegram. New messages are rendered as
+  // distinct "Asesor" bubbles inline in the conversation.
+  const INBOX_INTERVAL_MS = 5000;
+  let inboxTimer = null;
+  let inboxSince = "";
+  let inboxInFlight = false;
+
+  async function pollInbox() {
+    if (inboxInFlight) return;
+    inboxInFlight = true;
+    try {
+      const url = `${BASE}/api/chat/inbox?session_id=${encodeURIComponent(sessionId)}`
+                + (inboxSince ? `&since=${encodeURIComponent(inboxSince)}` : "");
+      const r = await fetch(url);
+      if (!r.ok) return;
+      const j = await r.json();
+      (j.messages || []).forEach(m => asesorBubble(m.content));
+      if (j.now) inboxSince = j.now;
+    } catch { /* network blip — retry next tick */ }
+    finally { inboxInFlight = false; }
+  }
+
+  function startInboxPolling() {
+    if (inboxTimer) return;
+    pollInbox();
+    inboxTimer = setInterval(pollInbox, INBOX_INTERVAL_MS);
+  }
+  function stopInboxPolling() {
+    if (!inboxTimer) return;
+    clearInterval(inboxTimer);
+    inboxTimer = null;
   }
 
   document.getElementById("open-chat")?.addEventListener("click", open);
@@ -99,6 +143,21 @@
     const tpl = document.getElementById("tpl-msg-user");
     const node = tpl.content.firstElementChild.cloneNode(true);
     node.textContent = text;
+    body.appendChild(node);
+    scrollToBottom();
+    return node;
+  }
+  function asesorBubble(text) {
+    // Distinct bubble for human-asesor replies coming back from the
+    // Telegram inbox. Same shape as bot, different colour + tag.
+    const node = document.createElement("div");
+    node.className = "chat__msg chat__msg--asesor";
+    const tag = document.createElement("span");
+    tag.className = "chat__msg-tag";
+    tag.textContent = "Asesor";
+    const p = document.createElement("p");
+    p.textContent = text;
+    node.append(tag, p);
     body.appendChild(node);
     scrollToBottom();
     return node;

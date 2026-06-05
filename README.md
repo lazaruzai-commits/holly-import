@@ -51,11 +51,11 @@ conversation off-channel.
 `data/models.json` is the source of truth for the lineup:
 
 - 10 MG models (MG 3, MG 3 Hybrid+, MG 5, MG GT, MG ZS, MG ZS EV, MG RX5, MG RX8, MG RX9, Cyberster)
-- 9 Maxus models (D60, D90, T60, T90, G10, V80, Serie C, Serie S, Serie H)
+- 2 Maxus models (D90, T60)
 
-Specs are starting estimates from the public mgvzla.com / maxusve.com
-listings. **Verify and update** before going public — the dealership
-will know the exact Venezuelan-market trim specs.
+HP figures match the dealership's own spec sheet (Papa, May 2026).
+Other specs are starting estimates from the public mgvzla.com /
+maxusve.com listings — **verify and update** before going public.
 
 `data/competitors.json` defines the competitor catalog and the per-pair
 talking points used by the Compare page (`vsHolly.summary`,
@@ -89,6 +89,32 @@ To get `TELEGRAM_CHAT_ID`: send `/start` to
 [@HollyImportBot](https://t.me/HollyImportBot), then visit
 `https://api.telegram.org/bot<TOKEN>/getUpdates` and copy the
 `"chat":{"id": ...}` value.
+
+## Asesor replies from Telegram
+
+Every bot notification ends with a 4-char session id
+(`Sesión: a3kp`). To answer a customer **inside the web chat panel**, an
+asesor opens the bot's Telegram message, uses native **Reply**, and types
+their answer. The next time the customer's panel polls, the reply renders
+as a gold "Asesor" bubble inline in the conversation.
+
+Setup:
+
+1. Set `TELEGRAM_WEBHOOK_SECRET` in `.env` to any random string
+   (e.g. `python -c "import secrets; print(secrets.token_urlsafe(32))"`).
+2. Restart the service.
+3. Register the webhook once with Telegram:
+   ```bash
+   curl -F "url=https://andyluciani.com/holly/api/telegram-webhook" \
+        -F "secret_token=$TELEGRAM_WEBHOOK_SECRET" \
+        https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/setWebhook
+   ```
+4. Send a test customer message; in Telegram, hit Reply on the
+   notification and type. The bot acknowledges with `✅ Enviado al chat
+   <sid>` and the customer sees the message within ~5 seconds.
+
+If `TELEGRAM_WEBHOOK_SECRET` is empty the endpoint returns 503, so the
+inbound path is dormant until you explicitly turn it on.
 
 ## Vehicle gallery imagery
 
@@ -168,7 +194,7 @@ Written to `leads/` (gitignored):
 
 ```
 GET /api/health
-→ { "ok": true, "models": 19, "competitors": 39,
+→ { "ok": true, "models": 12, "competitors": 39,
     "telegram_configured": true, "openrouter_configured": true }
 ```
 

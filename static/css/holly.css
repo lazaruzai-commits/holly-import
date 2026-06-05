@@ -872,6 +872,17 @@ body:has(.chat.is-open) .chat-fab { display: none; }
 .chat__msg { padding: .65rem .9rem; border-radius: var(--r-md); max-width: 85%; font-size: .92rem; }
 .chat__msg--bot  { background: var(--c-card); border: 1px solid var(--c-line); align-self: flex-start; }
 .chat__msg--user { background: var(--c-crimson); color: white; align-self: flex-end; }
+.chat__msg--asesor {
+  align-self: flex-start;
+  background: #2a2418;
+  border: 1px solid #d4a24a;
+  border-left-width: 3px;
+}
+.chat__msg-tag {
+  display: block;
+  font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+  color: #d4a24a; margin-bottom: .25rem; font-weight: 600;
+}
 .chat__msg p { margin: 0 0 .4em; }
 .chat__msg p:last-child { margin: 0; }
 

@@ -3,7 +3,7 @@
 Workflow:
   1. Drop your own car photos into  static/img/models/_source/
      Name each file after the model id, with any image extension:
-         mg-3.jpg
+         mg-5.jpg
          mg-zs.png
          maxus-t60.webp
          ...
