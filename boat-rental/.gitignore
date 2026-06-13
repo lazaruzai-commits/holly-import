@@ -1,0 +1,9 @@
+# Bookings are runtime state, not source.
+data/bookings.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env

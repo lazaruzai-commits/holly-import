@@ -1,0 +1,82 @@
+{
+  "boats": [
+    {
+      "id": "sunseeker-42",
+      "name": "Sunseeker 42",
+      "type": "Motor Yacht",
+      "location": "Marina del Rey, CA",
+      "capacity": 8,
+      "cabins": 2,
+      "length_ft": 42,
+      "price_per_day": 1450,
+      "skipper_required": true,
+      "amenities": ["Sun deck", "Wet bar", "Bluetooth audio", "Snorkel gear", "Fridge/freezer"],
+      "description": "A sleek motor yacht built for day cruising and sunset parties. Twin diesels, a spacious cockpit, and a foredeck sun pad for up to eight guests."
+    },
+    {
+      "id": "catalina-30",
+      "name": "Catalina 30 Sailboat",
+      "type": "Sailboat",
+      "location": "San Diego Bay, CA",
+      "capacity": 6,
+      "cabins": 1,
+      "length_ft": 30,
+      "price_per_day": 480,
+      "skipper_required": false,
+      "amenities": ["Full sail rig", "Galley", "Marine head", "VHF radio", "Cooler"],
+      "description": "A forgiving, well-balanced cruiser perfect for a relaxed sail around the bay. Bareboat-friendly for sailors with experience; skipper available on request."
+    },
+    {
+      "id": "boston-whaler-23",
+      "name": "Boston Whaler 230",
+      "type": "Center Console",
+      "location": "Miami, FL",
+      "capacity": 7,
+      "cabins": 0,
+      "length_ft": 23,
+      "price_per_day": 620,
+      "skipper_required": false,
+      "amenities": ["Fishing rod holders", "Bimini top", "Livewell", "GPS/fishfinder", "Swim ladder"],
+      "description": "Unsinkable, nimble, and great for fishing or island-hopping. Shallow draft lets you nose right up to the sandbar."
+    },
+    {
+      "id": "azimut-55",
+      "name": "Azimut 55 Flybridge",
+      "type": "Luxury Yacht",
+      "location": "Newport Beach, CA",
+      "capacity": 12,
+      "cabins": 3,
+      "length_ft": 55,
+      "price_per_day": 3200,
+      "skipper_required": true,
+      "amenities": ["Flybridge lounge", "Full galley", "Three cabins", "Air conditioning", "Tender", "Sound system"],
+      "description": "Flagship luxury for special occasions. Crewed flybridge yacht with three staterooms, a top-deck lounge, and room for a dozen guests in comfort."
+    },
+    {
+      "id": "pontoon-24",
+      "name": "Bennington 24 Pontoon",
+      "type": "Pontoon",
+      "location": "Lake Tahoe, NV",
+      "capacity": 10,
+      "cabins": 0,
+      "length_ft": 24,
+      "price_per_day": 390,
+      "skipper_required": false,
+      "amenities": ["Shaded lounge", "Bluetooth speakers", "Cooler", "Swim deck", "Tube tow point"],
+      "description": "A floating living room for the whole crew. Easy to drive, stable as a dock, and ideal for a lazy day on the lake with tubing and swimming."
+    },
+    {
+      "id": "sea-ray-19",
+      "name": "Sea Ray 190 Bowrider",
+      "type": "Bowrider",
+      "location": "Lake Austin, TX",
+      "capacity": 6,
+      "cabins": 0,
+      "length_ft": 19,
+      "price_per_day": 340,
+      "skipper_required": false,
+      "amenities": ["Wakeboard tower", "Bimini top", "Bluetooth audio", "Tow rope", "Cooler"],
+      "description": "Punchy, fun bowrider for watersports and cruising. Pulls a wakeboarder all day and seats six for the ride back to the dock."
+    }
+  ]
+}

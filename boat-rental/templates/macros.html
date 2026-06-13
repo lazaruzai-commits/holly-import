@@ -1,0 +1,15 @@
+{# Shared Jinja macros. Imported (not included) so the macro is available
+   in the importing template's scope: {% import "macros.html" as m %} #}
+
+{# Representative emoji for a boat type, used for placeholder art. #}
+{%- macro boat_emoji(boat_type) -%}
+{%- set m = {
+  "Motor Yacht": "🛥️",
+  "Luxury Yacht": "🛥️",
+  "Sailboat": "⛵",
+  "Center Console": "🎣",
+  "Pontoon": "🛶",
+  "Bowrider": "🚤"
+} -%}
+{{- m.get(boat_type, "🚤") -}}
+{%- endmacro -%}

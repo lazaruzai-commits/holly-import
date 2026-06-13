@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anchor &amp; Oar — Boat Rentals</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% import "macros.html" as m %}
+<header class="site">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+    <div class="brand"><span class="anchor">⚓</span> Anchor &amp; Oar</div>
+    <nav>
+      <a href="/">Fleet</a>
+      <a href="/api/boats">API</a>
+      <a href="/mcp">MCP</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Rent a boat. Or let your AI agent do it.</h1>
+    <p>Browse our fleet and book in a few clicks — or connect any MCP client
+       and rent a boat in natural language. Same boats, same calendar, one
+       source of truth.</p>
+    <div class="mcp-banner">
+      <span class="tag">MCP</span>
+      <div>
+        Connect an MCP client (Claude Desktop, Claude Code, the Agents SDK) to
+        <code>http://localhost:8000/mcp</code> and ask it to find and book a
+        boat. Tools: <code>list_boats</code>, <code>get_quote</code>,
+        <code>book_boat</code>, <code>get_booking</code>,
+        <code>cancel_booking</code>.
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    {% for boat in boats %}
+    <article class="card">
+      <a href="/boats/{{ boat.id }}" class="thumb">{{ m.boat_emoji(boat.type) }}</a>
+      <div class="body">
+        <h3>{{ boat.name }}</h3>
+        <div class="type">{{ boat.type }} · {{ boat.location }}</div>
+        <div class="meta">Up to {{ boat.capacity }} guests · {{ boat.length_ft }} ft
+          {%- if boat.skipper_required %} · skipper included{% endif %}</div>
+        <div class="price">${{ "{:,.0f}".format(boat.price_per_day) }}<span> / day</span></div>
+        <div style="margin-top:14px;"><a class="btn block" href="/boats/{{ boat.id }}">View &amp; book</a></div>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    Anchor &amp; Oar is a demo boat-rental site with a built-in
+    <a href="https://modelcontextprotocol.io">Model Context Protocol</a> server.
+    REST API at <code>/api/boats</code> · MCP at <code>/mcp</code>.
+  </div>
+</footer>
+</body>
+</html>

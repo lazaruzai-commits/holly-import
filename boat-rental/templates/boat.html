@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ boat.name }} — Anchor &amp; Oar</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+{% import "macros.html" as m %}
+<header class="site">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+    <div class="brand"><span class="anchor">⚓</span> <a href="/" style="color:inherit;">Anchor &amp; Oar</a></div>
+    <nav><a href="/">← Back to fleet</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="detail">
+    <div>
+      <div class="hero-emoji">{{ m.boat_emoji(boat.type) }}</div>
+      <h1 style="margin-top:24px;">{{ boat.name }}</h1>
+      <div class="type">{{ boat.type }} · {{ boat.location }}</div>
+      <p>{{ boat.description }}</p>
+      <div class="spec">
+        <div><b>Capacity</b>{{ boat.capacity }} guests</div>
+        <div><b>Length</b>{{ boat.length_ft }} ft</div>
+        <div><b>Cabins</b>{{ boat.cabins }}</div>
+        <div><b>Skipper</b>{{ "Included" if boat.skipper_required else "Optional" }}</div>
+      </div>
+      <h3 style="margin-bottom:6px;">Aboard</h3>
+      <ul class="amenities">
+        {% for a in boat.amenities %}<li>{{ a }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <aside class="book">
+      <h2>Book this boat</h2>
+      <div class="rate">${{ "{:,.0f}".format(boat.price_per_day) }} per day</div>
+      <form id="bookForm" data-boat="{{ boat.id }}" data-rate="{{ boat.price_per_day }}">
+        <div class="field">
+          <label>Your name</label>
+          <input name="customer_name" required placeholder="Alex Rivera">
+        </div>
+        <div class="field">
+          <label>Email (optional)</label>
+          <input name="customer_email" type="email" placeholder="alex@example.com">
+        </div>
+        <div class="field">
+          <div class="row">
+            <div style="flex:1;">
+              <label>Start date</label>
+              <input name="start_date" type="date" required>
+            </div>
+            <div style="flex:1;">
+              <label>End date</label>
+              <input name="end_date" type="date" required>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Guests (optional)</label>
+          <input name="party_size" type="number" min="1" max="{{ boat.capacity }}" placeholder="Max {{ boat.capacity }}">
+        </div>
+
+        <div class="quote-line"><span id="qDays">— days</span><span id="qRate"></span></div>
+        <div class="quote-line total"><span>Total</span><span id="qTotal">$0</span></div>
+
+        <button class="btn block" type="submit">Reserve</button>
+        <div class="note" id="note"></div>
+      </form>
+    </aside>
+  </section>
+</main>
+
+<script>
+const form = document.getElementById('bookForm');
+const rate = Number(form.dataset.rate);
+const boatId = form.dataset.boat;
+const note = document.getElementById('note');
+
+function val(n) { return form.elements[n].value; }
+
+function recompute() {
+  const s = val('start_date'), e = val('end_date');
+  const qDays = document.getElementById('qDays');
+  const qRate = document.getElementById('qRate');
+  const qTotal = document.getElementById('qTotal');
+  if (!s || !e) { qDays.textContent = '— days'; qRate.textContent=''; qTotal.textContent='$0'; return; }
+  const days = Math.floor((new Date(e) - new Date(s)) / 86400000) + 1;
+  if (days < 1) { qDays.textContent = 'End before start'; qRate.textContent=''; qTotal.textContent='$0'; return; }
+  qDays.textContent = days + (days === 1 ? ' day' : ' days');
+  qRate.textContent = '$' + rate.toLocaleString() + ' / day';
+  qTotal.textContent = '$' + (days * rate).toLocaleString();
+}
+['start_date','end_date'].forEach(n => form.elements[n].addEventListener('change', recompute));
+
+form.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  note.className = 'note';
+  const payload = {
+    boat_id: boatId,
+    customer_name: val('customer_name'),
+    customer_email: val('customer_email'),
+    start_date: val('start_date'),
+    end_date: val('end_date'),
+  };
+  const ps = val('party_size');
+  if (ps) payload.party_size = Number(ps);
+  try {
+    const res = await fetch('/api/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      note.className = 'note err';
+      note.textContent = (data.detail || 'Could not book.').toString();
+      return;
+    }
+    note.className = 'note ok';
+    note.innerHTML = `Booked! Confirmation <b>${data.id}</b> — ` +
+      `${data.boat_name}, ${data.start_date} to ${data.end_date}, ` +
+      `total <b>$${data.total_price.toLocaleString()}</b>.`;
+    form.querySelector('button[type=submit]').textContent = 'Book again';
+  } catch (err) {
+    note.className = 'note err';
+    note.textContent = 'Network error — please try again.';
+  }
+});
+</script>
+</body>
+</html>
