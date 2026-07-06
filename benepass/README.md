@@ -48,13 +48,12 @@ git checkout claude/benepass-stipend-automation-0aw5o9
    consumed by a receipt that crosses it.
 4. **Render.** `python3 benepass/render_pdf.py --dir receipts_html/ pdfs/`
    (headless Chromium; receipts are rendered exactly as received).
-5. **Deliver.**
-   - Send the PDFs + a summary table (date, merchant, amount, running total)
-     to Julio with SendUserFile (status `proactive`).
-   - Create a Gmail **draft** (never auto-send) to the connected Gmail
-     address, subject `Benepass WFH stipend — <Month YYYY> receipts ($TOTAL)`,
-     with the selected PDFs attached, so the packet is also reachable from
-     the phone's Gmail app.
+5. **Deliver.** Rename the selected PDFs `YYYY-MM-DD_Merchant_$AMOUNT.pdf`
+   (the email body carries no date, so the filename must) and send them plus
+   a summary table (date, merchant, amount, running total) to Julio with
+   SendUserFile (status `proactive`). Do not try to attach the PDFs to a
+   Gmail draft — the Gmail MCP only accepts inline base64 content, which
+   does not fit in a tool call at receipt-PDF sizes.
 6. **Report.** Reply with the selection table, the unused remainder of the
    cap, and anything skipped (refunds, out-of-month orders).
 
