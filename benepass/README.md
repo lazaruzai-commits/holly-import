@@ -60,6 +60,22 @@ git checkout claude/benepass-stipend-automation-0aw5o9
 Keep receipts and PDFs in the session scratchpad — never commit personal
 receipt data to this repository.
 
+## Julio's manual steps when the packet arrives
+
+1. Open the Benepass app → WFH stipend → Add expense.
+2. For each PDF: upload it as the receipt; enter merchant, date, and amount
+   from the filename (`YYYY-MM-DD_Merchant_$AMOUNT.pdf`) — the receipt body
+   itself has no date.
+3. If the summary flags an optional top-up receipt that crosses the cap,
+   claim only the remaining balance on it (if the plan allows partial
+   claims), otherwise skip it.
+4. Reimbursements pay out to the Chase account already linked via Plaid.
+
+If a claim is rejected for a missing receipt date, screenshot the email in
+Gmail (the date shows in the header there) and attach that, or ask Claude to
+regenerate the PDF with the date header. Orders placed after the 27th can be
+picked up with an ad-hoc "rerun the Benepass packet" session.
+
 ## Files
 
 - `render_pdf.py` — receipt HTML → PDF via headless Chromium.
