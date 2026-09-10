@@ -524,7 +524,9 @@ a.promo-feature__inner:hover {
 .card:hover { transform: translateY(-3px); border-color: var(--c-crimson); box-shadow: var(--shadow-card); }
 .card.is-hidden { display: none; }
 .card__img { aspect-ratio: 16 / 10; background: #0e0e12; position: relative; overflow: hidden; }
-.card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+/* object-fit: contain letterboxes the transparent-PNG hero on the card's own
+   dark bg — no side-chopping when the car is wider than 16:10. */
+.card__img img { width: 100%; height: 100%; object-fit: contain; transition: transform .3s; }
 .card:hover .card__img img { transform: scale(1.04); }
 .card__placeholder {
   position: absolute; inset: 0; display: grid; place-items: center;
@@ -968,7 +970,9 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   border: 1px solid var(--c-line);
   border-radius: var(--r-md); overflow: hidden;
 }
-.model-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* contain, not cover — the model detail hero uses the same transparent PNG
+   as the card and would clip ~18% off each side of a wide car at 4:3. */
+.model-hero__media img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .model-hero__promo {
   position: absolute; top: .9rem; right: .9rem;
   background: var(--c-crimson); color: white;
