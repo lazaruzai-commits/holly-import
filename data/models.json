@@ -669,6 +669,36 @@
       "tags": [
         "CAMION"
       ]
+    },
+    {
+      "id": "toyota-corolla-cross",
+      "brand": "Toyota",
+      "name": "Toyota Corolla Cross",
+      "tagline": "SUV compacta importada, seleccionada por Holly Import y respaldada con nuestra garantía.",
+      "bodyType": "SUV Compacta",
+      "category": "importado",
+      "promoEligible": false,
+      "image": "static/img/models/toyota-corolla-cross.jpg",
+      "specs": {
+        "motor": "1.8L (híbrido o gasolina según unidad)",
+        "potencia": "140 hp",
+        "torque": "175 Nm",
+        "transmision": "CVT / e-CVT",
+        "traccion": "4x2",
+        "asientos": 5,
+        "combustible": "Gasolina / Híbrido"
+      },
+      "highlights": [
+        "Importado y revisado por Holly Import",
+        "Garantía Holly Import incluida",
+        "Toyota Safety Sense",
+        "Pantalla táctil con Apple CarPlay / Android Auto"
+      ],
+      "competitors": [],
+      "tags": [
+        "SUV",
+        "IMPORTADO"
+      ]
     }
   ]
 }

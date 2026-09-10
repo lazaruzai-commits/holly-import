@@ -1288,3 +1288,50 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 .contact-form { display: grid; gap: .9rem; max-width: 580px; }
 .contact-form label { font-size: .85rem; color: var(--c-muted); display: flex; flex-direction: column; gap: .3rem; }
 .contact-form button { justify-self: start; }
+
+/* ---------- importados spotlight (homepage, under the hero) ---------- */
+
+.spotlight {
+  max-width: var(--maxw); margin: 2.5rem auto 0; padding: 0 1.2rem;
+  display: grid; grid-template-columns: 1.45fr 1fr; gap: 2rem; align-items: center;
+}
+.spotlight__media {
+  position: relative; overflow: hidden;
+  border-radius: var(--r-lg); background: var(--c-bg);
+  aspect-ratio: 16 / 7;
+}
+.spotlight__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  /* keep the Toyota grille (right third of the crop) in frame at every width */
+  object-position: 78% 50%;
+  display: block;
+}
+/* Slanted ribbon that slides in from the left edge */
+.spotlight__strip {
+  position: absolute; left: 0; bottom: 14%;
+  background: var(--c-crimson); color: var(--c-white);
+  padding: .55rem 2.2rem .55rem 1.4rem;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 1.1rem) 100%, 0 100%);
+  transform: translateX(-110%);
+  animation: strip-in .7s cubic-bezier(.2,.8,.2,1) .35s forwards;
+}
+.spotlight__strip span {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  letter-spacing: .12em; text-transform: uppercase; line-height: 1;
+  display: block; white-space: nowrap;
+}
+@keyframes strip-in { to { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .spotlight__strip { animation: none; transform: none; }
+}
+.spotlight__title { font-size: clamp(2rem, 4.2vw, 3rem); margin: .2em 0 .35em; }
+.spotlight__lead { color: var(--c-muted); max-width: 46ch; margin-bottom: 1.3rem; }
+.spotlight__cta { display: flex; gap: .8rem; flex-wrap: wrap; }
+@media (max-width: 880px) {
+  .spotlight { grid-template-columns: 1fr; gap: 1.2rem; margin-top: 1.5rem; padding: 0 1rem; }
+  .spotlight__media { aspect-ratio: 16 / 9; }
+  .spotlight__strip { bottom: 10%; }
+}
+
+/* neutral (dark) card badge — used for "Con nuestra garantía" on importados */
+.card__badge--neutral { background: var(--c-text); }

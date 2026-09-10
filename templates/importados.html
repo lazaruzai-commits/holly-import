@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% block title %}Vehículos importados — Holly Import{% endblock %}
+{% block description %}Holly Import ahora también trae vehículos importados de otras marcas — Toyota, Kia, Peugeot — seleccionados y respaldados con nuestra garantía. Los Palos Grandes, Caracas.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <span class="hero__eyebrow">Nueva línea</span>
+  <h1>Vehículos importados</h1>
+  <p class="lead">Además de MG y Maxus, ahora traemos unidades importadas de otras marcas — Toyota, Kia, Peugeot — escogidas por nuestro equipo y entregadas con nuestra garantía.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--cards models-grid" id="models-grid">
+    {% for m in models %}
+    <article class="card"
+             data-model-id="{{ m.id }}"
+             data-brand="{{ m.brand }}"
+             data-category="{{ m.category }}"
+             data-tags="{{ m.tags|join(',') }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+        <span class="card__badge card__badge--neutral">Con nuestra garantía</span>
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ m.brand }}</span>
+        <h3 class="card__title">{{ m.name }}</h3>
+        <p class="card__tag">{{ m.tagline }}</p>
+        <ul class="card__bullets">
+          <li>{{ m.specs.motor }}</li>
+          <li>{{ m.specs.potencia }}</li>
+          {% if m.specs.transmision %}<li>{{ m.specs.transmision }}</li>{% endif %}
+        </ul>
+        <div class="card__cta">
+          <a class="btn btn--small btn--primary" href="{{ root_path }}/modelos/{{ m.id }}">Explorar</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-card">
+    <div>
+      <h3>¿Buscas un modelo importado en específico?</h3>
+      <p>Trabajamos con Toyota, Kia y Peugeot, entre otras marcas. Dinos qué necesitas y un asesor te confirma disponibilidad y tiempos de entrega.</p>
+    </div>
+    <button class="btn btn--primary" type="button" data-open-chat>Consultar con un asesor</button>
+  </div>
+</section>
+{% endblock %}

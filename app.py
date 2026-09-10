@@ -101,13 +101,18 @@ def models_list() -> list[dict[str, Any]]:
 
 
 def passenger_models() -> list[dict[str, Any]]:
-    """Cars, SUVs and pickups shown on /modelos. Everything except category==comercial."""
-    return [m for m in models_list() if m.get("category", "passenger") != "comercial"]
+    """MG + Maxus cars, SUVs and pickups shown on /modelos (category==passenger)."""
+    return [m for m in models_list() if m.get("category", "passenger") == "passenger"]
 
 
 def commercial_models() -> list[dict[str, Any]]:
     """Cargo trucks (S80, C300) shown on /comerciales."""
     return [m for m in models_list() if m.get("category") == "comercial"]
+
+
+def imported_models() -> list[dict[str, Any]]:
+    """Imported other-brand vehicles (Toyota, Kia, Peugeot…) shown on /importados."""
+    return [m for m in models_list() if m.get("category") == "importado"]
 
 
 def model_by_id(mid: str) -> dict[str, Any] | None:
@@ -150,9 +155,12 @@ async def page_inicio(request: Request):
         {"id": "hero",   "video": "static/video/hero.mp4",   "model": None},
         {"id": "mg-5",   "video": "static/video/mg-5.mp4",   "model": by_id.get("mg-5")},
     ]
+    # Imported-vehicle spotlight under the hero (currently the Corolla Cross).
+    spotlight = model_by_id("toyota-corolla-cross")
     return templates.TemplateResponse(
         request, "inicio.html",
-        _ctx(request, page="inicio", featured=featured, slides=slides),
+        _ctx(request, page="inicio", featured=featured, slides=slides,
+             spotlight=spotlight),
     )
 
 
@@ -168,6 +176,14 @@ async def page_comerciales(request: Request):
     return templates.TemplateResponse(
         request, "comerciales.html",
         _ctx(request, page="comerciales", models=commercial_models()),
+    )
+
+
+@app.get("/importados", response_class=HTMLResponse)
+async def page_importados(request: Request):
+    return templates.TemplateResponse(
+        request, "importados.html",
+        _ctx(request, page="importados", models=imported_models()),
     )
 
 
