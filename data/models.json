@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "note": "Source of truth for the model lineup. Specs are starting estimates from publicly visible info on mgvzla.com and maxusve.com — verify against Holly Import's actual stock and update before publishing.",
+    "note": "Source of truth for the model lineup. Specs come from the 2027 Holly Import catalogs (CATALAGO MG_2027 + CATALAGO MAXUS_2027) delivered by the dealership. Verify against actual stock before publishing.",
     "currency": "USD",
     "priceMode": "relative"
   },
@@ -9,7 +9,7 @@
       "id": "mg-3",
       "brand": "MG",
       "name": "MG 3",
-      "tagline": "Hatchback urbano, ágil y eficiente.",
+      "tagline": "Hatchback urbano, ágil y eficiente. Disponible en Manual y Automática.",
       "bodyType": "Hatchback",
       "category": "passenger",
       "promoEligible": true,
@@ -23,11 +23,25 @@
         "asientos": 5,
         "rendimiento": "Eficiente en ciudad"
       },
+      "trims": [
+        {
+          "code": "MT",
+          "name": "MG 3 MT",
+          "transmision": "Manual 5 velocidades",
+          "colors": ["Negro", "Gris", "Rojo", "Azul", "Blanco"]
+        },
+        {
+          "code": "AT",
+          "name": "MG 3 AT",
+          "transmision": "Automática 4 velocidades",
+          "colors": ["Negro", "Gris", "Rojo", "Azul", "Blanco"]
+        }
+      ],
       "highlights": [
-        "Pantalla táctil multimedia",
+        "Pantalla táctil 10.5\" + cluster 7\"",
         "Cámara de retroceso",
-        "Bolsas de aire delanteras",
-        "Apple CarPlay / Android Auto"
+        "Apple CarPlay / Android Auto",
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "toyota-yaris-hb",
@@ -39,60 +53,41 @@
       ]
     },
     {
-      "id": "mg-3-hybrid",
-      "brand": "MG",
-      "name": "MG 3 Hybrid+",
-      "tagline": "El híbrido autorrecargable más accesible de su segmento.",
-      "bodyType": "Hatchback Híbrido",
-      "category": "passenger",
-      "promoEligible": true,
-      "image": "static/img/models/mg-3-hybrid.jpg",
-      "specs": {
-        "motor": "1.5L híbrido full",
-        "potencia": "194 hp combinados",
-        "torque": "425 Nm",
-        "transmision": "Automática híbrida",
-        "traccion": "4x2",
-        "asientos": 5,
-        "rendimiento": "Hasta 4.4 L/100km"
-      },
-      "highlights": [
-        "Tecnología híbrida autorrecargable",
-        "No requiere enchufe",
-        "Modo eléctrico en ciudad",
-        "Frenado regenerativo"
-      ],
-      "competitors": [
-        "toyota-yaris-cross-hybrid",
-        "kia-stonic"
-      ],
-      "tags": [
-        "HATCHBACK",
-        "NEW_ENERGY"
-      ]
-    },
-    {
       "id": "mg-5",
       "brand": "MG",
       "name": "MG 5",
-      "tagline": "Sedán deportivo con presencia europea.",
+      "tagline": "Sedán deportivo con presencia europea. Disponible en Manual y Automática.",
       "bodyType": "Sedán",
       "category": "passenger",
       "promoEligible": true,
       "image": "static/img/models/mg-5.jpg",
       "specs": {
         "motor": "1.5L gasolina",
-        "potencia": "108 hp",
+        "potencia": "113 hp",
         "torque": "150 Nm",
         "transmision": "MT 5 vel. / CVT",
         "traccion": "4x2",
         "asientos": 5
       },
+      "trims": [
+        {
+          "code": "MT",
+          "name": "MG 5 MT",
+          "transmision": "Manual 5 velocidades",
+          "colors": ["Plata"]
+        },
+        {
+          "code": "AT",
+          "name": "MG 5 AT",
+          "transmision": "CVT",
+          "colors": ["Negro", "Rojo", "Plata", "Blanco"]
+        }
+      ],
       "highlights": [
-        "Maletero de 512 L",
-        "Pantalla flotante de 10\"",
-        "Llave inteligente",
-        "Diseño tipo fastback"
+        "Techo solar (AT)",
+        "Pantalla flotante multimedia",
+        "Diseño tipo fastback",
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "toyota-yaris-sedan",
@@ -107,24 +102,24 @@
       "id": "mg-gt",
       "brand": "MG",
       "name": "MG GT",
-      "tagline": "Sedán deportivo, postura de coupé.",
+      "tagline": "Sedán deportivo con postura de coupé y motor 1.5 Turbo.",
       "bodyType": "Sedán Deportivo",
       "category": "passenger",
       "promoEligible": true,
       "image": "static/img/models/mg-gt.jpg",
       "specs": {
-        "motor": "1.5L turbo",
+        "motor": "1.5L Turbo",
         "potencia": "160 hp",
-        "torque": "275 Nm",
+        "torque": "250 Nm",
         "transmision": "DCT 7 vel.",
         "traccion": "4x2",
         "asientos": 5
       },
       "highlights": [
+        "Asientos en cuero PVC rojo/negro",
         "Doble salida de escape",
         "Modos de manejo deportivo",
-        "Iluminación interior ambiental",
-        "Pantalla curva panorámica"
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "toyota-corolla",
@@ -139,7 +134,7 @@
       "id": "mg-zs",
       "brand": "MG",
       "name": "MG ZS",
-      "tagline": "SUV compacto, bestseller global.",
+      "tagline": "SUV compacto, bestseller global. Nueva generación.",
       "bodyType": "SUV Compacta",
       "category": "passenger",
       "promoEligible": true,
@@ -148,15 +143,15 @@
         "motor": "1.5L gasolina",
         "potencia": "114 hp",
         "torque": "150 Nm",
-        "transmision": "MT 5 vel. / AT 4 vel.",
+        "transmision": "Automática",
         "traccion": "4x2",
         "asientos": 5
       },
       "highlights": [
-        "Techo panorámico disponible",
-        "Asistente de descenso",
-        "6 bolsas de aire en versión COM",
-        "Conectividad total"
+        "Techo panorámico",
+        "Pantalla táctil 10.1\"",
+        "Cámara de retroceso",
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "hyundai-creta",
@@ -195,60 +190,27 @@
       ]
     },
     {
-      "id": "mg-zs-ev",
-      "brand": "MG",
-      "name": "MG ZS EV",
-      "tagline": "SUV compacto 100% eléctrico.",
-      "bodyType": "SUV Compacta Eléctrica",
-      "category": "passenger",
-      "promoEligible": true,
-      "image": "static/img/models/mg-zs-ev.jpg",
-      "specs": {
-        "motor": "Motor eléctrico síncrono (PMS)",
-        "potencia": "174 hp",
-        "torque": "280 Nm",
-        "transmision": "Automática 1 vel.",
-        "traccion": "4x2",
-        "autonomia": "Hasta 320 km (WLTP)",
-        "asientos": 5
-      },
-      "highlights": [
-        "100% eléctrico, cero emisiones",
-        "Carga rápida DC compatible",
-        "Pantalla táctil con conectividad",
-        "Modos de manejo Eco / Normal / Sport"
-      ],
-      "competitors": [
-        "byd-yuan-plus",
-        "chery-eq7"
-      ],
-      "tags": [
-        "SUV",
-        "NEW_ENERGY"
-      ]
-    },
-    {
       "id": "mg-rx5",
       "brand": "MG",
       "name": "MG RX5",
-      "tagline": "SUV familiar con espacio premium.",
+      "tagline": "SUV familiar con motor 1.5 Turbo y pantalla 14.1\".",
       "bodyType": "SUV Mediana",
       "category": "passenger",
       "promoEligible": true,
       "image": "static/img/models/mg-rx5.jpg",
       "specs": {
-        "motor": "1.5L turbo",
+        "motor": "1.5L Turbo",
         "potencia": "168 hp",
         "torque": "275 Nm",
-        "transmision": "DCT 7 vel.",
+        "transmision": "Automática",
         "traccion": "4x2",
         "asientos": 5
       },
       "highlights": [
-        "Pantalla central de 12.3\"",
-        "Sistema de infoentretenimiento avanzado",
+        "Cámara 360°",
+        "Pantalla central 14.1\"",
         "Cargador inalámbrico",
-        "Acabados premium"
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "chery-tiggo-7-pro",
@@ -260,59 +222,27 @@
       ]
     },
     {
-      "id": "mg-rx8",
-      "brand": "MG",
-      "name": "MG RX8",
-      "tagline": "SUV grande con tres filas de asientos.",
-      "bodyType": "SUV 7 puestos",
-      "category": "passenger",
-      "promoEligible": false,
-      "image": "static/img/models/mg-rx8.jpg",
-      "specs": {
-        "motor": "2.0L turbo",
-        "potencia": "221 hp",
-        "torque": "360 Nm",
-        "transmision": "AT 6 vel.",
-        "traccion": "4x4 disponible",
-        "asientos": 7
-      },
-      "highlights": [
-        "Tres filas de asientos",
-        "Tracción 4x4 selectiva",
-        "Chasis tipo body-on-frame",
-        "Capacidad de remolque alta"
-      ],
-      "competitors": [
-        "toyota-fortuner",
-        "hyundai-santa-fe",
-        "kia-sorento"
-      ],
-      "tags": [
-        "SUV"
-      ]
-    },
-    {
       "id": "mg-rx9",
       "brand": "MG",
       "name": "MG RX9",
-      "tagline": "SUV insignia de MG, lujo y potencia.",
+      "tagline": "SUV insignia de MG, 7 plazas, tracción integral.",
       "bodyType": "SUV Grande",
       "category": "passenger",
       "promoEligible": true,
       "image": "static/img/models/mg-rx9.jpg",
       "specs": {
-        "motor": "2.0L turbo",
+        "motor": "2.0L Turbo",
         "potencia": "233 hp",
-        "torque": "375 Nm",
+        "torque": "392 Nm",
         "transmision": "AT 9 vel.",
         "traccion": "AWD",
         "asientos": 7
       },
       "highlights": [
-        "Sistema de sonido premium",
-        "Asientos en cuero ventilados",
-        "Suspensión adaptativa",
-        "Asistencias de manejo nivel 2"
+        "Configuración 2-3-2 (7 plazas)",
+        "Sonido BOSE",
+        "Cluster 12.3\"",
+        "Garantía 6 años o 120.000 km"
       ],
       "competitors": [
         "toyota-prado",
@@ -354,7 +284,7 @@
       "id": "mg-cyberster",
       "brand": "MG",
       "name": "MG Cyberster",
-      "tagline": "Roadster eléctrico de dos plazas. Edición exclusiva.",
+      "tagline": "Roadster eléctrico de dos plazas con puertas tipo tijera.",
       "bodyType": "Roadster Eléctrico",
       "category": "passenger",
       "promoEligible": true,
@@ -371,8 +301,8 @@
       "highlights": [
         "0–100 km/h en 3.2 s",
         "Puertas tipo tijera",
-        "Techo blando eléctrico",
-        "Edición limitada"
+        "Descapotable eléctrico",
+        "Batería: 8 años o 160.000 km"
       ],
       "competitors": [
         "porsche-718-cayman"
@@ -382,28 +312,244 @@
       ]
     },
     {
+      "id": "maxus-t60-sc",
+      "brand": "Maxus",
+      "name": "Maxus T60 Comfort SC 4x2",
+      "tagline": "Pickup de trabajo, cabina simple, motor Mitsubishi 2.4L.",
+      "bodyType": "Pickup cabina simple",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t60-sc.jpg",
+      "specs": {
+        "motor": "Mitsubishi 2.4L gasolina",
+        "potencia": "136 hp @ 5000 rpm",
+        "torque": "200 Nm @ 4200 rpm",
+        "transmision": "Manual 5 vel.",
+        "traccion": "4x2 (LHD)",
+        "asientos": 2,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "consumo": "10.2 L/100km",
+        "cargaUtil": "1.250 Kg",
+        "dimensiones": "5365/2145/1809 mm"
+      },
+      "highlights": [
+        "Cabina simple, máxima carga útil (1.250 Kg)",
+        "Motor Mitsubishi 2.4L probado",
+        "Tanque de 75 L, consumo 10.2 L/100km",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
+      "id": "maxus-t60-dc-4x2",
+      "brand": "Maxus",
+      "name": "Maxus T60 Comfort 4x2",
+      "tagline": "Pickup cabina doble 4x2, motor Mitsubishi 2.4L.",
+      "bodyType": "Pickup cabina doble",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t60-dc-4x2.jpg",
+      "specs": {
+        "motor": "Mitsubishi 2.4L gasolina",
+        "potencia": "137 hp @ 5000 rpm",
+        "torque": "200 Nm @ 4200 rpm",
+        "transmision": "Manual 5 vel.",
+        "traccion": "4x2 (LHD)",
+        "asientos": 5,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "consumo": "10.2 L/100km",
+        "cargaUtil": "800 Kg",
+        "dimensiones": "5365/1900/1809 mm"
+      },
+      "highlights": [
+        "Cabina doble, 5 plazas",
+        "Motor Mitsubishi 2.4L",
+        "Carga útil 800 Kg",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
+      "id": "maxus-t60-dc-4x4",
+      "brand": "Maxus",
+      "name": "Maxus T60 Comfort 4x4",
+      "tagline": "Pickup cabina doble 4x4 con SAGW, para todo terreno.",
+      "bodyType": "Pickup cabina doble 4x4",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t60-dc-4x4.jpg",
+      "specs": {
+        "motor": "Mitsubishi 2.4L gasolina",
+        "potencia": "137 hp @ 5000 rpm",
+        "torque": "200 Nm @ 4200 rpm",
+        "transmision": "Manual 5 vel. SAGW",
+        "traccion": "4x4 (LHD)",
+        "asientos": 5,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "consumo": "10.2 L/100km",
+        "cargaUtil": "800 Kg",
+        "dimensiones": "5365/2145/1809 mm"
+      },
+      "highlights": [
+        "Tracción 4x4 con caja SAGW",
+        "Cabina doble, 5 plazas",
+        "Motor Mitsubishi 2.4L",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
+      "id": "maxus-t70-pro-4x2",
+      "brand": "Maxus",
+      "name": "Maxus T70 Pro 4x2",
+      "tagline": "Pickup premium con motor 2.0 Turbo y transmisión 8AT.",
+      "bodyType": "Pickup cabina doble",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t70-pro-4x2.jpg",
+      "specs": {
+        "motor": "2.0L Turbo",
+        "potencia": "214 hp @ 5000 rpm",
+        "torque": "275 Nm @ 4500 rpm",
+        "transmision": "Automática 8 vel. (8AT)",
+        "traccion": "4x2 (LHD)",
+        "asientos": 5,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "cargaUtil": "1.000 Kg",
+        "dimensiones": "5005/1932/1875 mm"
+      },
+      "highlights": [
+        "Motor 2.0L Turbo, 8AT",
+        "Interior en cuero rojo/negro",
+        "Pantalla central táctil",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
+      "id": "maxus-t70-pro-4x4",
+      "brand": "Maxus",
+      "name": "Maxus T70 Pro 4x4",
+      "tagline": "Pickup premium 4x4, motor 2.0 Turbo y 8AT.",
+      "bodyType": "Pickup cabina doble 4x4",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t70-pro-4x4.jpg",
+      "specs": {
+        "motor": "2.0L Turbo",
+        "potencia": "214 hp @ 5000 rpm",
+        "torque": "275 Nm @ 4500 rpm",
+        "transmision": "Automática 8 vel. (8AT)",
+        "traccion": "4x4 (LHD)",
+        "asientos": 5,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "cargaUtil": "1.000 Kg",
+        "dimensiones": "5005/1932/1875 mm"
+      },
+      "highlights": [
+        "Tracción 4x4 con 8AT",
+        "Motor 2.0L Turbo",
+        "Interior en cuero rojo/negro",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger",
+        "mitsubishi-l200"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
+      "id": "maxus-t90-luxury",
+      "brand": "Maxus",
+      "name": "Maxus T90 Luxury 4x4",
+      "tagline": "Pickup insignia, 257 hp, tracción 4x4 WD.",
+      "bodyType": "Pickup cabina doble 4x4",
+      "category": "passenger",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-t90-luxury.jpg",
+      "specs": {
+        "motor": "2.0L Turbo",
+        "potencia": "257 hp @ 3500 rpm",
+        "torque": "410 Nm",
+        "transmision": "Automática 8 vel. (8AT)",
+        "traccion": "4x4 WD",
+        "asientos": 5,
+        "combustible": "Gasolina"
+      },
+      "highlights": [
+        "257 hp, la más potente de la línea",
+        "Pantalla central táctil 12.3\"",
+        "6 altavoces, entrada inteligente",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [
+        "toyota-hilux",
+        "ford-ranger"
+      ],
+      "tags": [
+        "PICKUP"
+      ]
+    },
+    {
       "id": "maxus-d90",
       "brand": "Maxus",
-      "name": "Maxus D90",
-      "tagline": "Nueva generación. SUV 7 puestos con frente rediseñado y plataforma off-road.",
+      "name": "Maxus D90 Max 4x4",
+      "tagline": "SUV 7 plazas con plataforma off-road y garantía extendida de 5 años.",
       "bodyType": "SUV 7 puestos",
       "category": "passenger",
       "promoEligible": false,
       "image": "static/img/models/maxus-d90.jpg",
       "specs": {
-        "motor": "2.0L turbo",
-        "potencia": "214 hp",
-        "torque": "350 Nm",
-        "transmision": "AT 8 vel.",
-        "traccion": "4x2 / 4x4 con bloqueos",
-        "asientos": 7
+        "motor": "2.0L Turbo",
+        "potencia": "214 hp @ 5000 rpm",
+        "torque": "330 Nm @ 4500 rpm",
+        "transmision": "Automática 6 vel. (6AT)",
+        "traccion": "4WD",
+        "asientos": 7,
+        "combustible": "Gasolina",
+        "tanque": "75 L",
+        "dimensiones": "5005/1932/1875 mm"
       },
       "highlights": [
-        "Frontal rediseñado con parrilla hexagonal MAXUS",
-        "Body-on-frame y modos de manejo off-road (CCO)",
-        "Cabina premium con cuero, pantalla flotante y mando 4WD",
-        "Tres filas de asientos con configuración modular",
-        "Asistencias de manejo y seguridad activa"
+        "Body-on-frame con modos off-road",
+        "3 filas de asientos, 7 plazas",
+        "Pantalla táctil, 8 altavoces, control de crucero",
+        "Garantía extendida: 5 años"
       ],
       "competitors": [
         "toyota-fortuner",
@@ -428,36 +574,100 @@
       }
     },
     {
-      "id": "maxus-t60",
+      "id": "maxus-s80-diesel",
       "brand": "Maxus",
-      "name": "Maxus T60",
-      "tagline": "Pickup de trabajo, motor Mitsubishi 2.4L.",
-      "bodyType": "Pickup",
-      "category": "passenger",
+      "name": "Maxus S80 Diésel 4x2",
+      "tagline": "Chasis camión liviano diésel, 1.625 Kg de carga útil.",
+      "bodyType": "Chasis camión liviano",
+      "category": "comercial",
       "promoEligible": false,
-      "image": "static/img/models/maxus-t60.jpg",
+      "image": "static/img/models/maxus-s80-diesel.jpg",
       "specs": {
-        "motor": "2.4L gasolina (Mitsubishi)",
-        "potencia": "140 hp",
-        "torque": "200 Nm",
-        "transmision": "MT 6 vel. / AT 6 vel.",
-        "traccion": "4x2 / 4x4",
-        "asientos": 5,
-        "configuracion": "Cabina simple o doble"
+        "motor": "2.0L Turbo diésel",
+        "potencia": "111 hp",
+        "torque": "147 Nm @ 3750 rpm",
+        "transmision": "Manual 5 vel.",
+        "traccion": "Trasera 4x2",
+        "combustible": "Diésel",
+        "tanque": "64 L",
+        "cargaUtil": "1.625 Kg",
+        "dimensiones": "5440/1735/2140 mm",
+        "peso": "Peso bruto 3.495 Kg"
       },
       "highlights": [
-        "Motor Mitsubishi probado",
-        "Versiones 4x2 y 4x4",
-        "Cabina simple o doble",
-        "Capacidad de carga útil alta"
+        "Carga útil 1.625 Kg",
+        "Motor 2.0L Turbo diésel",
+        "Configuración chasis (permite carrocería personalizada)",
+        "Garantía Maxus 3 años"
       ],
-      "competitors": [
-        "toyota-hilux",
-        "ford-ranger",
-        "mitsubishi-l200"
-      ],
+      "competitors": [],
       "tags": [
-        "PICKUP"
+        "CAMION"
+      ]
+    },
+    {
+      "id": "maxus-s80-gasolina",
+      "brand": "Maxus",
+      "name": "Maxus S80 Gasolina 4x2",
+      "tagline": "Chasis camión liviano a gasolina, 1.625 Kg de carga útil.",
+      "bodyType": "Chasis camión liviano",
+      "category": "comercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-s80-gasolina.jpg",
+      "specs": {
+        "motor": "2.0L Turbo gasolina",
+        "potencia": "111 hp",
+        "torque": "147 Nm @ 3750 rpm",
+        "transmision": "Manual 5 vel.",
+        "traccion": "Trasera 4x2",
+        "combustible": "Gasolina",
+        "tanque": "64 L",
+        "cargaUtil": "1.625 Kg",
+        "dimensiones": "5440/1735/2140 mm",
+        "peso": "Peso bruto 3.495 Kg"
+      },
+      "highlights": [
+        "Carga útil 1.625 Kg",
+        "Motor 2.0L Turbo a gasolina",
+        "Configuración chasis (permite carrocería personalizada)",
+        "Garantía Maxus 3 años"
+      ],
+      "competitors": [],
+      "tags": [
+        "CAMION"
+      ]
+    },
+    {
+      "id": "maxus-c300",
+      "brand": "Maxus",
+      "name": "Maxus C300",
+      "tagline": "Camión mediano diésel, hasta 4.000 Kg de carga.",
+      "bodyType": "Chasis camión mediano",
+      "category": "comercial",
+      "promoEligible": false,
+      "image": "static/img/models/maxus-c300.jpg",
+      "specs": {
+        "motor": "2.8L Turbo + Intercooler",
+        "cilindrada": "2776 cc",
+        "potencia": "123 hp @ 3000 rpm",
+        "torque": "340 Nm @ 1800–2000 rpm",
+        "transmision": "Manual 5 vel. + Reversa",
+        "combustible": "Diésel",
+        "tanque": "85 L",
+        "asientos": 3,
+        "cargaUtil": "4.000 Kg",
+        "dimensiones": "5940/2000/2310 mm",
+        "peso": "Peso en vacío 2.080 Kg"
+      },
+      "highlights": [
+        "Carga útil 4.000 Kg",
+        "Motor 2.8L Turbo diésel",
+        "Cabina 3 plazas",
+        "Configuraciones caja/plataforma disponibles"
+      ],
+      "competitors": [],
+      "tags": [
+        "CAMION"
       ]
     }
   ]
