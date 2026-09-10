@@ -100,6 +100,16 @@ def models_list() -> list[dict[str, Any]]:
     return _MODELS["models"]
 
 
+def passenger_models() -> list[dict[str, Any]]:
+    """Cars, SUVs and pickups shown on /modelos. Everything except category==comercial."""
+    return [m for m in models_list() if m.get("category", "passenger") != "comercial"]
+
+
+def commercial_models() -> list[dict[str, Any]]:
+    """Cargo trucks (S80, C300) shown on /comerciales."""
+    return [m for m in models_list() if m.get("category") == "comercial"]
+
+
 def model_by_id(mid: str) -> dict[str, Any] | None:
     for m in models_list():
         if m["id"] == mid:
@@ -110,11 +120,13 @@ def model_by_id(mid: str) -> dict[str, Any] | None:
 # ---------- template context helper ----------
 
 def _ctx(request: Request, **extra) -> dict[str, Any]:
+    # `models` defaults to the passenger lineup so /modelos and any lookup
+    # driven from the header context stay clean; /comerciales overrides it.
     base = {
         "request": request,
         "root_path": ROOT_PATH,
         "site": SITE,
-        "models": models_list(),
+        "models": passenger_models(),
         "brands": ["MG", "Maxus"],
     }
     base.update(extra)
@@ -126,7 +138,7 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
 @app.get("/", response_class=HTMLResponse)
 async def page_inicio(request: Request):
     featured = [m for m in models_list() if m["id"] in
-                ("mg-rx9", "mg-gt", "maxus-t60", "mg-zs", "maxus-d90", "mg-cyberster")]
+                ("mg-rx9", "mg-gt", "maxus-t70-pro-4x4", "mg-zs", "maxus-d90", "mg-cyberster")]
     by_id = {m["id"]: m for m in models_list()}
     # Hero slider — videos sorted lightest first so the page becomes interactive
     # quickly and heavier clips finish buffering while the user watches the first one.
@@ -148,6 +160,14 @@ async def page_inicio(request: Request):
 async def page_modelos(request: Request):
     return templates.TemplateResponse(
         request, "modelos.html", _ctx(request, page="modelos"),
+    )
+
+
+@app.get("/comerciales", response_class=HTMLResponse)
+async def page_comerciales(request: Request):
+    return templates.TemplateResponse(
+        request, "comerciales.html",
+        _ctx(request, page="comerciales", models=commercial_models()),
     )
 
 

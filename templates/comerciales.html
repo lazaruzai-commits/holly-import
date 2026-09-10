@@ -1,0 +1,50 @@
+{% extends "_base.html" %}
+{% block title %}Camiones Maxus — Holly Import{% endblock %}
+{% block description %}Línea comercial Maxus en Venezuela: chasis S80 y C300. Distribuidor autorizado Holly Import — Los Palos Grandes, Caracas.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <h1>Camiones Maxus</h1>
+  <p class="lead">Chasis camión liviano y mediano — para carga útil de 1.600 kg hasta 4 toneladas. Configuraciones caja, plataforma o carrocería personalizada.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--cards models-grid" id="models-grid">
+    {% for m in models %}
+    <article class="card"
+             data-model-id="{{ m.id }}"
+             data-brand="{{ m.brand }}"
+             data-category="{{ m.category }}"
+             data-tags="{{ m.tags|join(',') }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ m.brand }}</span>
+        <h3 class="card__title">{{ m.name }}</h3>
+        <p class="card__tag">{{ m.tagline }}</p>
+        <ul class="card__bullets">
+          {% if m.specs.cargaUtil %}<li>Carga útil: {{ m.specs.cargaUtil }}</li>{% endif %}
+          <li>{{ m.specs.motor }}</li>
+          {% if m.specs.combustible %}<li>Combustible: {{ m.specs.combustible }}</li>{% endif %}
+        </ul>
+        <div class="card__cta">
+          <a class="btn btn--small btn--primary" href="{{ root_path }}/modelos/{{ m.id }}">Explorar</a>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-card">
+    <div>
+      <h3>¿Buscas una carrocería personalizada?</h3>
+      <p>El S80 y C300 vienen como chasis-cabina — podemos coordinar carrocería tipo caja, plataforma, refrigerada o volteo con talleres aliados. Habla con un asesor.</p>
+    </div>
+    <a class="btn btn--primary" href="{{ root_path }}/contacto">Contactar asesor</a>
+  </div>
+</section>
+{% endblock %}

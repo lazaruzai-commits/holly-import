@@ -50,6 +50,25 @@
   </div>
 </section>
 
+{% if model.trims %}
+<section class="section">
+  <h2>Trims disponibles</h2>
+  <div class="grid grid--three">
+    {% for t in model.trims %}
+    <article class="value">
+      <span class="card__brand">Trim</span>
+      <h3>{{ t.name }}</h3>
+      {% if t.transmision %}<p><strong>Transmisión:</strong> {{ t.transmision }}</p>{% endif %}
+      {% if t.motor %}<p><strong>Motor:</strong> {{ t.motor }}</p>{% endif %}
+      {% if t.colors %}
+      <p><strong>Colores:</strong> {{ t.colors|join(', ') }}</p>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% if model.highlights %}
 <section class="section section--alt">
   <h2>Equipamiento destacado</h2>
@@ -189,6 +208,13 @@
       {% if model.specs.asientos %}<tr><th>Asientos</th><td>{{ model.specs.asientos }}</td></tr>{% endif %}
       {% if model.specs.rendimiento %}<tr><th>Rendimiento</th><td>{{ model.specs.rendimiento }}</td></tr>{% endif %}
       {% if model.specs.configuracion %}<tr><th>Configuración</th><td>{{ model.specs.configuracion }}</td></tr>{% endif %}
+      {% if model.specs.combustible %}<tr><th>Combustible</th><td>{{ model.specs.combustible }}</td></tr>{% endif %}
+      {% if model.specs.tanque %}<tr><th>Tanque</th><td>{{ model.specs.tanque }}</td></tr>{% endif %}
+      {% if model.specs.consumo %}<tr><th>Consumo</th><td>{{ model.specs.consumo }}</td></tr>{% endif %}
+      {% if model.specs.cargaUtil %}<tr><th>Carga útil</th><td>{{ model.specs.cargaUtil }}</td></tr>{% endif %}
+      {% if model.specs.dimensiones %}<tr><th>Dimensiones (L/A/A)</th><td>{{ model.specs.dimensiones }}</td></tr>{% endif %}
+      {% if model.specs.peso %}<tr><th>Peso</th><td>{{ model.specs.peso }}</td></tr>{% endif %}
+      {% if model.specs.cilindrada %}<tr><th>Cilindrada</th><td>{{ model.specs.cilindrada }}</td></tr>{% endif %}
     </tbody>
   </table>
 </section>
