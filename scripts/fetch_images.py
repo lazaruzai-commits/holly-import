@@ -13,7 +13,7 @@ vary; we scale-to-fit and pad with the dark fill rather than crop.
 Run:
     python scripts/fetch_images.py            # full refresh
     python scripts/fetch_images.py --force    # re-download even if cached
-    python scripts/fetch_images.py --only mg-zs maxus-t60   # subset
+    python scripts/fetch_images.py --only mg-zs mg-rx5      # subset
     python scripts/fetch_images.py --no-normalize           # skip post-process
 
 The manifest at static/img/models/_manifest.json records source URL +
@@ -38,35 +38,32 @@ except ImportError:
 ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = ROOT / "static" / "img" / "models"
 
-# Source URLs for each model. The image candidates are tried in order; the
-# first that downloads cleanly wins. These are the canonical hero images
-# from the Venezuelan brand sites at the time of writing — if a model
-# changes its hero shot, edit this map.
+# Source URLs for the .jpg fallback hero shots. As of the 2027 catalog import,
+# every model on the lineup has a hand-processed transparent .png cutout
+# committed under static/img/models/<id>.png — those PNGs are the source of
+# truth, extracted from the dealership-supplied CATALAGO MG_2027 and
+# CATALAGO MAXUS_2027 PDFs (see scripts/process_catalog_pdf.md for the
+# rembg pipeline). app.py's _promote_to_png_if_available() picks the .png
+# automatically when present.
+#
+# This fetcher stays around only for a quick .jpg refresh from the brand
+# sites if we ever need to fall back. Entries below cover just the MG
+# passenger models whose brand-site heroes are still worth grabbing; every
+# Maxus model in the current lineup is committed as a catalog-derived .png
+# and intentionally NOT listed here so this script won't clobber it.
 SOURCES: dict[str, list[str]] = {
-    # MG (mgvzla.com hero shots)
+    # MG (mgvzla.com hero shots) — .jpg fallbacks only
     "mg-3":            ["https://mgvzla.com/wp-content/uploads/2025/07/MG3_HIBRIDO-2025.png"],
-    "mg-3-hybrid":     ["https://mgvzla.com/wp-content/uploads/2025/07/mg3_hibri-1024x602.png"],
     "mg-5":            ["https://mgvzla.com/wp-content/uploads/2026/02/DSC_3160_MG5-1024x403.png"],
     "mg-gt":           ["https://mgvzla.com/wp-content/uploads/2024/07/mg-gt-Blanco_00.png",
                         "https://mgvzla.com/wp-content/uploads/2024/07/MGGT_blanco.jpg"],
     "mg-zs":           ["https://mgvzla.com/wp-content/uploads/2025/07/MG_ZS-frente_25-1024x683.png"],
-    "mg-zs-ev":        ["https://mgvzla.com/wp-content/uploads/2024/12/IMG_EV.jpg"],
     "mg-rx5":          ["https://mgvzla.com/wp-content/uploads/2024/12/RX5_GRIS.png",
                         "https://mgvzla.com/wp-content/uploads/2024/12/MG_RX5_0000_DSC_0045.jpg"],
-    "mg-rx8":          ["https://mgvzla.com/wp-content/uploads/2024/07/mg-rx8-Blanco.png",
-                        "https://mgvzla.com/wp-content/uploads/2024/07/MG-RX8-WEB-1.jpg"],
-    # mg-rx9 is a hand-processed cutout (rembg-segmented from the official MGS9
-    # EU press kit studio shot) committed at static/img/models/mg-rx9.jpg.
-    # Do NOT auto-refresh — the cutout is the source of truth.
     "mg-cyberster":    ["https://mgvzla.com/wp-content/uploads/2025/08/cyberster_3-1024x505.png"],
-    # Maxus (maxusve.com — full-resolution product images, not menu thumbnails)
-    # maxus-d90 is a hand-processed cutout of the 2026 generation D90 hero
-    # from en.saicmaxus.com/car/d90.shtml (rembg-segmented from the white
-    # desert shot, composited on the site backdrop). Committed at
-    # static/img/models/maxus-d90.jpg; do NOT auto-refresh — kept out of
-    # SOURCES so this fetcher won't overwrite it.
-    "maxus-t60":       ["https://maxusve.com/wp-content/uploads/2025/06/T60_DSC_7509.png",
-                        "https://maxusve.com/wp-content/uploads/2024/07/T60_ELITE.png"],
+    # mg-rx9 and maxus-d90 are intentionally omitted — both are hand-processed
+    # cutouts committed as .jpg (mg-rx9) or .jpg+.png (maxus-d90) and should
+    # NOT be auto-refreshed.
 }
 
 # Normalization target — every gallery image lands at this exact size + backdrop.

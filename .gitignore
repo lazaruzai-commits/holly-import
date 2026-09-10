@@ -9,15 +9,15 @@ __pycache__/
 leads/*.csv
 leads/*.jsonl
 
-# Locally downloaded model imagery — large; fetched via scripts/fetch_images.py
+# Auto-fetched brand imagery — large; scripts/fetch_images.py grabs .jpg heroes
+# from mgvzla.com/maxusve.com. Not committed.
 static/img/models/*.jpg
 static/img/models/*.jpeg
-static/img/models/*.png
 static/img/models/*.webp
 !static/img/models/.gitkeep
-# Exceptions: hand-processed cutouts that should NOT be auto-refreshed
-!static/img/models/mg-rx9.jpg
-!static/img/models/maxus-d90.jpg
+# Hand-processed no-background PNG cutouts extracted from the 2027 catalogs
+# ARE committed — they are the canonical dealership-supplied hero renders.
+# (No `*.png` ignore line.) Exterior/interior galleries kept below stay tracked.
 !static/img/models/maxus-d90-ext-*.jpg
 !static/img/models/maxus-d90-int-*.jpg
 # Dealership-supplied PNG renders — drop a `<id>.png` into static/img/models/
