@@ -65,7 +65,7 @@
   <div class="spotlight__body">
     <span class="hero__eyebrow">Nuevo · Importados</span>
     <h2 class="spotlight__title">{{ spotlight.name }}</h2>
-    <p class="spotlight__lead">Ahora también traemos vehículos importados de otras marcas — Toyota, Kia, Peugeot — seleccionados por nuestro equipo y entregados con nuestra garantía.</p>
+    <p class="spotlight__lead">Ahora también traemos vehículos importados de otras marcas — Toyota, Kia, Peugeot — seleccionados por nuestro equipo y entregados con nuestra garantía.{% if spotlight.unitColor %} Unidad disponible en {{ spotlight.unitColor|lower }}.{% endif %}</p>
     <div class="spotlight__cta">
       <a class="btn btn--primary" href="{{ root_path }}/modelos/{{ spotlight.id }}">Ver el {{ spotlight.name|replace('Toyota ', '') }}</a>
       <a class="btn btn--ghost" href="{{ root_path }}/importados">Todos los importados</a>

@@ -678,6 +678,7 @@
       "bodyType": "SUV Compacta",
       "category": "importado",
       "promoEligible": false,
+      "unitColor": "Plata (Sonic Silver)",
       "image": "static/img/models/toyota-corolla-cross.jpg",
       "specs": {
         "motor": "1.8L (híbrido o gasolina según unidad)",
