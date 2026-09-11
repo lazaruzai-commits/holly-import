@@ -23,6 +23,7 @@
            width="600" height="140">
     </a>
     <nav class="hh__nav" aria-label="Principal">
+      <a href="{{ root_path }}/inventario" class="{% if page=='inventario' %}is-active{% endif %}">En inventario</a>
       <div class="hh__nav-item hh__nav-item--has-dropdown">
         <a href="{{ root_path }}/modelos" class="{% if page=='modelos' %}is-active{% endif %}">Vehículos<span class="hh__caret">▾</span></a>
         <ul class="hh__dropdown" role="menu">
@@ -102,6 +103,7 @@
         <li><a href="{{ root_path }}/modelos?marca=Maxus">Maxus</a></li>
         <li><a href="{{ root_path }}/comerciales">Camiones Maxus</a></li>
         <li><a href="{{ root_path }}/importados">Importados · Toyota, Kia, Peugeot</a></li>
+        <li><a href="{{ root_path }}/inventario">En inventario · entrega inmediata</a></li>
       </ul>
     </div>
     <div>

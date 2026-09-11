@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "note": "Physical units currently in stock at Holly Import. Each unit is one car in one colour. `modelId` links to data/models.json for specs + the detail page; units without a modelId (e.g. a discontinued model) carry their own specs. `image` overrides the model's card image when the unit colour differs. Update this file when a unit sells or arrives."
+  },
+  "units": [
+    {
+      "id": "inv-corolla-cross-plata",
+      "modelId": "toyota-corolla-cross",
+      "brand": "Toyota",
+      "name": "Toyota Corolla Cross",
+      "trim": "",
+      "transmission": "Automática (CVT)",
+      "color": "Plata",
+      "colorHex": "#b8bcc2",
+      "status": "disponible"
+    },
+    {
+      "id": "inv-mg5-at-blanco",
+      "modelId": "mg-5",
+      "brand": "MG",
+      "name": "MG 5",
+      "trim": "AT",
+      "transmission": "Automática (CVT)",
+      "color": "Blanco",
+      "colorHex": "#f2f2f2",
+      "status": "disponible"
+    },
+    {
+      "id": "inv-mg-zs-plata",
+      "modelId": "mg-zs",
+      "brand": "MG",
+      "name": "MG ZS",
+      "trim": "AT",
+      "transmission": "Automática",
+      "color": "Plata",
+      "colorHex": "#b8bcc2",
+      "status": "disponible"
+    },
+    {
+      "id": "inv-mg3-mt-blanco",
+      "modelId": "mg-3",
+      "brand": "MG",
+      "name": "MG 3",
+      "trim": "MT",
+      "transmission": "Manual 5 vel.",
+      "color": "Blanco",
+      "colorHex": "#f2f2f2",
+      "image": "static/img/inventory/mg-3-plata.png",
+      "status": "disponible"
+    },
+    {
+      "id": "inv-mg3-at-plata",
+      "modelId": "mg-3",
+      "brand": "MG",
+      "name": "MG 3",
+      "trim": "AT",
+      "transmission": "Automática 4 vel.",
+      "color": "Plata",
+      "colorHex": "#b8bcc2",
+      "image": "static/img/inventory/mg-3-plata.png",
+      "status": "disponible"
+    },
+    {
+      "id": "inv-mg-rx8-gris",
+      "modelId": null,
+      "brand": "MG",
+      "name": "MG RX8",
+      "trim": "",
+      "transmission": "Automática 6 vel.",
+      "color": "Gris pizarra",
+      "colorHex": "#5a5f66",
+      "image": "static/img/inventory/mg-rx8-gris.png",
+      "status": "disponible",
+      "bodyType": "SUV 7 puestos",
+      "tagline": "SUV grande con tres filas de asientos y chasis body-on-frame.",
+      "specs": {
+        "motor": "2.0L Turbo",
+        "potencia": "221 hp",
+        "torque": "360 Nm",
+        "transmision": "AT 6 vel.",
+        "traccion": "4x4 selectiva",
+        "asientos": 7
+      }
+    }
+  ]
+}

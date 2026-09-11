@@ -31,6 +31,18 @@ def _load_models_summary() -> str:
     for m in data.get("models", []):
         promo = " (aplica Asegúrate con 500)" if m.get("promoEligible") else ""
         lines.append(f"- {m['name']} ({m['brand']}, {m['bodyType']}){promo}")
+    # Units physically in stock right now — the agent should mention these
+    # when a customer asks what's available for immediate delivery.
+    try:
+        inv = json.loads((DATA_DIR / "inventory.json").read_text(encoding="utf-8")).get("units", [])
+        stock = [u for u in inv if u.get("status", "disponible") == "disponible"]
+        if stock:
+            lines.append("\nEn inventario ahora mismo (entrega inmediata, una unidad por línea, el color indicado es el único disponible):")
+            for u in stock:
+                trim = f" {u['trim']}" if u.get("trim") else ""
+                lines.append(f"- {u['name']}{trim}, {u['color']}, {u.get('transmission','')}")
+    except Exception:
+        pass
     return "\n".join(lines)
 
 

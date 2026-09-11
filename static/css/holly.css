@@ -1379,3 +1379,12 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
   padding: .25rem .55rem; border-radius: var(--r-sm);
 }
+
+/* ---------- En inventario ---------- */
+.inv-card__meta { display: flex; flex-wrap: wrap; gap: .5rem .9rem; margin: .5rem 0 .2rem; font-size: .9rem; color: var(--c-text); }
+.inv-card__color { display: inline-flex; align-items: center; gap: .4rem; }
+.inv-card__swatch { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,.18); display: inline-block; }
+.card__badge--stock { background: #15803d; }
+.inv-note { color: var(--c-muted); font-size: .85rem; margin-top: 1rem; }
+/* one more top-level nav item — tighten spacing so the bar still fits at 1240px */
+.hh__nav { gap: 1.1rem; }

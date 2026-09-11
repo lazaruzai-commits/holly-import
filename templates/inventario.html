@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% block title %}En inventario — Holly Import{% endblock %}
+{% block description %}Vehículos disponibles ahora mismo en Holly Import, Los Palos Grandes, Caracas: unidades en sala listas para entrega inmediata.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <span class="hero__eyebrow">Entrega inmediata</span>
+  <h1>En inventario</h1>
+  <p class="lead">Estas son las unidades que tenemos en sala ahora mismo — una unidad, un color. Lo que ves es lo que entregamos. Pregunta por precio y te respondemos hoy.</p>
+</section>
+
+<section class="section">
+  <div class="grid grid--cards models-grid" id="inventory-grid">
+    {% for u in inventory %}
+    <article class="card inv-card" data-unit-id="{{ u.id }}" data-brand="{{ u.brand }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ u.image }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ u.name }}'}))">
+        <span class="card__badge card__badge--stock">Disponible</span>
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ u.brand }}</span>
+        <h3 class="card__title">{{ u.name }}{% if u.trim %} {{ u.trim }}{% endif %}</h3>
+        <div class="inv-card__meta">
+          <span class="inv-card__color"><span class="inv-card__swatch" style="background:{{ u.colorHex }}"></span>{{ u.color }}</span>
+          <span>{{ u.transmission }}</span>
+        </div>
+        <ul class="card__bullets">
+          {% if u.specs.motor %}<li>{{ u.specs.motor }}</li>{% endif %}
+          {% if u.specs.potencia %}<li>{{ u.specs.potencia }}</li>{% endif %}
+        </ul>
+        <div class="card__cta">
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ u.id }}">Solicitar precio</button>
+          {% if u.detailUrl %}<a class="btn btn--small btn--ghost" href="{{ root_path }}{{ u.detailUrl }}">Ficha</a>{% endif %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <p class="inv-note">Inventario actualizado por nuestro equipo. Si una unidad ya no aparece, se vendió — pregúntanos por la próxima llegada.</p>
+</section>
+
+<section class="section">
+  <div class="cta-card">
+    <div>
+      <h3>¿No ves lo que buscas?</h3>
+      <p>Traemos unidades por pedido — MG, Maxus y marcas importadas como Toyota, Kia y Peugeot. Cuéntanos qué necesitas.</p>
+    </div>
+    <button class="btn btn--primary" type="button" data-open-chat>Hablar con un asesor</button>
+  </div>
+</section>
+{% endblock %}

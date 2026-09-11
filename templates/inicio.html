@@ -74,6 +74,37 @@
 </section>
 {% endif %}
 
+{% if inventory %}
+<section class="section" aria-label="En inventario">
+  <div class="section__head section__head--inline">
+    <h2>En inventario <a class="section__more" href="{{ root_path }}/inventario">Ver todo →</a></h2>
+  </div>
+  <p class="lead">Unidades en sala, listas para entrega inmediata.</p>
+  <div class="grid grid--cards">
+    {% for u in inventory[:6] %}
+    <article class="card inv-card" data-unit-id="{{ u.id }}">
+      <div class="card__img">
+        <img src="{{ root_path }}/{{ u.image }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
+             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ u.name }}'}))">
+        <span class="card__badge card__badge--stock">Disponible</span>
+      </div>
+      <div class="card__body">
+        <span class="card__brand">{{ u.brand }}</span>
+        <h3 class="card__title">{{ u.name }}{% if u.trim %} {{ u.trim }}{% endif %}</h3>
+        <div class="inv-card__meta">
+          <span class="inv-card__color"><span class="inv-card__swatch" style="background:{{ u.colorHex }}"></span>{{ u.color }}</span>
+          <span>{{ u.transmission }}</span>
+        </div>
+        <div class="card__cta">
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ u.id }}">Solicitar precio</button>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section class="section section--narrow">
   <div class="hero-secondary">
     <div>

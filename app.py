@@ -123,6 +123,40 @@ def models_list() -> list[dict[str, Any]]:
     return _MODELS["models"]
 
 
+def _build_inventory() -> list[dict[str, Any]]:
+    """Physical units in stock (data/inventory.json), enriched from the model
+    they reference: image / bodyType / tagline / specs fall back to the model
+    unless the unit overrides them. Units with no modelId (discontinued
+    models still in stock) must carry their own specs."""
+    try:
+        raw = _load_json("inventory.json").get("units", [])
+    except FileNotFoundError:
+        return []
+    by_id = {m["id"]: m for m in models_list()}
+    out: list[dict[str, Any]] = []
+    for u in raw:
+        if u.get("status", "disponible") != "disponible":
+            continue
+        m = by_id.get(u.get("modelId") or "")
+        unit = {
+            "image": (m or {}).get("image", ""),
+            "bodyType": (m or {}).get("bodyType", ""),
+            "tagline": (m or {}).get("tagline", ""),
+            "specs": (m or {}).get("specs", {}),
+            "detailUrl": f"/modelos/{m['id']}" if m else "",
+            **u,
+        }
+        out.append(unit)
+    return out
+
+
+_INVENTORY = _build_inventory()
+
+
+def inventory_units() -> list[dict[str, Any]]:
+    return _INVENTORY
+
+
 def passenger_models() -> list[dict[str, Any]]:
     """MG + Maxus cars, SUVs and pickups shown on /modelos (category==passenger)."""
     return [m for m in models_list() if m.get("category", "passenger") == "passenger"]
@@ -184,7 +218,15 @@ async def page_inicio(request: Request):
     return templates.TemplateResponse(
         request, "inicio.html",
         _ctx(request, page="inicio", featured=featured, slides=slides,
-             spotlight=spotlight),
+             spotlight=spotlight, inventory=inventory_units()),
+    )
+
+
+@app.get("/inventario", response_class=HTMLResponse)
+async def page_inventario(request: Request):
+    return templates.TemplateResponse(
+        request, "inventario.html",
+        _ctx(request, page="inventario", inventory=inventory_units()),
     )
 
 
@@ -376,8 +418,15 @@ class LeadRequest(BaseModel):
 async def api_lead(req: LeadRequest):
     sid = req.session_id or _new_session_id()
     m = model_by_id(req.model_id) if req.model_id else None
-    model_name = m["name"] if m else ""
-    brand = m["brand"] if m else req.brand
+    # Inventory units can be asked about directly (ids start with "inv-");
+    # resolve those to the unit so the Telegram lead names the actual car.
+    unit = next((u for u in inventory_units() if u["id"] == req.model_id), None) if req.model_id else None
+    if unit:
+        model_name = f"{unit['name']} {unit.get('trim','')} · {unit['color']} (en inventario)".replace("  ", " ")
+        brand = unit["brand"]
+    else:
+        model_name = m["name"] if m else ""
+        brand = m["brand"] if m else req.brand
 
     row = leads.save_lead(
         session_id=sid,
