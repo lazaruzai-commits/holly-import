@@ -229,15 +229,20 @@ p  { margin: 0 0 .8em; }
   max-width: var(--maxw); margin: 0 auto;
   padding: 0 clamp(1.2rem, 4vw, 4rem);
 }
-.hero-slide__title { font-size: clamp(2.6rem, 6vw, 4.8rem); margin: .2em 0 .3em; max-width: 11ch; }
-.hero-slide__lead  { font-size: clamp(1rem, 1.5vw, 1.2rem); color: var(--c-muted); max-width: 40ch; }
+/* Copy sits over a dark video shade — force light text regardless of the
+   light page theme. */
+.hero-slide__content { color: var(--c-white); }
+.hero-slide__title { font-size: clamp(2.6rem, 6vw, 4.8rem); margin: .2em 0 .3em; max-width: 11ch; color: var(--c-white); }
+.hero-slide__lead  { font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,.82); max-width: 40ch; }
+.hero-slide__content .btn--ghost { color: var(--c-white); border-color: rgba(255,255,255,.55); }
+.hero-slide__content .btn--ghost:hover { border-color: var(--c-white); color: var(--c-white); background: rgba(255,255,255,.1); }
 .hero-slide__specs {
   list-style: none; padding: 0; margin: 1.2rem 0 1.5rem;
   display: flex; gap: 2rem; flex-wrap: wrap;
 }
 .hero-slide__specs li {
   display: flex; flex-direction: column; gap: .15rem;
-  font-size: .8rem; color: var(--c-muted); letter-spacing: .12em; text-transform: uppercase;
+  font-size: .8rem; color: rgba(255,255,255,.7); letter-spacing: .12em; text-transform: uppercase;
 }
 .hero-slide__specs strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--c-white); letter-spacing: .04em; }
 .hero-slide__cta { display: flex; gap: .8rem; flex-wrap: wrap; }
@@ -359,8 +364,10 @@ p  { margin: 0 0 .8em; }
   max-width: var(--maxw); margin: 0 auto;
   padding: 0 clamp(1.2rem, 4vw, 4rem);
 }
-.hero-video__title { font-size: clamp(2rem, 4.5vw, 3.4rem); margin: .25em 0 .35em; max-width: 14ch; }
-.hero-video__lead  { color: var(--c-muted); max-width: 50ch; margin-bottom: 1.4rem; font-size: 1.05rem; }
+.hero-video__content { color: var(--c-white); }
+.hero-video__title { font-size: clamp(2rem, 4.5vw, 3.4rem); margin: .25em 0 .35em; max-width: 14ch; color: var(--c-white); }
+.hero-video__lead  { color: rgba(255,255,255,.82); max-width: 50ch; margin-bottom: 1.4rem; font-size: 1.05rem; }
+.hero-video__content .btn--ghost { color: var(--c-white); border-color: rgba(255,255,255,.55); }
 @media (max-width: 720px) {
   .hero-video { aspect-ratio: 4 / 5; max-height: none; }
   .hero-video__shade {
