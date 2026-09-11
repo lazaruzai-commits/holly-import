@@ -27,7 +27,7 @@
 
 <section class="model-hero">
   <div class="model-hero__media">
-    <img src="{{ root_path }}/{{ model.image }}" alt="{{ model.brand }} {{ model.name }}">
+    <img src="{{ static_v(model.image) }}" alt="{{ model.brand }} {{ model.name }}">
     {% if model.promoEligible %}
     <span class="model-hero__promo">PROMO Asegúrate con 500</span>
     {% endif %}
@@ -84,7 +84,7 @@
       <li class="features__item{% if loop.first %} is-active{% endif %}"
           role="tab"
           tabindex="{% if loop.first %}0{% else %}-1{% endif %}"
-          data-img="{{ root_path }}/{{ h_img }}"
+          data-img="{{ static_v(h_img) }}"
           data-caption="{{ h_name }}">
         <span class="features__num">{{ "%02d"|format(loop.index) }}</span>
         <span class="features__name">{{ h_name }}</span>
@@ -94,7 +94,7 @@
     </ul>
     <figure class="features__preview" id="features-preview" aria-live="polite">
       <img class="features__preview-img"
-           src="{{ root_path }}/{{ model.highlights[0].image if model.highlights[0] is mapping and model.highlights[0].image else model.image }}"
+           src="{{ static_v(model.highlights[0].image if model.highlights[0] is mapping and model.highlights[0].image else model.image) }}"
            alt="">
       <figcaption class="features__caption" id="features-caption">
         {{ model.highlights[0].name if model.highlights[0] is mapping else model.highlights[0] }}
@@ -125,14 +125,14 @@
       {% if ext %}
       <div class="gallery__grid">
         {% for img in ext %}
-        <a class="gallery__photo" href="{{ root_path }}/{{ img }}" data-lightbox="ext">
-          <img src="{{ root_path }}/{{ img }}" alt="" loading="lazy">
+        <a class="gallery__photo" href="{{ static_v(img) }}" data-lightbox="ext">
+          <img src="{{ static_v(img) }}" alt="" loading="lazy">
         </a>
         {% endfor %}
       </div>
       {% else %}
       <div class="gallery__solo">
-        <img src="{{ root_path }}/{{ model.image }}" alt="{{ model.brand }} {{ model.name }} exterior">
+        <img src="{{ static_v(model.image) }}" alt="{{ model.brand }} {{ model.name }} exterior">
         <p class="gallery__hint">Más fotos exteriores próximamente. Visítanos en sala para verlo en persona.</p>
       </div>
       {% endif %}
@@ -142,8 +142,8 @@
       {% if itr %}
       <div class="gallery__grid">
         {% for img in itr %}
-        <a class="gallery__photo" href="{{ root_path }}/{{ img }}" data-lightbox="itr">
-          <img src="{{ root_path }}/{{ img }}" alt="" loading="lazy">
+        <a class="gallery__photo" href="{{ static_v(img) }}" data-lightbox="itr">
+          <img src="{{ static_v(img) }}" alt="" loading="lazy">
         </a>
         {% endfor %}
       </div>
@@ -163,7 +163,7 @@
           <video class="visualizer__video{% if loop.first %} is-active{% endif %}"
                  data-color="{{ c.name|lower }}"
                  muted loop playsinline preload="metadata">
-            <source src="{{ root_path }}/{{ c.video }}" type="video/mp4">
+            <source src="{{ static_v(c.video) }}" type="video/mp4">
           </video>
           {% endfor %}
           <button class="visualizer__playpause" type="button" id="visualizer-pp" aria-label="Reproducir video">
@@ -269,7 +269,7 @@
     {% for r in related %}
     <article class="card" data-model-id="{{ r.id }}" data-brand="{{ r.brand }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ r.image }}" alt="{{ r.brand }} {{ r.name }}" loading="lazy">
+        <img src="{{ static_v(r.image) }}" alt="{{ r.brand }} {{ r.name }}" loading="lazy">
         {% if r.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
         {% if r.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>

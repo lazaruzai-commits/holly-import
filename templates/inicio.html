@@ -14,7 +14,7 @@
       <video class="hero-slide__bg"
              muted playsinline preload="auto"
              {% if loop.first %}autoplay{% endif %}>
-        <source src="{{ root_path }}/{{ s.video }}" type="video/mp4">
+        <source src="{{ static_v(s.video) }}" type="video/mp4">
       </video>
       <div class="hero-slide__shade"></div>
       <div class="hero-slide__content">
@@ -58,7 +58,7 @@
    asset CDN — dealer use of manufacturer product imagery. #}
 <section class="spotlight" aria-label="Importados — {{ spotlight.name }}">
   <div class="spotlight__media">
-    <img src="{{ root_path }}/static/img/importados/toyota-corolla-cross-hero.jpg"
+    <img src="{{ static_v('static/img/importados/toyota-corolla-cross-hero.jpg') }}"
          alt="{{ spotlight.name }}" loading="eager" fetchpriority="high">
     <div class="spotlight__strip" aria-hidden="true"><span>Con nuestra garantía</span></div>
   </div>
@@ -84,7 +84,7 @@
     {% for u in inventory[:6] %}
     <article class="card inv-card" data-unit-id="{{ u.id }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ u.image }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
+        <img src="{{ static_v(u.image) }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ u.name }}'}))">
         <span class="card__badge card__badge--stock">Disponible</span>
       </div>
@@ -148,7 +148,7 @@
     {% for m in featured %}
     <article class="card" data-model-id="{{ m.id }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
+        <img src="{{ static_v(m.image) }}" alt="{{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
         {% if m.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>

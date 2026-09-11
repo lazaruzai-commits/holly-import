@@ -77,6 +77,28 @@ def _asset_version() -> str:
 
 ASSET_VERSION = _asset_version()
 
+
+_STATIC_MTIME: dict[str, str] = {}
+
+
+def static_v(rel_path: str) -> str:
+    """Absolute URL for a static file with a ?v= that changes whenever the file
+    on disk does (mtime). Lets replaced model renders / gallery frames bypass
+    Cloudflare's edge cache without a manual purge — same idea as the git-SHA
+    version on CSS/JS, but per-file so a single swapped PNG is enough."""
+    rel = (rel_path or "").lstrip("/")
+    v = _STATIC_MTIME.get(rel)
+    if v is None:
+        try:
+            v = str(int((PROJECT_ROOT / rel).stat().st_mtime))
+        except OSError:
+            v = ASSET_VERSION
+        _STATIC_MTIME[rel] = v
+    return f"{ROOT_PATH}/{rel}?v={v}"
+
+
+templates.env.globals["static_v"] = static_v
+
 SITE = {
     "name": os.environ.get("SITE_NAME", "Holly Import"),
     "location": os.environ.get("SITE_LOCATION", "Los Palos Grandes, Caracas"),
@@ -319,9 +341,14 @@ async def page_contacto(request: Request):
 
 # ---------- API: data ----------
 
+def _with_image_url(m: dict[str, Any]) -> dict[str, Any]:
+    """Model dict + a cache-busted absolute `imageUrl` for client-side rendering."""
+    return {**m, "imageUrl": static_v(m.get("image", ""))}
+
+
 @app.get("/api/models")
 async def api_models():
-    return {"models": models_list()}
+    return {"models": [_with_image_url(m) for m in models_list()]}
 
 
 @app.get("/api/models/{model_id}")
@@ -334,7 +361,7 @@ async def api_model_detail(model_id: str):
         c = _COMPETITORS["competitors"].get(cid)
         if c:
             competitors.append({"id": cid, **c})
-    return {"model": m, "competitors": competitors}
+    return {"model": _with_image_url(m), "competitors": competitors}
 
 
 @app.get("/api/compare")

@@ -1388,3 +1388,15 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 .inv-note { color: var(--c-muted); font-size: .85rem; margin-top: 1rem; }
 /* one more top-level nav item — tighten spacing so the bar still fits at 1240px */
 .hh__nav { gap: 1.1rem; }
+
+/* Nav labels never wrap ("En inventario", "Asegúrate con 500" stay on one line);
+   compensate with tighter spacing / type as the bar narrows. */
+.hh__nav a { white-space: nowrap; }
+@media (max-width: 1240px) {
+  .hh__nav { gap: .85rem; }
+  .hh__nav a { font-size: .9rem; }
+}
+@media (max-width: 1100px) {
+  .hh__nav { gap: .7rem; }
+  .hh__nav a { font-size: .86rem; }
+}

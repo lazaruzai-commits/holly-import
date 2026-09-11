@@ -29,7 +29,7 @@
              data-tags="{{ m.tags|join(',') }}"
              data-promo="{{ 'yes' if m.promoEligible else 'no' }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
+        <img src="{{ static_v(m.image) }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
         {% if m.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
         {% if m.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}

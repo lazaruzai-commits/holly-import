@@ -14,7 +14,7 @@
     {% for u in inventory %}
     <article class="card inv-card" data-unit-id="{{ u.id }}" data-brand="{{ u.brand }}">
       <div class="card__img">
-        <img src="{{ root_path }}/{{ u.image }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
+        <img src="{{ static_v(u.image) }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ u.name }}'}))">
         <span class="card__badge card__badge--stock">Disponible</span>
       </div>

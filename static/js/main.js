@@ -126,7 +126,7 @@
       ${promoBadge}
       <div class="mdl">
         <div class="mdl__img">
-          <img src="${BASE}/${escapeAttr(m.image)}" alt="${escapeAttr(m.name)}"
+          <img src="${escapeAttr(m.imageUrl || (BASE + "/" + m.image))}" alt="${escapeAttr(m.name)}"
                onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'${escapeAttr(m.name)}'}))">
         </div>
         <div>
