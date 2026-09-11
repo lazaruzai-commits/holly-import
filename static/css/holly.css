@@ -1364,3 +1364,14 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .16em;
   padding: .4rem .75rem .32rem; border-radius: var(--r-sm);
 }
+
+/* Repuestos brand cards — optional brand logo above the copy */
+.rep-brand__logo { display: block; height: 22px; width: auto; margin-bottom: .9rem; }
+.rep-brand__logo--toyota { height: 26px; }
+.rep-brand--toyota { border-color: #eb0a1e; }
+.rep-brand__tag {
+  display: inline-block; margin: 0 0 .8rem;
+  background: #eb0a1e; color: #fff;
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: .25rem .55rem; border-radius: var(--r-sm);
+}
