@@ -973,7 +973,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 }
 .model-hero__strip strong {
   font-family: 'Bebas Neue', sans-serif; font-size: 1.25rem;
-  color: var(--c-white); letter-spacing: .04em; line-height: 1.1;
+  color: var(--c-text); letter-spacing: .04em; line-height: 1.1;
   text-transform: none;
 }
 .model-hero__cta { display: flex; gap: .8rem; flex-wrap: wrap; }
@@ -1005,7 +1005,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   display: grid; grid-template-columns: 2.6rem 1fr 1.2rem;
   align-items: center; gap: .8rem;
   padding: .9rem 1rem .9rem 1.2rem;
-  background: linear-gradient(90deg, #1f1f26 0%, #18181f 100%);
+  background: var(--c-card);
   border: 1px solid var(--c-line);
   border-left: 3px solid var(--c-line);
   border-radius: 0 var(--r-sm) var(--r-sm) 0;
@@ -1016,7 +1016,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 }
 .features__item:hover, .features__item.is-active, .features__item:focus-visible {
   border-left-color: var(--c-crimson);
-  background: linear-gradient(90deg, #2a2025 0%, #1c1c22 100%);
+  background: var(--c-bg);
   transform: translateX(4px);
   padding-left: 1.5rem;
 }
@@ -1096,8 +1096,8 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   white-space: nowrap;
   transition: color .15s;
 }
-.gallery__tab:hover { color: var(--c-white); }
-.gallery__tab.is-active { color: var(--c-white); }
+.gallery__tab:hover { color: var(--c-text); }
+.gallery__tab.is-active { color: var(--c-text); }
 .gallery__tab.is-active::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
   background: var(--c-crimson);

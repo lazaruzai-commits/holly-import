@@ -20,6 +20,10 @@ static/img/models/*.webp
 # (No `*.png` ignore line.) Exterior/interior galleries kept below stay tracked.
 !static/img/models/maxus-d90-ext-*.jpg
 !static/img/models/maxus-d90-int-*.jpg
+# Imported-unit galleries + feature-explorer frames (curated, committed)
+!static/img/models/toyota-corolla-cross-ext-*.jpg
+!static/img/models/toyota-corolla-cross-int-*.jpg
+!static/img/models/toyota-corolla-cross-feat-*.jpg
 # Dealership-supplied PNG renders — drop a `<id>.png` into static/img/models/
 # and app.py auto-promotes the gallery to use it.
 !static/img/models/*.png

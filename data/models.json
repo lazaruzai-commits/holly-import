@@ -690,11 +690,24 @@
         "combustible": "Gasolina / Híbrido"
       },
       "highlights": [
-        "Importado y revisado por Holly Import",
-        "Garantía Holly Import incluida",
-        "Toyota Safety Sense",
-        "Pantalla táctil con Apple CarPlay / Android Auto"
+        { "name": "Importado y revisado por Holly Import", "image": "static/img/models/toyota-corolla-cross-feat-1.jpg" },
+        { "name": "Garantía Holly Import incluida",        "image": "static/img/models/toyota-corolla-cross-feat-2.jpg" },
+        { "name": "Toyota Safety Sense",                   "image": "static/img/models/toyota-corolla-cross-feat-3.jpg" },
+        { "name": "Pantalla táctil con Apple CarPlay / Android Auto", "image": "static/img/models/toyota-corolla-cross-feat-4.jpg" }
       ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/toyota-corolla-cross-ext-1.jpg",
+          "static/img/models/toyota-corolla-cross-ext-2.jpg",
+          "static/img/models/toyota-corolla-cross-ext-3.jpg",
+          "static/img/models/toyota-corolla-cross-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/toyota-corolla-cross-int-1.jpg",
+          "static/img/models/toyota-corolla-cross-int-2.jpg",
+          "static/img/models/toyota-corolla-cross-int-3.jpg"
+        ]
+      },
       "competitors": [],
       "tags": [
         "SUV",
