@@ -386,6 +386,7 @@
     },
     {
       "id": "maxus-t60-dc-4x4",
+      "drivetrain": "4x4",
       "brand": "Maxus",
       "name": "Maxus T60 Comfort 4x4",
       "tagline": "Pickup cabina doble 4x4 con SAGW, para todo terreno.",
@@ -459,6 +460,7 @@
     },
     {
       "id": "maxus-t70-pro-4x4",
+      "drivetrain": "4x4",
       "brand": "Maxus",
       "name": "Maxus T70 Pro 4x4",
       "tagline": "Pickup premium 4x4, motor 2.0 Turbo y 8AT.",
@@ -495,6 +497,7 @@
     },
     {
       "id": "maxus-t90-luxury",
+      "drivetrain": "4x4",
       "brand": "Maxus",
       "name": "Maxus T90 Luxury 4x4",
       "tagline": "Pickup insignia, 257 hp, tracción 4x4 WD.",
@@ -527,6 +530,7 @@
     },
     {
       "id": "maxus-d90",
+      "drivetrain": "4x4",
       "brand": "Maxus",
       "name": "Maxus D90 Max 4x4",
       "tagline": "SUV 7 plazas con plataforma off-road y garantía extendida de 5 años.",

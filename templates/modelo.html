@@ -31,6 +31,9 @@
     {% if model.promoEligible %}
     <span class="model-hero__promo">PROMO Asegúrate con 500</span>
     {% endif %}
+    {% if model.drivetrain == '4x4' %}
+    <span class="model-hero__4x4" aria-label="Tracción 4x4">4X4</span>
+    {% endif %}
   </div>
   <div class="model-hero__content">
     <span class="card__brand">{{ model.brand }}</span>
@@ -268,6 +271,7 @@
       <div class="card__img">
         <img src="{{ root_path }}/{{ r.image }}" alt="{{ r.brand }} {{ r.name }}" loading="lazy">
         {% if r.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
+        {% if r.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>
       <div class="card__body">
         <span class="card__brand">{{ r.brand }}</span>

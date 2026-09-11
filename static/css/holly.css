@@ -1346,3 +1346,18 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 
 /* neutral (dark) card badge — used for "Con nuestra garantía" on importados */
 .card__badge--neutral { background: var(--c-text); }
+
+/* 4X4 drivetrain chip — top-right of the card image (promo badge stays top-left)
+   and top-left of the detail hero. Dark, flat, no photo editing needed. */
+.card__badge--4x4 {
+  left: auto; right: .6rem;
+  background: var(--c-text); color: var(--c-white);
+  font-family: 'Bebas Neue', sans-serif; font-size: .85rem; letter-spacing: .14em;
+  padding: .28rem .6rem .22rem;
+}
+.model-hero__4x4 {
+  position: absolute; top: .9rem; left: .9rem;
+  background: var(--c-text); color: var(--c-white);
+  font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .16em;
+  padding: .4rem .75rem .32rem; border-radius: var(--r-sm);
+}

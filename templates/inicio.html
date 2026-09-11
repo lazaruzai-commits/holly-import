@@ -119,6 +119,7 @@
       <div class="card__img">
         <img src="{{ root_path }}/{{ m.image }}" alt="{{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
+        {% if m.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>
       <div class="card__body">
         <span class="card__brand">{{ m.brand }}</span>
