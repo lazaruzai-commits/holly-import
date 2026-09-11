@@ -153,13 +153,14 @@ p  { margin: 0 0 .8em; }
 .hh__chat-btn {
   display: inline-flex; align-items: center; justify-content: center;
   height: 40px; padding: 0 1.1rem; line-height: 1;
-  box-sizing: border-box;
+  box-sizing: border-box; flex-shrink: 0; white-space: nowrap;
   background: var(--c-crimson);
   color: white; border: 1px solid var(--c-crimson);
   border-radius: var(--r-sm);
   font-weight: 600; cursor: pointer; font-size: .9rem;
   transition: background .15s, border-color .15s;
 }
+.hh__cmp-btn { flex-shrink: 0; white-space: nowrap; }
 .hh__chat-btn:hover { background: var(--c-crimson-2); border-color: var(--c-crimson-2); }
 
 /* Neutral secondary button variant (used on hero-secondary "Chat con Holly") */
