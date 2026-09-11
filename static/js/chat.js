@@ -190,6 +190,12 @@
   async function renderStart() {
     state = "start";
     botBubble(`<p>¡Hola! Soy tu asesor de <strong>Holly Import</strong>. ¿En qué te puedo ayudar hoy?</p>`);
+    // Free text is allowed from the very first turn — the pills are a
+    // shortcut, not a gate. Typing anything drops straight into the LLM.
+    input.disabled = false;
+    sendBtn.disabled = false;
+    input.placeholder = "Escribe tu mensaje o elige una opción…";
+    form.dataset.contextNote = "";
     chips([
       { label: "Compra", value: "compra" },
       { label: "Servicios", value: "servicios" },
@@ -439,6 +445,15 @@
     e.preventDefault();
     const text = input.value.trim();
     if (!text) return;
+    if (state === "start") {
+      // User typed instead of picking a pill: retire the pills, switch to
+      // the free-text LLM session with no structured context.
+      body.querySelectorAll(".chat__chips .chip").forEach(c => c.disabled = true);
+      state = "free";
+      history = [];
+      form.dataset.contextNote = "";
+      input.placeholder = "Escribe tu pregunta…";
+    }
     input.value = "";
     userBubble(text);
     history.push({ role: "user", content: text });
