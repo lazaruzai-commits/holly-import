@@ -554,7 +554,7 @@ a.promo-feature__inner:hover {
   background: var(--c-card); border: 1px solid var(--c-line);
   border-radius: var(--r-md); padding: 1.6rem;
 }
-.value h3 { color: var(--c-white); }
+.value h3 { color: var(--c-text); }
 
 /* ---------- filters ---------- */
 
@@ -1276,7 +1276,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 .cmp__badge--mas-potencia  { background: var(--c-crimson); }
 .cmp__badge--mas-economico { background: #16a34a; }
 .cmp__sum { background: rgba(200,16,46,.08); border-left: 3px solid var(--c-crimson); padding: .9rem 1rem; border-radius: var(--r-sm); margin-top: 1rem; grid-column: 1 / -1; }
-.cmp__sum h4 { color: var(--c-white); font-family: 'Inter', sans-serif; font-size: .95rem; text-transform: none; letter-spacing: 0; margin: 0 0 .4rem; }
+.cmp__sum h4 { color: var(--c-text); font-family: 'Inter', sans-serif; font-size: .95rem; font-weight: 600; text-transform: none; letter-spacing: 0; margin: 0 0 .4rem; }
 .cmp__sum ul { padding-left: 1.2rem; margin: .3rem 0 0; }
 .cmp__sum li { padding: .15rem 0; }
 @media (max-width: 720px) { .cmp { grid-template-columns: 1fr; } }
