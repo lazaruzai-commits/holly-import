@@ -95,12 +95,14 @@ p  { margin: 0 0 .8em; }
   opacity: 1; visibility: visible; transform: none;
   transition: opacity .15s, transform .15s, visibility 0s;
 }
-.hh__dropdown a {
-  display: block; padding: .55rem 1.8rem .55rem 3.6rem;
+/* Higher specificity than the later `.hh__nav a` rule so its padding
+   doesn't flatten the menu items against the left edge. */
+.hh__nav .hh__dropdown a {
+  display: block; padding: .6rem 1.6rem;
   color: var(--c-text); text-decoration: none; font-size: .9rem;
   border-bottom: 0;
 }
-.hh__dropdown a:hover { background: var(--c-bg); color: var(--c-crimson); }
+.hh__nav .hh__dropdown a:hover { background: var(--c-bg); color: var(--c-crimson); }
 .hh__nav { display: flex; gap: 1.4rem; margin-left: auto; }
 .hh__nav a {
   text-decoration: none; color: var(--c-text); font-weight: 500; font-size: .95rem;
@@ -220,8 +222,8 @@ p  { margin: 0 0 .8em; }
 .hero-slide__shade {
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(10,10,14,.92) 0%, rgba(10,10,14,.55) 38%, rgba(10,10,14,0) 60%),
-    linear-gradient(180deg, rgba(10,10,14,0) 60%, rgba(10,10,14,.7) 100%);
+    linear-gradient(90deg, rgba(8,8,12,.96) 0%, rgba(8,8,12,.78) 42%, rgba(8,8,12,0) 68%),
+    linear-gradient(180deg, rgba(8,8,12,0) 55%, rgba(8,8,12,.75) 100%);
 }
 .hero-slide__content {
   position: absolute; inset: 0;
@@ -232,8 +234,8 @@ p  { margin: 0 0 .8em; }
 /* Copy sits over a dark video shade — force light text regardless of the
    light page theme. */
 .hero-slide__content { color: var(--c-white); }
-.hero-slide__title { font-size: clamp(2.6rem, 6vw, 4.8rem); margin: .2em 0 .3em; max-width: 11ch; color: var(--c-white); }
-.hero-slide__lead  { font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,.82); max-width: 40ch; }
+.hero-slide__title { font-size: clamp(2.6rem, 6vw, 4.8rem); margin: .2em 0 .3em; max-width: 11ch; color: var(--c-white); text-shadow: 0 2px 14px rgba(0,0,0,.6); }
+.hero-slide__lead  { font-size: clamp(1rem, 1.5vw, 1.2rem); color: rgba(255,255,255,.94); max-width: 40ch; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
 .hero-slide__content .btn--ghost { color: var(--c-white); border-color: rgba(255,255,255,.55); }
 .hero-slide__content .btn--ghost:hover { border-color: var(--c-white); color: var(--c-white); background: rgba(255,255,255,.1); }
 .hero-slide__specs {
@@ -242,7 +244,8 @@ p  { margin: 0 0 .8em; }
 }
 .hero-slide__specs li {
   display: flex; flex-direction: column; gap: .15rem;
-  font-size: .8rem; color: rgba(255,255,255,.7); letter-spacing: .12em; text-transform: uppercase;
+  font-size: .8rem; color: rgba(255,255,255,.85); letter-spacing: .12em; text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0,0,0,.6);
 }
 .hero-slide__specs strong { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--c-white); letter-spacing: .04em; }
 .hero-slide__cta { display: flex; gap: .8rem; flex-wrap: wrap; }
