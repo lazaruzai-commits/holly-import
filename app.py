@@ -54,6 +54,29 @@ templates = Jinja2Templates(directory=str(PROJECT_ROOT / "templates"))
 # under "/holly" in production.
 ROOT_PATH = os.environ.get("APP_ROOT_PATH", "").rstrip("/")
 
+
+def _asset_version() -> str:
+    """Short git SHA of the running checkout, used as ?v= on CSS/JS URLs so
+    Cloudflare / browsers fetch fresh assets on every deploy. Falls back to
+    the stylesheet's mtime when git isn't available."""
+    try:
+        import subprocess
+        sha = subprocess.check_output(
+            ["git", "-C", str(Path(__file__).parent), "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL, timeout=3,
+        ).decode().strip()
+        if sha:
+            return sha
+    except Exception:
+        pass
+    try:
+        return str(int((Path(__file__).parent / "static" / "css" / "holly.css").stat().st_mtime))
+    except Exception:
+        return "1"
+
+
+ASSET_VERSION = _asset_version()
+
 SITE = {
     "name": os.environ.get("SITE_NAME", "Holly Import"),
     "location": os.environ.get("SITE_LOCATION", "Los Palos Grandes, Caracas"),
@@ -130,6 +153,7 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
     base = {
         "request": request,
         "root_path": ROOT_PATH,
+        "asset_v": ASSET_VERSION,
         "site": SITE,
         "models": passenger_models(),
         "brands": ["MG", "Maxus"],

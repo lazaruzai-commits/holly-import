@@ -10,8 +10,8 @@
 } %}
 
 {% block scripts %}
-<script src="{{ root_path }}/static/js/modelo.js"></script>
-{% if model.colors %}<script src="{{ root_path }}/static/js/visualizer.js"></script>{% endif %}
+<script src="{{ root_path }}/static/js/modelo.js?v={{ asset_v }}"></script>
+{% if model.colors %}<script src="{{ root_path }}/static/js/visualizer.js?v={{ asset_v }}"></script>{% endif %}
 {% endblock %}
 
 {% block content %}
