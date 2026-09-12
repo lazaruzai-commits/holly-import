@@ -45,8 +45,9 @@
       "transmission": "Manual 5 vel.",
       "color": "Blanco",
       "colorHex": "#f2f2f2",
-      "image": "static/img/inventory/mg-3-plata.png",
-      "status": "disponible"
+      "image": "static/img/inventory/mg-3-blanco.png",
+      "status": "disponible",
+      "imageNote": "Render plata (mgvzla NEW-MG-3-SILVER) recoloreado a blanco — MG VE no publica el MG 3 actual en blanco."
     },
     {
       "id": "inv-mg3-at-plata",
