@@ -69,7 +69,7 @@
       "transmission": "Automática 6 vel.",
       "color": "Gris pizarra",
       "colorHex": "#5a5f66",
-      "image": "static/img/inventory/mg-rx8-gris.png",
+      "image": "static/img/models/mg-rx5.png",
       "status": "disponible",
       "bodyType": "SUV 7 puestos",
       "tagline": "SUV grande con tres filas de asientos y chasis body-on-frame.",
@@ -81,7 +81,7 @@
         "traccion": "4x4 selectiva",
         "asientos": 7
       },
-      "imageNote": "Render negro (mgvzla 2024, único RX8 real disponible; frente a la derecha). La unidad real es gris pizarra — reemplazar por foto propia."
+      "imageNote": "Usa el render gris del MG RX5 (mgvzla 0004_MG-RX5) por indicación de Andy — verificar que la unidad sea RX8 y no RX5; reemplazar por foto propia."
     }
   ]
 }
