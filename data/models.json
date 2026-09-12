@@ -28,13 +28,25 @@
           "code": "MT",
           "name": "MG 3 MT",
           "transmision": "Manual 5 velocidades",
-          "colors": ["Negro", "Gris", "Rojo", "Azul", "Blanco"]
+          "colors": [
+            "Negro",
+            "Gris",
+            "Rojo",
+            "Azul",
+            "Blanco"
+          ]
         },
         {
           "code": "AT",
           "name": "MG 3 AT",
           "transmision": "Automática 4 velocidades",
-          "colors": ["Negro", "Gris", "Rojo", "Azul", "Blanco"]
+          "colors": [
+            "Negro",
+            "Gris",
+            "Rojo",
+            "Azul",
+            "Blanco"
+          ]
         }
       ],
       "highlights": [
@@ -74,13 +86,20 @@
           "code": "MT",
           "name": "MG 5 MT",
           "transmision": "Manual 5 velocidades",
-          "colors": ["Plata"]
+          "colors": [
+            "Plata"
+          ]
         },
         {
           "code": "AT",
           "name": "MG 5 AT",
           "transmision": "CVT",
-          "colors": ["Negro", "Rojo", "Plata", "Blanco"]
+          "colors": [
+            "Negro",
+            "Rojo",
+            "Plata",
+            "Blanco"
+          ]
         }
       ],
       "highlights": [
@@ -685,19 +704,31 @@
       "unitColor": "Plata (Sonic Silver)",
       "image": "static/img/models/toyota-corolla-cross.jpg",
       "specs": {
-        "motor": "1.8L (híbrido o gasolina según unidad)",
+        "motor": "1.8L gasolina",
         "potencia": "140 hp",
         "torque": "175 Nm",
-        "transmision": "CVT / e-CVT",
+        "transmision": "CVT",
         "traccion": "4x2",
         "asientos": 5,
-        "combustible": "Gasolina / Híbrido"
+        "combustible": "Gasolina"
       },
       "highlights": [
-        { "name": "Importado y revisado por Holly Import", "image": "static/img/models/toyota-corolla-cross-feat-1.jpg" },
-        { "name": "Garantía Holly Import incluida",        "image": "static/img/models/toyota-corolla-cross-feat-2.jpg" },
-        { "name": "Toyota Safety Sense",                   "image": "static/img/models/toyota-corolla-cross-feat-3.jpg" },
-        { "name": "Pantalla táctil con Apple CarPlay / Android Auto", "image": "static/img/models/toyota-corolla-cross-feat-4.jpg" }
+        {
+          "name": "Importado y revisado por Holly Import",
+          "image": "static/img/models/toyota-corolla-cross-feat-1.jpg"
+        },
+        {
+          "name": "Garantía Holly Import incluida",
+          "image": "static/img/models/toyota-corolla-cross-feat-2.jpg"
+        },
+        {
+          "name": "Toyota Safety Sense",
+          "image": "static/img/models/toyota-corolla-cross-feat-3.jpg"
+        },
+        {
+          "name": "Pantalla táctil con Apple CarPlay / Android Auto",
+          "image": "static/img/models/toyota-corolla-cross-feat-4.jpg"
+        }
       ],
       "gallery": {
         "exterior": [
@@ -716,7 +747,8 @@
       "tags": [
         "SUV",
         "IMPORTADO"
-      ]
+      ],
+      "specsNote": "Valores de referencia del Corolla Cross 1.8 gasolina — no verificados contra la unidad en sala (Andy, 2026-09-11)."
     }
   ]
 }
