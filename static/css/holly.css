@@ -1402,6 +1402,6 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   .hh__nav a { font-size: .86rem; }
 }
 .rep-brand__logo--mg { height: 34px; }
-.rep-brand__logo--maxus { height: 18px; }
+.rep-brand__logo--maxus { height: 22px; }
 .rep-brand--mg { border-color: #c8102e; }
 .rep-brand--maxus { border-color: #1a1a1e; }
