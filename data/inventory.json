@@ -34,7 +34,9 @@
       "transmission": "Automática",
       "color": "Plata",
       "colorHex": "#b8bcc2",
-      "status": "disponible"
+      "status": "disponible",
+      "image": "static/img/inventory/mg-zs-plata.png",
+      "imageNote": "Render blanco (mgvzla 0005_MG-ZS-BLANCO) recoloreado a plata — MG VE no publica el ZS actual en plata."
     },
     {
       "id": "inv-mg3-mt-blanco",
