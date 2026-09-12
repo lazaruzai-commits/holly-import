@@ -61,27 +61,15 @@
       "status": "disponible"
     },
     {
-      "id": "inv-mg-rx8-gris",
-      "modelId": null,
+      "id": "inv-mg-rx5-gris",
+      "modelId": "mg-rx5",
       "brand": "MG",
-      "name": "MG RX8",
+      "name": "MG RX5",
       "trim": "",
-      "transmission": "Automática 6 vel.",
+      "transmission": "Automática",
       "color": "Gris pizarra",
       "colorHex": "#5a5f66",
-      "image": "static/img/models/mg-rx5.png",
-      "status": "disponible",
-      "bodyType": "SUV 7 puestos",
-      "tagline": "SUV grande con tres filas de asientos y chasis body-on-frame.",
-      "specs": {
-        "motor": "2.0L Turbo",
-        "potencia": "221 hp",
-        "torque": "360 Nm",
-        "transmision": "AT 6 vel.",
-        "traccion": "4x4 selectiva",
-        "asientos": 7
-      },
-      "imageNote": "Usa el render gris del MG RX5 (mgvzla 0004_MG-RX5) por indicación de Andy — verificar que la unidad sea RX8 y no RX5; reemplazar por foto propia."
+      "status": "disponible"
     }
   ]
 }
