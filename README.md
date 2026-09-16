@@ -208,3 +208,26 @@ GET /api/health
 - Hero photography that matches Holly Import's exact stock colors and
   trims.
 - `SITE_PHONE` and `SITE_WHATSAPP` in `.env`.
+
+## Analytics & lead attribution
+
+Set `GA_MEASUREMENT_ID` and/or `META_PIXEL_ID` in `.env` and restart — the
+GA4 tag and Meta Pixel load only when their ID is present.
+
+`static/js/analytics.js` also runs on every page regardless:
+
+- **Attribution.** First-touch and last-touch `utm_*` / `gclid` / `fbclid` /
+  referrer are kept per visitor (localStorage) and injected into every
+  `/api/lead` and `/api/service` POST. They land as extra columns in
+  `leads/leads.csv` and `leads/services.csv` (`first_source`, `last_campaign`,
+  `gclid`, …) and as an `Origen:` line on the Telegram notification — so a
+  lead can be traced back to the exact ad/post that produced it.
+- **Events** (sent to GA4, Meta and `window.dataLayer`): `view_item` (model
+  page, with id/brand), `view_inventario` / `view_importados` / …,
+  `open_chat`, `chat_chip`, `price_request_open`, `whatsapp_click`,
+  `phone_click`, `generate_lead` (flow/brand/model/source), `service_booking`.
+
+Tag campaign links like
+`https://hollyimport.com/inventario?utm_source=instagram&utm_medium=paid_social&utm_campaign=corolla-cross-sep`.
+In GA4, mark `generate_lead` and `service_booking` as key events; in Meta,
+`Lead` and `Schedule` are the standard events they map to.

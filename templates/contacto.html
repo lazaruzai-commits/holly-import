@@ -49,6 +49,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script>window.HOLLY_PAGE = {type: "contacto"};</script>
 <script>
 document.getElementById("contact-form")?.addEventListener("submit", async (e)=>{
   e.preventDefault();

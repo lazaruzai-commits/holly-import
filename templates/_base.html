@@ -11,6 +11,27 @@
   <link rel="stylesheet" href="{{ root_path }}/static/css/holly.css?v={{ asset_v }}">
   <link rel="icon" type="image/svg+xml" href="{{ root_path }}/static/img/brand/holly-mark.svg">
   <script>window.HOLLY_BASE = "{{ root_path }}";</script>
+  {% if analytics.ga_id %}
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ analytics.ga_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ analytics.ga_id }}', { anonymize_ip: true });
+  </script>
+  {% endif %}
+  {% if analytics.meta_pixel_id %}
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+    s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ analytics.meta_pixel_id }}'); fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id={{ analytics.meta_pixel_id }}&ev=PageView&noscript=1"></noscript>
+  {% endif %}
+  <script src="{{ root_path }}/static/js/analytics.js?v={{ asset_v }}"></script>
 </head>
 <body class="page-{{ page|default('default') }}">
 

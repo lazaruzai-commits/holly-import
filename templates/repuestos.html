@@ -103,6 +103,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script>window.HOLLY_PAGE = {type: "repuestos"};</script>
 <script>
 document.getElementById("parts-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();

@@ -58,6 +58,24 @@ def _h(s: str) -> str:
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def _origen(row: dict) -> str:
+    """One line of marketing attribution, e.g. 'Origen: instagram / paid_social · lanzamiento-208'.
+    Empty string when the lead came in direct with no referrer."""
+    src = row.get("last_source") or row.get("first_source") or ""
+    med = row.get("last_medium") or row.get("first_medium") or ""
+    camp = row.get("last_campaign") or row.get("first_campaign") or ""
+    if not src or src == "(direct)":
+        return ""
+    line = f"\nOrigen: {_h(src)}"
+    if med and med != "(none)":
+        line += f" / {_h(med)}"
+    if camp:
+        line += f" · {_h(camp)}"
+    if row.get("page"):
+        line += f"\nPágina: {_h(row['page'])}"
+    return line
+
+
 def _footer(session_id: str) -> str:
     """Uniform last line used to make the session id reply-parseable."""
     return f"\nSesión: <code>{_h(session_id)}</code>"
@@ -75,6 +93,7 @@ async def notify_lead(lead: dict) -> None:
     )
     if lead.get("notes"):
         body += f"\nNotas: {_h(lead['notes'])}"
+    body += _origen(lead)
     body += _footer(lead.get("session_id", ""))
     await send_telegram(body)
 
@@ -91,6 +110,7 @@ async def notify_service(s: dict) -> None:
     )
     if s.get("notes"):
         body += f"\nNotas: {_h(s['notes'])}"
+    body += _origen(s)
     body += _footer(s.get("session_id", ""))
     await send_telegram(body)
 

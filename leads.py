@@ -18,13 +18,41 @@ LEADS_DIR.mkdir(exist_ok=True)
 _LOCK = threading.Lock()
 
 
+def _header_matches(path: Path, fieldnames: list[str]) -> bool:
+    try:
+        with path.open("r", newline="", encoding="utf-8") as f:
+            return next(csv.reader(f), []) == fieldnames
+    except Exception:
+        return False
+
+
 def _append(path: Path, row: dict[str, Any], fieldnames: list[str]) -> None:
-    new_file = not path.exists()
-    with _LOCK, path.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        if new_file:
-            writer.writeheader()
-        writer.writerow(row)
+    with _LOCK:
+        # When the schema grows (new attribution columns), rotate the old file
+        # aside rather than silently dropping the new columns on every row.
+        if path.exists() and not _header_matches(path, fieldnames):
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+            path.rename(path.with_name(f"{path.stem}.v1-{stamp}{path.suffix}"))
+        new_file = not path.exists()
+        with path.open("a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
+            if new_file:
+                writer.writeheader()
+            writer.writerow(row)
+
+
+# Marketing attribution captured in the browser (static/js/analytics.js) and
+# attached to every lead / service booking so a campaign can be traced to a sale.
+ATTRIBUTION_FIELDS = [
+    "visitor_id", "first_source", "first_medium", "first_campaign", "first_referrer", "first_landing",
+    "last_source", "last_medium", "last_campaign", "last_content", "last_term",
+    "gclid", "fbclid", "page",
+]
+
+
+def _attr_row(attribution: dict[str, Any] | None) -> dict[str, str]:
+    a = attribution or {}
+    return {k: str(a.get(k, "") or "") for k in ATTRIBUTION_FIELDS}
 
 
 def _now() -> str:
@@ -34,13 +62,14 @@ def _now() -> str:
 LEAD_FIELDS = [
     "ts", "session_id", "flow", "brand", "model_id", "model_name",
     "name", "phone", "contact_pref", "notes",
-]
+] + ATTRIBUTION_FIELDS
 
 
 def save_lead(*, session_id: str, brand: str = "", model_id: str = "",
               model_name: str = "", name: str = "", phone: str = "",
               contact_pref: str = "call_text", notes: str = "",
-              flow: str = "compra") -> dict[str, Any]:
+              flow: str = "compra",
+              attribution: dict[str, Any] | None = None) -> dict[str, Any]:
     row = {
         "ts": _now(),
         "session_id": session_id,
@@ -52,6 +81,7 @@ def save_lead(*, session_id: str, brand: str = "", model_id: str = "",
         "phone": phone,
         "contact_pref": contact_pref,
         "notes": notes,
+        **_attr_row(attribution),
     }
     _append(LEADS_DIR / "leads.csv", row, LEAD_FIELDS)
     return row
@@ -60,13 +90,14 @@ def save_lead(*, session_id: str, brand: str = "", model_id: str = "",
 SERVICE_FIELDS = [
     "ts", "session_id", "name", "phone", "contact_pref",
     "vehicle", "preferred_date", "preferred_time", "notes",
-]
+] + ATTRIBUTION_FIELDS
 
 
 def save_service(*, session_id: str, name: str = "", phone: str = "",
                  contact_pref: str = "call_text", vehicle: str = "",
                  preferred_date: str = "", preferred_time: str = "",
-                 notes: str = "") -> dict[str, Any]:
+                 notes: str = "",
+                 attribution: dict[str, Any] | None = None) -> dict[str, Any]:
     row = {
         "ts": _now(),
         "session_id": session_id,
@@ -77,6 +108,7 @@ def save_service(*, session_id: str, name: str = "", phone: str = "",
         "preferred_date": preferred_date,
         "preferred_time": preferred_time,
         "notes": notes,
+        **_attr_row(attribution),
     }
     _append(LEADS_DIR / "services.csv", row, SERVICE_FIELDS)
     return row

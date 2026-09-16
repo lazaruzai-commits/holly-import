@@ -10,6 +10,7 @@
 } %}
 
 {% block scripts %}
+<script>window.HOLLY_PAGE = {type: "model", id: "{{ model.id }}", name: "{{ model.name }}", brand: "{{ model.brand }}", category: "{{ model.category }}"};</script>
 <script src="{{ root_path }}/static/js/modelo.js?v={{ asset_v }}"></script>
 {% if model.colors %}<script src="{{ root_path }}/static/js/visualizer.js?v={{ asset_v }}"></script>{% endif %}
 {% endblock %}

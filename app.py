@@ -109,6 +109,26 @@ SITE = {
     "instagram_widget_url": os.environ.get("INSTAGRAM_WIDGET_URL", "").strip(),
 }
 
+# Third-party analytics — both optional. Nothing loads until the ID is set.
+ANALYTICS = {
+    "ga_id": os.environ.get("GA_MEASUREMENT_ID", "").strip(),      # e.g. G-XXXXXXXXXX
+    "meta_pixel_id": os.environ.get("META_PIXEL_ID", "").strip(),  # e.g. 1234567890
+}
+
+# Attribution fields accepted from the browser (see static/js/analytics.js) and
+# persisted with every lead / service booking.
+ATTRIBUTION_KEYS = (
+    "visitor_id", "first_source", "first_medium", "first_campaign", "first_referrer", "first_landing",
+    "last_source", "last_medium", "last_campaign", "last_content", "last_term",
+    "gclid", "fbclid", "page",
+)
+
+
+def _clean_attribution(raw: dict[str, Any] | None) -> dict[str, str]:
+    if not isinstance(raw, dict):
+        return {}
+    return {k: str(raw.get(k, "") or "")[:200] for k in ATTRIBUTION_KEYS}
+
 app = FastAPI(title="Holly Import")
 app.mount("/static", StaticFiles(directory=str(PROJECT_ROOT / "static")), name="static")
 
@@ -211,6 +231,7 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
         "root_path": ROOT_PATH,
         "asset_v": ASSET_VERSION,
         "site": SITE,
+        "analytics": ANALYTICS,
         "models": passenger_models(),
         "brands": ["MG", "Maxus"],
     }
@@ -432,6 +453,7 @@ class LeadRequest(BaseModel):
     phone: str = Field(min_length=4, max_length=30)
     contact_pref: str = Field(default="call_text")
     notes: str = Field(default="", max_length=500)
+    attribution: dict[str, Any] | None = None
 
     @field_validator("contact_pref")
     @classmethod
@@ -465,6 +487,7 @@ async def api_lead(req: LeadRequest):
         phone=req.phone.strip(),
         contact_pref=req.contact_pref,
         notes=req.notes.strip(),
+        attribution=_clean_attribution(req.attribution),
     )
     await telegram_client.notify_lead(row)
     return {"ok": True, "session_id": sid}
@@ -481,6 +504,7 @@ class ServiceRequest(BaseModel):
     preferred_date: str = Field(default="", max_length=20)
     preferred_time: str = Field(default="", max_length=20)
     notes: str = Field(default="", max_length=500)
+    attribution: dict[str, Any] | None = None
 
     @field_validator("contact_pref")
     @classmethod
@@ -502,6 +526,7 @@ async def api_service(req: ServiceRequest):
         preferred_date=req.preferred_date.strip(),
         preferred_time=req.preferred_time.strip(),
         notes=req.notes.strip(),
+        attribution=_clean_attribution(req.attribution),
     )
     await telegram_client.notify_service(row)
     return {"ok": True, "session_id": sid}
@@ -611,4 +636,6 @@ async def api_health():
             os.environ.get("TELEGRAM_WEBHOOK_SECRET")
         ),
         "openrouter_configured": bool(os.environ.get("OPENROUTER_API_KEY")),
+        "ga4_configured": bool(ANALYTICS["ga_id"]),
+        "meta_pixel_configured": bool(ANALYTICS["meta_pixel_id"]),
     }
