@@ -15,14 +15,14 @@
       "status": "disponible"
     },
     {
-      "id": "inv-peugeot-208-blanco",
+      "id": "inv-peugeot-208-gris",
       "modelId": "peugeot-208",
       "brand": "Peugeot",
       "name": "Peugeot 208",
       "trim": "",
       "transmission": "Automática",
-      "color": "Blanco Nacré",
-      "colorHex": "#f2f2f2",
+      "color": "Gris Artense",
+      "colorHex": "#343436",
       "status": "disponible",
       "imageNote": "Unidad reportada como Peugeot 4 puertas similar al MG 5 — asumido 208 (Peugeot no tiene sedán actual). Confirmar modelo con la documentación."
     },
