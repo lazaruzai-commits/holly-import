@@ -749,6 +749,45 @@
         "IMPORTADO"
       ],
       "specsNote": "Valores de referencia del Corolla Cross 1.8 gasolina — no verificados contra la unidad en sala (Andy, 2026-09-11)."
+    },
+    {
+      "id": "peugeot-208",
+      "brand": "Peugeot",
+      "name": "Peugeot 208",
+      "tagline": "Hatchback compacto importado, seleccionado por Holly Import y respaldado con nuestra garantía.",
+      "bodyType": "Hatchback 5 puertas",
+      "category": "importado",
+      "promoEligible": false,
+      "unitColor": "Blanco Nacré",
+      "image": "static/img/models/peugeot-208.jpg",
+      "specs": {
+        "motor": "1.6L gasolina",
+        "potencia": "115 hp",
+        "torque": "150 Nm",
+        "transmision": "Automática 6 vel.",
+        "traccion": "4x2",
+        "asientos": 5,
+        "combustible": "Gasolina"
+      },
+      "specsNote": "Valores de referencia del 208 1.6 AT (versión latinoamericana) — no verificados contra la unidad en sala.",
+      "highlights": [
+        "Importado y revisado por Holly Import",
+        "Garantía Holly Import incluida",
+        "Peugeot i-Cockpit con pantalla táctil",
+        "Apple CarPlay / Android Auto"
+      ],
+      "competitors": [],
+      "tags": [
+        "HATCHBACK",
+        "IMPORTADO"
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/peugeot-208-ext-1.jpg",
+          "static/img/models/peugeot-208-ext-2.jpg"
+        ],
+        "interior": []
+      }
     }
   ]
 }

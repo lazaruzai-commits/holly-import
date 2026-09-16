@@ -15,15 +15,16 @@
       "status": "disponible"
     },
     {
-      "id": "inv-mg5-at-blanco",
-      "modelId": "mg-5",
-      "brand": "MG",
-      "name": "MG 5",
-      "trim": "AT",
-      "transmission": "Automática (CVT)",
-      "color": "Blanco",
+      "id": "inv-peugeot-208-blanco",
+      "modelId": "peugeot-208",
+      "brand": "Peugeot",
+      "name": "Peugeot 208",
+      "trim": "",
+      "transmission": "Automática",
+      "color": "Blanco Nacré",
       "colorHex": "#f2f2f2",
-      "status": "disponible"
+      "status": "disponible",
+      "imageNote": "Unidad reportada como Peugeot 4 puertas similar al MG 5 — asumido 208 (Peugeot no tiene sedán actual). Confirmar modelo con la documentación."
     },
     {
       "id": "inv-mg-zs-plata",
