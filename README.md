@@ -211,8 +211,17 @@ GET /api/health
 
 ## Analytics & lead attribution
 
-Set `GA_MEASUREMENT_ID` and/or `META_PIXEL_ID` in `.env` and restart — the
-GA4 tag and Meta Pixel load only when their ID is present.
+**Preferred setup:** set `GTM_CONTAINER_ID` (Google Tag Manager) in `.env` and
+restart. The GTM snippet loads, and inside GTM you add a *GA4 Configuration*
+tag (with your G- Measurement ID) and, later, the Meta Pixel — no site changes
+needed for either. Every site event below is pushed to `window.dataLayer`, so
+in GTM one *GA4 Event* tag with Event Name `{{Event}}` and a *Custom Event*
+trigger matching `^(view_.*|open_chat|chat_chip|price_request_open|whatsapp_click|phone_click|generate_lead|service_booking)$`
+forwards all of them.
+
+**Direct setup (no GTM):** set `GA_MEASUREMENT_ID` and/or `META_PIXEL_ID`
+instead — the gtag / Pixel snippets load only when their ID is present. Don't
+set both a direct ID and the same tag inside GTM, or events double-count.
 
 `static/js/analytics.js` also runs on every page regardless:
 

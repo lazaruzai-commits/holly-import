@@ -111,8 +111,9 @@ SITE = {
 
 # Third-party analytics — both optional. Nothing loads until the ID is set.
 ANALYTICS = {
-    "ga_id": os.environ.get("GA_MEASUREMENT_ID", "").strip(),      # e.g. G-XXXXXXXXXX
-    "meta_pixel_id": os.environ.get("META_PIXEL_ID", "").strip(),  # e.g. 1234567890
+    "gtm_id": os.environ.get("GTM_CONTAINER_ID", "").strip(),      # e.g. GTM-XXXXXXX (preferred: manages GA4 + Meta)
+    "ga_id": os.environ.get("GA_MEASUREMENT_ID", "").strip(),      # e.g. G-XXXXXXXXXX (direct gtag, if not using GTM)
+    "meta_pixel_id": os.environ.get("META_PIXEL_ID", "").strip(),  # e.g. 1234567890 (direct pixel, if not via GTM)
 }
 
 # Attribution fields accepted from the browser (see static/js/analytics.js) and
@@ -636,6 +637,7 @@ async def api_health():
             os.environ.get("TELEGRAM_WEBHOOK_SECRET")
         ),
         "openrouter_configured": bool(os.environ.get("OPENROUTER_API_KEY")),
+        "gtm_configured": bool(ANALYTICS["gtm_id"]),
         "ga4_configured": bool(ANALYTICS["ga_id"]),
         "meta_pixel_configured": bool(ANALYTICS["meta_pixel_id"]),
     }
