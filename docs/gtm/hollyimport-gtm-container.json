@@ -1,0 +1,76 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-09-17 00:00:00",
+  "containerVersion": {
+    "container": { "publicId": "GTM-WNWHXLS4", "name": "hollyimport.com", "usageContext": ["WEB"] },
+    "builtInVariable": [
+      { "type": "EVENT", "name": "Event" },
+      { "type": "PAGE_URL", "name": "Page URL" },
+      { "type": "PAGE_PATH", "name": "Page Path" }
+    ],
+    "variable": [
+      {
+        "variableId": "1",
+        "name": "GA4 Measurement ID",
+        "type": "c",
+        "parameter": [ { "type": "TEMPLATE", "key": "value", "value": "G-REPLACE_ME" } ]
+      },
+      { "variableId": "2", "name": "DL - flow",     "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "flow" } ] },
+      { "variableId": "3", "name": "DL - brand",    "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "brand" } ] },
+      { "variableId": "4", "name": "DL - model_id", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "model_id" } ] },
+      { "variableId": "5", "name": "DL - source",   "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "source" } ] },
+      { "variableId": "6", "name": "DL - campaign", "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "campaign" } ] },
+      { "variableId": "7", "name": "DL - item_id",  "type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "item_id" } ] },
+      { "variableId": "8", "name": "DL - item_brand","type": "v", "parameter": [ { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" }, { "type": "TEMPLATE", "key": "name", "value": "item_brand" } ] }
+    ],
+    "trigger": [
+      {
+        "triggerId": "10",
+        "name": "Holly - site events",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "^(view_.*|open_chat|chat_chip|price_request_open|whatsapp_click|phone_click|generate_lead|service_booking)$" }
+            ]
+          }
+        ]
+      }
+    ],
+    "tag": [
+      {
+        "tagId": "20",
+        "name": "GA4 - Google Tag (config)",
+        "type": "googtag",
+        "parameter": [ { "type": "TEMPLATE", "key": "tagId", "value": "{{GA4 Measurement ID}}" } ],
+        "firingTriggerId": [ "2147479553" ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "tagId": "21",
+        "name": "GA4 - Holly site events",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "{{Event}}" },
+          { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 Measurement ID}}" },
+          {
+            "type": "LIST", "key": "eventSettingsTable",
+            "list": [
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "flow" },       { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - flow}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "brand" },      { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - brand}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "model_id" },   { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - model_id}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "source" },     { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - source}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "campaign" },   { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - campaign}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "item_id" },    { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - item_id}}" } ] },
+              { "type": "MAP", "map": [ { "type": "TEMPLATE", "key": "parameter", "value": "item_brand" }, { "type": "TEMPLATE", "key": "parameterValue", "value": "{{DL - item_brand}}" } ] }
+            ]
+          }
+        ],
+        "firingTriggerId": [ "10" ],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ]
+  }
+}
