@@ -83,7 +83,7 @@
     const t = e.target.closest("a, button");
     if (!t) return;
     const page = location.pathname;
-    if (t.matches("[data-open-chat]")) track("open_chat", { flow: t.dataset.chatFlow || "", model_id: t.dataset.chatModel || "", page });
+    if (t.matches("[data-open-chat], #open-chat")) track("open_chat", { flow: t.dataset.chatFlow || "", model_id: t.dataset.chatModel || "", page });
     else if (t.matches("[data-ask-price]")) track("price_request_open", { model_id: t.dataset.askPrice || "", page });
     else if (t.matches('a[href*="wa.me"], a[href*="whatsapp.com"]')) track("whatsapp_click", { page });
     else if (t.matches('a[href^="tel:"]')) track("phone_click", { page });
