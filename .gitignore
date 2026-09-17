@@ -45,4 +45,4 @@ static/video/*.webm
 Thumbs.db
 .vscode/
 .idea/
-!static/img/models/peugeot-208-ext-*.jpg
+!static/img/models/peugeot-408-ext-*.jpg

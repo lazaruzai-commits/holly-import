@@ -15,16 +15,16 @@
       "status": "disponible"
     },
     {
-      "id": "inv-peugeot-208-gris",
-      "modelId": "peugeot-208",
+      "id": "inv-peugeot-408-gris",
+      "modelId": "peugeot-408",
       "brand": "Peugeot",
-      "name": "Peugeot 208",
+      "name": "Peugeot 408",
       "trim": "",
       "transmission": "Automática",
-      "color": "Gris Artense",
+      "color": "Gris",
       "colorHex": "#343436",
       "status": "disponible",
-      "imageNote": "Unidad reportada como Peugeot 4 puertas similar al MG 5 — asumido 208 (Peugeot no tiene sedán actual). Confirmar modelo con la documentación."
+      "imageNote": "Unidad confirmada como Peugeot 408 sedán gris (Dongfeng-Peugeot). Confirmar año/versión con la documentación."
     },
     {
       "id": "inv-mg-zs-plata",

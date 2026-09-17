@@ -82,7 +82,7 @@
   <p class="lead">Unidades en sala, listas para entrega inmediata.</p>
   <div class="grid grid--cards">
     {% for u in inventory[:6] %}
-    <article class="card inv-card" data-unit-id="{{ u.id }}">
+    <article class="card inv-card" data-unit-id="{{ u.id }}"{% if u.modelId %} data-model-id="{{ u.modelId }}"{% endif %}>
       <div class="card__img">
         <img src="{{ static_v(u.image) }}" alt="{{ u.name }} {{ u.trim }} {{ u.color }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ u.name }}'}))">
