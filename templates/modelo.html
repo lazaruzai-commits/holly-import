@@ -30,7 +30,7 @@
   <div class="model-hero__media">
     <img src="{{ static_v(model.image) }}" alt="{{ model.brand }} {{ model.name }}">
     {% if model.promoEligible %}
-    <span class="model-hero__promo">PROMO Asegúrate con 500</span>
+    <span class="model-hero__promo">PROMO Engánchate con 500</span>
     {% endif %}
     {% if model.drivetrain == '4x4' %}
     <span class="model-hero__4x4" aria-label="Tracción 4x4">4X4</span>
@@ -253,7 +253,7 @@
   <a class="cta-band cta-band--link" href="{{ root_path }}/promocion">
     <div>
       <span class="hero__eyebrow">Promoción vigente</span>
-      <h2 style="margin:0">Asegúrate con 500</h2>
+      <h2 style="margin:0">Engánchate con 500</h2>
       <p>El {{ model.name }} aplica para nuestra promoción con planes a 6, 9 o 12 meses y hasta 30% de ahorro.</p>
     </div>
     <span class="btn btn--primary">Conocer plan →</span>
@@ -271,7 +271,7 @@
     <article class="card" data-model-id="{{ r.id }}" data-brand="{{ r.brand }}">
       <div class="card__img">
         <img src="{{ static_v(r.image) }}" alt="{{ r.brand }} {{ r.name }}" loading="lazy">
-        {% if r.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
+        {% if r.promoEligible %}<span class="card__badge">Engánchate con 500</span>{% endif %}
         {% if r.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>
       <div class="card__body">

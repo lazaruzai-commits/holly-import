@@ -17,7 +17,7 @@
     <button class="chip" data-filter="tag:SEDAN">Sedán</button>
     <button class="chip" data-filter="tag:HATCHBACK">Hatchback</button>
     <button class="chip" data-filter="tag:PICKUP">Pickup</button>
-    <button class="chip chip--promo" data-filter="promo">Asegúrate con 500</button>
+    <button class="chip chip--promo" data-filter="promo">Engánchate con 500</button>
   </div>
 
   <div class="grid grid--cards models-grid" id="models-grid">
@@ -31,7 +31,7 @@
       <div class="card__img">
         <img src="{{ static_v(m.image) }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
-        {% if m.promoEligible %}<span class="card__badge">Asegúrate con 500</span>{% endif %}
+        {% if m.promoEligible %}<span class="card__badge">Engánchate con 500</span>{% endif %}
         {% if m.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>
       <div class="card__body">

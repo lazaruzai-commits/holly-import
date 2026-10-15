@@ -26,7 +26,7 @@ app that powers an AI chat assistant, lead capture, and service booking.
 | `/modelos` | `modelos.html` | Filterable grid (MG/Maxus, pasajeros/comerciales, promo) |
 | `/comparar` | `comparar.html` | Pick a Holly model + a competitor → side-by-side |
 | `/servicio` | `servicio.html` | Taller info + CTA to chat in `servicios` flow |
-| `/promocion` | `promocion.html` | Asegúrate con 500 landing |
+| `/promocion` | `promocion.html` | Engánchate con 500 landing |
 | `/contacto` | `contacto.html` | Address, hours, contact form |
 
 ## Chat agent
@@ -203,7 +203,7 @@ GET /api/health
 - Real model specs (verify against actual stock in Caracas).
 - Real prices for the Compare page badges (currently "relative" badges
   only — no absolute numbers used).
-- Final "Asegúrate con 500" terms (paraphrased here from the public
+- Final "Engánchate con 500" terms (paraphrased here from the public
   promo page; legal/compliance copy should come from the dealership).
 - Hero photography that matches Holly Import's exact stock colors and
   trims.

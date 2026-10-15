@@ -119,9 +119,9 @@
       .map(h => `<li>${escapeHtml(h)}</li>`)
       .join("");
     const promoBadge = m.promoEligible
-      ? `<span class="mdl__promo" title="Asegúrate con 500">PROMO</span>` : "";
+      ? `<span class="mdl__promo" title="Engánchate con 500">PROMO</span>` : "";
     const promoNote = m.promoEligible
-      ? `<p class="card__tag" style="color:var(--c-crimson-2);font-weight:600">Aplica Asegúrate con 500</p>` : "";
+      ? `<p class="card__tag" style="color:var(--c-crimson-2);font-weight:600">Aplica Engánchate con 500</p>` : "";
     return `
       ${promoBadge}
       <div class="mdl">

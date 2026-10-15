@@ -114,7 +114,7 @@ p  { margin: 0 0 .8em; }
 .hh__nav a:hover { color: var(--c-crimson); }
 .hh__nav a.is-active { border-bottom-color: var(--c-crimson); color: var(--c-crimson); }
 
-/* Asegúrate-con-500 PROMO indicator on the nav link */
+/* Engánchate-con-500 PROMO indicator on the nav link */
 .hh__promo-link { position: relative; padding-right: 1.2rem; }
 .hh__promo-badge {
   position: absolute; top: -6px; right: -8px;
@@ -383,7 +383,7 @@ p  { margin: 0 0 .8em; }
   .hero-video__content { justify-content: flex-end; padding-bottom: 2.5rem; }
 }
 
-/* ---------- Asegúrate con 500 centrepiece banner ---------- */
+/* ---------- Engánchate con 500 centrepiece banner ---------- */
 
 .promo-feature {
   max-width: var(--maxw); margin: 2.5rem auto;
@@ -1390,7 +1390,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
 /* one more top-level nav item — tighten spacing so the bar still fits at 1240px */
 .hh__nav { gap: 1.1rem; }
 
-/* Nav labels never wrap ("En inventario", "Asegúrate con 500" stay on one line);
+/* Nav labels never wrap ("En inventario", "Engánchate con 500" stay on one line);
    compensate with tighter spacing / type as the bar narrows. */
 .hh__nav a { white-space: nowrap; }
 @media (max-width: 1240px) {
