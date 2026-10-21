@@ -71,7 +71,7 @@ p  { margin: 0 0 .8em; }
   height: 80px; width: auto;
   max-width: 360px;
 }
-@media (max-width: 880px) {
+@media (max-width: 1080px) {
   .hh__brand-img { height: 56px; max-width: 240px; }
 }
 
@@ -146,7 +146,7 @@ p  { margin: 0 0 .8em; }
 }
 .hh__cmp-btn:hover { background: var(--c-text); color: var(--c-white); }
 .hh__cmp-btn.is-active { border-color: var(--c-crimson); color: var(--c-crimson); }
-@media (max-width: 880px) {
+@media (max-width: 1080px) {
   .hh__cmp-btn { display: none; }
 }
 /* Header chat button — flat solid crimson, primary CTA style */
@@ -190,12 +190,12 @@ p  { margin: 0 0 .8em; }
 }
 .hh__menu { display: none; background: transparent; color: var(--c-text); border: 1px solid var(--c-line); border-radius: var(--r-sm); padding: .35rem .65rem; font-size: 1.5rem; cursor: pointer; }
 
-@media (max-width: 880px) {
+@media (max-width: 1080px) {
   .hh__nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
             flex-direction: column; gap: 0; background: var(--c-black); padding: .5rem 1rem 1rem; border-bottom: 1px solid var(--c-line); }
   .hh__nav.is-open { display: flex; }
   .hh__nav a { padding: .8rem 0; border-bottom: 1px solid var(--c-line); display: block; }
-  .hh__menu { display: inline-block; }
+  .hh__menu { display: inline-block; margin-left: auto; }   /* hamburger hugs the right edge */
   .hh__chat-btn { display: none; }
   /* on mobile, the dropdown lives inline below the parent — no fancy popover */
   .hh__nav-item--has-dropdown .hh__dropdown {
@@ -1401,6 +1401,26 @@ input:focus, textarea:focus, select:focus { outline: 2px solid var(--c-crimson);
   .hh__nav { gap: .7rem; }
   .hh__nav a { font-size: .86rem; }
 }
+/* Laptop widths (≈1100–1500px): the full bar (logo + 7 nav items + Comparador +
+   Chat) is wider than the window, which used to push the chat button past the
+   right edge and give the whole page a sideways scroll. Let the logo and the
+   gaps compress instead of overflowing. */
+@media (max-width: 1500px) {
+  .hh__bar { gap: 1rem; }
+  .hh__brand-img { height: 64px; max-width: 280px; }
+}
+@media (max-width: 1320px) {
+  .hh__bar { gap: .75rem; }
+  .hh__brand-img { height: 54px; max-width: 230px; }
+  .hh__chat-btn, .hh__cmp-btn { padding: 0 .8rem; font-size: .85rem; }
+}
+@media (max-width: 1180px) {
+  .hh__brand-img { height: 48px; max-width: 200px; }
+  .hh__nav { gap: .55rem; }
+}
+/* Safety net: nothing on the page may ever create horizontal scroll. `clip`
+   (not `hidden`) keeps sticky/fixed positioning intact. */
+html, body { overflow-x: clip; }
 .rep-brand__logo--mg { height: 34px; }
 .rep-brand__logo--maxus { height: 22px; }
 .rep-brand--mg { border-color: #c8102e; }
