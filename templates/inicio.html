@@ -12,9 +12,9 @@
     {% set m = s.model %}
     <article class="hero-slide{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}">
       <video class="hero-slide__bg"
-             muted playsinline preload="auto"
-             {% if loop.first %}autoplay{% endif %}>
-        <source src="{{ static_v(s.video) }}" type="video/mp4">
+             muted playsinline
+             {% if s.poster %}{% if loop.first %}poster="{{ static_v(s.poster) }}"{% else %}data-poster="{{ static_v(s.poster) }}"{% endif %}{% endif %}
+             {% if loop.first %}preload="auto" autoplay src="{{ static_v(s.video) }}"{% else %}preload="none" data-src="{{ static_v(s.video) }}"{% endif %}>
       </video>
       <div class="hero-slide__shade"></div>
       <div class="hero-slide__content">
@@ -116,7 +116,7 @@
         <span class="chat-group">
           <button class="btn btn--silver btn--small" type="button" data-open-chat>Chat con Holly</button>
           <img class="chat-group__thumb"
-               src="{{ root_path }}/static/img/brand/holly-with-car.png"
+               src="{{ static_v('static/img/brand/holly-with-car.png') }}"
                alt="" loading="lazy" aria-hidden="true">
         </span>
       </div>
@@ -133,8 +133,8 @@
 <section class="promo-feature" aria-label="Promoción Engánchate con 500">
   <a class="promo-feature__inner" href="{{ root_path }}/promocion">
     <img class="promo-feature__img"
-         src="{{ root_path }}/static/img/brand/EnganchatePromo.jpg"
-         alt="Engánchate con 500 — Holly Import"
+         src="{{ static_v('static/img/brand/EnganchatePromo.jpg') }}"
+         alt="Engánchate con 500 — Holly Import" loading="lazy"
          onerror="this.style.display='none'">
     <span class="promo-feature__cta">Conocer el plan →</span>
   </a>

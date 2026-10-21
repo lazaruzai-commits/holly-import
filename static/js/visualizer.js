@@ -1,8 +1,10 @@
 // Per-model "Encuentra tu estilo" colour visualizer.
 // All colour videos exist in the DOM stacked behind the active one. Picking
-// a chip swaps the .is-active class so the new video fades in. Inactive
-// videos drop to preload="metadata" to avoid downloading every clip up
-// front; they switch to "auto" the first time they're picked.
+// a chip swaps the .is-active class so the new video fades in.
+// Bandwidth: the markup carries only data-src (no <source>), so nothing is
+// downloaded until (a) the visualizer pane is actually visible and (b) a
+// colour is shown. Each clip is ~5 MB; the old markup fetched all of them on
+// every model page even though the pane starts hidden behind a tab.
 (() => {
   const root = document.getElementById("visualizer");
   if (!root) return;
@@ -12,8 +14,32 @@
   const pp     = document.getElementById("visualizer-pp");
   if (!videos.length || !chips.length) return;
 
+  function attach(v) {
+    if (!v.getAttribute("src") && v.dataset.src) {
+      v.preload = "auto";
+      v.src = v.dataset.src;
+      v.load();
+    }
+  }
+
   let active = videos[0];
-  active.play().catch(() => {});
+  let shown = false;
+  function start() {
+    if (shown) return;
+    shown = true;
+    attach(active);
+    active.play().catch(() => {});
+    syncPlayPauseIcon();
+  }
+  // Start only when the pane is on screen (it lives behind a tab, hidden by default).
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { start(); io.disconnect(); }
+    });
+    io.observe(root);
+  } else {
+    start();
+  }
 
   function selectColor(colorKey) {
     const next = videos.find(v => v.dataset.color === colorKey);
@@ -25,7 +51,8 @@
       c.setAttribute("aria-checked", on ? "true" : "false");
     });
     if (next === active) return;
-    next.preload = "auto";
+    shown = true;
+    attach(next);
     next.currentTime = 0;
     next.play().catch(() => {});
     next.classList.add("is-active");

@@ -86,7 +86,7 @@ def static_v(rel_path: str) -> str:
     on disk does (mtime). Lets replaced model renders / gallery frames bypass
     Cloudflare's edge cache without a manual purge — same idea as the git-SHA
     version on CSS/JS, but per-file so a single swapped PNG is enough."""
-    rel = (rel_path or "").lstrip("/")
+    rel = _prefer_webp((rel_path or "").lstrip("/"))
     v = _STATIC_MTIME.get(rel)
     if v is None:
         try:
@@ -95,6 +95,28 @@ def static_v(rel_path: str) -> str:
             v = ASSET_VERSION
         _STATIC_MTIME[rel] = v
     return f"{ROOT_PATH}/{rel}?v={v}"
+
+
+_WEBP_FOR: dict[str, str] = {}
+
+
+def _prefer_webp(rel: str) -> str:
+    """`static/img/x.png` -> `static/img/x.webp` when that sibling exists.
+
+    scripts/make_webp.py writes a down-sized WebP next to every PNG/JPG
+    (typically 5-15x smaller). Data files and templates keep naming the
+    original; the swap happens here so one place covers cards, galleries,
+    brand images and the JSON API alike.
+    """
+    hit = _WEBP_FOR.get(rel)
+    if hit is None:
+        hit = rel
+        if rel.lower().endswith((".png", ".jpg", ".jpeg")):
+            cand = PROJECT_ROOT / (rel.rsplit(".", 1)[0] + ".webp")
+            if cand.is_file():
+                hit = cand.relative_to(PROJECT_ROOT).as_posix()
+        _WEBP_FOR[rel] = hit
+    return hit
 
 
 templates.env.globals["static_v"] = static_v
@@ -132,6 +154,21 @@ def _clean_attribution(raw: dict[str, Any] | None) -> dict[str, str]:
 
 app = FastAPI(title="Holly Import")
 app.mount("/static", StaticFiles(directory=str(PROJECT_ROOT / "static")), name="static")
+
+
+@app.middleware("http")
+async def _static_cache_headers(request: Request, call_next):
+    """Every static URL the templates emit carries a ?v= stamp (git SHA for
+    CSS/JS, file mtime for images/video), so the bytes behind a given URL never
+    change: browsers and Cloudflare may keep them for a year. Un-stamped static
+    URLs get a day. HTML responses are left alone (no-store semantics apply)."""
+    response = await call_next(request)
+    if request.url.path.startswith("/static/") and response.status_code == 200:
+        if "v" in request.query_params:
+            response.headers["Cache-Control"] = "public, max-age=31536000, immutable"
+        else:
+            response.headers["Cache-Control"] = "public, max-age=86400"
+    return response
 
 
 # ---------- data loaders (cached at process start) ----------
@@ -242,6 +279,16 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
 
 # ---------- pages ----------
 
+def _slide(sid: str, model: dict[str, Any] | None) -> dict[str, Any]:
+    """Hero slide. Uses the web encode (`<id>-720p.mp4`, ~1-4 MB) produced by
+    scripts/encode_hero_videos.sh when it exists, else the original upload, and
+    the poster frame it extracts so the slide paints before any video arrives."""
+    video_dir = PROJECT_ROOT / "static" / "video"
+    video = f"static/video/{sid}-720p.mp4" if (video_dir / f"{sid}-720p.mp4").is_file() else f"static/video/{sid}.mp4"
+    poster = f"static/video/posters/{sid}.jpg" if (video_dir / "posters" / f"{sid}.jpg").is_file() else ""
+    return {"id": sid, "video": video, "poster": poster, "model": model}
+
+
 @app.get("/", response_class=HTMLResponse)
 async def page_inicio(request: Request):
     featured = [m for m in models_list() if m["id"] in
@@ -250,13 +297,7 @@ async def page_inicio(request: Request):
     # Hero slider — videos sorted lightest first so the page becomes interactive
     # quickly and heavier clips finish buffering while the user watches the first one.
     # Generic "hero" slide (no model) fronts a Holly Import brand intro.
-    slides = [
-        {"id": "mg-3",   "video": "static/video/mg-3.mp4",   "model": by_id.get("mg-3")},
-        {"id": "mg-rx9", "video": "static/video/mg-rx9.mp4", "model": by_id.get("mg-rx9")},
-        {"id": "mg-rx5", "video": "static/video/mg-rx5.mp4", "model": by_id.get("mg-rx5")},
-        {"id": "hero",   "video": "static/video/hero.mp4",   "model": None},
-        {"id": "mg-5",   "video": "static/video/mg-5.mp4",   "model": by_id.get("mg-5")},
-    ]
+    slides = [_slide(sid, by_id.get(sid)) for sid in ("mg-3", "mg-rx9", "mg-rx5", "hero", "mg-5")]
     # Imported-vehicle spotlight under the hero (currently the Corolla Cross).
     spotlight = model_by_id("toyota-corolla-cross")
     return templates.TemplateResponse(

@@ -1,12 +1,13 @@
 // Hero carousel with video slides.
-// Behaviour:
-//   - All <video> slides start preloading on page load (preload="auto")
-//   - Each video buffers up to ~15 seconds, then we hint the browser to stop
-//     by setting preload="metadata" so we don't waste bandwidth on slides the
-//     user may never watch
-//   - The active slide keeps preload="auto" and plays
-//   - On slide change: pause the old active, play the new active, and let the
-//     newly-active video resume buffering past the 15-second mark
+//
+// Bandwidth policy (the home page used to pull ~30 MB of video on load):
+//   - The markup gives only the first slide a real `src`; every other slide
+//     carries `data-src` plus a poster image, so it costs nothing until shown.
+//   - When a slide becomes active we attach its src and play it. We also
+//     attach the *next* slide's src at that moment (preload="auto") so the
+//     following transition is seamless — but never more than one ahead.
+//   - On small screens or when the browser asks to save data we skip video
+//     entirely: slides show their posters and advance on a timer.
 (() => {
   const root = document.getElementById("hero-slider");
   if (!root) return;
@@ -15,66 +16,77 @@
   const videos = slides.map(s => s.querySelector("video"));
   if (!slides.length) return;
 
+  const conn = navigator.connection || {};
+  const POSTERS_ONLY = window.matchMedia("(max-width: 600px)").matches
+                    || conn.saveData === true
+                    || /(^|-)2g$/.test(conn.effectiveType || "");
+  const POSTER_SLIDE_MS = 6000;   // how long a poster-only slide stays up
+  const STALL_MS = 30000;         // safety net if a video never fires "ended"
+
   let idx = 0;
   let timer = null;
-  let advanceInterval = null;
-  const PRELOAD_TARGET_S = 15;
 
-  // ---------- preload throttling ----------
-  // Each video tracks whether its initial 15s buffer goal is reached. Once it
-  // is, inactive videos drop to preload="metadata" to halt further download.
+  // Attach a slide's video source (once). Returns true if the slide has video.
+  function attach(i, preload) {
+    const v = videos[i];
+    if (!v) return false;
+    if (!v.poster && v.dataset.poster) v.poster = v.dataset.poster;   // posters are lazy too
+    if (!v.src && v.dataset.src) {
+      v.preload = preload || "auto";
+      v.src = v.dataset.src;
+      v.load();
+    }
+    return !!v.src;
+  }
+
   videos.forEach((v, i) => {
     if (!v) return;
-    v.dataset.bufferReached = "false";
-    v.addEventListener("progress", () => {
-      if (v.dataset.bufferReached === "true") return;
-      if (!v.buffered || v.buffered.length === 0) return;
-      const end = v.buffered.end(v.buffered.length - 1);
-      if (end >= PRELOAD_TARGET_S) {
-        v.dataset.bufferReached = "true";
-        if (i !== idx) v.preload = "metadata";   // halt download on inactive
-      }
-    });
-    // when a slide's video finishes, jump to the next slide so the carousel
-    // is paced by content rather than a fixed timer
-    v.addEventListener("ended", () => {
-      if (i === idx) nextSlide();
-    });
+    v.addEventListener("ended", () => { if (i === idx) nextSlide(); });
     v.addEventListener("error", () => {
-      v.style.display = "none";
+      v.style.display = "none";          // leaves the poster/backdrop visible
       if (i === idx) nextSlide();
     });
+    if (POSTERS_ONLY) {
+      v.removeAttribute("autoplay");
+      v.removeAttribute("src");
+      v.preload = "none";
+      if (!v.poster && v.dataset.poster) v.poster = v.dataset.poster;
+    }
   });
+
+  function play(i) {
+    if (POSTERS_ONLY) return;
+    if (!attach(i)) return;
+    const v = videos[i];
+    try { v.currentTime = 0; } catch (e) {}
+    v.play().catch(() => {});            // autoplay may be refused; poster stays
+    // Warm the next slide so the transition doesn't start from a blank frame.
+    attach((i + 1) % slides.length, "auto");
+  }
 
   function activate(next) {
     next = (next + slides.length) % slides.length;
     if (next === idx) return;
     slides[idx].classList.remove("is-active");
     dots[idx]?.classList.remove("is-active");
-    const oldVideo = videos[idx];
-    if (oldVideo) oldVideo.pause();
+    videos[idx]?.pause();
 
     idx = next;
     slides[idx].classList.add("is-active");
     dots[idx]?.classList.add("is-active");
-    const newVideo = videos[idx];
-    if (newVideo) {
-      newVideo.preload = "auto";              // resume aggressive buffering
-      newVideo.dataset.bufferReached = "false";
-      try { newVideo.currentTime = 0; } catch (e) {}   // start from the beginning
-      // play() may reject on iOS without user interaction — that's fine,
-      // the muted attribute should let it autoplay in modern browsers
-      newVideo.play().catch(() => {});
-    }
+    play(idx);
   }
 
-  function nextSlide() { activate(idx + 1); }
+  function nextSlide() { activate(idx + 1); startAuto(); }
 
-  // Safety-net advance — if a video stalls or never fires "ended" (e.g. it's
-  // still buffering when the user expects movement), this kicks the carousel
-  // forward after 30s. Manual nav and the natural "ended" event reset it.
-  function startAuto() { stopAuto(); timer = setTimeout(nextSlide, 30000); }
-  function stopAuto()  { if (timer) { clearTimeout(timer); timer = null; } }
+  // Poster-only mode advances on a fixed timer; video mode uses "ended" with a
+  // long stall timeout as a fallback.
+  function startAuto() {
+    stopAuto();
+    timer = setTimeout(() => activate(idx + 1) || startAuto(),
+                       POSTERS_ONLY ? POSTER_SLIDE_MS : STALL_MS);
+  }
+  function stopAuto() { if (timer) { clearTimeout(timer); timer = null; } }
 
   // Manual controls
   root.querySelector("[data-slider-prev]")?.addEventListener("click", () => { activate(idx - 1); startAuto(); });
@@ -93,7 +105,7 @@
       stopAuto();
       videos[idx]?.pause();
     } else {
-      videos[idx]?.play().catch(() => {});
+      if (!POSTERS_ONLY) videos[idx]?.play().catch(() => {});
       startAuto();
     }
   });
@@ -114,7 +126,8 @@
     touchX = null; startAuto();
   });
 
-  // Kick off: first video should be playing thanks to autoplay attribute
-  videos[0]?.play().catch(() => {});
+  // Kick off. The first slide already has its src + autoplay from the markup;
+  // play() here mainly warms slide 2.
+  play(0);
   startAuto();
 })();
