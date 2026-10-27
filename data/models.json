@@ -50,10 +50,22 @@
         }
       ],
       "highlights": [
-        "Pantalla táctil 10.5\" + cluster 7\"",
-        "Cámara de retroceso",
-        "Apple CarPlay / Android Auto",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Pantalla táctil 10.5\" + cluster 7\"",
+          "image": "static/img/models/mg-3-feat-1.jpg"
+        },
+        {
+          "name": "Cámara de retroceso",
+          "image": "static/img/models/mg-3-feat-2.jpg"
+        },
+        {
+          "name": "Apple CarPlay / Android Auto",
+          "image": "static/img/models/mg-3-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-3-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-yaris-hb",
@@ -116,10 +128,22 @@
         }
       ],
       "highlights": [
-        "Techo solar (AT)",
-        "Pantalla flotante multimedia",
-        "Diseño tipo fastback",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Techo solar (AT)",
+          "image": "static/img/models/mg-5-feat-1.jpg"
+        },
+        {
+          "name": "Pantalla flotante multimedia",
+          "image": "static/img/models/mg-5-feat-2.jpg"
+        },
+        {
+          "name": "Diseño tipo fastback",
+          "image": "static/img/models/mg-5-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-5-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-yaris-sedan",
@@ -161,10 +185,22 @@
         "asientos": 5
       },
       "highlights": [
-        "Asientos en cuero PVC rojo/negro",
-        "Doble salida de escape",
-        "Modos de manejo deportivo",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Asientos en cuero PVC rojo/negro",
+          "image": "static/img/models/mg-gt-feat-1.jpg"
+        },
+        {
+          "name": "Doble salida de escape",
+          "image": "static/img/models/mg-gt-feat-2.jpg"
+        },
+        {
+          "name": "Modos de manejo deportivo",
+          "image": "static/img/models/mg-gt-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-gt-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-corolla",
@@ -206,10 +242,22 @@
         "asientos": 5
       },
       "highlights": [
-        "Techo panorámico",
-        "Pantalla táctil 10.1\"",
-        "Cámara de retroceso",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Techo panorámico",
+          "image": "static/img/models/mg-zs-feat-1.jpg"
+        },
+        {
+          "name": "Pantalla táctil 10.1\"",
+          "image": "static/img/models/mg-zs-feat-2.jpg"
+        },
+        {
+          "name": "Cámara de retroceso",
+          "image": "static/img/models/mg-zs-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-zs-feat-4.jpg"
+        }
       ],
       "competitors": [
         "hyundai-creta",
@@ -279,10 +327,22 @@
         "asientos": 5
       },
       "highlights": [
-        "Cámara 360°",
-        "Pantalla central 14.1\"",
-        "Cargador inalámbrico",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Cámara 360°",
+          "image": "static/img/models/mg-rx5-feat-1.jpg"
+        },
+        {
+          "name": "Pantalla central 14.1\"",
+          "image": "static/img/models/mg-rx5-feat-2.jpg"
+        },
+        {
+          "name": "Cargador inalámbrico",
+          "image": "static/img/models/mg-rx5-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-rx5-feat-4.jpg"
+        }
       ],
       "competitors": [
         "chery-tiggo-7-pro",
@@ -324,10 +384,22 @@
         "asientos": 7
       },
       "highlights": [
-        "Configuración 2-3-2 (7 plazas)",
-        "Sonido BOSE",
-        "Cluster 12.3\"",
-        "Garantía 6 años o 120.000 km"
+        {
+          "name": "Configuración 2-3-2 (7 plazas)",
+          "image": "static/img/models/mg-rx9-feat-1.jpg"
+        },
+        {
+          "name": "Sonido BOSE",
+          "image": "static/img/models/mg-rx9-feat-2.jpg"
+        },
+        {
+          "name": "Cluster 12.3\"",
+          "image": "static/img/models/mg-rx9-feat-3.jpg"
+        },
+        {
+          "name": "Garantía 6 años o 120.000 km",
+          "image": "static/img/models/mg-rx9-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-prado",
@@ -397,10 +469,22 @@
         "asientos": 2
       },
       "highlights": [
-        "0–100 km/h en 3.2 s",
-        "Puertas tipo tijera",
-        "Descapotable eléctrico",
-        "Batería: 8 años o 160.000 km"
+        {
+          "name": "0–100 km/h en 3.2 s",
+          "image": "static/img/models/mg-cyberster-feat-1.jpg"
+        },
+        {
+          "name": "Puertas tipo tijera",
+          "image": "static/img/models/mg-cyberster-feat-2.jpg"
+        },
+        {
+          "name": "Descapotable eléctrico",
+          "image": "static/img/models/mg-cyberster-feat-3.jpg"
+        },
+        {
+          "name": "Batería: 8 años o 160.000 km",
+          "image": "static/img/models/mg-cyberster-feat-4.jpg"
+        }
       ],
       "competitors": [
         "porsche-718-cayman"
@@ -445,10 +529,22 @@
         "dimensiones": "5365/2145/1809 mm"
       },
       "highlights": [
-        "Cabina simple, máxima carga útil (1.250 Kg)",
-        "Motor Mitsubishi 2.4L probado",
-        "Tanque de 75 L, consumo 10.2 L/100km",
-        "Garantía Maxus 3 años"
+        {
+          "name": "Cabina simple, máxima carga útil (1.250 Kg)",
+          "image": "static/img/models/maxus-t60-sc-feat-1.jpg"
+        },
+        {
+          "name": "Motor Mitsubishi 2.4L probado",
+          "image": "static/img/models/maxus-t60-sc-feat-2.jpg"
+        },
+        {
+          "name": "Tanque de 75 L, consumo 10.2 L/100km",
+          "image": "static/img/models/maxus-t60-sc-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t60-sc-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -494,10 +590,22 @@
         "dimensiones": "5365/1900/1809 mm"
       },
       "highlights": [
-        "Cabina doble, 5 plazas",
-        "Motor Mitsubishi 2.4L",
-        "Carga útil 800 Kg",
-        "Garantía Maxus 3 años"
+        {
+          "name": "Cabina doble, 5 plazas",
+          "image": "static/img/models/maxus-t60-dc-4x2-feat-1.jpg"
+        },
+        {
+          "name": "Motor Mitsubishi 2.4L",
+          "image": "static/img/models/maxus-t60-dc-4x2-feat-2.jpg"
+        },
+        {
+          "name": "Carga útil 800 Kg",
+          "image": "static/img/models/maxus-t60-dc-4x2-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t60-dc-4x2-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -545,10 +653,22 @@
         "dimensiones": "5365/2145/1809 mm"
       },
       "highlights": [
-        "Tracción 4x4 con caja SAGW",
-        "Cabina doble, 5 plazas",
-        "Motor Mitsubishi 2.4L",
-        "Garantía Maxus 3 años"
+        {
+          "name": "Tracción 4x4 con caja SAGW",
+          "image": "static/img/models/maxus-t60-dc-4x4-feat-1.jpg"
+        },
+        {
+          "name": "Cabina doble, 5 plazas",
+          "image": "static/img/models/maxus-t60-dc-4x4-feat-2.jpg"
+        },
+        {
+          "name": "Motor Mitsubishi 2.4L",
+          "image": "static/img/models/maxus-t60-dc-4x4-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t60-dc-4x4-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -594,10 +714,22 @@
         "dimensiones": "5005/1932/1875 mm"
       },
       "highlights": [
-        "Motor 2.0L Turbo, 8AT",
-        "Interior en cuero rojo/negro",
-        "Pantalla central táctil",
-        "Garantía Maxus 3 años"
+        {
+          "name": "Motor 2.0L Turbo, 8AT",
+          "image": "static/img/models/maxus-t70-pro-4x2-feat-1.jpg"
+        },
+        {
+          "name": "Interior en cuero rojo/negro",
+          "image": "static/img/models/maxus-t70-pro-4x2-feat-2.jpg"
+        },
+        {
+          "name": "Pantalla central táctil",
+          "image": "static/img/models/maxus-t70-pro-4x2-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t70-pro-4x2-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -643,10 +775,22 @@
         "dimensiones": "5005/1932/1875 mm"
       },
       "highlights": [
-        "Tracción 4x4 con 8AT",
-        "Motor 2.0L Turbo",
-        "Interior en cuero rojo/negro",
-        "Garantía Maxus 3 años"
+        {
+          "name": "Tracción 4x4 con 8AT",
+          "image": "static/img/models/maxus-t70-pro-4x4-feat-1.jpg"
+        },
+        {
+          "name": "Motor 2.0L Turbo",
+          "image": "static/img/models/maxus-t70-pro-4x4-feat-2.jpg"
+        },
+        {
+          "name": "Interior en cuero rojo/negro",
+          "image": "static/img/models/maxus-t70-pro-4x4-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t70-pro-4x4-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -689,10 +833,22 @@
         "combustible": "Gasolina"
       },
       "highlights": [
-        "257 hp, la más potente de la línea",
-        "Pantalla central táctil 12.3\"",
-        "6 altavoces, entrada inteligente",
-        "Garantía Maxus 3 años"
+        {
+          "name": "257 hp, la más potente de la línea",
+          "image": "static/img/models/maxus-t90-luxury-feat-1.jpg"
+        },
+        {
+          "name": "Pantalla central táctil 12.3\"",
+          "image": "static/img/models/maxus-t90-luxury-feat-2.jpg"
+        },
+        {
+          "name": "6 altavoces, entrada inteligente",
+          "image": "static/img/models/maxus-t90-luxury-feat-3.jpg"
+        },
+        {
+          "name": "Garantía Maxus 3 años",
+          "image": "static/img/models/maxus-t90-luxury-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-hilux",
@@ -737,10 +893,22 @@
         "dimensiones": "5005/1932/1875 mm"
       },
       "highlights": [
-        "Body-on-frame con modos off-road",
-        "3 filas de asientos, 7 plazas",
-        "Pantalla táctil, 8 altavoces, control de crucero",
-        "Garantía extendida: 5 años"
+        {
+          "name": "Body-on-frame con modos off-road",
+          "image": "static/img/models/maxus-d90-feat-1.jpg"
+        },
+        {
+          "name": "3 filas de asientos, 7 plazas",
+          "image": "static/img/models/maxus-d90-feat-2.jpg"
+        },
+        {
+          "name": "Pantalla táctil, 8 altavoces, control de crucero",
+          "image": "static/img/models/maxus-d90-feat-3.jpg"
+        },
+        {
+          "name": "Garantía extendida: 5 años",
+          "image": "static/img/models/maxus-d90-feat-4.jpg"
+        }
       ],
       "competitors": [
         "toyota-fortuner",
@@ -939,10 +1107,22 @@
       },
       "specsNote": "Valores de referencia del 408 sedán 1.6 THP (Dongfeng-Peugeot) — no verificados contra la unidad en sala.",
       "highlights": [
-        "Importado y revisado por Holly Import",
-        "Garantía Holly Import incluida",
-        "Maletero de 560 L",
-        "Pantalla táctil con Apple CarPlay / Android Auto"
+        {
+          "name": "Importado y revisado por Holly Import",
+          "image": "static/img/models/peugeot-408-feat-1.jpg"
+        },
+        {
+          "name": "Garantía Holly Import incluida",
+          "image": "static/img/models/peugeot-408-feat-2.jpg"
+        },
+        {
+          "name": "Maletero de 560 L",
+          "image": "static/img/models/peugeot-408-feat-3.jpg"
+        },
+        {
+          "name": "Pantalla táctil con Apple CarPlay / Android Auto",
+          "image": "static/img/models/peugeot-408-feat-4.jpg"
+        }
       ],
       "competitors": [],
       "tags": [
