@@ -62,7 +62,20 @@
       ],
       "tags": [
         "HATCHBACK"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-3-ext-1.jpg",
+          "static/img/models/mg-3-ext-2.jpg",
+          "static/img/models/mg-3-ext-3.jpg",
+          "static/img/models/mg-3-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-3-int-1.jpg",
+          "static/img/models/mg-3-int-2.jpg",
+          "static/img/models/mg-3-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "mg-5",
@@ -115,7 +128,20 @@
       ],
       "tags": [
         "SEDAN"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-5-ext-1.jpg",
+          "static/img/models/mg-5-ext-2.jpg",
+          "static/img/models/mg-5-ext-3.jpg",
+          "static/img/models/mg-5-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-5-int-1.jpg",
+          "static/img/models/mg-5-int-2.jpg",
+          "static/img/models/mg-5-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "mg-gt",
@@ -147,7 +173,20 @@
       ],
       "tags": [
         "SEDAN"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-gt-ext-1.jpg",
+          "static/img/models/mg-gt-ext-2.jpg",
+          "static/img/models/mg-gt-ext-3.jpg",
+          "static/img/models/mg-gt-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-gt-int-1.jpg",
+          "static/img/models/mg-gt-int-2.jpg",
+          "static/img/models/mg-gt-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "mg-zs",
@@ -206,7 +245,21 @@
           "hex": "#c8102e",
           "video": "static/video/visualizer/mg-zs-red.mp4"
         }
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-zs-ext-1.jpg",
+          "static/img/models/mg-zs-ext-2.jpg",
+          "static/img/models/mg-zs-ext-3.jpg",
+          "static/img/models/mg-zs-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-zs-int-1.jpg",
+          "static/img/models/mg-zs-int-2.jpg",
+          "static/img/models/mg-zs-int-3.jpg",
+          "static/img/models/mg-zs-int-4.jpg"
+        ]
+      }
     },
     {
       "id": "mg-rx5",
@@ -238,7 +291,20 @@
       ],
       "tags": [
         "SUV"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-rx5-ext-1.jpg",
+          "static/img/models/mg-rx5-ext-2.jpg",
+          "static/img/models/mg-rx5-ext-3.jpg",
+          "static/img/models/mg-rx5-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-rx5-int-1.jpg",
+          "static/img/models/mg-rx5-int-2.jpg",
+          "static/img/models/mg-rx5-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "mg-rx9",
@@ -297,7 +363,20 @@
           "hex": "#4a6b4a",
           "video": "static/video/visualizer/mg-rx9-green.mp4"
         }
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-rx9-ext-1.jpg",
+          "static/img/models/mg-rx9-ext-2.jpg",
+          "static/img/models/mg-rx9-ext-3.jpg",
+          "static/img/models/mg-rx9-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-rx9-int-1.jpg",
+          "static/img/models/mg-rx9-int-2.jpg",
+          "static/img/models/mg-rx9-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "mg-cyberster",
@@ -328,7 +407,20 @@
       ],
       "tags": [
         "NEW_ENERGY"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/mg-cyberster-ext-1.jpg",
+          "static/img/models/mg-cyberster-ext-2.jpg",
+          "static/img/models/mg-cyberster-ext-3.jpg",
+          "static/img/models/mg-cyberster-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/mg-cyberster-int-1.jpg",
+          "static/img/models/mg-cyberster-int-2.jpg",
+          "static/img/models/mg-cyberster-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t60-sc",
@@ -364,7 +456,20 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t60-sc-ext-1.jpg",
+          "static/img/models/maxus-t60-sc-ext-2.jpg",
+          "static/img/models/maxus-t60-sc-ext-3.jpg",
+          "static/img/models/maxus-t60-sc-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t60-sc-int-1.jpg",
+          "static/img/models/maxus-t60-sc-int-2.jpg",
+          "static/img/models/maxus-t60-sc-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t60-dc-4x2",
@@ -401,7 +506,20 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t60-dc-4x2-ext-1.jpg",
+          "static/img/models/maxus-t60-dc-4x2-ext-2.jpg",
+          "static/img/models/maxus-t60-dc-4x2-ext-3.jpg",
+          "static/img/models/maxus-t60-dc-4x2-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t60-dc-4x2-int-1.jpg",
+          "static/img/models/maxus-t60-dc-4x2-int-2.jpg",
+          "static/img/models/maxus-t60-dc-4x2-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t60-dc-4x4",
@@ -439,7 +557,20 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t60-dc-4x4-ext-1.jpg",
+          "static/img/models/maxus-t60-dc-4x4-ext-2.jpg",
+          "static/img/models/maxus-t60-dc-4x4-ext-3.jpg",
+          "static/img/models/maxus-t60-dc-4x4-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t60-dc-4x4-int-1.jpg",
+          "static/img/models/maxus-t60-dc-4x4-int-2.jpg",
+          "static/img/models/maxus-t60-dc-4x4-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t70-pro-4x2",
@@ -475,7 +606,19 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t70-pro-4x2-ext-1.jpg",
+          "static/img/models/maxus-t70-pro-4x2-ext-2.jpg",
+          "static/img/models/maxus-t70-pro-4x2-ext-3.jpg",
+          "static/img/models/maxus-t70-pro-4x2-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t70-pro-4x2-int-1.jpg",
+          "static/img/models/maxus-t70-pro-4x2-int-2.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t70-pro-4x4",
@@ -512,7 +655,19 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t70-pro-4x4-ext-1.jpg",
+          "static/img/models/maxus-t70-pro-4x4-ext-2.jpg",
+          "static/img/models/maxus-t70-pro-4x4-ext-3.jpg",
+          "static/img/models/maxus-t70-pro-4x4-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t70-pro-4x4-int-1.jpg",
+          "static/img/models/maxus-t70-pro-4x4-int-2.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-t90-luxury",
@@ -545,7 +700,20 @@
       ],
       "tags": [
         "PICKUP"
-      ]
+      ],
+      "gallery": {
+        "exterior": [
+          "static/img/models/maxus-t90-luxury-ext-1.jpg",
+          "static/img/models/maxus-t90-luxury-ext-2.jpg",
+          "static/img/models/maxus-t90-luxury-ext-3.jpg",
+          "static/img/models/maxus-t90-luxury-ext-4.jpg"
+        ],
+        "interior": [
+          "static/img/models/maxus-t90-luxury-int-1.jpg",
+          "static/img/models/maxus-t90-luxury-int-2.jpg",
+          "static/img/models/maxus-t90-luxury-int-3.jpg"
+        ]
+      }
     },
     {
       "id": "maxus-d90",
@@ -784,9 +952,16 @@
       "gallery": {
         "exterior": [
           "static/img/models/peugeot-408-ext-1.jpg",
-          "static/img/models/peugeot-408-ext-2.jpg"
+          "static/img/models/peugeot-408-ext-2.jpg",
+          "static/img/models/peugeot-408-ext-3.jpg",
+          "static/img/models/peugeot-408-ext-4.jpg"
         ],
-        "interior": []
+        "interior": [
+          "static/img/models/peugeot-408-int-1.jpg",
+          "static/img/models/peugeot-408-int-2.jpg",
+          "static/img/models/peugeot-408-int-3.jpg",
+          "static/img/models/peugeot-408-int-4.jpg"
+        ]
       }
     }
   ]

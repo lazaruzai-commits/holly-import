@@ -1,0 +1,778 @@
+{
+  "mg-zs": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-zs-ext-1.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/78/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-ext-2.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/406/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-ext-3.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/80/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-ext-4.jpg",
+        "site": "mgmotor.pe",
+        "source_page": "https://www.mgmotor.com.pe/modelos/rx5 (redirects to ZS page)",
+        "image_url": "https://mgmotor.pe/uploads/Card-02-1-ccb65e4d0b.webp",
+        "size": "1920x1077"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-zs-int-1.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/87/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-int-2.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/83/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-int-3.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/85/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-zs-int-4.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgzs",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/84/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-rx5": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-rx5-ext-1.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/EXT-IMAGES/7.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx5-ext-2.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/EXT-IMAGES/6.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx5-ext-3.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/EXT-IMAGES/4.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx5-ext-4.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/EXT-IMAGES/1.jpg",
+        "size": "1920x1080"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-rx5-int-1.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/INT-IMAGES/02.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx5-int-2.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/INT-IMAGES/01.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx5-int-3.jpg",
+        "site": "mgmotorlatam.com",
+        "source_page": "https://www.mgmotorlatam.com/en/model/MG-RX5",
+        "image_url": "https://www.mgmotorlatam.com/img/MG-RX5/INT-IMAGES/04.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-rx9": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-rx9-ext-1.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/297/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx9-ext-2.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/225/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx9-ext-3.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/262/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx9-ext-4.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/224/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-rx9-int-1.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/216/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx9-int-2.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/221/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-rx9-int-3.jpg",
+        "site": "mgmotor.me",
+        "source_page": "https://www.mgmotor.me/new-cars/mgrx9",
+        "image_url": "https://media-hub-prod.mgmotor.me/api/v2/images/162/w/1920/h/1080.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-3": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-3-ext-1.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+        "image_url": "https://www.mgmotor.cl/img/MG-3-ICE/EXT-IMAGES/Left%20Front%2045%C2%B0.webp",
+        "size": "3000x1804"
+      },
+      {
+        "file": "static/img/models/mg-3-ext-2.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+        "image_url": "https://www.mgmotor.cl/img/MG-3-ICE/EXT-IMAGES/Front%20Side.webp",
+        "size": "3000x1275"
+      },
+      {
+        "file": "static/img/models/mg-3-ext-3.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+        "image_url": "https://www.mgmotor.cl/img/MG-3-ICE/EXT-IMAGES/Left%20Back%2030%C2%B0.webp",
+        "size": "3000x1344"
+      },
+      {
+        "file": "static/img/models/mg-3-ext-4.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-3/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzE0NCwicHVyIjoiYmxvYl9pZCJ9fQ==--bd62aa73dde11391225bab692f3e51840ba2f34b/04.jpg",
+        "size": "1920x1080"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-3-int-1.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+        "image_url": "https://www.mgmotor.cl/img/MG-3-ICE/INT-IMAGES/Steering%20Wheel-.webp",
+        "size": "3000x2000"
+      },
+      {
+        "file": "static/img/models/mg-3-int-2.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/NEW-MG-3/2025",
+        "image_url": "https://www.mgmotor.cl/img/MG-3-ICE/INT-IMAGES/Front%20Seat-.webp",
+        "size": "3000x1983"
+      },
+      {
+        "file": "static/img/models/mg-3-int-3.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-3/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzE2MiwicHVyIjoiYmxvYl9pZCJ9fQ==--a6de1918555e6c7d4a17569ccbfbd5c20f654781/Interior%20Cabin_AT.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-5": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-5-ext-1.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzIzNywicHVyIjoiYmxvYl9pZCJ9fQ==--fe61460be052d552520322033ed389327b30f635/mg-mg5-gallery-1.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-5-ext-2.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzI0MywicHVyIjoiYmxvYl9pZCJ9fQ==--21cf089973540570790000cb2da7f26d762fd578/mg-mg5-gallery-2.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-5-ext-3.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6ODM2LCJwdXIiOiJibG9iX2lkIn19--79290017ff2e5b890e7f1c6ddd78cb790b3e995e/mg5-bodyline-desktop.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-5-ext-4.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NTYzLCJwdXIiOiJibG9iX2lkIn19--b4be4f3c7b3925bbb8790ce99fc8c0cbdc15fd5d/mg5-headlights-desktop.jpg",
+        "size": "1920x1080"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-5-int-1.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzI0OSwicHVyIjoiYmxvYl9pZCJ9fQ==--a2ec4fa04574be78bb7adcf40036304af3f5eeec/mg-mg5-gallery-3.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-5-int-2.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NjA1LCJwdXIiOiJibG9iX2lkIn19--989b10e35143629b435acf2bd51afa3dff8b56cc/mg5-steeringwheel-desktop(1).jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-5-int-3.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-5/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6ODMwLCJwdXIiOiJibG9iX2lkIn19--23ca0b84e89f8ac2b86d60f9ed7ee5e3376de708/mg5-interiorseats-desktop.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-gt": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-gt-ext-1.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDM0MiwicHVyIjoiYmxvYl9pZCJ9fQ==--fda86d15c16eec746e3dab050d773c5ad4aa8426/mg-gt-gallery-1.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-gt-ext-2.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDM0OCwicHVyIjoiYmxvYl9pZCJ9fQ==--5d8305512f37b9d299c1d0e7b3bf8e0fd2258a84/mg-gt-gallery-2.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-gt-ext-3.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDE0NiwicHVyIjoiYmxvYl9pZCJ9fQ==--d17e36bf1f4e43fd328cd42bed8f52187e45ce09/mg-gt-fastback-desktop.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-gt-ext-4.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDE0MCwicHVyIjoiYmxvYl9pZCJ9fQ==--55627c67bde1bfafd94eceabc45e0393e536f584/mg-gt-drl-led-desktop.jpg",
+        "size": "1920x1080"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-gt-int-1.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDgyNCwicHVyIjoiYmxvYl9pZCJ9fQ==--73a240fb0f4e0926060507d7c032edfa8417c18e/mg-gt-driver-focused-cockpit-v2-quality.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-gt-int-2.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDM1NCwicHVyIjoiYmxvYl9pZCJ9fQ==--b4f25cd2d28cd282011b995cc560ce1a7b82c2a7/mg-gt-gallery-3.jpg",
+        "size": "1920x1080"
+      },
+      {
+        "file": "static/img/models/mg-gt-int-3.jpg",
+        "site": "mg-uae.com (MG UAE official, media-hub-prod.mgmotor.me)",
+        "source_page": "https://www.mg-uae.com/models/mg-gt/",
+        "image_url": "https://media-hub-prod.mgmotor.me/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDIwNiwicHVyIjoiYmxvYl9pZCJ9fQ==--ae897ce7e91ff2b7e14401f137594fb1d23e48a6/mg-gt-instrument-cluster-desktop.jpg",
+        "size": "1920x1080"
+      }
+    ]
+  },
+  "mg-cyberster": {
+    "exterior": [
+      {
+        "file": "static/img/models/mg-cyberster-ext-1.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/EXT-IMAGES/01.webp",
+        "size": "3000x1812"
+      },
+      {
+        "file": "static/img/models/mg-cyberster-ext-2.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/EXT-IMAGES/06.webp",
+        "size": "3500x2625"
+      },
+      {
+        "file": "static/img/models/mg-cyberster-ext-3.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/EXT-IMAGES/05.webp",
+        "size": "2400x1477"
+      },
+      {
+        "file": "static/img/models/mg-cyberster-ext-4.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/EXT-IMAGES/04.webp",
+        "size": "3000x1643"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/mg-cyberster-int-1.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/GALLERY/02.webp",
+        "size": "3000x2000"
+      },
+      {
+        "file": "static/img/models/mg-cyberster-int-2.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/GALLERY/03.webp",
+        "size": "3500x1969"
+      },
+      {
+        "file": "static/img/models/mg-cyberster-int-3.jpg",
+        "site": "mgmotor.cl (MG Chile official)",
+        "source_page": "https://www.mgmotor.cl/model/MG-CYBERSTER",
+        "image_url": "https://www.mgmotor.cl/img/MG-CYBERSTER/GALLERY/05.webp",
+        "size": "3000x2000"
+      }
+    ]
+  },
+  "maxus-t60-sc": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t60-sc-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/BANNER-MODELO_T60_SIMPLE.jpg",
+        "size": "1920x1147"
+      },
+      {
+        "file": "static/img/models/maxus-t60-sc-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/07/T60_sc_05-01-scaled.jpg",
+        "size": "2560x1430"
+      },
+      {
+        "file": "static/img/models/maxus-t60-sc-ext-3.jpg",
+        "site": "maxus.com.ar",
+        "source_page": "https://maxus.com.ar/modelos/maxus-t60-cs.html",
+        "image_url": "https://maxus.com.ar/images/t60cs-s2a.jpg",
+        "size": "1600x1067"
+      },
+      {
+        "file": "static/img/models/maxus-t60-sc-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/07/t60_sc_DSC_5731.jpg",
+        "size": "1920x1396"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t60-sc-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/07/T60_sc-DSC_4494.jpg",
+        "size": "1920x1200"
+      },
+      {
+        "file": "static/img/models/maxus-t60-sc-int-2.jpg",
+        "site": "maxus.com.ar",
+        "source_page": "https://maxus.com.ar/modelos/maxus-t60-cs.html",
+        "image_url": "https://maxus.com.ar/images/t60cs-s1b.jpg",
+        "size": "1600x1067"
+      },
+      {
+        "file": "static/img/models/maxus-t60-sc-int-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/07/interior-T60sc-DSC_4488.jpg",
+        "size": "1480x987"
+      }
+    ]
+  },
+  "maxus-t60-dc-4x2": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/02/T60_4x2_01.png",
+        "size": "1920x1024"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2025/06/T60_DSC_7509.png",
+        "size": "1920x933"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-ext-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0001_4.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2025/06/T60_0002_GRIS_02.jpg",
+        "size": "1920x1256"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0005_7.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-int-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0006_8.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x2-int-3.jpg",
+        "site": "maxus.ae",
+        "source_page": "https://maxus.ae/PICKUP/T60",
+        "image_url": "https://maxus.ae/Static/images/model/PICKUP/t60/DoubleCabin/interior/slide/S_1.jpg",
+        "size": "1617x1080"
+      }
+    ]
+  },
+  "maxus-t60-dc-4x4": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/02/T60_4x2_01.png",
+        "size": "1920x1024"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2025/06/T60_DSC_7509.png",
+        "size": "1920x933"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-ext-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0001_4.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2025/06/T60_0002_GRIS_02.jpg",
+        "size": "1920x1256"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0005_7.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-int-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t60/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T60_COMFORT_0000s_0006_8.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t60-dc-4x4-int-3.jpg",
+        "site": "maxus.ae",
+        "source_page": "https://maxus.ae/PICKUP/T60",
+        "image_url": "https://maxus.ae/Static/images/model/PICKUP/t60/DoubleCabin/interior/slide/S_1.jpg",
+        "size": "1617x1080"
+      }
+    ]
+  },
+  "maxus-t70-pro-4x2": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-1.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-4.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-ext-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-7.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-6.jpg",
+        "size": "1440x900"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-8.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x2-int-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-9.jpg",
+        "size": "1440x900"
+      }
+    ]
+  },
+  "maxus-t70-pro-4x4": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-1.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-4.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-ext-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-7.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-6.jpg",
+        "size": "1440x900"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-8.jpg",
+        "size": "1440x900"
+      },
+      {
+        "file": "static/img/models/maxus-t70-pro-4x4-int-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/T70-PRO_-9.jpg",
+        "size": "1440x900"
+      }
+    ]
+  },
+  "maxus-t90-luxury": {
+    "exterior": [
+      {
+        "file": "static/img/models/maxus-t90-luxury-ext-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/10/MAXUS_SLIDER_T90-scaled.png",
+        "size": "2560x1529"
+      },
+      {
+        "file": "static/img/models/maxus-t90-luxury-ext-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/08/MAXUS__T90.png",
+        "size": "1254x751"
+      },
+      {
+        "file": "static/img/models/maxus-t90-luxury-ext-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2024/07/MAXUS-T902586-2-1-1.jpg",
+        "size": "1920x1281"
+      },
+      {
+        "file": "static/img/models/maxus-t90-luxury-ext-4.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2026/10/T90_red.png",
+        "size": "2400x1155"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/maxus-t90-luxury-int-1.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2024/07/MAXUS-T905984-1-1.jpg",
+        "size": "1920x1279"
+      },
+      {
+        "file": "static/img/models/maxus-t90-luxury-int-2.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2024/07/MAXUS-T907772-1-1.jpg",
+        "size": "1920x1281"
+      },
+      {
+        "file": "static/img/models/maxus-t90-luxury-int-3.jpg",
+        "site": "maxusve.com",
+        "source_page": "https://maxusve.com/t90/",
+        "image_url": "https://maxusve.com/wp-content/uploads/2024/07/interior_main-T90.jpg",
+        "size": "1920x960"
+      }
+    ]
+  },
+  "peugeot-408": {
+    "exterior": [
+      {
+        "file": "static/img/models/peugeot-408-ext-1.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g27/M0B/4B/45/autohomecar__ChwFkWMEfYuATUO1ADZhbWcmMeE306.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-ext-2.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car2/cardfs/product/g27/M01/29/2D/autohomecar__ChxkmWMEfYeAN5MGACX996_0Qkk332.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-ext-3.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g27/M06/4B/44/autohomecar__ChwFkWMEfYOAK9TgAEVL2p_musg947.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-ext-4.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g27/M00/05/A2/autohomecar__ChsEbGMEfYaAdeiXAELf1H9-0wE849.jpg",
+        "size": "3840x2880"
+      }
+    ],
+    "interior": [
+      {
+        "file": "static/img/models/peugeot-408-int-1.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g27/M01/29/2C/autohomecar__ChxkmWMEfYCAV2fgADbS07gZIAM147.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-int-2.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car2/cardfs/product/g27/M0A/EF/E3/autohomecar__ChsEbGKgV5SAJatEAEsSG6PSD-4244.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-int-3.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g28/M08/1B/74/autohomecar__ChwFkmKgV4-AM_J2ADtp7IKyO60108.jpg",
+        "size": "3840x2880"
+      },
+      {
+        "file": "static/img/models/peugeot-408-int-4.jpg",
+        "site": "autohome.com.cn (东风标致 official press photos, 官图)",
+        "source_page": "https://car.autohome.com.cn/pic/series-t/987-53.html",
+        "image_url": "https://g.autoimg.cn/@img/car3/cardfs/product/g28/M06/0B/60/autohomecar__ChxkmmKgV46Ac6QPAF6t2X-erKg178.jpg",
+        "size": "3840x2880"
+      }
+    ]
+  },
+  "maxus-d90": {
+    "note": "gallery added earlier (maxusve.com)"
+  },
+  "toyota-corolla-cross": {
+    "note": "Toyota Scene7 configurator renders + toyota.com gallery"
+  }
+}

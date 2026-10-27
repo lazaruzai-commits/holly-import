@@ -19,13 +19,12 @@ static/img/models/*.webp
 !static/img/models/.gitkeep
 # Hand-processed no-background PNG cutouts extracted from the 2027 catalogs
 # ARE committed — they are the canonical dealership-supplied hero renders.
-# (No `*.png` ignore line.) Exterior/interior galleries kept below stay tracked.
-!static/img/models/maxus-d90-ext-*.jpg
-!static/img/models/maxus-d90-int-*.jpg
-# Imported-unit galleries + feature-explorer frames (curated, committed)
-!static/img/models/toyota-corolla-cross-ext-*.jpg
-!static/img/models/toyota-corolla-cross-int-*.jpg
-!static/img/models/toyota-corolla-cross-feat-*.jpg
+# (No `*.png` ignore line.) Curated galleries and feature-explorer frames ARE
+# committed: anything named <id>-ext-N / <id>-int-N / <id>-feat-N (see
+# scripts/add_gallery.py).
+!static/img/models/*-ext-*.jpg
+!static/img/models/*-int-*.jpg
+!static/img/models/*-feat-*.jpg
 # Dealership-supplied PNG renders — drop a `<id>.png` into static/img/models/
 # and app.py auto-promotes the gallery to use it.
 !static/img/models/*.png
@@ -47,4 +46,3 @@ static/video/*.webm
 Thumbs.db
 .vscode/
 .idea/
-!static/img/models/peugeot-408-ext-*.jpg
