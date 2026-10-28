@@ -14,7 +14,7 @@
          src="{{ static_v('static/img/brand/EnganchatePromo.jpg') }}"
          alt="Engánchate con 500 — Holly Import"
          onerror="this.style.display='none'">
-    <button class="btn btn--primary promo-feature__cta-btn" type="button" data-open-chat>Hablar con Holly</button>
+    <a class="btn btn--primary promo-feature__cta-btn" href="{{ root_path }}/simulador">Calcula tu cuota</a>
   </div>
 </section>
 
@@ -89,9 +89,10 @@
       <h2>¿Quieres aplicar?</h2>
       <p>Habla con un asesor de Holly Import y te explicamos los plazos y condiciones detalladas.</p>
     </div>
-    <button class="btn btn--primary" type="button" data-open-chat>
-      Hablar con un asesor
-    </button>
+    <div class="cta-band__btns">
+      <a class="btn btn--primary" href="{{ root_path }}/simulador">Calcula tu cuota</a>
+      <button class="btn btn--ghost" type="button" data-open-chat>Hablar con un asesor</button>
+    </div>
   </div>
   <p class="fineprint">Términos y condiciones aplican. Las cuotas, plazos exactos y disponibilidad de modelos varían según el plan vigente. Confirma con tu asesor de Holly Import antes de iniciar.</p>
 </section>

@@ -1,0 +1,106 @@
+{% extends "_base.html" %}
+{% block title %}Simulador de cuotas — Holly Import{% endblock %}
+{% block description %}Calcula tu cuota mensual con el plan Engánchate con 500 de Holly Import: elige el modelo, el plazo y la inicial, y mira la tabla de pagos al instante.{% endblock %}
+
+{% block content %}
+<section class="page-head">
+  <span class="hero__eyebrow">{{ financing.promo }}</span>
+  <h1>Simulador de cuotas</h1>
+  <p class="lead">Elige el modelo, el plazo y la inicial. La tabla de pagos se actualiza al instante y puedes enviársela a un asesor con un clic.</p>
+</section>
+
+<section class="section">
+  <div class="sim" id="sim"
+       data-plans='{{ financing.plans | tojson }}'
+       data-inicial-default="{{ financing.inicial_default }}"
+       data-whatsapp="{{ site.whatsapp or '' }}">
+
+    <form class="sim__form" id="sim-form" autocomplete="off">
+      <label class="sim__field">
+        <span>Modelo</span>
+        <select name="model" id="sim-model">
+          <option value="">Cualquier modelo</option>
+          {% for o in options %}
+          <option value="{{ o.id }}" data-name="{{ o.name }}" data-brand="{{ o.brand }}"{% if o.price %} data-price="{{ o.price }}"{% endif %}{% if o.promo %} data-promo="1"{% endif %}{% if o.id == preselect %} selected{% endif %}>{{ o.name }}{% if o.promo %} · aplica promo{% endif %}</option>
+          {% endfor %}
+        </select>
+      </label>
+
+      <label class="sim__field">
+        <span>Precio referencial (USD)</span>
+        <input type="number" name="price" id="sim-price" min="1000" max="500000" step="100" inputmode="decimal" placeholder="Ej. 18.500" required>
+        <small id="sim-price-hint">Indica el precio que te dio tu asesor o el que tienes en mente.</small>
+      </label>
+
+      <fieldset class="sim__field sim__plans">
+        <legend>Plazo</legend>
+        <div class="sim__plan-row" id="sim-plans">
+          {% for p in financing.plans %}
+          <label class="sim__plan">
+            <input type="radio" name="plan" value="{{ p.id }}"{% if loop.index == 2 %} checked{% endif %}>
+            <span class="sim__plan-name">{{ p.name }}</span>
+            <span class="sim__plan-note">{{ p.note }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+
+      <label class="sim__field">
+        <span>Inicial (USD)</span>
+        <input type="number" name="inicial" id="sim-inicial" min="0" step="50" inputmode="decimal" value="{{ financing.inicial_default }}" required>
+        <small>Mínimo {{ financing.inicial_default }} USD con {{ financing.promo }}. Puedes dar más para bajar la cuota.</small>
+      </label>
+
+      <p class="sim__error" id="sim-error" hidden></p>
+    </form>
+
+    <div class="sim__result" id="sim-result" aria-live="polite">
+      <div class="sim__empty" id="sim-empty">
+        <p>Escribe un precio para ver tu tabla de pagos.</p>
+      </div>
+
+      <div class="sim__out" id="sim-out" hidden>
+        <div class="sim__kpis">
+          <div class="sim__kpi"><span>Cuota mensual</span><strong id="k-cuota">—</strong></div>
+          <div class="sim__kpi"><span>Inicial</span><strong id="k-inicial">—</strong></div>
+          <div class="sim__kpi"><span>Plazo</span><strong id="k-plazo">—</strong></div>
+          <div class="sim__kpi"><span>Total a pagar</span><strong id="k-total">—</strong></div>
+        </div>
+
+        <div class="sim__table-wrap">
+          <table class="sim__table">
+            <thead><tr><th>Pago</th><th>Fecha estimada</th><th class="num">Monto</th></tr></thead>
+            <tbody id="sim-rows"></tbody>
+            <tfoot><tr><th colspan="2">Total</th><th class="num" id="sim-total-row">—</th></tr></tfoot>
+          </table>
+        </div>
+
+        <div class="sim__actions">
+          <button class="btn btn--primary" type="button" id="sim-ask"
+                  data-ask-price="" data-ask-flow="financiamiento" data-ask-title="Solicitar este plan"
+                  data-ask-name="plan">Solicitar este plan</button>
+          <a class="btn btn--ghost" id="sim-wa" href="#" target="_blank" rel="noopener" hidden>Enviar por WhatsApp</a>
+          <button class="btn btn--ghost" type="button" id="sim-copy">Copiar tabla</button>
+        </div>
+        <p class="fineprint">{{ financing.disclaimer }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="grid grid--three">
+    {% for p in financing.plans %}
+    <div class="value">
+      <h3>{{ p.name }}</h3>
+      <p>{{ p.note }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>window.HOLLY_PAGE = {type: "simulador"};</script>
+<script src="{{ root_path }}/static/js/simulador.js?v={{ asset_v }}"></script>
+{% endblock %}

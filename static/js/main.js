@@ -61,10 +61,14 @@
       const card = ask.closest(".card") || ask.closest("article");
       const name = card?.querySelector(".card__title")?.textContent?.trim() || "modelo";
       priceModelId.value = id;
-      priceModelName.textContent = name;
+      priceModelName.textContent = ask.dataset.askName || name;
       priceStatus.hidden = true;
       priceForm.reset();
       priceModelId.value = id; // restore after reset
+      // Optional overrides (used by /simulador): lead flow, dialog title, prefilled note.
+      priceForm.dataset.flow = ask.dataset.askFlow || "compra";
+      priceDialog.querySelector("h3").textContent = ask.dataset.askTitle || "Solicitar precio";
+      if (ask.dataset.askNotes) priceForm.elements.notes.value = ask.dataset.askNotes;
       priceDialog.showModal();
     }
     const close = e.target.closest("[data-close-dialog]");
@@ -75,7 +79,7 @@
     e.preventDefault();
     const fd = new FormData(priceForm);
     const body = Object.fromEntries(fd.entries());
-    body.flow = "compra";
+    body.flow = priceForm.dataset.flow || "compra";
     priceStatus.hidden = false;
     priceStatus.textContent = "Enviando…";
     priceStatus.className = "dialog__status";

@@ -179,6 +179,7 @@ def _load_json(name: str) -> dict[str, Any]:
 
 _MODELS = _load_json("models.json")
 _COMPETITORS = _load_json("competitors.json")
+_FINANCING = _load_json("financing.json")   # plans for /simulador (edit data/financing.json)
 
 
 def _promote_to_png_if_available(models: list[dict[str, Any]]) -> None:
@@ -287,6 +288,20 @@ def _slide(sid: str, model: dict[str, Any] | None) -> dict[str, Any]:
     video = f"static/video/{sid}-720p.mp4" if (video_dir / f"{sid}-720p.mp4").is_file() else f"static/video/{sid}.mp4"
     poster = f"static/video/posters/{sid}.jpg" if (video_dir / "posters" / f"{sid}.jpg").is_file() else ""
     return {"id": sid, "video": video, "poster": poster, "model": model}
+
+
+@app.get("/simulador", response_class=HTMLResponse)
+async def page_simulador(request: Request, modelo: str = ""):
+    """Payment simulator: price + plan -> instalment table, computed client-side
+    from data/financing.json. `?modelo=<id>` preselects a model."""
+    options = [{"id": m["id"], "brand": m["brand"],
+                "name": m["name"] if m["name"].lower().startswith(m["brand"].lower()) else f"{m['brand']} {m['name']}",
+                "price": m.get("price"), "promo": bool(m.get("promoEligible"))} for m in models_list()]
+    return templates.TemplateResponse(
+        request, "simulador.html",
+        _ctx(request, page="simulador", financing=_FINANCING, options=options,
+             preselect=modelo if any(o["id"] == modelo for o in options) else ""),
+    )
 
 
 @app.get("/", response_class=HTMLResponse)

@@ -1,0 +1,11 @@
+{
+  "promo": "Engánchate con 500",
+  "currency": "USD",
+  "inicial_default": 500,
+  "plans": [
+    {"id": "6",  "name": "6 meses",  "months": 6,  "inicial": 500, "surcharge_pct": 0, "note": "El plan más corto: la cuota más alta, el total más bajo."},
+    {"id": "9",  "name": "9 meses",  "months": 9,  "inicial": 500, "surcharge_pct": 0, "note": "Equilibrio entre cuota mensual y plazo. La opción más popular."},
+    {"id": "12", "name": "12 meses", "months": 12, "inicial": 500, "surcharge_pct": 0, "note": "La cuota mensual más baja para acomodarse a tu presupuesto."}
+  ],
+  "disclaimer": "Montos referenciales en USD, calculados sobre el precio que indiques. No incluyen gastos de registro, seguro ni impuestos. Las condiciones definitivas, la disponibilidad y el precio vigente los confirma tu asesor de Holly Import antes de la firma."
+}
