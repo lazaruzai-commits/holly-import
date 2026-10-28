@@ -18,6 +18,7 @@
     <button class="chip" data-filter="tag:HATCHBACK">Hatchback</button>
     <button class="chip" data-filter="tag:PICKUP">Pickup</button>
     <button class="chip chip--promo" data-filter="promo">Engánchate con 500</button>
+    <button class="chip chip--stock" data-filter="inventario">En inventario</button>
   </div>
 
   <div class="grid grid--cards models-grid" id="models-grid">
@@ -27,11 +28,12 @@
              data-brand="{{ m.brand }}"
              data-category="{{ m.category }}"
              data-tags="{{ m.tags|join(',') }}"
-             data-promo="{{ 'yes' if m.promoEligible else 'no' }}">
+             data-promo="{{ 'yes' if m.promoEligible else 'no' }}"
+             data-stock="{{ 'yes' if m.id in in_stock else 'no' }}">
       <div class="card__img">
         <img src="{{ static_v(m.image) }}" alt="{{ m.brand }} {{ m.name }}" loading="lazy"
              onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'card__placeholder',textContent:'{{ m.name }}'}))">
-        {% if m.promoEligible %}<span class="card__badge">Engánchate con 500</span>{% endif %}
+        {% if m.id in in_stock %}<span class="card__badge card__badge--stock">En inventario</span>{% elif m.promoEligible %}<span class="card__badge">Engánchate con 500</span>{% endif %}
         {% if m.drivetrain == '4x4' %}<span class="card__badge card__badge--4x4" aria-label="Tracción 4x4">4X4</span>{% endif %}
       </div>
       <div class="card__body">

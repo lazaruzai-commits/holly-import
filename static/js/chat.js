@@ -429,6 +429,19 @@
     input.focus();
   }
 
+  // Programmatic entry point for the home-page ask box and suggestion chips:
+  // opens the panel and submits `text` as if the visitor had typed it.
+  window.hollyAsk = function (text) {
+    text = (text || "").trim();
+    if (!text) { open(); return; }
+    open();
+    setTimeout(() => {
+      input.disabled = false; sendBtn.disabled = false;
+      input.value = text;
+      form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit", { cancelable: true }));
+    }, 60);
+  };
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const text = input.value.trim();

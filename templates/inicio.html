@@ -3,9 +3,69 @@
 
 {% block scripts %}
 <script src="{{ root_path }}/static/js/hero-slider.js?v={{ asset_v }}"></script>
+<script>
+  // Home ask box → opens Holly with the question (chat.js exposes window.hollyAsk).
+  (() => {
+    const form = document.getElementById("ask-form"), input = document.getElementById("ask-input");
+    if (!form) return;
+    const ask = (q) => { if (window.hollyTrack) window.hollyTrack("open_chat", { flow: "hero_ask", page: "inicio" }); window.hollyAsk ? window.hollyAsk(q) : document.getElementById("open-chat")?.click(); };
+    form.addEventListener("submit", (e) => { e.preventDefault(); ask(input.value.trim() || "¿Qué tienen disponible en inventario?"); input.value = ""; });
+    form.querySelectorAll("[data-ask]").forEach(b => b.addEventListener("click", () => ask(b.dataset.ask)));
+  })();
+</script>
 {% endblock %}
 
 {% block content %}
+<section class="rh" aria-label="Bienvenida">
+  <div class="rh__grid">
+    <div class="rh__copy">
+      <span class="hero__eyebrow">Concesionario autorizado MG y Maxus · Caracas</span>
+      <h1>Tu próximo vehículo, listo para entrega inmediata.</h1>
+      <p class="lead">MG, Maxus e importados seleccionados en nuestra sala de Los Palos Grandes. Busca lo que hay en inventario y pregunta lo que quieras.</p>
+
+      <form class="ask" id="ask-form" autocomplete="off">
+        <div class="ask__who">
+          <img src="{{ static_v('static/img/brand/holly-import-chat-button-simple-transparent.png') }}" alt="Holly" width="40" height="40">
+          <div><strong>Holly · asesora con IA</strong><small>● En línea 24/7</small></div>
+        </div>
+        <div class="ask__row">
+          <input type="text" id="ask-input" name="q" maxlength="300" placeholder="Pregúntale a Holly: ¿qué SUV automática tienen hoy?" aria-label="Pregúntale a Holly">
+          <button class="btn btn--primary" type="submit">Preguntar</button>
+        </div>
+        <div class="ask__chips">
+          <button class="chip" type="button" data-ask="¿Qué SUV automática tienen hoy?">¿Qué SUV automática tienen hoy?</button>
+          <button class="chip" type="button" data-ask="Quiero agendar el taller">Quiero agendar el taller</button>
+          <button class="chip" type="button" data-ask="Busco un repuesto para mi MG">Busco un repuesto para mi MG</button>
+          <button class="chip" type="button" data-ask="¿Cómo funciona Engánchate con 500?">¿Cómo funciona Engánchate con 500?</button>
+        </div>
+      </form>
+
+      <a class="rh__explore" href="{{ root_path }}/inventario">O explora las {{ inventory|length }} unidades en inventario →</a>
+    </div>
+
+    {% if spotlight %}
+    <a class="rh__visual" href="{{ root_path }}/modelos/{{ spotlight.id }}" aria-label="{{ spotlight.name }}">
+      <img src="{{ static_v('static/img/importados/toyota-corolla-cross-hero.jpg') }}" alt="{{ spotlight.name }}" fetchpriority="high">
+      <div class="rh__visual-bar">
+        <div class="rh__visual-card">
+          <span class="hero__eyebrow">Nuevo · Importados</span>
+          <strong>{{ spotlight.name }}</strong>
+          <span>Con nuestra garantía{% if spotlight.unitColor %} · en {{ spotlight.unitColor|lower }}{% endif %}</span>
+        </div>
+        <span class="btn">Ver detalles →</span>
+      </div>
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="tiles">
+    <a class="tile" href="{{ root_path }}/inventario"><strong>En inventario</strong><span>{{ inventory|length }} unidades en sala, entrega inmediata</span></a>
+    <a class="tile" href="{{ root_path }}/servicio"><strong>Agendar taller</strong><span>Mantenimiento certificado MG y Maxus</span></a>
+    <a class="tile" href="{{ root_path }}/repuestos"><strong>Repuestos originales</strong><span>Consulta disponibilidad por modelo</span></a>
+    <a class="tile tile--promo" href="{{ root_path }}/promocion"><strong>Engánchate con 500</strong><span>1 plan, 3 opciones. Ahorra hasta 30%</span></a>
+  </div>
+</section>
+
 <section class="hero-slider" id="hero-slider" aria-roledescription="carrusel" aria-label="Modelos destacados">
   <div class="hero-slider__track">
     {% for s in slides %}
@@ -20,7 +80,7 @@
       <div class="hero-slide__content">
         {% if m %}
         <span class="hero__eyebrow">{{ m.brand }}</span>
-        <h1 class="hero-slide__title">{{ m.name }}</h1>
+        <h2 class="hero-slide__title">{{ m.name }}</h2>
         <p class="hero-slide__lead">{{ m.tagline }}</p>
         <ul class="hero-slide__specs">
           <li><strong>{{ m.specs.potencia }}</strong> Potencia</li>
@@ -32,11 +92,11 @@
         </div>
         {% else %}
         <span class="hero__eyebrow">Conduce con estilo</span>
-        <h1 class="hero-slide__title">Línea completa MG y Maxus</h1>
+        <h2 class="hero-slide__title">Línea completa MG y Maxus</h2>
         <p class="hero-slide__lead">Vehículos para cada ruta — desde citadinos eficientes hasta SUVs de lujo y pickups de trabajo. Visita nuestra sala en Los Palos Grandes.</p>
         <div class="hero-slide__cta">
           <a class="btn btn--primary" href="{{ root_path }}/modelos">Explorar línea</a>
-          <button class="btn btn--ghost" type="button" data-open-chat>Chat con Holly</button>
+          <button class="btn btn--ghost" type="button" data-open-chat>Pregúntale a Holly</button>
         </div>
         {% endif %}
       </div>
@@ -53,31 +113,10 @@
   </div>
 </section>
 
-{% if spotlight %}
-{# Image: official Toyota configurator render (Sonic Silver, code D10) from toyota.com's
-   asset CDN — dealer use of manufacturer product imagery. #}
-<section class="spotlight" aria-label="Importados — {{ spotlight.name }}">
-  <div class="spotlight__media">
-    <img src="{{ static_v('static/img/importados/toyota-corolla-cross-hero.jpg') }}"
-         alt="{{ spotlight.name }}" loading="eager" fetchpriority="high">
-    <div class="spotlight__strip" aria-hidden="true"><span>Con nuestra garantía</span></div>
-  </div>
-  <div class="spotlight__body">
-    <span class="hero__eyebrow">Nuevo · Importados</span>
-    <h2 class="spotlight__title">{{ spotlight.name }}</h2>
-    <p class="spotlight__lead">Ahora también traemos vehículos importados de otras marcas — Toyota, Kia, Peugeot — seleccionados por nuestro equipo y entregados con nuestra garantía.{% if spotlight.unitColor %} Unidad disponible en {{ spotlight.unitColor|lower }}.{% endif %}</p>
-    <div class="spotlight__cta">
-      <a class="btn btn--primary" href="{{ root_path }}/modelos/{{ spotlight.id }}">Ver el {{ spotlight.name|replace('Toyota ', '') }}</a>
-      <a class="btn btn--ghost" href="{{ root_path }}/importados">Todos los importados</a>
-    </div>
-  </div>
-</section>
-{% endif %}
-
 {% if inventory %}
 <section class="section" aria-label="En inventario">
   <div class="section__head section__head--inline">
-    <h2>En inventario <a class="section__more" href="{{ root_path }}/inventario">Ver todo →</a></h2>
+    <h2>En inventario <a class="section__more" href="{{ root_path }}/inventario">Ver las {{ inventory|length }} unidades →</a></h2>
   </div>
   <p class="lead">Unidades en sala, listas para entrega inmediata.</p>
   <div class="grid grid--cards">
@@ -95,8 +134,9 @@
           <span class="inv-card__color"><span class="inv-card__swatch" style="background:{{ u.colorHex }}"></span>{{ u.color }}</span>
           <span>{{ u.transmission }}</span>
         </div>
-        <div class="card__cta">
-          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ u.id }}">Solicitar precio</button>
+        <div class="inv-card__price">
+          {% if u.price %}<span class="inv-card__blur" aria-hidden="true">US$ 00.000</span>{% else %}<span class="card__tag">Entrega inmediata</span>{% endif %}
+          <button class="btn btn--small" type="button" data-ask-price="{{ u.id }}">Ver precio</button>
         </div>
       </div>
     </article>
@@ -105,39 +145,24 @@
 </section>
 {% endif %}
 
-<section class="section section--narrow">
-  <div class="hero-secondary">
-    <div>
-      <span class="hero__eyebrow">Concesionario autorizado MG y Maxus</span>
-      <h2 class="hero-secondary__title">Tu próximo vehículo te espera en <span class="hero-secondary__brand">Holly&nbsp;Import</span></h2>
-      <p class="hero-secondary__lead">Línea completa MG y Maxus en Los Palos Grandes. Ventas, servicio técnico y planes de financiamiento.</p>
-      <div class="hero__cta">
-        <a class="btn btn--primary btn--small" href="{{ root_path }}/modelos">VEHICULOS</a>
-        <span class="chat-group">
-          <button class="btn btn--silver btn--small" type="button" data-open-chat>Chat con Holly</button>
-          <img class="chat-group__thumb"
-               src="{{ static_v('static/img/brand/holly-with-car.png') }}"
-               alt="" loading="lazy" aria-hidden="true">
-        </span>
+<section class="section" id="promo" aria-label="Promoción Engánchate con 500">
+  <div class="band">
+    <div class="band__copy">
+      <span class="hero__eyebrow" style="color:#fff;opacity:.9">Promoción vigente</span>
+      <h2>Engánchate con 500</h2>
+      <p>1 plan, 3 opciones. Ahorra hasta 30%. Aplica para toda la línea MG.</p>
+      <div class="band__btns">
+        <a class="btn btn--white" href="{{ root_path }}/simulador">Calcula tu cuota</a>
+        <a class="btn btn--outline" href="{{ root_path }}/promocion">Ver el plan</a>
+        {% if site.whatsapp %}<a class="btn btn--outline" href="https://wa.me/{{ site.whatsapp }}?text={{ 'Hola, quiero información sobre Engánchate con 500.'|urlencode }}" target="_blank" rel="noopener">Preguntar por WhatsApp</a>{% endif %}
       </div>
     </div>
-    <a href="{{ root_path }}/promocion" class="promo-card">
-      <span class="promo-card__tag">Promoción</span>
-      <strong class="promo-card__title">Engánchate con 500</strong>
-      <span class="promo-card__sub">1 plan, 3 opciones. Ahorra hasta 30%. Calcula tu cuota en segundos.</span>
-      <span class="promo-card__cta">Conocer más →</span>
-    </a>
+    <div class="band__plans">
+      {% for p in financing.plans %}
+      <div class="band__plan"><b>{{ p.months }}</b><span>meses</span></div>
+      {% endfor %}
+    </div>
   </div>
-</section>
-
-<section class="promo-feature" aria-label="Promoción Engánchate con 500">
-  <a class="promo-feature__inner" href="{{ root_path }}/promocion">
-    <img class="promo-feature__img"
-         src="{{ static_v('static/img/brand/EnganchatePromo.jpg') }}"
-         alt="Engánchate con 500 — Holly Import" loading="lazy"
-         onerror="this.style.display='none'">
-    <span class="promo-feature__cta">Conocer el plan →</span>
-  </a>
 </section>
 
 <section class="section">
@@ -162,7 +187,7 @@
         </ul>
         <div class="card__cta">
           <a class="btn btn--small" href="{{ root_path }}/modelos/{{ m.id }}">Ver detalles</a>
-          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Solicitar precio</button>
+          <button class="btn btn--small btn--primary" type="button" data-ask-price="{{ m.id }}">Ver precio</button>
         </div>
       </div>
     </article>
@@ -170,23 +195,23 @@
   </div>
 </section>
 
-<section class="section section--alt">
+<section class="section">
   <div class="grid grid--two">
-    <div class="value">
-      <h3>Concesionario autorizado</h3>
-      <p>Holly Import representa oficialmente las marcas MG y Maxus en Caracas. Garantía de fábrica y repuestos originales.</p>
-    </div>
-    <div class="value">
+    <div class="svc">
       <h3>Taller técnico especializado</h3>
       <p>Nuestro equipo está certificado para mantenimiento y reparación de toda la línea MG y Maxus. Agenda tu cita en segundos.</p>
+      <div class="svc__btns">
+        <a class="btn btn--dark" href="{{ root_path }}/servicio">Agendar cita</a>
+        <button class="btn" type="button" data-open-chat data-chat-flow="servicios">Preguntarle a Holly</button>
+      </div>
     </div>
-    <div class="value">
-      <h3>Financiamiento flexible</h3>
-      <p>Planes a 6, 9 y 12 meses con la promoción Engánchate con 500. Pregúntale a tu asesor por la opción que mejor se adapte.</p>
-    </div>
-    <div class="value">
-      <h3>Ubicación premium</h3>
-      <p>Estamos en {{ site.location }}. Visítanos para conocer nuestra sala de exhibición y agendar una prueba de manejo.</p>
+    <div class="svc">
+      <h3>Repuestos originales</h3>
+      <p>Garantía de fábrica y repuestos originales para MG y Maxus. Dinos el modelo y la pieza, te confirmamos disponibilidad y precio.</p>
+      <div class="svc__btns">
+        <a class="btn btn--dark" href="{{ root_path }}/repuestos">Consultar repuesto</a>
+        {% if site.whatsapp %}<a class="btn" href="https://wa.me/{{ site.whatsapp }}?text={{ 'Hola, busco un repuesto para mi vehículo.'|urlencode }}" target="_blank" rel="noopener">Escribir por WhatsApp</a>{% endif %}
+      </div>
     </div>
   </div>
 </section>

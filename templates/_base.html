@@ -7,7 +7,7 @@
   <meta name="description" content="{% block description %}Concesionario autorizado de MG y Maxus en Los Palos Grandes, Caracas. Ventas, servicio técnico y financiamiento.{% endblock %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ root_path }}/static/css/holly.css?v={{ asset_v }}">
   <link rel="icon" type="image/svg+xml" href="{{ root_path }}/static/img/brand/holly-mark.svg">
   <script>window.HOLLY_BASE = "{{ root_path }}";</script>
@@ -63,6 +63,9 @@
           <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?marca=MG">MG</a></li>
           <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?marca=Maxus">Maxus</a></li>
           <li role="none"><a role="menuitem" href="{{ root_path }}/importados">Importados</a></li>
+          <li role="none"><a role="menuitem" href="{{ root_path }}/modelos?stock=1">En inventario</a></li>
+          <li role="none"><a role="menuitem" href="{{ root_path }}/comparar">Comparador</a></li>
+          <li role="none"><a role="menuitem" href="{{ root_path }}/simulador">Simulador de cuotas</a></li>
         </ul>
       </div>
       <a href="{{ root_path }}/comerciales" class="{% if page=='comerciales' %}is-active{% endif %}">Camiones</a>
@@ -71,13 +74,15 @@
       <a href="{{ root_path }}/promocion" class="hh__promo-link {% if page=='promocion' %}is-active{% endif %}">
         Engánchate con 500<span class="hh__promo-badge" aria-label="Promoción">PROMO</span>
       </a>
-      <a href="{{ root_path }}/contacto" class="{% if page=='contacto' %}is-active{% endif %}">Contacto</a>
+      <a href="{{ root_path }}/contacto" class="hh__nav-contact {% if page=='contacto' %}is-active{% endif %}">Contacto</a>
     </nav>
-    <a href="{{ root_path }}/comparar" class="hh__cmp-btn{% if page=='comparar' %} is-active{% endif %}">Comparador</a>
-    <button class="hh__chat-btn" id="open-chat" type="button">
-      Chat con Holly
-    </button>
-    <button class="hh__menu" id="open-menu" type="button" aria-label="Menú">≡</button>
+    <div class="hh__actions">
+      <button class="hh__chat-btn" id="open-chat" type="button">
+        <img src="{{ static_v('static/img/brand/holly-import-chat-button-simple-transparent.png') }}" alt="" width="32" height="32"><span>Pregúntale a Holly</span>
+      </button>
+      {% if site.whatsapp %}<a class="hh__wa" href="https://wa.me/{{ site.whatsapp }}?text={{ 'Hola Holly Import, quiero información.'|urlencode }}" target="_blank" rel="noopener">WhatsApp</a>{% endif %}
+      <button class="hh__menu" id="open-menu" type="button" aria-label="Menú">≡</button>
+    </div>
   </div>
 </header>
 
@@ -165,8 +170,8 @@
 
 <button class="chat-fab" id="open-chat-fab" type="button" aria-label="Chat con Holly" data-open-chat>
   <span class="chat-fab__pulse" aria-hidden="true"></span>
-  <img src="{{ static_v('static/img/brand/holly-import-chat-button-simple-transparent.png') }}" alt="" loading="lazy" width="56" height="56">
-  <span class="chat-fab__label">Chat con Holly</span>
+  <img src="{{ static_v('static/img/brand/holly-import-chat-button-simple-transparent.png') }}" alt="" loading="lazy" width="44" height="44">
+  <span class="chat-fab__label">Pregúntale a Holly<small>Asesora con IA · responde al instante</small></span>
 </button>
 
 {% include "_chat.html" %}

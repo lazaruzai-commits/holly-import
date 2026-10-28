@@ -55,6 +55,10 @@ def main() -> None:
         for src in sorted((ROOT / folder).glob("*")):
             if src.suffix.lower() not in {".png", ".jpg", ".jpeg"} or src.name in SKIP:
                 continue
+            # <id>.jpg and <id>.png share one <id>.webp; the PNG is the clean
+            # cutout the site actually serves, so never let a JPG overwrite it.
+            if src.suffix.lower() != ".png" and src.with_suffix(".png").exists():
+                continue
             r = convert(src, force)
             if r:
                 before += r[0]; after += r[1]

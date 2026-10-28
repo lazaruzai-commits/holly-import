@@ -273,6 +273,8 @@ def _ctx(request: Request, **extra) -> dict[str, Any]:
         "analytics": ANALYTICS,
         "models": passenger_models(),
         "brands": ["MG", "Maxus"],
+        # model ids with at least one physical unit in stock (catalog "En inventario" chip/badge)
+        "in_stock": {u.get("modelId") for u in inventory_units() if u.get("modelId")},
     }
     base.update(extra)
     return base
@@ -288,6 +290,13 @@ def _slide(sid: str, model: dict[str, Any] | None) -> dict[str, Any]:
     video = f"static/video/{sid}-720p.mp4" if (video_dir / f"{sid}-720p.mp4").is_file() else f"static/video/{sid}.mp4"
     poster = f"static/video/posters/{sid}.jpg" if (video_dir / "posters" / f"{sid}.jpg").is_file() else ""
     return {"id": sid, "video": video, "poster": poster, "model": model}
+
+
+@app.get("/inicio-legacy", response_class=HTMLResponse, include_in_schema=False)
+async def page_inicio_legacy(request: Request):
+    """The pre-redesign home (templates/inicio-legacy.html), kept for comparison.
+    Same data as /. Remove once the refresh is signed off."""
+    return await _render_home(request, "inicio-legacy.html")
 
 
 @app.get("/simulador", response_class=HTMLResponse)
@@ -306,6 +315,10 @@ async def page_simulador(request: Request, modelo: str = ""):
 
 @app.get("/", response_class=HTMLResponse)
 async def page_inicio(request: Request):
+    return await _render_home(request, "inicio.html")
+
+
+async def _render_home(request: Request, template: str):
     featured = [m for m in models_list() if m["id"] in
                 ("mg-rx9", "mg-gt", "maxus-t70-pro-4x4", "mg-zs", "maxus-d90", "mg-cyberster")]
     by_id = {m["id"]: m for m in models_list()}
@@ -316,9 +329,9 @@ async def page_inicio(request: Request):
     # Imported-vehicle spotlight under the hero (currently the Corolla Cross).
     spotlight = model_by_id("toyota-corolla-cross")
     return templates.TemplateResponse(
-        request, "inicio.html",
+        request, template,
         _ctx(request, page="inicio", featured=featured, slides=slides,
-             spotlight=spotlight, inventory=inventory_units()),
+             spotlight=spotlight, inventory=inventory_units(), financing=_FINANCING),
     )
 
 

@@ -31,6 +31,7 @@
         else if (f.startsWith("brand:")) show = brand === f.slice(6);
         else if (f.startsWith("tag:"))   show = tags.includes(f.slice(4));
         else if (f === "promo")          show = promo;
+        else if (f === "inventario")     show = card.dataset.stock === "yes";
         card.classList.toggle("is-hidden", !show);
       });
     }
@@ -43,6 +44,7 @@
     const params = new URLSearchParams(location.search);
     const marca = params.get("marca");
     const promo = params.get("promo");
+    if (params.get("stock")) applyFilter("inventario");
     if (marca === "MG" || marca === "Maxus") applyFilter(`brand:${marca}`);
     else if (promo) applyFilter("promo");
   }
