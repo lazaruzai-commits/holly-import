@@ -1588,3 +1588,5 @@ input:focus, textarea:focus, select:focus { outline: 0; border-color: var(--c-te
 .chat__msg ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; }
 .chat__msg li { margin: .15rem 0; }
 .chat__msg p + p, .chat__msg p + ul, .chat__msg ul + p { margin-top: .5rem; }
+.rh__visual img { object-position: 50% 50%; will-change: object-position; }
+@media (hover: hover) { .rh__visual { cursor: ew-resize; } }

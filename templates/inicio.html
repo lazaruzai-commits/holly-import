@@ -12,6 +12,27 @@
     form.addEventListener("submit", (e) => { e.preventDefault(); ask(input.value.trim() || "¿Qué tienen disponible en inventario?"); input.value = ""; });
     form.querySelectorAll("[data-ask]").forEach(b => b.addEventListener("click", () => ask(b.dataset.ask)));
   })();
+
+  // Hero photo pans with the mouse to reveal the parts of the wide image the
+  // card crops (grille on the left, wheel on the right), easing back to the
+  // centre on leave. Mouse/pen only; skipped for reduced motion.
+  (() => {
+    const box = document.querySelector(".rh__visual"), img = box && box.querySelector("img");
+    if (!img || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const REST = 50; let cur = REST, target = REST, raf = 0;
+    const tick = () => {
+      cur += (target - cur) * 0.08;
+      img.style.objectPosition = cur.toFixed(2) + "% 50%";
+      raf = Math.abs(target - cur) > 0.05 ? requestAnimationFrame(tick) : 0;
+    };
+    const go = (t) => { target = t; if (!raf) raf = requestAnimationFrame(tick); };
+    box.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "touch") return;
+      const r = box.getBoundingClientRect();
+      go(Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100)));
+    });
+    box.addEventListener("pointerleave", () => go(REST));
+  })();
 </script>
 {% endblock %}
 
