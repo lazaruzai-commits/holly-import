@@ -150,14 +150,17 @@
     scrollToBottom();
     return node;
   }
-  function chips(items, onPick) {
+  // `sticky` menus (the start menu) stay clickable for the whole conversation,
+  // so a visitor can jump to Compra / Servicios / Repuestos after chatting.
+  // Other menus are one-shot: picking an option retires the group.
+  function chips(items, onPick, { sticky = false } = {}) {
     const wrap = document.createElement("div");
-    wrap.className = "chat__chips";
+    wrap.className = "chat__chips" + (sticky ? " chat__chips--sticky" : "");
     items.forEach(it => {
       const b = document.createElement("button");
       b.type = "button"; b.className = "chip"; b.textContent = it.label;
       b.addEventListener("click", () => {
-        wrap.querySelectorAll(".chip").forEach(c => c.disabled = true);
+        if (!sticky) wrap.querySelectorAll(".chip").forEach(c => c.disabled = true);
         userBubble(it.label);
         onPick(it.value, it);
       });
@@ -173,6 +176,22 @@
   function escapeHtml(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c])); }
+
+  // Model replies may use light markdown. Escape everything first, then
+  // allow only **bold**, *italic*, line breaks and "- " / "• " bullet lists.
+  function renderReply(text) {
+    const inline = (t) => escapeHtml(t)
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, "$1<em>$2</em>");
+    const blocks = String(text || "").trim().split(/\n{2,}/);
+    return blocks.map(block => {
+      const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+      if (lines.length && lines.every(l => /^([-•*]|\d+[.)])\s+/.test(l))) {
+        return "<ul>" + lines.map(l => "<li>" + inline(l.replace(/^([-•*]|\d+[.)])\s+/, "")) + "</li>").join("") + "</ul>";
+      }
+      return "<p>" + lines.map(inline).join("<br>") + "</p>";
+    }).join("");
+  }
 
   // ---------- start ----------
   async function renderStart() {
@@ -192,7 +211,7 @@
       if (v === "compra") enterCompra();
       else if (v === "servicios") enterServicios();
       else enterRepuestos();
-    });
+    }, { sticky: true });
   }
 
   // ---------- compra flow ----------
@@ -447,9 +466,8 @@
     const text = input.value.trim();
     if (!text) return;
     if (state === "start") {
-      // User typed instead of picking a pill: retire the pills, switch to
-      // the free-text LLM session with no structured context.
-      body.querySelectorAll(".chat__chips .chip").forEach(c => c.disabled = true);
+      // User typed instead of picking a pill: switch to the free-text LLM
+      // session. The start pills stay usable (sticky menu).
       state = "free";
       history = [];
       form.dataset.contextNote = "";
@@ -471,7 +489,7 @@
         }),
       });
       const j = await r.json();
-      thinking.innerHTML = `<p>${escapeHtml(j.reply || "Disculpa, intenta de nuevo.")}</p>`;
+      thinking.innerHTML = renderReply(j.reply || "Disculpa, intenta de nuevo.");
       if (j.reply) history.push({ role: "assistant", content: j.reply });
     } catch {
       thinking.innerHTML = "<p>Disculpa, hubo un problema. Intenta de nuevo.</p>";

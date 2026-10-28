@@ -1582,3 +1582,9 @@ input:focus, textarea:focus, select:focus { outline: 0; border-color: var(--c-te
 .svc h3 { margin: 0; font-size: 1.5rem; }
 .svc p { margin: 0; color: var(--c-muted); line-height: 1.5; }
 .svc__btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+
+/* Chat: used one-shot menus look retired; replies may carry lists */
+.chat__chips .chip:disabled { opacity: .45; cursor: default; background: transparent; color: var(--c-muted); border-color: var(--c-line); }
+.chat__msg ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; }
+.chat__msg li { margin: .15rem 0; }
+.chat__msg p + p, .chat__msg p + ul, .chat__msg ul + p { margin-top: .5rem; }
