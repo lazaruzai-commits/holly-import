@@ -36,7 +36,7 @@
     chat.classList.remove("is-open");
     chat.classList.add("is-collapsing");
     chat.setAttribute("aria-hidden", "true");
-    // Drop the collapsing flair class once the rail flare animation has run
+    // Drop the collapsing class once the close transition has run
     setTimeout(() => chat.classList.remove("is-collapsing"), 900);
     stopInboxPolling();
   }
@@ -78,23 +78,11 @@
 
   document.getElementById("open-chat")?.addEventListener("click", open);
   document.getElementById("close-chat")?.addEventListener("click", close);
-  document.getElementById("chat-rail")?.addEventListener("click", open);
   document.getElementById("chat-overlay")?.addEventListener("click", close);
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && chat.classList.contains("is-open")) close(); });
 
-  // ---------- auto-open on the home page only, collapse after 3s ----------
-  // The body tag carries a `page-<name>` class set by Jinja; the home page
-  // renders as `page-inicio`. Sub-pages skip the auto-expand entirely so we
-  // don't pester users who are already navigating around.
-  if (document.body.classList.contains("page-inicio")) {
-    requestAnimationFrame(() => {
-      open();
-      setTimeout(() => {
-        // Skip auto-collapse if the user has already engaged
-        if (state === "start" && !history.length) close();
-      }, 1000);
-    });
-  }
+  // The chat never opens on its own: only the header button, the floating
+  // "Chat con Holly" bubble and the [data-open-chat] buttons open it.
 
   document.addEventListener("click", (e) => {
     const trigger = e.target.closest("[data-open-chat]");
