@@ -320,7 +320,8 @@ async def page_inicio(request: Request):
 
 async def _render_home(request: Request, template: str):
     featured = [m for m in models_list() if m["id"] in
-                ("mg-rx9", "mg-gt", "maxus-t70-pro-4x4", "mg-zs", "maxus-d90", "mg-cyberster")]
+                ("mg-rx9", "mg-gt", "maxus-t70-pro-4x4", "mg-zs", "maxus-d90", "mg-cyberster",
+                 "maxus-t90-luxury", "mg-rx5")]
     by_id = {m["id"]: m for m in models_list()}
     # Hero slider — videos sorted lightest first so the page becomes interactive
     # quickly and heavier clips finish buffering while the user watches the first one.
