@@ -1590,3 +1590,19 @@ input:focus, textarea:focus, select:focus { outline: 0; border-color: var(--c-te
 .chat__msg p + p, .chat__msg p + ul, .chat__msg ul + p { margin-top: .5rem; }
 .rh__visual img { object-position: 50% 50%; will-change: object-position; }
 @media (hover: hover) { .rh__visual { cursor: ew-resize; } }
+
+/* Mobile menu (≤1080px): white panel, dark links. The redesign set --c-black
+   and --c-text to the same charcoal, which made the old dark panel's links
+   invisible. */
+@media (max-width: 1080px) {
+  .hh { position: sticky; }
+  .hh__nav { background: var(--c-card); padding: .4rem 1.25rem 1rem; gap: 0;
+             border-bottom: 1px solid var(--c-line); box-shadow: 0 16px 30px rgba(28,26,26,.12);
+             max-height: calc(100vh - 70px); overflow-y: auto; }
+  .hh__nav a { color: var(--c-text); padding: .85rem .25rem; border-radius: 0; border-bottom: 1px solid var(--c-line); font-size: 1rem; font-weight: 600; }
+  .hh__nav a:hover, .hh__nav a.is-active { background: transparent; color: var(--c-crimson); }
+  .hh__nav .hh__promo-link { color: var(--c-crimson); }
+  .hh__nav .hh__dropdown { padding-left: 1rem; }
+  .hh__nav .hh__dropdown a { font-weight: 500; font-size: .95rem; color: var(--c-muted); padding: .65rem .25rem; }
+  .hh__promo-badge { top: 50%; right: auto; left: auto; margin-left: .5rem; position: relative; transform: translateY(-1px); }
+}
