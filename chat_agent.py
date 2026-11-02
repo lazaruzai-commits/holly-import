@@ -1,6 +1,8 @@
 """OpenRouter-backed chat agent for Holly Import's website assistant.
 
-Uses Kimi (moonshotai/kimi-k2 by default; configurable via OPENROUTER_MODEL).
+Uses Kimi K2.6 by default (configurable via OPENROUTER_MODEL), with automatic
+OpenRouter fallbacks (OPENROUTER_FALLBACK_MODELS) so one slow or retired
+provider never leaves visitors with an error.
 The agent is told it represents Holly Import, sells MG and Maxus, and is
 based in Los Palos Grandes, Caracas. Replies are always in Spanish.
 """
@@ -17,7 +19,24 @@ import httpx
 log = logging.getLogger("holly.chat")
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_MODEL = "moonshotai/kimi-k2"
+DEFAULT_MODEL = "moonshotai/kimi-k2.6"
+# Tried in order after the primary. kimi-k2 (the old default) is down to a
+# single provider, which timed out in Nov 2026 and showed visitors the
+# "inconveniente técnico" fallback.
+DEFAULT_FALLBACKS = "moonshotai/kimi-k2.6,anthropic/claude-haiku-4.5"
+TIMEOUT_S = 30.0
+
+
+def _model_chain() -> list[str]:
+    """Primary model plus fallbacks, de-duplicated, at most 3 (OpenRouter's limit)."""
+    primary = os.environ.get("OPENROUTER_MODEL", "").strip() or DEFAULT_MODEL
+    extra = os.environ.get("OPENROUTER_FALLBACK_MODELS", DEFAULT_FALLBACKS)
+    chain: list[str] = []
+    for m in [primary, *extra.split(",")]:
+        m = m.strip()
+        if m and m not in chain:
+            chain.append(m)
+    return chain[:3]
 DATA_DIR = Path(__file__).parent / "data"
 
 
@@ -88,7 +107,7 @@ async def chat(messages: list[dict[str, str]],
             "Un asesor de Holly Import te contactará en breve.",
             "missing OPENROUTER_API_KEY",
         )
-    model = os.environ.get("OPENROUTER_MODEL", DEFAULT_MODEL).strip() or DEFAULT_MODEL
+    models = _model_chain()
 
     payload_messages: list[dict[str, str]] = [system_message()]
     if context_note:
@@ -96,10 +115,14 @@ async def chat(messages: list[dict[str, str]],
     payload_messages.extend(messages)
 
     payload = {
-        "model": model,
+        # OpenRouter tries these in order when a model or provider fails.
+        "models": models,
         "messages": payload_messages,
         "temperature": 0.4,
-        "max_tokens": 400,
+        "max_tokens": 600,
+        # Short conversational replies: no hidden reasoning, which would eat
+        # the token budget and add seconds of latency on reasoning models.
+        "reasoning": {"enabled": False},
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -108,8 +131,13 @@ async def chat(messages: list[dict[str, str]],
         "X-Title": "Holly Import",
     }
     try:
-        async with httpx.AsyncClient(timeout=20.0) as client:
-            r = await client.post(OPENROUTER_URL, json=payload, headers=headers)
+        async with httpx.AsyncClient(timeout=TIMEOUT_S) as client:
+            try:
+                r = await client.post(OPENROUTER_URL, json=payload, headers=headers)
+            except (httpx.TimeoutException, httpx.TransportError) as e:
+                # One retry for a dropped connection / slow first byte.
+                log.warning("OpenRouter %s, retrying once: %s", type(e).__name__, e)
+                r = await client.post(OPENROUTER_URL, json=payload, headers=headers)
         if r.status_code != 200:
             log.warning("OpenRouter %s: %s", r.status_code, r.text[:300])
             return (
@@ -118,7 +146,9 @@ async def chat(messages: list[dict[str, str]],
                 f"openrouter status {r.status_code}",
             )
         data = r.json()
-        reply = (data.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
+        if data.get("model") and data["model"] != models[0]:
+            log.info("OpenRouter answered with fallback model %s", data["model"])
+        reply = ((data.get("choices") or [{}])[0].get("message", {}).get("content") or "").strip()
         if not reply:
             return ("¿Podrías reformular tu pregunta? No alcancé a entenderla.", None)
         return (reply, None)
